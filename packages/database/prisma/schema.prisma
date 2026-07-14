@@ -1,0 +1,180 @@
+generator client {
+  provider               = "prisma-client"
+  output                 = "../src/generated"
+  runtime                = "nodejs"
+  moduleFormat           = "esm"
+  generatedFileExtension = "ts"
+  importFileExtension    = "ts"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum MediaKind {
+  video
+  audio
+  image
+}
+
+enum AssetStatus {
+  uploaded
+  quarantined
+  validating
+  ready
+  rejected
+  archived
+}
+
+enum VersionRole {
+  original
+  normalized
+  thumbnail
+}
+
+enum ConsentScope {
+  internal
+  publishing
+}
+
+enum JobStatus {
+  queued
+  running
+  succeeded
+  failed
+  dead
+}
+
+enum TransitionActor {
+  system
+  api
+}
+
+model Tenant {
+  id             String          @id @default(uuid())
+  slug           String          @unique
+  name           String
+  createdAt      DateTime        @default(now())
+  projects       Project[]
+  assets         Asset[]
+  consentRecords ConsentRecord[]
+  jobs           Job[]
+}
+
+model Project {
+  id        String   @id @default(uuid())
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+  slug      String
+  name      String
+  createdAt DateTime @default(now())
+  assets    Asset[]
+
+  @@unique([tenantId, slug])
+}
+
+model Asset {
+  id                  String            @id @default(uuid())
+  tenantId            String
+  tenant              Tenant            @relation(fields: [tenantId], references: [id])
+  projectId           String
+  project             Project           @relation(fields: [projectId], references: [id])
+  kind                MediaKind
+  status              AssetStatus       @default(uploaded)
+  /// Sanitized original filename — display only, never used as a storage key.
+  displayName         String
+  claimedContentType  String
+  detectedContentType String?
+  sizeBytes           BigInt
+  durationSeconds     Float?
+  width               Int?
+  height              Int?
+  checksumSha256      String
+  quarantineKey       String?
+  storageKey          String?
+  featuresMinor       Boolean           @default(false)
+  consentRecordId     String?
+  consentRecord       ConsentRecord?    @relation(fields: [consentRecordId], references: [id])
+  rejectionReason     String?
+  createdAt           DateTime          @default(now())
+  updatedAt           DateTime          @updatedAt
+  versions            AssetVersion[]
+  transitions         AssetTransition[]
+  jobs                Job[]
+
+  @@index([tenantId, projectId])
+  @@index([tenantId, status])
+}
+
+model AssetVersion {
+  id              String      @id @default(uuid())
+  assetId         String
+  asset           Asset       @relation(fields: [assetId], references: [id], onDelete: Cascade)
+  role            VersionRole
+  /// Platform preset name for normalized versions, e.g. "youtube-1080p".
+  preset          String?
+  storageKey      String
+  contentType     String
+  sizeBytes       BigInt
+  width           Int?
+  height          Int?
+  durationSeconds Float?
+  createdAt       DateTime    @default(now())
+
+  @@index([assetId])
+}
+
+model ConsentRecord {
+  id           String       @id @default(uuid())
+  tenantId     String
+  tenant       Tenant       @relation(fields: [tenantId], references: [id])
+  /// Minimal identifier for the minor — no more PII than necessary.
+  subjectLabel String
+  guardianName String
+  scope        ConsentScope
+  platforms    String[]
+  expiresAt    DateTime
+  revokedAt    DateTime?
+  createdAt    DateTime     @default(now())
+  assets       Asset[]
+
+  @@index([tenantId])
+}
+
+model Job {
+  id          String            @id @default(uuid())
+  tenantId    String
+  tenant      Tenant            @relation(fields: [tenantId], references: [id])
+  assetId     String?
+  asset       Asset?            @relation(fields: [assetId], references: [id], onDelete: SetNull)
+  queue       String
+  name        String
+  bullJobId   String
+  status      JobStatus         @default(queued)
+  attempts    Int               @default(0)
+  error       String?
+  payload     Json
+  result      Json?
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+  transitions AssetTransition[]
+
+  @@index([assetId])
+  @@index([tenantId, status])
+}
+
+model AssetTransition {
+  id         String          @id @default(uuid())
+  assetId    String
+  asset      Asset           @relation(fields: [assetId], references: [id], onDelete: Cascade)
+  /// Null for the initial transition into `uploaded`.
+  fromStatus AssetStatus?
+  toStatus   AssetStatus
+  reason     String?
+  actor      TransitionActor
+  jobId      String?
+  job        Job?            @relation(fields: [jobId], references: [id], onDelete: SetNull)
+  createdAt  DateTime        @default(now())
+
+  @@index([assetId])
+}
