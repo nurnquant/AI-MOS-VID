@@ -57,14 +57,14 @@ Docker and FFmpeg were absent and required installation.
 
 ## Alternatives Considered
 
-| Area | Alternative | Why rejected |
-|---|---|---|
-| Container runtime | Docker Desktop | Heavier install, licensing caveats; user chose Colima |
-| Container runtime | Podman | Compose compatibility friction with BullMQ/MinIO examples |
-| Node version | Install v24 LTS | Extra runtime to manage; v26 already present and compatible; user approved |
-| ORM | Drizzle | Prompt default is Prisma; no existing standard to preserve |
-| Queue | Cloud queue (SQS etc.) | Phase requires local-only, zero-cost foundation |
-| Monorepo | Nx | Turborepo is the prompt default; simpler for this scale |
+| Area              | Alternative            | Why rejected                                                               |
+| ----------------- | ---------------------- | -------------------------------------------------------------------------- |
+| Container runtime | Docker Desktop         | Heavier install, licensing caveats; user chose Colima                      |
+| Container runtime | Podman                 | Compose compatibility friction with BullMQ/MinIO examples                  |
+| Node version      | Install v24 LTS        | Extra runtime to manage; v26 already present and compatible; user approved |
+| ORM               | Drizzle                | Prompt default is Prisma; no existing standard to preserve                 |
+| Queue             | Cloud queue (SQS etc.) | Phase requires local-only, zero-cost foundation                            |
+| Monorepo          | Nx                     | Turborepo is the prompt default; simpler for this scale                    |
 
 ## Consequences
 

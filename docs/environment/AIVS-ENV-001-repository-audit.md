@@ -21,17 +21,17 @@ AI-MOS/
 
 ## 2. Existing Technologies (Host Toolchain)
 
-| Tool | Status | Version |
-|---|---|---|
-| Node.js | ✅ Installed | v26.0.0 (current, **not LTS**) |
-| npm | ✅ Installed | 11.12.1 |
-| pnpm | ✅ Installed | 11.8.0 |
-| yarn | ❌ Not installed | — (not needed) |
-| Python 3 | ✅ Installed | 3.13.3 |
-| git | ✅ Installed | 2.39.5 (Apple Git-154) |
-| Homebrew | ✅ Installed | 6.0.2 |
-| Docker / Docker Compose | ❌ **Not installed** | — |
-| FFmpeg / ffprobe | ❌ **Not installed** | — |
+| Tool                    | Status               | Version                        |
+| ----------------------- | -------------------- | ------------------------------ |
+| Node.js                 | ✅ Installed         | v26.0.0 (current, **not LTS**) |
+| npm                     | ✅ Installed         | 11.12.1                        |
+| pnpm                    | ✅ Installed         | 11.8.0                         |
+| yarn                    | ❌ Not installed     | — (not needed)                 |
+| Python 3                | ✅ Installed         | 3.13.3                         |
+| git                     | ✅ Installed         | 2.39.5 (Apple Git-154)         |
+| Homebrew                | ✅ Installed         | 6.0.2                          |
+| Docker / Docker Compose | ❌ **Not installed** | —                              |
+| FFmpeg / ffprobe        | ❌ **Not installed** | —                              |
 
 Platform: macOS (Darwin 24.6.0).
 
@@ -52,13 +52,13 @@ unless the user directs otherwise.
 
 ## 5. Risks
 
-| # | Risk | Severity | Notes |
-|---|---|---|---|
-| R1 | Docker not installed — blocks PostgreSQL/Redis/MinIO (Gates 2, 6) | **High** | Requires user-approved install (Docker Desktop or Colima + docker CLI) |
-| R2 | FFmpeg/ffprobe not installed — blocks media smoke tests (Gates 2, 6) | **High** | `brew install ffmpeg` available; needs user approval |
-| R3 | Node v26.0.0 is a Current release, not Active LTS | Medium | Prompt specifies "current active LTS". Pin via `.nvmrc`; either accept v26 or install LTS |
-| R4 | No git repository — no history, no remote, no backup | Medium | Must `git init` and create `feature/aivs-environment-foundation` |
-| R5 | git 2.39.5 is old (2022) but functional | Low | No blocking impact |
+| #   | Risk                                                                 | Severity | Notes                                                                                     |
+| --- | -------------------------------------------------------------------- | -------- | ----------------------------------------------------------------------------------------- |
+| R1  | Docker not installed — blocks PostgreSQL/Redis/MinIO (Gates 2, 6)    | **High** | Requires user-approved install (Docker Desktop or Colima + docker CLI)                    |
+| R2  | FFmpeg/ffprobe not installed — blocks media smoke tests (Gates 2, 6) | **High** | `brew install ffmpeg` available; needs user approval                                      |
+| R3  | Node v26.0.0 is a Current release, not Active LTS                    | Medium   | Prompt specifies "current active LTS". Pin via `.nvmrc`; either accept v26 or install LTS |
+| R4  | No git repository — no history, no remote, no backup                 | Medium   | Must `git init` and create `feature/aivs-environment-foundation`                          |
+| R5  | git 2.39.5 is old (2022) but functional                              | Low      | No blocking impact                                                                        |
 
 ## 6. Conflicts
 

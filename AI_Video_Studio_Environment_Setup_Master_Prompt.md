@@ -81,12 +81,19 @@ feature/aivs-environment-foundation
 Execute this work in controlled gates.
 
 ### Gate 0 — Repository Discovery
+
 ### Gate 1 — Architecture and Toolchain Decision
+
 ### Gate 2 — Local Environment Provisioning
+
 ### Gate 3 — Project Scaffold and Configuration
+
 ### Gate 4 — Security and Secrets Foundation
+
 ### Gate 5 — Developer Experience and Quality Gates
+
 ### Gate 6 — Local Service Validation
+
 ### Gate 7 — Environment Verification Report
 
 Do not proceed to the next gate until the current gate is complete and documented.

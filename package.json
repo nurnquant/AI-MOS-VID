@@ -1,0 +1,44 @@
+{
+  "name": "aivs",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Riwaq Al Ilm Enterprise AI Video Production Studio — monorepo root",
+  "type": "module",
+  "engines": {
+    "node": ">=26"
+  },
+  "packageManager": "pnpm@11.8.0",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "turbo typecheck",
+    "test": "turbo test",
+    "test:unit": "turbo test",
+    "test:integration": "turbo test:integration",
+    "test:e2e": "playwright test",
+    "verify": "pnpm env:check && pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm media:smoke && pnpm build",
+    "env:check": "node --env-file-if-exists=.env scripts/check-environment.ts",
+    "media:smoke": "bash scripts/media-smoke-test.sh",
+    "infra:up": "docker compose up -d --wait",
+    "infra:down": "docker compose down",
+    "infra:logs": "docker compose logs -f",
+    "infra:reset": "node scripts/infra-reset.js",
+    "security:secrets": "gitleaks git --no-banner --redact --verbose .",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^26.1.1",
+    "eslint": "^10.7.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.8",
+    "prettier": "^3.9.5",
+    "turbo": "^2.10.4",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.63.0"
+  }
+}

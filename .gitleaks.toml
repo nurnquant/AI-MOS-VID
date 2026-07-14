@@ -1,0 +1,18 @@
+# Gitleaks configuration for AIVS.
+# Extends default rules; allowlists known non-production local placeholders.
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Local development placeholders (clearly non-production)"
+paths = [
+  '''\.env\.example$''',
+  '''compose\.yaml$''',
+  '''docs/.*\.md$''',
+  '''\.next/''',
+  '''node_modules/''',
+]
+regexes = [
+  '''aivs_local(_secret)?''',
+]

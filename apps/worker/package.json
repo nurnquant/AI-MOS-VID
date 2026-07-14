@@ -1,0 +1,18 @@
+{
+  "name": "@aivs/worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/index.ts",
+    "start": "node src/index.ts",
+    "smoke": "node --env-file-if-exists=../../.env src/index.ts --smoke",
+    "lint": "eslint src",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@aivs/types": "workspace:*",
+    "bullmq": "^5.80.2",
+    "pino": "^10.3.1"
+  }
+}
