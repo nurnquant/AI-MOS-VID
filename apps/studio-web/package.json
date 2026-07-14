@@ -12,11 +12,18 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@aivs/assets": "workspace:*",
+    "@aivs/database": "workspace:*",
+    "@aivs/queue": "workspace:*",
+    "@aivs/storage": "workspace:*",
+    "busboy": "^1.6.0",
     "next": "^16.2.10",
     "react": "^19.2.7",
-    "react-dom": "^19.2.7"
+    "react-dom": "^19.2.7",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@types/busboy": "^1.5.4",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "vitest": "^4.1.10"
