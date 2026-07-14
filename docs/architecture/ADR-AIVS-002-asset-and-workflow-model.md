@@ -1,6 +1,6 @@
 # ADR-AIVS-002 — Asset and Workflow Model
 
-**Status:** Proposed — awaiting user approval (Gate 0 of AIVS-FOUNDATION-002)
+**Status:** Accepted (user approved 2026-07-14)
 **Date:** 2026-07-14
 **Deciders:** User + Claude Code
 **Related:** ADR-AIVS-001, `docs/security/AIVS-media-security-baseline.md`, `AI_Video_Studio_Foundation_002_Master_Prompt.md`
