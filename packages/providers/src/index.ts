@@ -10,5 +10,5 @@ export type {
   StorageProvider,
   PublishRequest,
   PublishingProvider,
-} from "./contracts";
-export { MockVideoGenerationProvider } from "./mock/mock-video-generation-provider";
+} from "./contracts.ts";
+export { MockVideoGenerationProvider } from "./mock/mock-video-generation-provider.ts";

@@ -1,6 +1,6 @@
 import { stat } from "node:fs/promises";
 import type { MediaMetadata, MediaStreamInfo } from "@aivs/types";
-import { runProcess } from "./ffmpeg";
+import { runProcess } from "./ffmpeg.ts";
 
 interface FfprobeStream {
   codec_type?: string;
