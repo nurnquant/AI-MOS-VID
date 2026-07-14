@@ -14,6 +14,7 @@ out/
 .env
 .env.*
 !.env.example
+.vercel/
 *.pem
 *.key
 credentials*.json
