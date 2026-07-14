@@ -11,6 +11,11 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@aivs/assets": "workspace:*",
+    "@aivs/database": "workspace:*",
+    "@aivs/media-core": "workspace:*",
+    "@aivs/queue": "workspace:*",
+    "@aivs/storage": "workspace:*",
     "@aivs/types": "workspace:*",
     "bullmq": "^5.80.2",
     "pino": "^10.3.1"

@@ -63,6 +63,21 @@ importers:
 
   apps/worker:
     dependencies:
+      '@aivs/assets':
+        specifier: workspace:*
+        version: link:../../packages/assets
+      '@aivs/database':
+        specifier: workspace:*
+        version: link:../../packages/database
+      '@aivs/media-core':
+        specifier: workspace:*
+        version: link:../../packages/media-core
+      '@aivs/queue':
+        specifier: workspace:*
+        version: link:../../packages/queue
+      '@aivs/storage':
+        specifier: workspace:*
+        version: link:../../packages/storage
       '@aivs/types':
         specifier: workspace:*
         version: link:../../packages/types

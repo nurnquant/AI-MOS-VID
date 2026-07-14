@@ -5,4 +5,10 @@ export {
   generateThumbnail,
   type NormalizeOptions,
   type ThumbnailOptions,
-} from "./placeholders.ts";
+} from "./transform.ts";
+export {
+  PLATFORM_PRESETS,
+  getPreset,
+  type PlatformPreset,
+  type PlatformPresetName,
+} from "./presets.ts";

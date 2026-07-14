@@ -211,7 +211,7 @@ Policy:
   `AssetVersion` (completes the ENV-001 `inspectMedia` placeholder).
 - `normalize-video`: ffmpeg transcode to h264/aac mp4 per platform preset,
   stored as `AssetVersion(role=normalized, preset=...)`.
-- `generate-thumbnail`: frame grab (videos) / resized still (images) as webp,
+- `generate-thumbnail`: frame grab (videos) / resized still (images) as png,
   `AssetVersion(role=thumbnail)`.
 
 Seven platform presets (names stable, values tunable later):
