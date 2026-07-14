@@ -19,7 +19,7 @@ One-time docker compose plugin config (`~/.docker/config.json`):
 ## Installation
 
 ```bash
-git clone <repo-url> && cd AI-MOS
+git clone https://github.com/nurnquant/AI-MOS-VID.git && cd AI-MOS-VID
 pnpm install --frozen-lockfile
 ```
 

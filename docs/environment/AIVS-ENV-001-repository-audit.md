@@ -2,7 +2,7 @@
 
 **Date:** 2026-07-14
 **Auditor:** Claude Code (Gate 0 — Repository Discovery and Audit)
-**Working directory:** `/Users/oldmac/Claude/Projects/AI-MOS`
+**Working directory:** `/Users/oldmac/Claude/Projects/AI-MOS-VID`
 
 ---
 
@@ -11,7 +11,7 @@
 The working directory is **not a git repository** and contains no project code:
 
 ```text
-AI-MOS/
+AI-MOS-VID/
 └── AI_Video_Studio_Environment_Setup_Master_Prompt.md
 ```
 
@@ -89,7 +89,7 @@ preserve):
 ## 9. Repo Placement Decision
 
 **Recommendation: initialize a new repository in this directory
-(`AI-MOS/`).** No project repository exists (master-prompt rule 2 permits
+(`AI-MOS-VID/`).** No project repository exists (master-prompt rule 2 permits
 creation in this case). The AIEES portal repo is a separate product and
 should not host this system.
 

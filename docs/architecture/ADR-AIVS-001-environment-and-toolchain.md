@@ -17,7 +17,7 @@ Docker and FFmpeg were absent and required installation.
 
 ### Repository
 
-- New git repository at `/Users/oldmac/Claude/Projects/AI-MOS`, default branch
+- New git repository at `/Users/oldmac/Claude/Projects/AI-MOS-VID`, default branch
   `main`, work performed on `feature/aivs-environment-foundation`.
 
 ### Application and orchestration

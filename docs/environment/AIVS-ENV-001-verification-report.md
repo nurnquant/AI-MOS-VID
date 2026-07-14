@@ -14,7 +14,7 @@ commands ran against real local services — no fabricated results.
 
 ## Changes Made
 
-- New git repository initialized at `/Users/oldmac/Claude/Projects/AI-MOS`
+- New git repository initialized at `/Users/oldmac/Claude/Projects/AI-MOS-VID`
   (`main` + `feature/aivs-environment-foundation`).
 - 63 files created across: monorepo config (pnpm/Turborepo/TS strict),
   `apps/studio-web`, `apps/worker`, `packages/{types,media-core,providers,testing}`,
