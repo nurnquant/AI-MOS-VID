@@ -7,7 +7,7 @@
 import { randomUUID } from "node:crypto";
 import { stat } from "node:fs/promises";
 import { join } from "node:path";
-import type { AssetServices } from "@aivs/assets";
+import type { AssetServices } from "./context.ts";
 import { AssetStatus, MediaKind, VersionRole, type Asset } from "@aivs/database";
 import { generateThumbnail, getPreset, inspectMedia, normalizeVideo } from "@aivs/media-core";
 import type {
@@ -16,7 +16,7 @@ import type {
   NormalizeVideoPayload,
 } from "@aivs/queue";
 import { buildAssetKey } from "@aivs/storage";
-import { withLocalCopy } from "../local-file.ts";
+import { withLocalCopy } from "./local-file.ts";
 
 const THUMBNAIL_WIDTH = 640;
 

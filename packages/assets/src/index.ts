@@ -29,3 +29,9 @@ export {
   validateAsset,
   type ValidationOutcome,
 } from "./validation.ts";
+export {
+  processGenerateThumbnail,
+  processInspectMedia,
+  processNormalizeVideo,
+} from "./media-jobs.ts";
+export { withLocalCopy } from "./local-file.ts";

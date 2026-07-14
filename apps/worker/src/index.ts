@@ -11,6 +11,9 @@ import {
   createAssetServices,
   markJobFinished,
   markJobRunning,
+  processGenerateThumbnail,
+  processInspectMedia,
+  processNormalizeVideo,
   transitionAsset,
   validateAsset,
   type AssetServices,
@@ -25,11 +28,6 @@ import {
   type ValidateAssetPayload,
 } from "@aivs/queue";
 import type { TestJobPayload, TestJobResult } from "@aivs/types";
-import {
-  processGenerateThumbnail,
-  processInspectMedia,
-  processNormalizeVideo,
-} from "./processors/media.ts";
 
 const logger = pino({ level: process.env.LOG_LEVEL ?? "info", name: "aivs-worker" });
 const connection = redisConnectionFromEnv();

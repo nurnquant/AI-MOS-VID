@@ -146,9 +146,6 @@ importers:
         specifier: ^7.4.0
         version: 7.8.0(prisma@7.8.0(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(typescript@6.0.3))(typescript@6.0.3)
     devDependencies:
-      dotenv-cli:
-        specifier: ^10.0.0
-        version: 10.0.0
       prisma:
         specifier: ^7.4.0
         version: 7.8.0(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(typescript@6.0.3)
@@ -207,6 +204,18 @@ importers:
 
   packages/testing:
     devDependencies:
+      '@aivs/assets':
+        specifier: workspace:*
+        version: link:../assets
+      '@aivs/database':
+        specifier: workspace:*
+        version: link:../database
+      '@aivs/media-core':
+        specifier: workspace:*
+        version: link:../media-core
+      '@aivs/queue':
+        specifier: workspace:*
+        version: link:../queue
       '@aivs/storage':
         specifier: workspace:*
         version: link:../storage
@@ -1248,18 +1257,6 @@ packages:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
     engines: {node: '>=8'}
 
-  dotenv-cli@10.0.0:
-    resolution: {integrity: sha512-lnOnttzfrzkRx2echxJHQRB6vOAMSCzzZg79IxpC00tU42wZPuZkQxNNrrwVAxaQZIIh001l4PxVlCrBxngBzA==}
-    hasBin: true
-
-  dotenv-expand@11.0.7:
-    resolution: {integrity: sha512-zIHwmZPRshsCdpMDyVsqGmgyP0yT8GAgXUnkdAoJisxvf33k7yO6OuoKmcTGuXPWSsm8Oh88nZicRLA9Y0rUeA==}
-    engines: {node: '>=12'}
-
-  dotenv@16.6.1:
-    resolution: {integrity: sha512-uBq4egWHTcTt33a72vpSG0z3HnPuIl6NqYcTrKEg2azoEyl2hpW0zqlxysq2pK9HlDIHyHyakeYaYnSAwd8bow==}
-    engines: {node: '>=12'}
-
   dotenv@17.4.2:
     resolution: {integrity: sha512-nI4U3TottKAcAD9LLud4Cb7b2QztQMUEfHbvhTH09bqXTxnSie8WnjPALV/WMCrJZ6UV/qHJ6L03OqO3LcdYZw==}
     engines: {node: '>=12'}
@@ -1626,9 +1623,6 @@ packages:
   minimatch@10.2.5:
     resolution: {integrity: sha512-MULkVLfKGYDFYejP07QOurDLLQpcjk7Fw+7jXS2R2czRQzR56yHRveU5NDJEOviH+hETZKSkIk5c+T23GjFUMg==}
     engines: {node: 18 || 20 || >=22}
-
-  minimist@1.2.8:
-    resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
 
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
@@ -3231,19 +3225,6 @@ snapshots:
 
   detect-libc@2.1.2: {}
 
-  dotenv-cli@10.0.0:
-    dependencies:
-      cross-spawn: 7.0.6
-      dotenv: 17.4.2
-      dotenv-expand: 11.0.7
-      minimist: 1.2.8
-
-  dotenv-expand@11.0.7:
-    dependencies:
-      dotenv: 16.6.1
-
-  dotenv@16.6.1: {}
-
   dotenv@17.4.2: {}
 
   effect@3.20.0:
@@ -3568,8 +3549,6 @@ snapshots:
   minimatch@10.2.5:
     dependencies:
       brace-expansion: 5.0.7
-
-  minimist@1.2.8: {}
 
   ms@2.1.3: {}
 

@@ -15,13 +15,16 @@ export const ALLOWED_TRANSITIONS: Readonly<Record<AssetStatus, readonly AssetSta
 };
 
 export class IllegalTransitionError extends Error {
-  constructor(
-    readonly assetId: string,
-    readonly from: AssetStatus,
-    readonly to: AssetStatus,
-  ) {
+  readonly assetId: string;
+  readonly from: AssetStatus;
+  readonly to: AssetStatus;
+
+  constructor(assetId: string, from: AssetStatus, to: AssetStatus) {
     super(`Illegal asset transition ${from} → ${to} for asset ${assetId}`);
     this.name = "IllegalTransitionError";
+    this.assetId = assetId;
+    this.from = from;
+    this.to = to;
   }
 }
 

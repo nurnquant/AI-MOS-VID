@@ -6,3 +6,4 @@ pnpm-lock.yaml
 coverage
 playwright-report
 test-results
+packages/database/src/generated/

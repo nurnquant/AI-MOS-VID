@@ -14,9 +14,12 @@ import { MAX_UPLOAD_BYTES, sanitizeDisplayName } from "./limits.ts";
 import { recordInitialTransition, transitionAsset } from "./state-machine.ts";
 
 export class UploadTooLargeError extends Error {
-  constructor(readonly capBytes: number) {
+  readonly capBytes: number;
+
+  constructor(capBytes: number) {
     super(`Upload exceeds the maximum allowed size of ${capBytes} bytes`);
     this.name = "UploadTooLargeError";
+    this.capBytes = capBytes;
   }
 }
 
