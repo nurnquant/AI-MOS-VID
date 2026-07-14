@@ -21,12 +21,19 @@ npx vercel ls              # list deployments
 npx vercel inspect <dpl> --logs
 ```
 
+## Git integration (connected 2026-07-14)
+
+- GitHub repo `nurnquant/AI-MOS-VID` connected: every push to `main` deploys
+  production; PR branches get preview deployments. CLI deploys still work.
+
 ## Current behavior
 
-- `/` and `/api/health` — live and green.
+- `/`, `/assets`, and `/api/health` — live and green.
 - `/api/services` — returns 503 "degraded" in production: it probes
   localhost Postgres/Redis/MinIO which exist only in local dev. Expected
   until production data services exist (Supabase/R2 decisions pending).
+- `/api/assets*` — 500 in production for the same reason: no DATABASE_URL /
+  REDIS_URL / S3_* env vars on Vercel yet. Works locally.
 - Preview deployments sit behind Vercel deployment protection (team SSO
   302). Production domain is public.
 
@@ -41,5 +48,3 @@ npx vercel inspect <dpl> --logs
 1. Decide Supabase (managed Postgres) vs self-hosted — affects Prisma config.
 2. Cloudflare R2 bucket + credentials in Vercel env vars.
 3. Worker host.
-4. Git remote + Vercel Git integration for push-to-deploy (currently CLI-only,
-   no GitHub repo exists).
