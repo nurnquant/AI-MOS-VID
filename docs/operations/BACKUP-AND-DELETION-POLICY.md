@@ -43,4 +43,4 @@ policy is a gate for allowing any production child media.**
 - Provider-side infrastructure snapshots (Neon internal ops) are outside
   our control; covered by provider DPAs.
 
-**Accepted by:** _pending user sign-off (reply "policy accepted" or amend)_
+**Accepted by:** NuR (project owner), 2026-07-15 — "policy accepted".
