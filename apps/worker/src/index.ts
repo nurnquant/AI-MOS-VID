@@ -26,12 +26,22 @@ import {
   JOB_NAMES,
   QUEUES,
   redisConnectionFromEnv,
+  type AssembleVideoPayload,
   type ConsentEnforcementPayload,
   type EnforceConsentPayload,
+  type GenerateScenePayload,
+  type GenerationQueuePayload,
   type MediaProcessingPayload,
   type NormalizeVideoPayload,
   type ValidateAssetPayload,
 } from "@aivs/queue";
+import {
+  checkGeneration,
+  markGenerationFailed,
+  markSceneFailed,
+  processAssembleVideo,
+  processGenerateScene,
+} from "@aivs/generation";
 import type { TestJobPayload, TestJobResult } from "@aivs/types";
 
 const logger = pino({ level: process.env.LOG_LEVEL ?? "info", name: "aivs-worker" });
@@ -91,9 +101,62 @@ const enforcementWorker = new Worker<ConsentEnforcementPayload>(
   { connection },
 );
 
+const generationWorker = new Worker<GenerationQueuePayload>(
+  QUEUES.generation,
+  async (job) => {
+    switch (job.name) {
+      case JOB_NAMES.generateScene: {
+        const payload = job.data as GenerateScenePayload;
+        const result = await processGenerateScene(services, payload);
+        const sceneGen = await services.prisma.sceneGeneration.findUnique({
+          where: { id: payload.sceneGenerationId },
+          select: { generationId: true },
+        });
+        if (sceneGen) await checkGeneration(services, sceneGen.generationId);
+        return result;
+      }
+      case JOB_NAMES.assembleVideo:
+        return processAssembleVideo(services, job.data as AssembleVideoPayload);
+      default:
+        throw new Error(`Unknown generation job ${job.name}`);
+    }
+  },
+  { connection },
+);
+
 function isFinalAttempt(job: Job): boolean {
   return job.attemptsMade >= (job.opts.attempts ?? 1);
 }
+
+generationWorker.on("completed", (job) => {
+  logger.info({ queue: generationWorker.name, jobId: job.id, name: job.name }, "job completed");
+});
+generationWorker.on("failed", (job, err) => {
+  if (!job) return;
+  const dead = isFinalAttempt(job);
+  logger.error(
+    { queue: generationWorker.name, jobId: job.id, name: job.name, dead, err: err.message },
+    "job failed",
+  );
+  if (!dead) return;
+  void (async () => {
+    if (job.name === JOB_NAMES.generateScene) {
+      const payload = job.data as GenerateScenePayload;
+      await markSceneFailed(services, payload.sceneGenerationId, err.message);
+      const sceneGen = await services.prisma.sceneGeneration.findUnique({
+        where: { id: payload.sceneGenerationId },
+        select: { generationId: true },
+      });
+      if (sceneGen) await checkGeneration(services, sceneGen.generationId);
+    } else if (job.name === JOB_NAMES.assembleVideo) {
+      const payload = job.data as AssembleVideoPayload;
+      await markGenerationFailed(services, payload.generationId, err.message);
+    }
+  })().catch((e) => logger.error({ err: (e as Error).message }, "generation bookkeeping error"));
+});
+generationWorker.on("ready", () =>
+  logger.info({ queue: generationWorker.name }, "worker connected and ready"),
+);
 
 // Hourly retention sweep (expired consents + 30-day quarantine retention).
 if (!process.argv.includes("--smoke")) {
@@ -162,6 +225,7 @@ async function shutdown(signal: string, exitCode = 0) {
   await validationWorker.close();
   await mediaWorker.close();
   await enforcementWorker.close();
+  await generationWorker.close();
   await smokeWorker?.close();
   await closeAssetServices(services);
   process.exit(exitCode);

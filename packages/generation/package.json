@@ -1,5 +1,5 @@
 {
-  "name": "@aivs/providers",
+  "name": "@aivs/generation",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -9,13 +9,17 @@
     ".": "./src/index.ts"
   },
   "scripts": {
-    "lint": "eslint src test",
+    "lint": "eslint src",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
+    "@aivs/assets": "workspace:*",
+    "@aivs/auth": "workspace:*",
+    "@aivs/database": "workspace:*",
     "@aivs/media-core": "workspace:*",
-    "@aivs/types": "workspace:*"
+    "@aivs/providers": "workspace:*",
+    "@aivs/queue": "workspace:*"
   },
   "devDependencies": {
     "vitest": "^4.1.10"

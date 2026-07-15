@@ -35,11 +35,17 @@ export interface IngestUploadParams {
   body: Readable;
   /** Override for tests; defaults to the global streaming cap. */
   maxBytes?: number;
+  /**
+   * Default true. Generation jobs pass false and run validateAsset
+   * synchronously instead (avoids a racing queue job).
+   */
+  enqueueValidation?: boolean;
 }
 
 export interface IngestResult {
   asset: Asset;
-  validationJobId: string;
+  /** Null when the caller opted out of queued validation. */
+  validationJobId: string | null;
 }
 
 /**
@@ -125,6 +131,9 @@ export async function ingestUpload(
     patch: { quarantineKey, sizeBytes: BigInt(bytesSeen), checksumSha256: checksum },
   });
 
+  if (params.enqueueValidation === false) {
+    return { asset: quarantined, validationJobId: null };
+  }
   const { bullJobId } = await enqueueWithRecord({
     prisma,
     queue: validationQueue,

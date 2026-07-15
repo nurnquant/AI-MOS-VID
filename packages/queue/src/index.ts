@@ -9,6 +9,7 @@ export const QUEUES = {
   assetValidation: "asset-validation",
   mediaProcessing: "media-processing",
   consentEnforcement: "consent-enforcement",
+  generation: "generation",
 } as const;
 
 export type QueueName = (typeof QUEUES)[keyof typeof QUEUES];
@@ -20,6 +21,8 @@ export const JOB_NAMES = {
   generateThumbnail: "generate-thumbnail",
   enforceConsent: "enforce-consent",
   retentionSweep: "retention-sweep",
+  generateScene: "generate-scene",
+  assembleVideo: "assemble-video",
 } as const;
 
 export type JobName = (typeof JOB_NAMES)[keyof typeof JOB_NAMES];
@@ -59,6 +62,18 @@ export interface EnforceConsentPayload {
 export type RetentionSweepPayload = Record<string, never>;
 
 export type ConsentEnforcementPayload = EnforceConsentPayload | RetentionSweepPayload;
+
+export interface GenerateScenePayload {
+  sceneGenerationId: string;
+  tenantId: string;
+}
+
+export interface AssembleVideoPayload {
+  generationId: string;
+  tenantId: string;
+}
+
+export type GenerationQueuePayload = GenerateScenePayload | AssembleVideoPayload;
 
 /** Retry policy: 3 attempts, exponential backoff from 5s (ADR §5). */
 export const DEFAULT_JOB_OPTIONS: DefaultJobOptions = {

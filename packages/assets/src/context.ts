@@ -9,6 +9,7 @@ import {
   createQueue,
   redisConnectionFromEnv,
   type ConsentEnforcementPayload,
+  type GenerationQueuePayload,
   type MediaProcessingPayload,
   type ValidateAssetPayload,
 } from "@aivs/queue";
@@ -21,6 +22,7 @@ export interface AssetServices {
   validationQueue: Queue<ValidateAssetPayload>;
   mediaQueue: Queue<MediaProcessingPayload>;
   enforcementQueue: Queue<ConsentEnforcementPayload>;
+  generationQueue: Queue<GenerationQueuePayload>;
   scanner: MalwareScanner;
 }
 
@@ -33,6 +35,7 @@ export function createAssetServices(overrides: Partial<AssetServices> = {}): Ass
     mediaQueue: overrides.mediaQueue ?? createQueue(QUEUES.mediaProcessing, connection),
     enforcementQueue:
       overrides.enforcementQueue ?? createQueue(QUEUES.consentEnforcement, connection),
+    generationQueue: overrides.generationQueue ?? createQueue(QUEUES.generation, connection),
     scanner: overrides.scanner ?? new AlwaysPassScanner(),
   };
 }
@@ -41,6 +44,7 @@ export async function closeAssetServices(services: AssetServices): Promise<void>
   await services.validationQueue.close();
   await services.mediaQueue.close();
   await services.enforcementQueue.close();
+  await services.generationQueue.close();
   services.storage.destroy();
   await services.prisma.$disconnect();
 }

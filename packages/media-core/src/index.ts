@@ -12,3 +12,13 @@ export {
   type PlatformPreset,
   type PlatformPresetName,
 } from "./presets.ts";
+export {
+  SYNTH_FPS,
+  SYNTH_HEIGHT,
+  SYNTH_WIDTH,
+  concatClips,
+  muxClip,
+  synthesizeToneAudio,
+  synthesizeVideoTrack,
+  type SynthVideoOptions,
+} from "./synthesize.ts";

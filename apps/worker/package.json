@@ -13,6 +13,7 @@
   "dependencies": {
     "@aivs/assets": "workspace:*",
     "@aivs/database": "workspace:*",
+    "@aivs/generation": "workspace:*",
     "@aivs/media-core": "workspace:*",
     "@aivs/queue": "workspace:*",
     "@aivs/storage": "workspace:*",

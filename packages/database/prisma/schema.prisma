@@ -63,6 +63,7 @@ model Tenant {
   invitations    Invitation[]
   auditEvents    AuditEvent[]
   scripts        Script[]
+  generations    Generation[]
 }
 
 model Project {
@@ -107,6 +108,8 @@ model Asset {
   transitions         AssetTransition[]
   jobs                Job[]
   sceneReferences     Scene[]
+  finalGenerations    Generation[]
+  sceneGenerations    SceneGeneration[]
 
   @@index([tenantId, projectId])
   @@index([tenantId, status])
@@ -336,6 +339,7 @@ model Script {
   createdAt     DateTime       @default(now())
   updatedAt     DateTime       @updatedAt
   scenes        Scene[]
+  generations   Generation[]
 
   @@index([tenantId, projectId])
   @@index([tenantId, status])
@@ -354,6 +358,62 @@ model Scene {
   referenceAsset        Asset?   @relation(fields: [referenceAssetId], references: [id], onDelete: SetNull)
   createdAt             DateTime @default(now())
   updatedAt             DateTime @updatedAt
+  sceneGenerations      SceneGeneration[]
 
   @@index([scriptId, position])
+}
+
+
+// ---------- AIVS-GEN-006: generation orchestration ----------
+
+enum GenerationStatus {
+  queued
+  running
+  succeeded
+  failed
+  partial
+}
+
+enum SceneGenerationStatus {
+  queued
+  running
+  succeeded
+  failed
+}
+
+model Generation {
+  id               String            @id @default(uuid())
+  tenantId         String
+  tenant           Tenant            @relation(fields: [tenantId], references: [id])
+  scriptId         String
+  script           Script            @relation(fields: [scriptId], references: [id], onDelete: Cascade)
+  targetPreset     String
+  status           GenerationStatus  @default(queued)
+  startedBy        String
+  error            String?
+  finalAssetId     String?
+  finalAsset       Asset?            @relation(fields: [finalAssetId], references: [id], onDelete: SetNull)
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  sceneGenerations SceneGeneration[]
+
+  @@index([tenantId, scriptId])
+}
+
+model SceneGeneration {
+  id           String                @id @default(uuid())
+  generationId String
+  generation   Generation            @relation(fields: [generationId], references: [id], onDelete: Cascade)
+  sceneId      String
+  scene        Scene                 @relation(fields: [sceneId], references: [id], onDelete: Cascade)
+  /// Copied from the scene at start for stable assembly ordering.
+  position     Int
+  status       SceneGenerationStatus @default(queued)
+  assetId      String?
+  asset        Asset?                @relation(fields: [assetId], references: [id], onDelete: SetNull)
+  error        String?
+  createdAt    DateTime              @default(now())
+  updatedAt    DateTime              @updatedAt
+
+  @@index([generationId, position])
 }

@@ -24,7 +24,10 @@ export type AuditEventType =
   | "script.generated"
   | "script.submitted"
   | "script.approved"
-  | "script.rejected";
+  | "script.rejected"
+  | "generation.started"
+  | "generation.completed"
+  | "generation.failed";
 
 export interface AuditEventInput {
   type: AuditEventType;

@@ -18,3 +18,4 @@ export {
   type ScriptGenerationRequest,
   type ScriptProvider,
 } from "./script.ts";
+export { LocalSynthVideoProvider, LocalSynthVoiceProvider } from "./local-synth.ts";
