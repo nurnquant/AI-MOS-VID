@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { SessionNav } from "./session-nav";
 
 export const metadata: Metadata = {
   title: "AIVS Studio",
@@ -11,6 +12,7 @@ const navItems = [
   { href: "/status", label: "Environment Status" },
   { href: "#", label: "Projects (soon)" },
   { href: "/assets", label: "Assets" },
+  { href: "/members", label: "Members" },
   { href: "#", label: "Publishing (soon)" },
 ];
 
@@ -32,6 +34,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               {item.label}
             </a>
           ))}
+          <SessionNav />
         </nav>
         <main style={{ padding: "1.5rem" }}>{children}</main>
       </body>

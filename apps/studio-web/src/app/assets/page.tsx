@@ -38,6 +38,10 @@ export default function AssetsPage() {
   const refresh = useCallback(async () => {
     try {
       const response = await fetch("/api/assets");
+      if (response.status === 401) {
+        window.location.href = "/login";
+        return;
+      }
       if (!response.ok) throw new Error(`list failed: ${response.status}`);
       const data = (await response.json()) as { assets: AssetRow[] };
       setAssets(data.assets);
