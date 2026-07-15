@@ -25,7 +25,7 @@
     "db:migrate": "pnpm --filter @aivs/database db:deploy",
     "db:migrate:dev": "pnpm --filter @aivs/database db:migrate",
     "db:reset": "pnpm --filter @aivs/database db:reset",
-    "db:seed": "pnpm --filter @aivs/database db:seed",
+    "db:seed": "pnpm --filter @aivs/database db:seed && pnpm --filter @aivs/auth seed",
     "media:smoke": "bash scripts/media-smoke-test.sh",
     "infra:up": "docker compose up -d --wait",
     "infra:down": "docker compose down",
