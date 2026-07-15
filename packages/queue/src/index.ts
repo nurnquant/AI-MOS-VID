@@ -88,6 +88,10 @@ export function redisConnectionFromEnv(env: NodeJS.ProcessEnv = process.env): Co
   return {
     host: url.hostname,
     port: Number(url.port || 6380),
+    // Production Redis (Railway etc.) authenticates; local compose doesn't.
+    ...(url.username ? { username: decodeURIComponent(url.username) } : {}),
+    ...(url.password ? { password: decodeURIComponent(url.password) } : {}),
+    ...(url.protocol === "rediss:" ? { tls: {} } : {}),
     maxRetriesPerRequest: null,
   };
 }

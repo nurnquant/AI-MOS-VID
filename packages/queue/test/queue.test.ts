@@ -31,3 +31,28 @@ describe("queue configuration", () => {
     expect(conn).toMatchObject({ host: "example.test", port: 7000 });
   });
 });
+
+describe("production redis URLs", () => {
+  it("carries credentials and TLS from rediss:// URLs", () => {
+    const conn = redisConnectionFromEnv({
+      REDIS_URL: "rediss://default:s3cret@redis.example.test:6379",
+    }) as Record<string, unknown>;
+    expect(conn).toMatchObject({
+      host: "redis.example.test",
+      port: 6379,
+      username: "default",
+      password: "s3cret",
+    });
+    expect(conn.tls).toBeDefined();
+  });
+
+  it("keeps local plain URLs credential-free", () => {
+    const conn = redisConnectionFromEnv({ REDIS_URL: "redis://localhost:6380" }) as Record<
+      string,
+      unknown
+    >;
+    expect(conn.username).toBeUndefined();
+    expect(conn.password).toBeUndefined();
+    expect(conn.tls).toBeUndefined();
+  });
+});
