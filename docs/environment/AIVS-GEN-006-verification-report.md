@@ -2,7 +2,7 @@
 
 **Result:** **PASS**
 **Date:** 2026-07-15
-**Branch:** `feature/aivs-gen-006-generation` (commits `bd0f7ee` → `6ac8dd8`)
+**Branch:** `feature/aivs-gen-006-generation` (commits `02782ed` → `6ac8dd8`)
 **ADR:** `docs/architecture/ADR-AIVS-006-generation-orchestration.md`
 (Accepted — user approved the master prompt and authorized implementation)
 
@@ -10,7 +10,7 @@
 
 | Gate | Deliverable                                                 | Commit    |
 | ---- | ----------------------------------------------------------- | --------- |
-| 0    | ADR-AIVS-006 (model, synthesis, queue, assembly)            | `bd0f7ee` |
+| 0    | ADR-AIVS-006 (model, synthesis, queue, assembly)            | `02782ed` |
 | 1-3  | Schema, local synthesis + providers, orchestration + worker | `3350ff4` |
 | 4-5  | Generation API + script-editor UI                           | `ec85539` |
 | 6    | Test suites, verify green, evidence                         | `6ac8dd8` |
