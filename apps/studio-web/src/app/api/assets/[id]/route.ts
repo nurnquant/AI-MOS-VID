@@ -1,8 +1,9 @@
 /** GET /api/assets/{id} — detail with versions and full audit trail. */
 import { NextResponse, type NextRequest } from "next/server";
 import { serializeAsset, serializeTransition, serializeVersion } from "@/lib/serialize";
+import { canAccessChildMedia } from "@aivs/auth";
+import { authErrorResponse, requireContext } from "@/lib/auth-context";
 import { getServices } from "@/lib/services";
-import { TenantNotFoundError, resolveTenant } from "@/lib/tenant";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -13,10 +14,14 @@ export async function GET(
 ): Promise<NextResponse> {
   const { prisma } = getServices();
   try {
-    const tenant = await resolveTenant(request);
+    const { tenant, role } = await requireContext(request);
     const { id } = await params;
     const asset = await prisma.asset.findFirst({
-      where: { id, tenantId: tenant.id },
+      where: {
+        id,
+        tenantId: tenant.id,
+        ...(canAccessChildMedia(role) ? {} : { featuresMinor: false }),
+      },
       include: {
         versions: { orderBy: { createdAt: "asc" } },
         transitions: { orderBy: { createdAt: "asc" } },
@@ -32,9 +37,6 @@ export async function GET(
       },
     });
   } catch (error) {
-    if (error instanceof TenantNotFoundError) {
-      return NextResponse.json({ error: error.message }, { status: 400 });
-    }
-    throw error;
+    return authErrorResponse(error);
   }
 }

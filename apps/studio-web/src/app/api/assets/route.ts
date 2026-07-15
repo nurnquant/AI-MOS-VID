@@ -1,9 +1,13 @@
-/** GET /api/assets — tenant-scoped asset list, optional project filter. */
+/**
+ * GET /api/assets — session-scoped asset list (viewer+), optional project
+ * filter. featuresMinor assets are hidden below child_media_reviewer.
+ */
 import { NextResponse, type NextRequest } from "next/server";
+import { canAccessChildMedia } from "@aivs/auth";
 import { z } from "zod";
+import { authErrorResponse, requireContext } from "@/lib/auth-context";
 import { serializeAsset, serializeVersion } from "@/lib/serialize";
 import { getServices } from "@/lib/services";
-import { TenantNotFoundError, resolveTenant } from "@/lib/tenant";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -17,7 +21,7 @@ const querySchema = z.object({
 export async function GET(request: NextRequest): Promise<NextResponse> {
   const { prisma } = getServices();
   try {
-    const tenant = await resolveTenant(request);
+    const { tenant, role } = await requireContext(request);
     const parsed = querySchema.safeParse(
       Object.fromEntries(request.nextUrl.searchParams.entries()),
     );
@@ -27,7 +31,11 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     const { projectId, cursor, limit } = parsed.data;
 
     const assets = await prisma.asset.findMany({
-      where: { tenantId: tenant.id, ...(projectId ? { projectId } : {}) },
+      where: {
+        tenantId: tenant.id,
+        ...(projectId ? { projectId } : {}),
+        ...(canAccessChildMedia(role) ? {} : { featuresMinor: false }),
+      },
       include: { versions: true },
       orderBy: { createdAt: "desc" },
       take: limit,
@@ -42,9 +50,6 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
       nextCursor: assets.length === limit ? assets.at(-1)?.id : undefined,
     });
   } catch (error) {
-    if (error instanceof TenantNotFoundError) {
-      return NextResponse.json({ error: error.message }, { status: 400 });
-    }
-    throw error;
+    return authErrorResponse(error);
   }
 }

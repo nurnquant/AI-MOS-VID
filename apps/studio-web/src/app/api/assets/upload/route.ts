@@ -8,9 +8,9 @@ import Busboy from "busboy";
 import { NextResponse, type NextRequest } from "next/server";
 import { UploadTooLargeError, ingestUpload, type IngestResult } from "@aivs/assets";
 import { z } from "zod";
+import { MembershipRole, authErrorResponse, requireContext } from "@/lib/auth-context";
 import { serializeAsset } from "@/lib/serialize";
 import { getServices } from "@/lib/services";
-import { TenantNotFoundError, resolveTenant } from "@/lib/tenant";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -28,12 +28,9 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   const services = getServices();
   let tenantId: string;
   try {
-    tenantId = (await resolveTenant(request)).id;
+    tenantId = (await requireContext(request, MembershipRole.editor)).tenant.id;
   } catch (error) {
-    if (error instanceof TenantNotFoundError) {
-      return NextResponse.json({ error: error.message }, { status: 400 });
-    }
-    throw error;
+    return authErrorResponse(error);
   }
 
   const contentType = request.headers.get("content-type") ?? "";

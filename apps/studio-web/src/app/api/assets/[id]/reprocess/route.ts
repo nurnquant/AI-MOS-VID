@@ -1,15 +1,15 @@
 /**
- * POST /api/assets/{id}/reprocess — rejected: revalidate (if quarantine
- * object retained); ready: regenerate thumbnail, or normalize to a preset
- * when body.preset is given.
+ * POST /api/assets/{id}/reprocess (editor+) — rejected: revalidate (if
+ * quarantine object retained); ready: regenerate thumbnail, or normalize
+ * to a preset when body.preset is given.
  */
 import { NextResponse, type NextRequest } from "next/server";
 import { enqueueWithRecord, reprocessAsset } from "@aivs/assets";
 import { AssetStatus } from "@aivs/database";
 import { JOB_NAMES } from "@aivs/queue";
 import { z } from "zod";
+import { MembershipRole, authErrorResponse, requireContext } from "@/lib/auth-context";
 import { getServices } from "@/lib/services";
-import { TenantNotFoundError, resolveTenant } from "@/lib/tenant";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -22,7 +22,7 @@ export async function POST(
 ): Promise<NextResponse> {
   const services = getServices();
   try {
-    const tenant = await resolveTenant(request);
+    const { tenant } = await requireContext(request, MembershipRole.editor);
     const { id } = await params;
     const parsed = bodySchema.safeParse(await request.json().catch(() => ({})));
     if (!parsed.success) {
@@ -55,15 +55,16 @@ export async function POST(
     const result = await reprocessAsset(services, id, tenant.id);
     return NextResponse.json(result, { status: 202 });
   } catch (error) {
-    if (error instanceof TenantNotFoundError) {
-      return NextResponse.json({ error: error.message }, { status: 400 });
+    try {
+      return authErrorResponse(error);
+    } catch {
+      const message = error instanceof Error ? error.message : "reprocess failed";
+      const status = /not found|NotFound/i.test(message)
+        ? 404
+        : /cannot be reprocessed|re-upload required/.test(message)
+          ? 409
+          : 500;
+      return NextResponse.json({ error: message }, { status });
     }
-    const message = error instanceof Error ? error.message : "reprocess failed";
-    const status = /not found|NotFound/i.test(message)
-      ? 404
-      : /cannot be reprocessed|re-upload required/.test(message)
-        ? 409
-        : 500;
-    return NextResponse.json({ error: message }, { status });
   }
 }

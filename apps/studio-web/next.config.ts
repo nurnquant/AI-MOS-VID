@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   transpilePackages: [
     "@aivs/assets",
+    "@aivs/auth",
     "@aivs/database",
     "@aivs/media-core",
     "@aivs/providers",

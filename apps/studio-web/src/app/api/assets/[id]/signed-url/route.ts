@@ -1,15 +1,17 @@
 /**
  * GET /api/assets/{id}/signed-url[?versionId=] — time-limited signed URL
- * for a ready asset's version (default: original). Quarantined objects are
- * never served (security baseline §5/§7).
+ * for a ready asset's version (default: original). viewer+, but
+ * `featuresMinor` assets require child_media_reviewer+ and the access is
+ * audit-logged BEFORE the URL is returned (baseline §7/§10). Quarantined
+ * objects are never served.
  */
 import { NextResponse, type NextRequest } from "next/server";
-import { AssetStatus } from "@aivs/database";
+import { canAccessChildMedia, writeAuditStrict } from "@aivs/auth";
+import { AssetStatus, VersionRole } from "@aivs/database";
 import { SIGNED_URL_DEFAULT_TTL_SECONDS, isQuarantineKey } from "@aivs/storage";
-import { VersionRole } from "@aivs/database";
 import { z } from "zod";
+import { authErrorResponse, requireContext } from "@/lib/auth-context";
 import { getServices } from "@/lib/services";
-import { TenantNotFoundError, resolveTenant } from "@/lib/tenant";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -25,7 +27,7 @@ export async function GET(
 ): Promise<NextResponse> {
   const { prisma, storage } = getServices();
   try {
-    const tenant = await resolveTenant(request);
+    const { user, tenant, role } = await requireContext(request);
     const { id } = await params;
     const parsed = querySchema.safeParse(
       Object.fromEntries(request.nextUrl.searchParams.entries()),
@@ -39,6 +41,14 @@ export async function GET(
       include: { versions: true },
     });
     if (!asset) return NextResponse.json({ error: "asset not found" }, { status: 404 });
+
+    if (asset.featuresMinor && !canAccessChildMedia(role)) {
+      return NextResponse.json(
+        { error: "child-media access requires the child_media_reviewer role" },
+        { status: 403 },
+      );
+    }
+
     if (asset.status !== AssetStatus.ready) {
       return NextResponse.json(
         { error: `signed URLs require a ready asset, got ${asset.status}` },
@@ -54,6 +64,16 @@ export async function GET(
       return NextResponse.json({ error: "version is not servable" }, { status: 409 });
     }
 
+    // Mandatory audit for child media — must commit before the URL exists.
+    if (asset.featuresMinor) {
+      await writeAuditStrict(prisma, {
+        type: "asset.child_media.url_issued",
+        tenantId: tenant.id,
+        userId: user.id,
+        detail: { assetId: asset.id, versionId: version.id, expiresIn: parsed.data.expiresIn },
+      });
+    }
+
     const url = await storage.getSignedUrl(version.storageKey, parsed.data.expiresIn);
     return NextResponse.json({
       url,
@@ -61,9 +81,6 @@ export async function GET(
       expiresInSeconds: parsed.data.expiresIn,
     });
   } catch (error) {
-    if (error instanceof TenantNotFoundError) {
-      return NextResponse.json({ error: error.message }, { status: 400 });
-    }
-    throw error;
+    return authErrorResponse(error);
   }
 }

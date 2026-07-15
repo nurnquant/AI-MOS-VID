@@ -13,9 +13,11 @@
   },
   "dependencies": {
     "@aivs/assets": "workspace:*",
+    "@aivs/auth": "workspace:*",
     "@aivs/database": "workspace:*",
     "@aivs/queue": "workspace:*",
     "@aivs/storage": "workspace:*",
+    "better-auth": "^1.6.23",
     "busboy": "^1.6.0",
     "next": "^16.2.10",
     "react": "^19.2.7",
