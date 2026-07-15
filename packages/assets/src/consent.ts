@@ -146,7 +146,7 @@ export async function revokeConsent(
   await enforcementQueue.add(
     JOB_NAMES.enforceConsent,
     { consentId: consent.id, tenantId: params.tenantId, trigger: "revoked" },
-    { jobId: `${JOB_NAMES.enforceConsent}:${consent.id}` },
+    { jobId: `${JOB_NAMES.enforceConsent}__${consent.id}` },
   );
   return updated;
 }

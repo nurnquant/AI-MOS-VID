@@ -87,10 +87,11 @@ export function createQueue<Payload>(
 /**
  * Deterministic BullMQ job ID: re-enqueueing the same logical work while a
  * prior job is still pending is a no-op; `epoch` differentiates deliberate
- * reprocess runs.
+ * reprocess runs. Separator is `__` — BullMQ reserves `:` in custom IDs
+ * (only tolerated with exactly 3 segments, for legacy repeatable jobs).
  */
 export function deterministicJobId(jobName: JobName, assetId: string, epoch: number): string {
-  return `${jobName}:${assetId}:${epoch}`;
+  return `${jobName}__${assetId}__${epoch}`;
 }
 
 export function jobOptionsFor(jobName: JobName, assetId: string, epoch: number): JobsOptions {

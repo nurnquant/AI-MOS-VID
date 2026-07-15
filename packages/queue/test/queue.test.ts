@@ -21,7 +21,7 @@ describe("queue configuration", () => {
 
   it("job ids are deterministic per (name, asset, epoch)", () => {
     const a = deterministicJobId(JOB_NAMES.validateAsset, "asset-1", 1);
-    expect(a).toBe("validate-asset:asset-1:1");
+    expect(a).toBe("validate-asset__asset-1__1");
     expect(deterministicJobId(JOB_NAMES.validateAsset, "asset-1", 1)).toBe(a);
     expect(deterministicJobId(JOB_NAMES.validateAsset, "asset-1", 2)).not.toBe(a);
   });
