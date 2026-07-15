@@ -8,4 +8,6 @@ export const LOCAL_ENV = {
   S3_ACCESS_KEY_ID: process.env.S3_ACCESS_KEY_ID ?? "aivs_local",
   S3_SECRET_ACCESS_KEY: process.env.S3_SECRET_ACCESS_KEY ?? "aivs_local_secret",
   S3_FORCE_PATH_STYLE: "true",
+  BETTER_AUTH_SECRET:
+    process.env.BETTER_AUTH_SECRET ?? "aivs_local_auth_secret_change_in_production_0001",
 };

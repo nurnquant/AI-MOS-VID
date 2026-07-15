@@ -57,7 +57,12 @@ test.afterAll(async () => {
 });
 
 test("uploading a video shows it progressing to ready on the assets page", async ({ page }) => {
-  await page.goto("/assets");
+  // AUTH-003: asset APIs require a session — sign in as the seeded dev owner.
+  await page.goto("/login");
+  await page.getByPlaceholder("email").fill("owner@riwaq.dev");
+  await page.getByPlaceholder("password").fill("riwaq-dev-owner-1");
+  await page.getByRole("button", { name: "Sign in" }).click();
+  await page.waitForURL("**/assets");
   await expect(page.getByRole("heading", { name: "Assets" })).toBeVisible();
 
   await page.setInputFiles('input[type="file"]', fixturePath);
