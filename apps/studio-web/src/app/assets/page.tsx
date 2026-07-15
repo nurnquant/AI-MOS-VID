@@ -16,8 +16,15 @@ interface AssetRow {
   kind: string;
   status: string;
   sizeBytes: number;
+  featuresMinor: boolean;
   rejectionReason: string | null;
   versions: { id: string; role: string; preset: string | null }[];
+}
+
+interface ConsentOption {
+  id: string;
+  subjectLabel: string;
+  status: string;
 }
 
 const STATUS_COLORS: Record<string, string> = {
@@ -33,7 +40,19 @@ export default function AssetsPage() {
   const [assets, setAssets] = useState<AssetRow[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false);
+  const [featuresMinor, setFeaturesMinor] = useState(false);
+  const [consentId, setConsentId] = useState("");
+  const [consents, setConsents] = useState<ConsentOption[] | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    // Consent list is reviewer+ only; 403 just hides the selector.
+    void fetch("/api/consents").then(async (r) => {
+      if (!r.ok) return;
+      const data = (await r.json()) as { consents: ConsentOption[] };
+      setConsents(data.consents.filter((c) => c.status === "active"));
+    });
+  }, []);
 
   const refresh = useCallback(async () => {
     try {
@@ -66,7 +85,8 @@ export default function AssetsPage() {
       const form = new FormData();
       // Field order matters: metadata before the file part.
       form.append("projectId", DEV_PROJECT_ID);
-      form.append("featuresMinor", "false");
+      form.append("featuresMinor", String(featuresMinor));
+      if (featuresMinor && consentId) form.append("consentRecordId", consentId);
       form.append("file", file);
       const response = await fetch("/api/assets/upload", { method: "POST", body: form });
       if (!response.ok) {
@@ -87,6 +107,28 @@ export default function AssetsPage() {
       <h1>Assets</h1>
       <form onSubmit={onUpload} style={{ marginBottom: "1rem" }}>
         <input ref={fileRef} type="file" accept="video/*,audio/*,image/*" required />
+        <label style={{ marginLeft: "0.5rem" }}>
+          <input
+            type="checkbox"
+            checked={featuresMinor}
+            onChange={(e) => setFeaturesMinor(e.target.checked)}
+          />{" "}
+          features a minor
+        </label>
+        {featuresMinor && consents && (
+          <select
+            value={consentId}
+            onChange={(e) => setConsentId(e.target.value)}
+            style={{ marginLeft: "0.5rem" }}
+          >
+            <option value="">no consent (stays quarantined)</option>
+            {consents.map((c) => (
+              <option key={c.id} value={c.id}>
+                consent: {c.subjectLabel}
+              </option>
+            ))}
+          </select>
+        )}
         <button type="submit" disabled={uploading} style={{ marginLeft: "0.5rem" }}>
           {uploading ? "Uploading…" : "Upload"}
         </button>
@@ -108,7 +150,14 @@ export default function AssetsPage() {
         <tbody>
           {assets.map((asset) => (
             <tr key={asset.id}>
-              <td style={{ padding: "0.4rem" }}>{asset.displayName}</td>
+              <td style={{ padding: "0.4rem" }}>
+                {asset.displayName}
+                {asset.featuresMinor && (
+                  <span title="features a minor" style={{ marginLeft: "0.3rem" }}>
+                    🛡️
+                  </span>
+                )}
+              </td>
               <td style={{ padding: "0.4rem" }}>{asset.kind}</td>
               <td style={{ padding: "0.4rem" }}>
                 <span
