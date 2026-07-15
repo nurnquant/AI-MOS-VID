@@ -47,9 +47,15 @@ importers:
       '@aivs/auth':
         specifier: workspace:*
         version: link:../../packages/auth
+      '@aivs/content':
+        specifier: workspace:*
+        version: link:../../packages/content
       '@aivs/database':
         specifier: workspace:*
         version: link:../../packages/database
+      '@aivs/providers':
+        specifier: workspace:*
+        version: link:../../packages/providers
       '@aivs/queue':
         specifier: workspace:*
         version: link:../../packages/queue

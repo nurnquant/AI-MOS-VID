@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   transpilePackages: [
     "@aivs/assets",
     "@aivs/auth",
+    "@aivs/content",
     "@aivs/database",
     "@aivs/media-core",
     "@aivs/providers",
