@@ -8,6 +8,7 @@ import { Queue, type ConnectionOptions, type DefaultJobOptions, type JobsOptions
 export const QUEUES = {
   assetValidation: "asset-validation",
   mediaProcessing: "media-processing",
+  consentEnforcement: "consent-enforcement",
 } as const;
 
 export type QueueName = (typeof QUEUES)[keyof typeof QUEUES];
@@ -17,6 +18,8 @@ export const JOB_NAMES = {
   inspectMedia: "inspect-media",
   normalizeVideo: "normalize-video",
   generateThumbnail: "generate-thumbnail",
+  enforceConsent: "enforce-consent",
+  retentionSweep: "retention-sweep",
 } as const;
 
 export type JobName = (typeof JOB_NAMES)[keyof typeof JOB_NAMES];
@@ -45,6 +48,17 @@ export interface GenerateThumbnailPayload {
 
 export type MediaProcessingPayload =
   InspectMediaPayload | NormalizeVideoPayload | GenerateThumbnailPayload;
+
+export interface EnforceConsentPayload {
+  consentId: string;
+  tenantId: string;
+  trigger: "revoked" | "expired";
+}
+
+/** Empty payload — the sweep derives its work from the database. */
+export type RetentionSweepPayload = Record<string, never>;
+
+export type ConsentEnforcementPayload = EnforceConsentPayload | RetentionSweepPayload;
 
 /** Retry policy: 3 attempts, exponential backoff from 5s (ADR §5). */
 export const DEFAULT_JOB_OPTIONS: DefaultJobOptions = {

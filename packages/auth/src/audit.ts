@@ -14,7 +14,12 @@ export type AuditEventType =
   | "member.joined"
   | "member.role_changed"
   | "member.removed"
-  | "asset.child_media.url_issued";
+  | "asset.child_media.url_issued"
+  | "consent.created"
+  | "consent.attached"
+  | "consent.revoked"
+  | "consent.expired_swept"
+  | "asset.child_media.deleted";
 
 export interface AuditEventInput {
   type: AuditEventType;

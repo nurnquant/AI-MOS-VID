@@ -8,6 +8,7 @@ import {
   QUEUES,
   createQueue,
   redisConnectionFromEnv,
+  type ConsentEnforcementPayload,
   type MediaProcessingPayload,
   type ValidateAssetPayload,
 } from "@aivs/queue";
@@ -19,6 +20,7 @@ export interface AssetServices {
   storage: MinioStorageProvider;
   validationQueue: Queue<ValidateAssetPayload>;
   mediaQueue: Queue<MediaProcessingPayload>;
+  enforcementQueue: Queue<ConsentEnforcementPayload>;
   scanner: MalwareScanner;
 }
 
@@ -29,6 +31,8 @@ export function createAssetServices(overrides: Partial<AssetServices> = {}): Ass
     storage: overrides.storage ?? new MinioStorageProvider(storageConfigFromEnv()),
     validationQueue: overrides.validationQueue ?? createQueue(QUEUES.assetValidation, connection),
     mediaQueue: overrides.mediaQueue ?? createQueue(QUEUES.mediaProcessing, connection),
+    enforcementQueue:
+      overrides.enforcementQueue ?? createQueue(QUEUES.consentEnforcement, connection),
     scanner: overrides.scanner ?? new AlwaysPassScanner(),
   };
 }
@@ -36,6 +40,7 @@ export function createAssetServices(overrides: Partial<AssetServices> = {}): Ass
 export async function closeAssetServices(services: AssetServices): Promise<void> {
   await services.validationQueue.close();
   await services.mediaQueue.close();
+  await services.enforcementQueue.close();
   services.storage.destroy();
   await services.prisma.$disconnect();
 }

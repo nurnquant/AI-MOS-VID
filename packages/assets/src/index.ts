@@ -36,3 +36,19 @@ export {
 } from "./media-jobs.ts";
 export { withLocalCopy } from "./local-file.ts";
 export { SignedUrlError, issueAssetSignedUrl, type IssueSignedUrlParams } from "./signed-url.ts";
+export {
+  ConsentError,
+  attachConsent,
+  createConsent,
+  getConsentStatus,
+  listConsents,
+  revokeConsent,
+  type ConsentStatus,
+  type CreateConsentParams,
+} from "./consent.ts";
+export {
+  QUARANTINE_RETENTION_MS,
+  enforceConsent,
+  retentionSweep,
+  scheduleRetentionSweep,
+} from "./enforcement.ts";

@@ -134,12 +134,20 @@ model ConsentRecord {
   /// Minimal identifier for the minor — no more PII than necessary.
   subjectLabel String
   guardianName String
-  scope        ConsentScope
-  platforms    String[]
-  expiresAt    DateTime
-  revokedAt    DateTime?
-  createdAt    DateTime     @default(now())
-  assets       Asset[]
+  scope           ConsentScope
+  platforms       String[]
+  /// Optional contact for the guardian (email/phone) — minimal PII.
+  guardianContact String?
+  /// Reference (path/URL) to the signed consent document; no uploads yet.
+  documentRef     String?
+  expiresAt       DateTime
+  revokedAt       DateTime?
+  revokedBy       String?
+  revokeReason    String?
+  /// Set once revocation/expiry deletion enforcement has completed.
+  enforcedAt      DateTime?
+  createdAt       DateTime     @default(now())
+  assets          Asset[]
 
   @@index([tenantId])
 }

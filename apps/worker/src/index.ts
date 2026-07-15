@@ -10,10 +10,13 @@ import {
   closeAssetServices,
   createAssetServices,
   markJobFinished,
+  enforceConsent,
   markJobRunning,
   processGenerateThumbnail,
   processInspectMedia,
   processNormalizeVideo,
+  retentionSweep,
+  scheduleRetentionSweep,
   transitionAsset,
   validateAsset,
   type AssetServices,
@@ -23,6 +26,8 @@ import {
   JOB_NAMES,
   QUEUES,
   redisConnectionFromEnv,
+  type ConsentEnforcementPayload,
+  type EnforceConsentPayload,
   type MediaProcessingPayload,
   type NormalizeVideoPayload,
   type ValidateAssetPayload,
@@ -71,9 +76,47 @@ const mediaWorker = new Worker<MediaProcessingPayload>(
   { connection },
 );
 
+const enforcementWorker = new Worker<ConsentEnforcementPayload>(
+  QUEUES.consentEnforcement,
+  async (job) => {
+    switch (job.name) {
+      case JOB_NAMES.enforceConsent:
+        return enforceConsent(services, job.data as EnforceConsentPayload);
+      case JOB_NAMES.retentionSweep:
+        return retentionSweep(services);
+      default:
+        throw new Error(`Unknown enforcement job ${job.name}`);
+    }
+  },
+  { connection },
+);
+
 function isFinalAttempt(job: Job): boolean {
   return job.attemptsMade >= (job.opts.attempts ?? 1);
 }
+
+// Hourly retention sweep (expired consents + 30-day quarantine retention).
+if (!process.argv.includes("--smoke")) {
+  void scheduleRetentionSweep(services).catch((err) =>
+    logger.error({ err: (err as Error).message }, "failed to schedule retention sweep"),
+  );
+}
+
+enforcementWorker.on("completed", (job, result) => {
+  logger.info(
+    { queue: enforcementWorker.name, jobId: job.id, name: job.name, result },
+    "job completed",
+  );
+});
+enforcementWorker.on("failed", (job, err) => {
+  logger.error(
+    { queue: enforcementWorker.name, jobId: job?.id, name: job?.name, err: err.message },
+    "job failed",
+  );
+});
+enforcementWorker.on("ready", () =>
+  logger.info({ queue: enforcementWorker.name }, "worker connected and ready"),
+);
 
 for (const worker of [validationWorker, mediaWorker]) {
   worker.on("completed", (job, result) => {
@@ -118,6 +161,7 @@ async function shutdown(signal: string, exitCode = 0) {
   logger.info({ signal }, "shutting down gracefully");
   await validationWorker.close();
   await mediaWorker.close();
+  await enforcementWorker.close();
   await smokeWorker?.close();
   await closeAssetServices(services);
   process.exit(exitCode);
