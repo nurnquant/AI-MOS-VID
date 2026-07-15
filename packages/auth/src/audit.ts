@@ -19,7 +19,12 @@ export type AuditEventType =
   | "consent.attached"
   | "consent.revoked"
   | "consent.expired_swept"
-  | "asset.child_media.deleted";
+  | "asset.child_media.deleted"
+  | "script.created"
+  | "script.generated"
+  | "script.submitted"
+  | "script.approved"
+  | "script.rejected";
 
 export interface AuditEventInput {
   type: AuditEventType;

@@ -12,3 +12,9 @@ export type {
   PublishingProvider,
 } from "./contracts.ts";
 export { MockVideoGenerationProvider } from "./mock/mock-video-generation-provider.ts";
+export {
+  MockScriptProvider,
+  type GeneratedScene,
+  type ScriptGenerationRequest,
+  type ScriptProvider,
+} from "./script.ts";

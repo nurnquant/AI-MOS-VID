@@ -1,0 +1,16 @@
+export {
+  ContentError,
+  addScene,
+  createScript,
+  deleteScene,
+  getScript,
+  listScripts,
+  regenerateScenes,
+  serializeScene,
+  setSceneReference,
+  transitionScript,
+  updateScene,
+  updateScriptMeta,
+  type CreateScriptParams,
+  type ScriptContext,
+} from "./scripts.ts";
