@@ -34,17 +34,65 @@ interface AssetOption {
   status: string;
 }
 
+interface GenerationRow {
+  id: string;
+  targetPreset: string;
+  status: string;
+  error: string | null;
+  finalAssetId: string | null;
+  scenes: { position: number; status: string }[];
+}
+
 const STATUS_COLORS: Record<string, string> = {
   draft: "#888",
   in_review: "#1e90ff",
   approved: "#2e8b57",
+  queued: "#888",
+  running: "#1e90ff",
+  succeeded: "#2e8b57",
+  partial: "#b8860b",
+  failed: "#b22222",
 };
+
+const PRESETS = [
+  "youtube-1080p",
+  "youtube-shorts",
+  "instagram-reels",
+  "instagram-feed",
+  "facebook-feed",
+  "tiktok",
+  "whatsapp-status",
+];
 
 export default function ScriptEditorPage() {
   const { id } = useParams<{ id: string }>();
   const [script, setScript] = useState<ScriptDetail | null>(null);
   const [assets, setAssets] = useState<AssetOption[]>([]);
+  const [generations, setGenerations] = useState<GenerationRow[]>([]);
+  const [preset, setPreset] = useState(PRESETS[0]!);
   const [error, setError] = useState<string | null>(null);
+
+  const refreshGenerations = useCallback(async () => {
+    const response = await fetch(`/api/scripts/${id}/generations`);
+    if (!response.ok) return;
+    setGenerations(((await response.json()) as { generations: GenerationRow[] }).generations);
+  }, [id]);
+
+  useEffect(() => {
+    void refreshGenerations();
+    const timer = setInterval(() => void refreshGenerations(), 2500);
+    return () => clearInterval(timer);
+  }, [refreshGenerations]);
+
+  async function openFinalVideo(assetId: string) {
+    const response = await fetch(`/api/assets/${assetId}/signed-url`);
+    if (!response.ok) {
+      setError(`signed URL failed: ${response.status}`);
+      return;
+    }
+    const { url } = (await response.json()) as { url: string };
+    window.open(url, "_blank");
+  }
 
   const refresh = useCallback(async () => {
     const response = await fetch(`/api/scripts/${id}`);
@@ -257,6 +305,90 @@ export default function ScriptEditorPage() {
           )}
         </tbody>
       </table>
+
+      {script.status === "approved" && (
+        <section style={{ marginTop: "1.5rem" }}>
+          <h2>Generations</h2>
+          <p style={{ display: "flex", gap: "0.5rem" }}>
+            <select value={preset} onChange={(e) => setPreset(e.target.value)}>
+              {PRESETS.map((p) => (
+                <option key={p} value={p}>
+                  {p}
+                </option>
+              ))}
+            </select>
+            <button
+              onClick={() =>
+                void call(`/api/scripts/${id}/generations`, {
+                  method: "POST",
+                  headers: { "content-type": "application/json" },
+                  body: JSON.stringify({ targetPreset: preset }),
+                }).then(() => refreshGenerations())
+              }
+            >
+              Start generation
+            </button>
+          </p>
+          <table style={{ borderCollapse: "collapse", width: "100%" }}>
+            <thead>
+              <tr>
+                {["Preset", "Status", "Scenes", "Final video"].map((h) => (
+                  <th
+                    key={h}
+                    style={{ textAlign: "left", borderBottom: "1px solid #ccc", padding: "0.4rem" }}
+                  >
+                    {h}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {generations.map((g) => (
+                <tr key={g.id}>
+                  <td style={{ padding: "0.4rem" }}>{g.targetPreset}</td>
+                  <td style={{ padding: "0.4rem" }}>
+                    <span
+                      style={{
+                        background: STATUS_COLORS[g.status] ?? "#888",
+                        color: "white",
+                        borderRadius: "4px",
+                        padding: "0.1rem 0.5rem",
+                        fontSize: "0.85rem",
+                      }}
+                    >
+                      {g.status}
+                    </span>
+                    {g.error && (
+                      <span style={{ marginLeft: "0.5rem", color: "#b22222", fontSize: "0.85rem" }}>
+                        {g.error}
+                      </span>
+                    )}
+                  </td>
+                  <td style={{ padding: "0.4rem" }}>
+                    {g.scenes.filter((s) => s.status === "succeeded").length}/{g.scenes.length}
+                  </td>
+                  <td style={{ padding: "0.4rem" }}>
+                    {g.finalAssetId ? (
+                      <button onClick={() => void openFinalVideo(g.finalAssetId!)}>
+                        open video
+                      </button>
+                    ) : (
+                      "—"
+                    )}
+                  </td>
+                </tr>
+              ))}
+              {generations.length === 0 && (
+                <tr>
+                  <td colSpan={4} style={{ padding: "0.6rem", color: "#888" }}>
+                    No generations yet.
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </section>
+      )}
     </div>
   );
 }

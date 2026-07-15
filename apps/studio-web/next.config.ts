@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
     "@aivs/auth",
     "@aivs/content",
     "@aivs/database",
+    "@aivs/generation",
     "@aivs/media-core",
     "@aivs/providers",
     "@aivs/queue",

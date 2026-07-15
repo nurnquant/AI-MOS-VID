@@ -16,6 +16,7 @@
     "@aivs/auth": "workspace:*",
     "@aivs/content": "workspace:*",
     "@aivs/database": "workspace:*",
+    "@aivs/generation": "workspace:*",
     "@aivs/providers": "workspace:*",
     "@aivs/queue": "workspace:*",
     "@aivs/storage": "workspace:*",
