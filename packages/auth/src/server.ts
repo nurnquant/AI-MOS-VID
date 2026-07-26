@@ -30,7 +30,8 @@ export function createAuth(options: CreateAuthOptions = {}) {
       updateAge: 24 * 60 * 60,
     },
     rateLimit: {
-      enabled: true,
+      // Production-only: e2e suites sign in many times per minute locally.
+      enabled: process.env.NODE_ENV === "production",
       window: 60,
       max: 60,
       customRules: {

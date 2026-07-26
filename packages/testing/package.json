@@ -17,6 +17,7 @@
     "@aivs/generation": "workspace:*",
     "@aivs/media-core": "workspace:*",
     "@aivs/providers": "workspace:*",
+    "@aivs/publishing": "workspace:*",
     "@aivs/queue": "workspace:*",
     "@aivs/storage": "workspace:*",
     "@aws-sdk/client-s3": "^3.1085.0",
