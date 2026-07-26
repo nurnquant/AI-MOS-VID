@@ -57,8 +57,9 @@ Test totals: **63 unit**, **44 integration** (9 new publishing), **10 e2e**
   real OAuth flows arrive with individually-approved provider modules.
 - Reject requires reviewer+; a plain editor cannot veto (matches "review
   is a governance act"). Revisit if a lighter withdraw-own-draft is wanted.
-- Production deploy rides the standard merge (Vercel) + Railway rebuild;
-  verify `/publications` after deploy.
+- **Verified in production post-deploy (2026-07-26):** create → submit →
+  final approve via the live API; Railway worker mock-published with
+  external id `mock-youtube-cc7e325c`.
 
 ## 5. Risks / follow-ups
 
