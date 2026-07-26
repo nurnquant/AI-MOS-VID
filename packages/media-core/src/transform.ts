@@ -38,8 +38,13 @@ export async function normalizeVideo(
       String(targetFps),
       "-c:v",
       "libx264",
+      // veryfast + capped threads keep peak memory small enough for
+      // constrained worker containers (Railway); quality is irrelevant
+      // for mock media and fine for real presets.
       "-preset",
-      "medium",
+      "veryfast",
+      "-threads",
+      "2",
       "-pix_fmt",
       "yuv420p",
       "-c:a",
