@@ -10,6 +10,7 @@ export const QUEUES = {
   mediaProcessing: "media-processing",
   consentEnforcement: "consent-enforcement",
   generation: "generation",
+  publishing: "publishing",
 } as const;
 
 export type QueueName = (typeof QUEUES)[keyof typeof QUEUES];
@@ -23,6 +24,7 @@ export const JOB_NAMES = {
   retentionSweep: "retention-sweep",
   generateScene: "generate-scene",
   assembleVideo: "assemble-video",
+  publishPublication: "publish-publication",
 } as const;
 
 export type JobName = (typeof JOB_NAMES)[keyof typeof JOB_NAMES];
@@ -74,6 +76,11 @@ export interface AssembleVideoPayload {
 }
 
 export type GenerationQueuePayload = GenerateScenePayload | AssembleVideoPayload;
+
+export interface PublishPublicationPayload {
+  publicationId: string;
+  tenantId: string;
+}
 
 /** Retry policy: 3 attempts, exponential backoff from 5s (ADR §5). */
 export const DEFAULT_JOB_OPTIONS: DefaultJobOptions = {

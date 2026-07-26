@@ -5,7 +5,7 @@
  * leaking orphaned child media. Tombstones carry no child PII.
  */
 import { writeAuditStrict } from "@aivs/auth";
-import { AssetStatus } from "@aivs/database";
+import { AssetStatus, PublicationStatus } from "@aivs/database";
 import { JOB_NAMES, type EnforceConsentPayload } from "@aivs/queue";
 import type { AssetServices } from "./context.ts";
 import { REJECTION_REASONS } from "./validation.ts";
@@ -38,6 +38,29 @@ export async function enforceConsent(
     for (const version of asset.versions) keys.add(version.storageKey);
     for (const key of keys) {
       await storage.deleteObject(key);
+    }
+    // Baseline §10: retract any publication of the deleted child media
+    // BEFORE the asset row disappears (real-platform takedown is a
+    // real-provider-module concern; mock marks only).
+    const retracted = await prisma.publication.updateMany({
+      where: {
+        assetId: asset.id,
+        status: {
+          in: [
+            PublicationStatus.in_review,
+            PublicationStatus.approved,
+            PublicationStatus.published,
+          ],
+        },
+      },
+      data: { status: PublicationStatus.retracted },
+    });
+    if (retracted.count > 0) {
+      await writeAuditStrict(prisma, {
+        type: "publication.retracted",
+        tenantId: payload.tenantId,
+        detail: { assetId: asset.id, count: retracted.count, trigger: payload.trigger },
+      });
     }
     // Job rows keep their history but must not point at the deleted asset.
     await prisma.job.updateMany({ where: { assetId: asset.id }, data: { assetId: null } });

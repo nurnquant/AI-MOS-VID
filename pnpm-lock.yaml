@@ -111,6 +111,9 @@ importers:
       '@aivs/media-core':
         specifier: workspace:*
         version: link:../../packages/media-core
+      '@aivs/publishing':
+        specifier: workspace:*
+        version: link:../../packages/publishing
       '@aivs/queue':
         specifier: workspace:*
         version: link:../../packages/queue
@@ -246,6 +249,28 @@ importers:
       '@aivs/types':
         specifier: workspace:*
         version: link:../types
+    devDependencies:
+      vitest:
+        specifier: ^4.1.10
+        version: 4.1.10(@types/node@26.1.1)(vite@8.1.4(@types/node@26.1.1)(jiti@2.7.0)(yaml@2.9.0))
+
+  packages/publishing:
+    dependencies:
+      '@aivs/assets':
+        specifier: workspace:*
+        version: link:../assets
+      '@aivs/auth':
+        specifier: workspace:*
+        version: link:../auth
+      '@aivs/database':
+        specifier: workspace:*
+        version: link:../database
+      '@aivs/providers':
+        specifier: workspace:*
+        version: link:../providers
+      '@aivs/queue':
+        specifier: workspace:*
+        version: link:../queue
     devDependencies:
       vitest:
         specifier: ^4.1.10

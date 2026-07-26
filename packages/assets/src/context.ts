@@ -11,6 +11,7 @@ import {
   type ConsentEnforcementPayload,
   type GenerationQueuePayload,
   type MediaProcessingPayload,
+  type PublishPublicationPayload,
   type ValidateAssetPayload,
 } from "@aivs/queue";
 import type { Queue } from "bullmq";
@@ -23,6 +24,7 @@ export interface AssetServices {
   mediaQueue: Queue<MediaProcessingPayload>;
   enforcementQueue: Queue<ConsentEnforcementPayload>;
   generationQueue: Queue<GenerationQueuePayload>;
+  publishingQueue: Queue<PublishPublicationPayload>;
   scanner: MalwareScanner;
 }
 
@@ -36,6 +38,7 @@ export function createAssetServices(overrides: Partial<AssetServices> = {}): Ass
     enforcementQueue:
       overrides.enforcementQueue ?? createQueue(QUEUES.consentEnforcement, connection),
     generationQueue: overrides.generationQueue ?? createQueue(QUEUES.generation, connection),
+    publishingQueue: overrides.publishingQueue ?? createQueue(QUEUES.publishing, connection),
     scanner: overrides.scanner ?? new AlwaysPassScanner(),
   };
 }
@@ -45,6 +48,7 @@ export async function closeAssetServices(services: AssetServices): Promise<void>
   await services.mediaQueue.close();
   await services.enforcementQueue.close();
   await services.generationQueue.close();
+  await services.publishingQueue.close();
   services.storage.destroy();
   await services.prisma.$disconnect();
 }

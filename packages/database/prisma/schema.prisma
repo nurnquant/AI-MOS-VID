@@ -64,6 +64,7 @@ model Tenant {
   auditEvents    AuditEvent[]
   scripts        Script[]
   generations    Generation[]
+  publications   Publication[]
 }
 
 model Project {
@@ -110,6 +111,7 @@ model Asset {
   sceneReferences     Scene[]
   finalGenerations    Generation[]
   sceneGenerations    SceneGeneration[]
+  publications        Publication[]
 
   @@index([tenantId, projectId])
   @@index([tenantId, status])
@@ -416,4 +418,63 @@ model SceneGeneration {
   updatedAt    DateTime              @updatedAt
 
   @@index([generationId, position])
+}
+
+
+// ---------- AIVS-PUB-008: publishing workflow ----------
+
+enum PublishPlatform {
+  facebook
+  instagram
+  tiktok
+  youtube
+  whatsapp
+}
+
+enum PublicationStatus {
+  draft
+  in_review
+  approved
+  published
+  failed
+  retracted
+}
+
+enum ApprovalKind {
+  content_review
+  guardian_scope
+  final_approval
+}
+
+model Publication {
+  id         String                @id @default(uuid())
+  tenantId   String
+  tenant     Tenant                @relation(fields: [tenantId], references: [id])
+  assetId    String?
+  asset      Asset?                @relation(fields: [assetId], references: [id], onDelete: SetNull)
+  platform   PublishPlatform
+  caption    String
+  status     PublicationStatus     @default(draft)
+  /// Provider-side id once published (mock for now).
+  externalId String?
+  error      String?
+  createdBy  String
+  createdAt  DateTime              @default(now())
+  updatedAt  DateTime              @updatedAt
+  approvals  PublicationApproval[]
+
+  @@index([tenantId, status])
+  @@index([assetId])
+}
+
+model PublicationApproval {
+  id            String       @id @default(uuid())
+  publicationId String
+  publication   Publication  @relation(fields: [publicationId], references: [id], onDelete: Cascade)
+  kind          ApprovalKind
+  approvedBy    String
+  notes         String?
+  createdAt     DateTime     @default(now())
+
+  @@unique([publicationId, kind])
 }

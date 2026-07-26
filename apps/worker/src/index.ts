@@ -33,6 +33,7 @@ import {
   type GenerationQueuePayload,
   type MediaProcessingPayload,
   type NormalizeVideoPayload,
+  type PublishPublicationPayload,
   type ValidateAssetPayload,
 } from "@aivs/queue";
 import {
@@ -42,6 +43,7 @@ import {
   processAssembleVideo,
   processGenerateScene,
 } from "@aivs/generation";
+import { markPublishFailed, processPublishPublication } from "@aivs/publishing";
 import type { TestJobPayload, TestJobResult } from "@aivs/types";
 
 const logger = pino({ level: process.env.LOG_LEVEL ?? "info", name: "aivs-worker" });
@@ -124,9 +126,37 @@ const generationWorker = new Worker<GenerationQueuePayload>(
   { connection },
 );
 
+const publishingWorker = new Worker<PublishPublicationPayload>(
+  QUEUES.publishing,
+  async (job) => processPublishPublication(services, job.data),
+  { connection },
+);
+
 function isFinalAttempt(job: Job): boolean {
   return job.attemptsMade >= (job.opts.attempts ?? 1);
 }
+
+publishingWorker.on("completed", (job) => {
+  logger.info({ queue: publishingWorker.name, jobId: job.id }, "job completed");
+});
+publishingWorker.on("failed", (job, err) => {
+  if (!job) return;
+  const dead = isFinalAttempt(job);
+  logger.error(
+    { queue: publishingWorker.name, jobId: job.id, dead, err: err.message },
+    "job failed",
+  );
+  if (dead) {
+    void markPublishFailed(
+      services,
+      (job.data as PublishPublicationPayload).publicationId,
+      err.message,
+    ).catch((e) => logger.error({ err: (e as Error).message }, "publish bookkeeping error"));
+  }
+});
+publishingWorker.on("ready", () =>
+  logger.info({ queue: publishingWorker.name }, "worker connected and ready"),
+);
 
 generationWorker.on("completed", (job) => {
   logger.info({ queue: generationWorker.name, jobId: job.id, name: job.name }, "job completed");
@@ -226,6 +256,7 @@ async function shutdown(signal: string, exitCode = 0) {
   await mediaWorker.close();
   await enforcementWorker.close();
   await generationWorker.close();
+  await publishingWorker.close();
   await smokeWorker?.close();
   await closeAssetServices(services);
   process.exit(exitCode);

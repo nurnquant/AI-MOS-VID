@@ -19,3 +19,4 @@ export {
   type ScriptProvider,
 } from "./script.ts";
 export { LocalSynthVideoProvider, LocalSynthVoiceProvider } from "./local-synth.ts";
+export { MockPublishingProvider } from "./mock-publishing.ts";
