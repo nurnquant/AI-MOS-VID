@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
     "@aivs/generation",
     "@aivs/media-core",
     "@aivs/providers",
+    "@aivs/publishing",
     "@aivs/queue",
     "@aivs/storage",
     "@aivs/types",

@@ -18,6 +18,7 @@
     "@aivs/database": "workspace:*",
     "@aivs/generation": "workspace:*",
     "@aivs/providers": "workspace:*",
+    "@aivs/publishing": "workspace:*",
     "@aivs/queue": "workspace:*",
     "@aivs/storage": "workspace:*",
     "better-auth": "^1.6.23",
