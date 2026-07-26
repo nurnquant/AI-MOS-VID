@@ -3,8 +3,6 @@
 /** Script list: status badges, create form with optional mock generation. */
 import { useCallback, useEffect, useState } from "react";
 
-const DEV_PROJECT_ID = "00000000-0000-4000-8000-000000000002";
-
 interface ScriptRow {
   id: string;
   title: string;
@@ -22,6 +20,7 @@ const STATUS_COLORS: Record<string, string> = {
 
 export default function ScriptsPage() {
   const [scripts, setScripts] = useState<ScriptRow[]>([]);
+  const [projectId, setProjectId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [title, setTitle] = useState("");
   const [brief, setBrief] = useState("");
@@ -45,16 +44,22 @@ export default function ScriptsPage() {
 
   useEffect(() => {
     void refresh();
+    void fetch("/api/projects").then(async (r) => {
+      if (!r.ok) return;
+      const data = (await r.json()) as { projects: { id: string }[] };
+      setProjectId(data.projects[0]?.id ?? null);
+    });
   }, [refresh]);
 
   async function create(event: React.FormEvent) {
     event.preventDefault();
+    if (!projectId) return;
     setBusy(true);
     setError(null);
     const response = await fetch("/api/scripts", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ projectId: DEV_PROJECT_ID, title, brief, language, generate }),
+      body: JSON.stringify({ projectId, title, brief, language, generate }),
     });
     setBusy(false);
     if (!response.ok) {
@@ -99,7 +104,7 @@ export default function ScriptsPage() {
           />{" "}
           generate scenes from brief
         </label>
-        <button type="submit" disabled={busy}>
+        <button type="submit" disabled={busy || !projectId}>
           {busy ? "Creating…" : "Create script"}
         </button>
       </form>

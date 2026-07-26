@@ -7,7 +7,6 @@
  */
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const DEV_PROJECT_ID = "00000000-0000-4000-8000-000000000002";
 const POLL_MS = 2000;
 
 interface AssetRow {
@@ -40,12 +39,18 @@ export default function AssetsPage() {
   const [assets, setAssets] = useState<AssetRow[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false);
+  const [projectId, setProjectId] = useState<string | null>(null);
   const [featuresMinor, setFeaturesMinor] = useState(false);
   const [consentId, setConsentId] = useState("");
   const [consents, setConsents] = useState<ConsentOption[] | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    void fetch("/api/projects").then(async (r) => {
+      if (!r.ok) return;
+      const data = (await r.json()) as { projects: { id: string }[] };
+      setProjectId(data.projects[0]?.id ?? null);
+    });
     // Consent list is reviewer+ only; 403 just hides the selector.
     void fetch("/api/consents").then(async (r) => {
       if (!r.ok) return;
@@ -79,12 +84,12 @@ export default function AssetsPage() {
   async function onUpload(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const file = fileRef.current?.files?.[0];
-    if (!file) return;
+    if (!file || !projectId) return;
     setUploading(true);
     try {
       const form = new FormData();
       // Field order matters: metadata before the file part.
-      form.append("projectId", DEV_PROJECT_ID);
+      form.append("projectId", projectId);
       form.append("featuresMinor", String(featuresMinor));
       if (featuresMinor && consentId) form.append("consentRecordId", consentId);
       form.append("file", file);
@@ -129,7 +134,7 @@ export default function AssetsPage() {
             ))}
           </select>
         )}
-        <button type="submit" disabled={uploading} style={{ marginLeft: "0.5rem" }}>
+        <button type="submit" disabled={uploading || !projectId} style={{ marginLeft: "0.5rem" }}>
           {uploading ? "Uploading…" : "Upload"}
         </button>
       </form>

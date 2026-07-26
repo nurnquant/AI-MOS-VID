@@ -36,6 +36,11 @@ export async function createTenant(
     await tx.membership.create({
       data: { userId: params.userId, tenantId: created.id, role: MembershipRole.owner },
     });
+    // Every workspace starts with a default project — uploads and scripts
+    // need one, and production has no seed.
+    await tx.project.create({
+      data: { tenantId: created.id, slug: "general", name: "General" },
+    });
     return created;
   });
   await writeAudit(prisma, {
