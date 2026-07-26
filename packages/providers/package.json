@@ -14,6 +14,8 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@aivs/auth": "workspace:*",
+    "@aivs/database": "workspace:*",
     "@aivs/media-core": "workspace:*",
     "@aivs/types": "workspace:*"
   },

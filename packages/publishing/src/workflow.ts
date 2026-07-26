@@ -14,7 +14,7 @@ import {
   type PrismaClient,
   type PublishPlatform,
 } from "@aivs/database";
-import { MockPublishingProvider, type PublishingProvider } from "@aivs/providers";
+import { resolvePublishingProvider, type PublishingProvider } from "@aivs/providers";
 import { JOB_NAMES, type PublishPublicationPayload } from "@aivs/queue";
 
 export class PublishingError extends Error {
@@ -27,7 +27,8 @@ export class PublishingError extends Error {
   }
 }
 
-const defaultProvider = new MockPublishingProvider();
+/** Env-selected (PUBLISH_PROVIDER, ADR-AIVS-009); mock default. */
+const defaultProvider = resolvePublishingProvider();
 
 export interface PublishContext {
   tenantId: string;

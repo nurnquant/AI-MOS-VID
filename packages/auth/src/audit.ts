@@ -34,7 +34,9 @@ export type AuditEventType =
   | "publication.rejected"
   | "publication.published"
   | "publication.failed"
-  | "publication.retracted";
+  | "publication.retracted"
+  | "provider.call"
+  | "provider.budget_exceeded";
 
 export interface AuditEventInput {
   type: AuditEventType;

@@ -20,3 +20,16 @@ export {
 } from "./script.ts";
 export { LocalSynthVideoProvider, LocalSynthVoiceProvider } from "./local-synth.ts";
 export { MockPublishingProvider } from "./mock-publishing.ts";
+export {
+  resolvePublishingProvider,
+  resolveScriptProvider,
+  resolveVideoProvider,
+  resolveVoiceProvider,
+} from "./factory.ts";
+export {
+  ProviderBudgetError,
+  assertProviderBudget,
+  budgetFromEnv,
+  recordProviderUsage,
+  type ProviderUsageEntry,
+} from "./budget.ts";

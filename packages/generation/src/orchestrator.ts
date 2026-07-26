@@ -16,7 +16,7 @@ import { ingestUpload, validateAsset, type AssetServices } from "@aivs/assets";
 import { writeAudit } from "@aivs/auth";
 import { AssetStatus, GenerationStatus, SceneGenerationStatus, ScriptStatus } from "@aivs/database";
 import { concatClips, getPreset, normalizeVideo } from "@aivs/media-core";
-import { LocalSynthVideoProvider, type VideoGenerationProvider } from "@aivs/providers";
+import { resolveVideoProvider, type VideoGenerationProvider } from "@aivs/providers";
 import { JOB_NAMES, type AssembleVideoPayload, type GenerateScenePayload } from "@aivs/queue";
 
 export class GenerationError extends Error {
@@ -29,8 +29,8 @@ export class GenerationError extends Error {
   }
 }
 
-/** Local synthesis today; a real provider binds here later (user-approved). */
-const defaultProvider = new LocalSynthVideoProvider();
+/** Env-selected (VIDEO_PROVIDER, ADR-AIVS-009); mock/local-synth default. */
+const defaultProvider = resolveVideoProvider();
 
 const DEFAULT_SCENE_SECONDS = 8;
 
