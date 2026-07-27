@@ -64,10 +64,16 @@ unlocks library voices like the user's original Arabic pick.
 
 ## 5. Production flip (user actions, when ready)
 
-Add to **Railway worker** Variables (voice runs in the worker, not
-Vercel): `ELEVENLABS_API_KEY`, `VOICE_ID`, `VOICE_PROVIDER=elevenlabs`,
-`PROVIDER_DAILY_BUDGET_USD`, `PROVIDER_MONTHLY_BUDGET_USD` — then
-restart the worker service. Rollback: `VOICE_PROVIDER=mock`.
+**DONE 2026-07-27.** User added `ELEVENLABS_API_KEY`, `VOICE_ID`,
+`VOICE_PROVIDER=elevenlabs`, budget caps to Railway worker Variables;
+Railway tracking branch force-updated to main (`df70867`) so the worker
+image contains the voice pipeline. Production end-to-end smoke: Phase A
+script (4 real Claude scenes) approved → generation `cfb9a221` on the
+Railway worker → 4 scenes succeeded → assembled `youtube-1080p` final
+video (66 s, asset `f68af81b`, served via signed URL). Neon ledger: 4 ×
+`elevenlabs voice.synthesize` rows (182/225/246/224 characters,
+$0.2631 voice; $0.2942 including the earlier script call).
+Rollback remains: `VOICE_PROVIDER=mock` on the worker + restart.
 
 ## 6. Next
 
