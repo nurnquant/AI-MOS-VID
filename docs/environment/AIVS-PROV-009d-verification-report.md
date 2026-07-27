@@ -1,6 +1,6 @@
 # AIVS-PROV-009 Phase D Verification Report
 
-**Result:** **PASS (code complete; live smoke pending user OAuth credentials)**
+**Result:** **PASS (live-smoked 2026-07-27: real upload + real takedown)**
 **Date:** 2026-07-27
 **Branch:** `feature/aivs-prov-009d-youtube`
 **Spec:** `AI_Video_Studio_Prov_009d_Phase_Spec.md` (user-approved: YouTube now; Meta/Instagram/Pinterest/TikTok placeholders)
@@ -54,7 +54,29 @@ calls, $0` (quota-based API) with the video id as jobId.
    Vercel? No — publish runs in the worker only).
 4. Quota note: ~6 uploads/day at the default 10k daily quota.
 
-## 4. Next
+## 4. Live smoke — DONE 2026-07-27
+
+User created the Google Cloud OAuth client (Desktop), enabled YouTube
+Data API v3, ran `scripts/youtube-oauth.mjs`, and placed all three
+credentials in local `.env` (never in chat/repo). Findings:
+
+- First attempt failed `youtubeSignupRequired` (401) — the consenting
+  Google identity had no channel/wrong identity; re-consent choosing
+  the channel identity fixed it. Recorded as an enablement gotcha.
+- **Upload:** narrated Kling scene (4.8 MB) uploaded in 1.8 s → video
+  `MsB__Q4KFJg`, user-verified on the channel: plays, **Made for
+  kids** label set, visibility **Unlisted**. Ledger row
+  `youtube publish.upload 1 calls $0` with the video id.
+- **Takedown:** `retract("MsB__Q4KFJg")` deleted the video from the
+  channel; an immediate second retract passed (404 tolerated) —
+  consent-revocation takedown proven end-to-end, idempotent.
+
+Production flip (user actions, when wanted): Railway worker Variables —
+`YOUTUBE_CLIENT_ID`, `YOUTUBE_CLIENT_SECRET`, `YOUTUBE_REFRESH_TOKEN`,
+`PUBLISH_PROVIDER=youtube` (+ optional `YOUTUBE_PRIVACY_STATUS`) —
+restart worker. Rollback: `PUBLISH_PROVIDER=mock`.
+
+## 5. Next
 
 Live smoke on credentials. Afterwards the paid-provider track is
 complete end-to-end (script/voice/video/publishing all real-capable);
