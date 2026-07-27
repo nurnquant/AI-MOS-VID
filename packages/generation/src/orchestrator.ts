@@ -240,6 +240,89 @@ export async function processGenerateScene(
   }
 }
 
+/**
+ * Partial resume (AIVS-RESUME-014): re-enqueues ONLY the scenes that
+ * did not succeed; finished clips are reused as-is (the idempotency
+ * skip in processGenerateScene guarantees no re-render). If every
+ * scene already succeeded — assembly was the failure — re-enqueues
+ * assembly directly. Fresh job ids per attempt so BullMQ's
+ * deterministic-id dedup never swallows a resume.
+ */
+export async function resumeGeneration(
+  services: AssetServices,
+  ctx: { tenantId: string; userId: string },
+  generationId: string,
+): Promise<{ resumedScenes: number; assemblyEnqueued: boolean }> {
+  const { prisma, generationQueue } = services;
+  const generation = await prisma.generation.findFirst({
+    where: { id: generationId, tenantId: ctx.tenantId },
+    include: { sceneGenerations: { orderBy: { position: "asc" } } },
+  });
+  if (!generation) throw new GenerationError("generation not found", 404);
+  if (
+    generation.status !== GenerationStatus.partial &&
+    generation.status !== GenerationStatus.failed
+  ) {
+    throw new GenerationError(
+      `only partial or failed generations can be resumed, got ${generation.status}`,
+      409,
+    );
+  }
+
+  const pending = generation.sceneGenerations.filter(
+    (scene) => scene.status !== SceneGenerationStatus.succeeded,
+  );
+  await prisma.generation.update({
+    where: { id: generation.id },
+    data: { status: GenerationStatus.running, error: null },
+  });
+
+  let assemblyEnqueued = false;
+  if (pending.length === 0) {
+    // Scenes are all done — the failure was assembly. Re-enqueue it.
+    const attempt = Math.max(...generation.sceneGenerations.map((s) => s.attempts)) + 1;
+    await generationQueue.add(
+      JOB_NAMES.assembleVideo,
+      { generationId: generation.id, tenantId: ctx.tenantId },
+      { jobId: `${JOB_NAMES.assembleVideo}__${generation.id}__r${attempt}` },
+    );
+    // Bump one attempt counter so the next assembly resume gets a fresh id.
+    await prisma.sceneGeneration.update({
+      where: { id: generation.sceneGenerations[0]!.id },
+      data: { attempts: { increment: 1 } },
+    });
+    assemblyEnqueued = true;
+  } else {
+    for (const scene of pending) {
+      const updated = await prisma.sceneGeneration.update({
+        where: { id: scene.id },
+        data: {
+          status: SceneGenerationStatus.queued,
+          error: null,
+          attempts: { increment: 1 },
+        },
+      });
+      await generationQueue.add(
+        JOB_NAMES.generateScene,
+        { sceneGenerationId: scene.id, tenantId: ctx.tenantId },
+        { jobId: `${JOB_NAMES.generateScene}__${scene.id}__r${updated.attempts}` },
+      );
+    }
+  }
+
+  await writeAudit(prisma, {
+    type: "generation.resumed",
+    tenantId: ctx.tenantId,
+    userId: ctx.userId,
+    detail: {
+      generationId: generation.id,
+      resumedScenes: pending.length,
+      assemblyEnqueued,
+    },
+  });
+  return { resumedScenes: pending.length, assemblyEnqueued };
+}
+
 /** Worker calls this on a generate-scene job's final failed attempt. */
 export async function markSceneFailed(
   services: AssetServices,

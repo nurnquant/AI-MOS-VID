@@ -362,6 +362,20 @@ export default function ScriptEditorPage() {
                     {g.scenes.filter((s) => s.status === "succeeded").length}/{g.scenes.length}
                   </td>
                   <td>
+                    {(g.status === "partial" || g.status === "failed") && (
+                      <button
+                        className="btn btn-sm"
+                        onClick={() =>
+                          void call(`/api/scripts/${id}/generations/${g.id}/resume`, {
+                            method: "POST",
+                            headers: { "content-type": "application/json" },
+                            body: "{}",
+                          }).then(() => refreshGenerations())
+                        }
+                      >
+                        resume ({g.scenes.filter((s) => s.status !== "succeeded").length} scenes)
+                      </button>
+                    )}{" "}
                     {g.finalAssetId ? (
                       <button
                         className="btn btn-sm"

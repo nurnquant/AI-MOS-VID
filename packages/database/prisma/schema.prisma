@@ -416,6 +416,8 @@ model SceneGeneration {
   /// Copied from the scene at start for stable assembly ordering.
   position     Int
   status       SceneGenerationStatus @default(queued)
+  /// Incremented per resume so re-enqueued jobs get fresh BullMQ ids.
+  attempts     Int                   @default(0)
   assetId      String?
   asset        Asset?                @relation(fields: [assetId], references: [id], onDelete: SetNull)
   error        String?

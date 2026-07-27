@@ -34,6 +34,7 @@ export type AuditEventType =
   | "generation.started"
   | "generation.completed"
   | "generation.failed"
+  | "generation.resumed"
   | "publication.created"
   | "publication.submitted"
   | "publication.approved"

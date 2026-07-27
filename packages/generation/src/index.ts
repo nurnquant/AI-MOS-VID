@@ -6,5 +6,6 @@ export {
   markSceneFailed,
   processAssembleVideo,
   processGenerateScene,
+  resumeGeneration,
   startGeneration,
 } from "./orchestrator.ts";
