@@ -2,6 +2,7 @@
 
 /** Members of the active workspace: list, invite, role change, remove. */
 import { useCallback, useEffect, useState } from "react";
+import { useMounted } from "@/lib/use-mounted";
 
 interface MemberRow {
   userId: string;
@@ -19,6 +20,7 @@ export default function MembersPage() {
   const [inviteEmail, setInviteEmail] = useState("");
   const [inviteRole, setInviteRole] = useState("viewer");
   const [notice, setNotice] = useState<string | null>(null);
+  const mounted = useMounted();
 
   const refresh = useCallback(async () => {
     const response = await fetch("/api/members");
@@ -93,7 +95,7 @@ export default function MembersPage() {
               </option>
             ))}
           </select>
-          <button className="btn btn-primary" type="submit">
+          <button className="btn btn-primary" type="submit" disabled={!mounted}>
             Invite
           </button>
         </form>

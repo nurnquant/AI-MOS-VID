@@ -2,6 +2,7 @@
 
 /** Project registry: list with content counts, create, rename, delete (empty only). */
 import { useCallback, useEffect, useState } from "react";
+import { useMounted } from "@/lib/use-mounted";
 
 interface ProjectRow {
   id: string;
@@ -17,6 +18,7 @@ export default function ProjectsPage() {
   const [name, setName] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const mounted = useMounted();
 
   const refresh = useCallback(async () => {
     const response = await fetch("/api/projects");
@@ -92,7 +94,7 @@ export default function ProjectsPage() {
             onChange={(e) => setName(e.target.value)}
             required
           />
-          <button className="btn btn-primary" type="submit" disabled={busy}>
+          <button className="btn btn-primary" type="submit" disabled={!mounted || busy}>
             {busy ? "Creating…" : "Create project"}
           </button>
         </form>

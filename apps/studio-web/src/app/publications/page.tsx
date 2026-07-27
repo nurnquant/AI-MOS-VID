@@ -6,6 +6,7 @@
  * mock external id when published.
  */
 import { useCallback, useEffect, useState } from "react";
+import { useMounted } from "@/lib/use-mounted";
 import { badgeClass } from "@/lib/ui";
 
 interface PublicationRow {
@@ -37,6 +38,7 @@ export default function PublicationsPage() {
   const [platform, setPlatform] = useState(PLATFORMS[0]!);
   const [caption, setCaption] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const mounted = useMounted();
 
   const refresh = useCallback(async () => {
     const response = await fetch("/api/publications");
@@ -130,7 +132,7 @@ export default function PublicationsPage() {
             style={{ minWidth: "18rem" }}
             dir="auto"
           />
-          <button className="btn btn-primary" type="submit">
+          <button className="btn btn-primary" type="submit" disabled={!mounted}>
             Create
           </button>
         </form>

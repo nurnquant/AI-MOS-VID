@@ -24,7 +24,9 @@ test("project isolation: script created in project A stays in project A", async 
   await page.getByRole("button", { name: "Create project" }).click();
   await expect(page.getByRole("row").filter({ hasText: `Beta ${run}` })).toBeVisible();
 
-  // Select Alpha as the active project.
+  // Select Alpha as the active project. The selector snapshots the
+  // project list at page mount — reload so the new projects appear.
+  await page.reload();
   await page.getByLabel("Active project").selectOption({ label: `Alpha ${run}` });
   await page.waitForLoadState("load");
 

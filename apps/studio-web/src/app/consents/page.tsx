@@ -6,6 +6,7 @@
  * irreversible — it hard-deletes all linked media.
  */
 import { useCallback, useEffect, useState } from "react";
+import { useMounted } from "@/lib/use-mounted";
 import { badgeClass } from "@/lib/ui";
 
 interface ConsentRow {
@@ -29,6 +30,7 @@ export default function ConsentsPage() {
   const [guardianContact, setGuardianContact] = useState("");
   const [scope, setScope] = useState("internal");
   const [expiresAt, setExpiresAt] = useState("");
+  const mounted = useMounted();
 
   const refresh = useCallback(async () => {
     const response = await fetch("/api/consents");
@@ -153,7 +155,7 @@ export default function ConsentsPage() {
             onChange={(e) => setExpiresAt(e.target.value)}
             required
           />
-          <button className="btn btn-primary" type="submit">
+          <button className="btn btn-primary" type="submit" disabled={!mounted}>
             Record consent
           </button>
         </form>

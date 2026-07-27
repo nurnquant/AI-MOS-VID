@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useMounted } from "@/lib/use-mounted";
 import { signUp } from "@/lib/auth-client";
 
 export default function RegisterPage() {
@@ -12,6 +13,7 @@ export default function RegisterPage() {
   const [workspace, setWorkspace] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const mounted = useMounted();
 
   async function onSubmit(event: React.FormEvent) {
     event.preventDefault();
@@ -84,7 +86,7 @@ export default function RegisterPage() {
           value={workspace}
           onChange={(e) => setWorkspace(e.target.value)}
         />
-        <button className="btn btn-primary" type="submit" disabled={busy}>
+        <button className="btn btn-primary" type="submit" disabled={!mounted || busy}>
           {busy ? "Creating…" : "Create account"}
         </button>
       </form>

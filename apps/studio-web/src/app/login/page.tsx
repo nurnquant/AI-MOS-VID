@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useMounted } from "@/lib/use-mounted";
 import { signIn } from "@/lib/auth-client";
 
 export default function LoginPage() {
@@ -10,6 +11,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const mounted = useMounted();
 
   async function onSubmit(event: React.FormEvent) {
     event.preventDefault();
@@ -47,7 +49,7 @@ export default function LoginPage() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button className="btn btn-primary" type="submit" disabled={busy}>
+        <button className="btn btn-primary" type="submit" disabled={!mounted || busy}>
           {busy ? "Signing in…" : "Sign in"}
         </button>
       </form>
