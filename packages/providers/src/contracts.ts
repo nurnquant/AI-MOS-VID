@@ -65,9 +65,18 @@ export interface PublishRequest {
   platform: "facebook" | "instagram" | "tiktok" | "youtube" | "whatsapp";
   assetKey: string;
   caption: string;
+  /** Streams the ready media bytes; supplied by the workflow. Mocks ignore it. */
+  getMedia?: () => Promise<Uint8Array>;
+  /** Required by real providers for the spend/audit ledger; mocks ignore it. */
+  tenantId?: string;
 }
 
 export interface PublishingProvider {
   readonly name: string;
   publish(request: PublishRequest): Promise<{ publicationId: string; status: ProviderJobStatus }>;
+  /**
+   * Real platform takedown (consent revocation). Optional — mocks and
+   * platforms without delete support omit it.
+   */
+  retract?(externalId: string): Promise<void>;
 }

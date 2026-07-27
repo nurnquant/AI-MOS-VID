@@ -295,6 +295,51 @@ describe("child-media approval matrix (baseline §10)", () => {
     );
     expect(types).toContain("publication.retracted");
   });
+
+  it("PROV-009D: enforcement calls real takedown for published youtube items", async () => {
+    const consent = await publishingConsent([PublishPlatform.youtube]);
+    const asset = await readyVideo(true, consent.id);
+    const pub = await createPublication(services.prisma, adminCtx(), {
+      assetId: asset.id,
+      platform: PublishPlatform.youtube,
+      caption: "takedown target",
+    });
+    await submitPublication(services.prisma, adminCtx(), pub.id);
+    await contentApprove(services, adminCtx(), pub.id);
+    await finalApprove(services, adminCtx(), pub.id);
+    await processPublishPublication(services, { publicationId: pub.id, tenantId });
+    const published = await services.prisma.publication.findUniqueOrThrow({
+      where: { id: pub.id },
+    });
+
+    const retracted: string[] = [];
+    const fakeYouTube = {
+      name: "youtube",
+      publish: async () => {
+        throw new Error("not used in this test");
+      },
+      retract: async (externalId: string) => {
+        retracted.push(externalId);
+      },
+    };
+
+    await services.prisma.consentRecord.update({
+      where: { id: consent.id },
+      data: { revokedAt: new Date(), revokedBy: userId, revokeReason: "guardian request" },
+    });
+    await enforceConsent(
+      services,
+      { consentId: consent.id, tenantId, trigger: "revoked" },
+      fakeYouTube,
+    );
+
+    expect(retracted).toEqual([published.externalId]);
+    const types = (await services.prisma.auditEvent.findMany({ where: { tenantId } })).map(
+      (e) => e.type,
+    );
+    expect(types).toContain("publication.takedown");
+    expect(types).toContain("publication.retracted");
+  });
 });
 
 describe("failure path", () => {

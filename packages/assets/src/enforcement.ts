@@ -4,8 +4,9 @@
  * object-first, then rows — a mid-job crash converges on retry instead of
  * leaking orphaned child media. Tombstones carry no child PII.
  */
-import { writeAuditStrict } from "@aivs/auth";
+import { writeAudit, writeAuditStrict } from "@aivs/auth";
 import { AssetStatus, PublicationStatus } from "@aivs/database";
+import { resolvePublishingProvider, type PublishingProvider } from "@aivs/providers";
 import { JOB_NAMES, type EnforceConsentPayload } from "@aivs/queue";
 import type { AssetServices } from "./context.ts";
 import { REJECTION_REASONS } from "./validation.ts";
@@ -20,6 +21,7 @@ export const QUARANTINE_RETENTION_MS = 30 * 24 * 60 * 60 * 1000;
 export async function enforceConsent(
   services: AssetServices,
   payload: EnforceConsentPayload,
+  publishing: PublishingProvider = resolvePublishingProvider(),
 ): Promise<{ deletedAssets: number }> {
   const { prisma, storage } = services;
   const assets = await prisma.asset.findMany({
@@ -40,8 +42,41 @@ export async function enforceConsent(
       await storage.deleteObject(key);
     }
     // Baseline §10: retract any publication of the deleted child media
-    // BEFORE the asset row disappears (real-platform takedown is a
-    // real-provider-module concern; mock marks only).
+    // BEFORE the asset row disappears. Real-platform takedown
+    // (PROV-009D): providers exposing `retract` get a best-effort
+    // delete call per published item — failure is audited loudly but
+    // never blocks the media hard-delete.
+    if (publishing.retract) {
+      const published = await prisma.publication.findMany({
+        where: {
+          assetId: asset.id,
+          status: PublicationStatus.published,
+          platform: publishing.name === "youtube" ? "youtube" : undefined,
+          externalId: { not: null },
+        },
+        select: { id: true, externalId: true, platform: true },
+      });
+      for (const publication of published) {
+        try {
+          await publishing.retract(publication.externalId!);
+          await writeAudit(prisma, {
+            type: "publication.takedown",
+            tenantId: payload.tenantId,
+            detail: { publicationId: publication.id, platform: publication.platform },
+          });
+        } catch (error) {
+          await writeAudit(prisma, {
+            type: "publication.takedown_failed",
+            tenantId: payload.tenantId,
+            detail: {
+              publicationId: publication.id,
+              platform: publication.platform,
+              error: (error as Error).message.slice(0, 300),
+            },
+          });
+        }
+      }
+    }
     const retracted = await prisma.publication.updateMany({
       where: {
         assetId: asset.id,

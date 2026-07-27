@@ -147,6 +147,9 @@ importers:
       '@aivs/media-core':
         specifier: workspace:*
         version: link:../media-core
+      '@aivs/providers':
+        specifier: workspace:*
+        version: link:../providers
       '@aivs/queue':
         specifier: workspace:*
         version: link:../queue

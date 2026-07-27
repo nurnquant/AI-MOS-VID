@@ -35,6 +35,8 @@ export type AuditEventType =
   | "publication.published"
   | "publication.failed"
   | "publication.retracted"
+  | "publication.takedown"
+  | "publication.takedown_failed"
   | "provider.call"
   | "provider.budget_exceeded";
 

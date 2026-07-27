@@ -13,6 +13,7 @@ import { FalVideoProvider } from "./fal-video.ts";
 import { LocalSynthVideoProvider, LocalSynthVoiceProvider } from "./local-synth.ts";
 import { MockPublishingProvider } from "./mock-publishing.ts";
 import { MockScriptProvider, type ScriptProvider } from "./script.ts";
+import { YouTubePublishingProvider } from "./youtube-publishing.ts";
 
 const MOCK_KEY = "mock";
 
@@ -50,6 +51,10 @@ const voiceRegistry: Registry<VoiceProvider> = {
 
 const publishingRegistry: Registry<PublishingProvider> = {
   [MOCK_KEY]: () => new MockPublishingProvider(),
+  // PROV-009 Phase D (user-approved, YouTube only). Throws at
+  // resolution when the OAuth credentials are missing — fail loud.
+  // Meta/Instagram/Pinterest/TikTok: placeholders, later phases.
+  youtube: () => new YouTubePublishingProvider(),
 };
 
 export function resolveScriptProvider(): ScriptProvider {

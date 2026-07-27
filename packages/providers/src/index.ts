@@ -23,6 +23,7 @@ export { MockPublishingProvider } from "./mock-publishing.ts";
 export { AnthropicScriptProvider } from "./anthropic-script.ts";
 export { ElevenLabsVoiceProvider } from "./elevenlabs-voice.ts";
 export { FalVideoProvider, pickFalDuration } from "./fal-video.ts";
+export { YouTubePublishingProvider } from "./youtube-publishing.ts";
 export {
   resolvePublishingProvider,
   resolveScriptProvider,

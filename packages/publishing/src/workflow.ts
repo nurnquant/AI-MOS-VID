@@ -278,10 +278,13 @@ export async function processPublishPublication(
     throw new Error("publication asset is gone (retracted or deleted)");
   }
 
+  const storageKey = publication.asset.storageKey;
   const result = await provider.publish({
     platform: publication.platform,
-    assetKey: publication.asset.storageKey,
+    assetKey: storageKey,
     caption: publication.caption,
+    tenantId: payload.tenantId,
+    getMedia: () => services.storage.getObject(storageKey),
   });
   if (result.status !== "succeeded") {
     await prisma.publication.update({

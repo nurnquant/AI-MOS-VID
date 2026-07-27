@@ -22,11 +22,14 @@ export default tseslint.config(
     },
   },
   {
-    files: ["scripts/**/*.js"],
+    files: ["scripts/**/*.js", "scripts/**/*.mjs"],
     languageOptions: {
       globals: {
         process: "readonly",
         console: "readonly",
+        fetch: "readonly",
+        URL: "readonly",
+        URLSearchParams: "readonly",
       },
     },
   },
