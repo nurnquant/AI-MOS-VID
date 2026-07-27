@@ -61,11 +61,11 @@ the provider dashboard if needed.
 
 ## Current registry
 
-| Slot               | Registered values | Real providers |
-| ------------------ | ----------------- | -------------- |
-| `SCRIPT_PROVIDER`  | `mock`            | (Phase A)      |
-| `VIDEO_PROVIDER`   | `mock`            | (Phase C)      |
-| `VOICE_PROVIDER`   | `mock`            | (Phase B)      |
-| `PUBLISH_PROVIDER` | `mock`            | (Phase D)      |
+| Slot               | Registered values   | Real providers                                     |
+| ------------------ | ------------------- | -------------------------------------------------- |
+| `SCRIPT_PROVIDER`  | `mock`, `anthropic` | `anthropic` = Claude Opus 5 (Phase A, live-smoked) |
+| `VIDEO_PROVIDER`   | `mock`              | (Phase C)                                          |
+| `VOICE_PROVIDER`   | `mock`              | (Phase B)                                          |
+| `PUBLISH_PROVIDER` | `mock`              | (Phase D)                                          |
 
 Update this table in each phase's PR.
