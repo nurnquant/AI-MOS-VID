@@ -22,6 +22,7 @@ export { LocalSynthVideoProvider, LocalSynthVoiceProvider } from "./local-synth.
 export { MockPublishingProvider } from "./mock-publishing.ts";
 export { AnthropicScriptProvider } from "./anthropic-script.ts";
 export { ElevenLabsVoiceProvider } from "./elevenlabs-voice.ts";
+export { FalVideoProvider, pickFalDuration } from "./fal-video.ts";
 export {
   resolvePublishingProvider,
   resolveScriptProvider,

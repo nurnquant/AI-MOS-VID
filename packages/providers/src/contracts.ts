@@ -11,6 +11,8 @@ export interface VideoGenerationRequest {
   durationSeconds: number;
   aspectRatio: "16:9" | "9:16" | "1:1";
   referenceAssetIds?: string[];
+  /** Required by real providers for budget scoping + spend ledger; mocks ignore it. */
+  tenantId?: string;
 }
 
 export interface VideoGenerationJob {

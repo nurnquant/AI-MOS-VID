@@ -114,6 +114,36 @@ export async function replaceAudioTrack(
 }
 
 /**
+ * Extends a clip's video track to `targetSeconds` by cloning the last
+ * frame (PROV-009C: real video models render fixed lengths — 5s/10s —
+ * that can undershoot the narration). Audio is dropped; the caller
+ * muxes narration afterwards via `replaceAudioTrack`.
+ */
+export async function padClipToDuration(
+  inputPath: string,
+  targetSeconds: number,
+  outputPath: string,
+): Promise<void> {
+  await runFfmpeg([
+    "-y",
+    "-i",
+    inputPath,
+    "-vf",
+    `tpad=stop_mode=clone:stop_duration=${Math.max(1, Math.ceil(targetSeconds))}`,
+    "-an",
+    "-c:v",
+    "libx264",
+    "-preset",
+    "veryfast",
+    "-pix_fmt",
+    "yuv420p",
+    "-t",
+    String(targetSeconds),
+    outputPath,
+  ]);
+}
+
+/**
  * Losslessly concatenates stream-uniform clips (concat demuxer, `-c copy`).
  * Caller guarantees uniformity — all inputs come from this module.
  */

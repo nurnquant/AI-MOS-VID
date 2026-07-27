@@ -20,6 +20,7 @@ import {
   getPreset,
   inspectMedia,
   normalizeVideo,
+  padClipToDuration,
   replaceAudioTrack,
 } from "@aivs/media-core";
 import {
@@ -47,6 +48,46 @@ const defaultVoiceProvider = resolveVoiceProvider();
 const DEFAULT_SCENE_SECONDS = 8;
 /** Clip length always comes from the narration; clamp to sane bounds. */
 const MAX_SCENE_SECONDS = 60;
+
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/** Submit + poll until terminal (mocks return succeeded immediately). */
+async function awaitVideoJob(
+  provider: VideoGenerationProvider,
+  request: Parameters<VideoGenerationProvider["submit"]>[0],
+) {
+  // Read lazily so tests/ops can tune without a rebuild.
+  const pollIntervalMs = Number(process.env.VIDEO_POLL_INTERVAL_MS) || 10_000;
+  const pollTimeoutMs = Number(process.env.VIDEO_POLL_TIMEOUT_MS) || 600_000;
+  let job = await provider.submit(request);
+  const deadline = Date.now() + pollTimeoutMs;
+  while (job.status === "queued" || job.status === "running") {
+    if (Date.now() > deadline) {
+      throw new Error(`provider ${provider.name} timed out after ${pollTimeoutMs}ms`);
+    }
+    await sleep(pollIntervalMs);
+    job = await provider.getJob(job.jobId);
+  }
+  return job;
+}
+
+/**
+ * Resolves a provider output URL to a local file. file:// maps
+ * directly; https:// (real providers) downloads into `workDir`.
+ */
+async function resolveOutputToLocal(outputUrl: string, workDir: string): Promise<string> {
+  if (outputUrl.startsWith("file://")) return fileURLToPath(outputUrl);
+  if (!outputUrl.startsWith("https://")) {
+    throw new Error(`unsupported output URL scheme: ${outputUrl}`);
+  }
+  const response = await fetch(outputUrl);
+  if (!response.ok || !response.body) {
+    throw new Error(`clip download failed (${response.status}) from provider output`);
+  }
+  const localPath = join(workDir, "provider-clip.mp4");
+  await pipeline(response.body as unknown as NodeJS.ReadableStream, createWriteStream(localPath));
+  return localPath;
+}
 
 export async function startGeneration(
   services: AssetServices,
@@ -142,7 +183,8 @@ export async function processGenerateScene(
   }
   const audioPath = fileURLToPath(narration.audioUrl);
 
-  let clipDir: string | undefined;
+  const workDir = await mkdtemp(join(tmpdir(), "aivs-scene-"));
+  let providerDir: string | undefined;
   try {
     const audioMeta = await inspectMedia(audioPath);
     const clipSeconds = Math.min(
@@ -150,20 +192,27 @@ export async function processGenerateScene(
       Math.max(1, Math.ceil(audioMeta.durationSeconds)),
     );
 
-    const job = await provider.submit({
+    const job = await awaitVideoJob(provider, {
       prompt: `${sceneGen.scene.visualDescription}\nNarration: ${sceneGen.scene.narration}`,
       durationSeconds: clipSeconds,
       aspectRatio: "16:9",
+      tenantId: payload.tenantId,
     });
     if (job.status !== "succeeded" || !job.outputUrl) {
       throw new Error(`provider ${provider.name} failed: ${job.error ?? "no output"}`);
     }
-    if (!job.outputUrl.startsWith("file://")) {
-      throw new Error(`unsupported output URL scheme for local module: ${job.outputUrl}`);
+    let clipPath = await resolveOutputToLocal(job.outputUrl, workDir);
+    if (job.outputUrl.startsWith("file://")) providerDir = dirname(clipPath);
+
+    // Real models render fixed lengths (5s/10s); never cut narration —
+    // clone the last frame out to the narration length instead.
+    const clipMeta = await inspectMedia(clipPath);
+    if (clipMeta.durationSeconds + 0.3 < audioMeta.durationSeconds) {
+      const paddedPath = join(workDir, "padded.mp4");
+      await padClipToDuration(clipPath, Math.ceil(audioMeta.durationSeconds), paddedPath);
+      clipPath = paddedPath;
     }
-    const clipPath = fileURLToPath(job.outputUrl);
-    clipDir = dirname(clipPath);
-    const voicedPath = join(clipDir, "voiced.mp4");
+    const voicedPath = join(workDir, "voiced.mp4");
     await replaceAudioTrack(clipPath, audioPath, voicedPath);
 
     const { asset } = await ingestUpload(services, {
@@ -186,7 +235,8 @@ export async function processGenerateScene(
     return { assetId: asset.id };
   } finally {
     await rm(dirname(audioPath), { recursive: true, force: true });
-    if (clipDir) await rm(clipDir, { recursive: true, force: true });
+    await rm(workDir, { recursive: true, force: true });
+    if (providerDir) await rm(providerDir, { recursive: true, force: true });
   }
 }
 
