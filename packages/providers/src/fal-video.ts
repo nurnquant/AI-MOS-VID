@@ -111,9 +111,18 @@ export class FalVideoProvider implements VideoGenerationProvider {
     return { jobId: body.request_id, status: "queued" };
   }
 
+  /**
+   * Queue request endpoints address the APP (first two path segments,
+   * e.g. `fal-ai/kling-video`), not the full model path — submitting
+   * uses the full path, but status/result with the full path 405s.
+   */
+  private appId(): string {
+    return this.model.split("/").slice(0, 2).join("/");
+  }
+
   async getJob(jobId: string): Promise<VideoGenerationJob> {
     const statusResponse = await this.fetchImpl(
-      `${QUEUE_BASE}/${this.model}/requests/${encodeURIComponent(jobId)}/status`,
+      `${QUEUE_BASE}/${this.appId()}/requests/${encodeURIComponent(jobId)}/status`,
       { headers: this.headers() },
     );
     if (!statusResponse.ok) {
@@ -129,7 +138,7 @@ export class FalVideoProvider implements VideoGenerationProvider {
     }
 
     const resultResponse = await this.fetchImpl(
-      `${QUEUE_BASE}/${this.model}/requests/${encodeURIComponent(jobId)}`,
+      `${QUEUE_BASE}/${this.appId()}/requests/${encodeURIComponent(jobId)}`,
       { headers: this.headers() },
     );
     if (!resultResponse.ok) {
