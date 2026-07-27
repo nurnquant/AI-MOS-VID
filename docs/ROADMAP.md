@@ -7,7 +7,7 @@ system live. Governance unchanged: no module starts without explicit
 user approval (draft master prompt → approval → gates → report →
 merge).
 
-## 1. HARDENING-011 (recommended next)
+## 1. HARDENING-011 — DONE 2026-07-27 (main 61bd2a6)
 
 Production now handles real money + child media, but:
 
@@ -23,7 +23,7 @@ Production now handles real money + child media, but:
 
 One module, closes the biggest risk gaps.
 
-## 2. PROJECTS-012
+## 2. PROJECTS-012 — DONE 2026-07-27 (main 8b3cc15)
 
 Nav still says "Projects (soon)". Real project CRUD; organize
 scripts/assets/publications per project. Small, visible feature
