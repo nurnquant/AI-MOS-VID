@@ -25,7 +25,8 @@ export default function ProjectsPage() {
       return;
     }
     if (!response.ok) {
-      setError(`load failed: ${response.status}`);
+      const body = (await response.json().catch(() => ({}))) as { error?: string };
+      setError(body.error ?? `load failed: ${response.status}`);
       return;
     }
     setProjects(((await response.json()) as { projects: ProjectRow[] }).projects);

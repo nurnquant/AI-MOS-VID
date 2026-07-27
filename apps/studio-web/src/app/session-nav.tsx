@@ -31,8 +31,35 @@ export function SessionNav() {
     );
   }
 
+  const createWorkspace = () => {
+    const name = window.prompt("Workspace name:");
+    if (!name?.trim()) return;
+    const slug = name
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "");
+    void fetch("/api/tenants", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ name: name.trim(), slug }),
+    }).then(async (r) => {
+      if (!r.ok) {
+        const body = (await r.json().catch(() => ({}))) as { error?: string };
+        window.alert(body.error ?? `workspace creation failed: ${r.status}`);
+        return;
+      }
+      window.location.reload();
+    });
+  };
+
   return (
     <span className="row">
+      {tenants.length === 0 && (
+        <button className="btn btn-primary btn-sm" onClick={createWorkspace}>
+          Create workspace
+        </button>
+      )}
       {tenants.length > 0 && (
         <select
           className="select"
