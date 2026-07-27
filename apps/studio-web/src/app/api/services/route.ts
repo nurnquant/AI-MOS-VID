@@ -1,31 +1,40 @@
+/**
+ * Dependency health: probes the app's REAL backing services (database
+ * query, Redis ping, storage head) — works identically for local
+ * Docker infra and production (Neon / Railway Redis / R2). Replaces
+ * the ENV-001 localhost port probe, which always reported "down" on
+ * Vercel where nothing listens on 127.0.0.1.
+ */
 import { NextResponse } from "next/server";
-import { createConnection } from "node:net";
+import { getServices } from "@/lib/services";
 
-async function checkPort(host: string, port: number, timeoutMs = 1500): Promise<boolean> {
-  return new Promise((resolve) => {
-    const socket = createConnection({ host, port, timeout: timeoutMs });
-    const finish = (ok: boolean) => {
-      socket.destroy();
-      resolve(ok);
-    };
-    socket.once("connect", () => finish(true));
-    socket.once("error", () => finish(false));
-    socket.once("timeout", () => finish(false));
-  });
+export const dynamic = "force-dynamic";
+
+async function withTimeout(check: Promise<unknown>, timeoutMs = 3000): Promise<boolean> {
+  try {
+    await Promise.race([
+      check,
+      new Promise((_, reject) => setTimeout(() => reject(new Error("timeout")), timeoutMs)),
+    ]);
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 export async function GET() {
-  const [postgres, redis, minio] = await Promise.all([
-    checkPort("127.0.0.1", Number(process.env.POSTGRES_PORT ?? 5433)),
-    checkPort("127.0.0.1", Number(process.env.REDIS_PORT ?? 6380)),
-    checkPort("127.0.0.1", Number(process.env.MINIO_PORT ?? 9000)),
+  const services = getServices();
+  const [postgres, redis, storage] = await Promise.all([
+    withTimeout(services.prisma.$queryRaw`SELECT 1`),
+    withTimeout(services.validationQueue.getJobCounts()),
+    withTimeout(services.storage.ensureBucket()),
   ]);
 
-  const services = { postgres, redis, minio };
-  const allUp = Object.values(services).every(Boolean);
+  const result = { postgres, redis, storage };
+  const allUp = Object.values(result).every(Boolean);
 
   return NextResponse.json(
-    { status: allUp ? "ok" : "degraded", services, timestamp: new Date().toISOString() },
+    { status: allUp ? "ok" : "degraded", services: result, timestamp: new Date().toISOString() },
     { status: allUp ? 200 : 503 },
   );
 }
