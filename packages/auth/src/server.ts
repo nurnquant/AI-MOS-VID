@@ -14,10 +14,22 @@ export interface CreateAuthOptions {
   secret?: string;
 }
 
+/**
+ * Vercel serves every deployment on its own hostname (preview + the
+ * deployment-hash URL behind the canonical alias). Trust exactly those
+ * self-origins — never a wildcard, which would trust foreign apps.
+ */
+function vercelSelfOrigins(): string[] {
+  return [process.env.VERCEL_URL, process.env.VERCEL_BRANCH_URL]
+    .filter((host): host is string => Boolean(host))
+    .map((host) => `https://${host}`);
+}
+
 export function createAuth(options: CreateAuthOptions = {}) {
   const prisma = options.prisma ?? getPrisma();
   return betterAuth({
     baseURL: options.baseURL ?? process.env.APP_URL ?? "http://localhost:3000",
+    trustedOrigins: vercelSelfOrigins(),
     secret: options.secret ?? process.env.BETTER_AUTH_SECRET,
     database: prismaAdapter(prisma, { provider: "postgresql" }),
     emailAndPassword: {
