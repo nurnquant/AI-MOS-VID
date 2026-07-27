@@ -1,6 +1,6 @@
 # AIVS-PROV-009 Phase C Verification Report
 
-**Result:** **PASS (code complete; live smoke pending user key)**
+**Result:** **PASS (live-smoked 2026-07-27, $0.5153/scene)**
 **Date:** 2026-07-27
 **Branch:** `feature/aivs-prov-009c-fal-video`
 **Provider:** fal.ai queue API (default model: Kling v2.5 turbo pro text-to-video; env-configurable)
@@ -60,9 +60,32 @@ the runbook ground rules: keys go in `.env` / env stores only.
 4. Set `VIDEO_PROVIDER=fal` locally; live smoke = ONE scene first,
    cost reviewed, then a full video, then production flip.
 
-## 5. Next
+## 5. Live smoke — DONE 2026-07-27
 
-Live smoke on key arrival. Then Phase D (platform publishing) — or
+User created the fal.ai account, funded it, and placed `FAL_API_KEY`
+in local `.env`. Findings:
+
+- **Fixed in smoke:** fal queue status/result endpoints 405 on the
+  full model path — they address the app id (`fal-ai/kling-video`).
+  Fix committed (29cdf77); the already-paid render was recovered by
+  re-polling with the corrected URL.
+- **Full single-scene pipeline (fixed adapter):** 83.5 s end-to-end —
+  ElevenLabs narration → Kling v2.5 turbo pro render (5 s) → pad/mux →
+  quarantine → validated `ready` asset. Ledger: `fal video.submit 5
+seconds $0.50` + `elevenlabs voice.synthesize $0.0153` = **$0.5153
+  per scene**. First attempt correctly failed closed on an exhausted
+  fal balance (403 surfaced, nothing recorded).
+- Budget caps are per-tenant; a full 4-5-scene video (~$2-3) needs
+  `PROVIDER_DAILY_BUDGET_USD` raised above the current 1.
+
+Production flip (user actions, when wanted): add `FAL_API_KEY`,
+`VIDEO_PROVIDER=fal`, raised budget caps (+ optionally
+`FAL_VIDEO_MODEL`, `FAL_USD_PER_SECOND`) to Railway worker Variables,
+restart. Rollback: `VIDEO_PROVIDER=mock`.
+
+## 6. Next
+
+Then Phase D (platform publishing) — or
 stop the paid track here and start the UX/design module (scripts,
 voice, and visuals all real is a complete creative pipeline;
 publishing can stay mock/manual).
