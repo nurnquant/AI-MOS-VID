@@ -29,7 +29,7 @@ Nav still says "Projects (soon)". Real project CRUD; organize
 scripts/assets/publications per project. Small, visible feature
 module.
 
-## 3. Provider polish
+## 3. Provider polish — DONE 2026-07-27 (POLISH-013, main 055998f; bake-off runs + Azure key pending user)
 
 - Provider usage/budget dashboard page (ProviderUsage ledger visible
   in UI, spend per day/month vs caps).
