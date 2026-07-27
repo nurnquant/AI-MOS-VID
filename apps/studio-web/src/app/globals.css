@@ -1,0 +1,450 @@
+/**
+ * AIVS design tokens + primitive classes (AIVS-UX-010, user-approved
+ * direction: hand-rolled tokens, warm educational palette, dark mode,
+ * per-content RTL via logical properties).
+ *
+ * Rules: pages use these classes/tokens only — no inline hex or
+ * spacing literals. Logical properties throughout (inline-start, not
+ * left) so Arabic content blocks flip cleanly.
+ */
+
+:root {
+  /* Surfaces + text (light, warm educational) */
+  --bg: #faf6ef;
+  --surface: #fffdf8;
+  --surface-2: #f3ecdf;
+  --border: #e4dbc8;
+  --text: #2b2620;
+  --text-muted: #877d6d;
+  --shadow: 0 1px 3px rgba(43, 38, 32, 0.08), 0 4px 14px rgba(43, 38, 32, 0.05);
+
+  /* Brand */
+  --primary: #0f6b5f;
+  --primary-hover: #0c574d;
+  --primary-soft: #e3efe9;
+  --on-primary: #fdfcf7;
+  --accent: #b8860b;
+
+  /* Status palette (existing project colors, kept) */
+  --status-ok: #2e8b57;
+  --status-info: #1e90ff;
+  --status-warn: #b8860b;
+  --status-danger: #b22222;
+  --status-muted: #888888;
+  --status-ok-soft: #e5f2ea;
+  --status-info-soft: #e4effc;
+  --status-warn-soft: #f5ecd7;
+  --status-danger-soft: #f7e4e2;
+  --status-muted-soft: #eeeae2;
+
+  /* Danger actions */
+  --danger: #b22222;
+  --danger-hover: #911b1b;
+  --on-danger: #fdf6f4;
+
+  /* Shape + rhythm */
+  --radius: 10px;
+  --radius-sm: 8px;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+
+  color-scheme: light;
+}
+
+/* Dark theme: system preference (unless forced light) or manual toggle. */
+[data-theme="dark"] {
+  --bg: #17140f;
+  --surface: #201c15;
+  --surface-2: #2a251c;
+  --border: #3b3427;
+  --text: #efe9dc;
+  --text-muted: #a19784;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 4px 14px rgba(0, 0, 0, 0.3);
+  --primary: #3aa892;
+  --primary-hover: #47bfa7;
+  --primary-soft: #1e2f2a;
+  --on-primary: #0f1512;
+  --status-ok: #4caf7d;
+  --status-info: #58a6f5;
+  --status-warn: #d9a441;
+  --status-danger: #e06555;
+  --status-muted: #9a9184;
+  --status-ok-soft: #1d2b23;
+  --status-info-soft: #1b2735;
+  --status-warn-soft: #2f2817;
+  --status-danger-soft: #331d1a;
+  --status-muted-soft: #262219;
+  --danger: #e06555;
+  --danger-hover: #ea7d6f;
+  --on-danger: #1c0f0c;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans, system-ui, sans-serif);
+  line-height: 1.55;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+  margin-block: 0 var(--space-3);
+}
+
+h1 {
+  font-size: 1.55rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+
+h3 {
+  font-size: 1.05rem;
+}
+
+code {
+  background: var(--surface-2);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+  font-size: 0.9em;
+}
+
+/* ---------- App shell ---------- */
+
+.app-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-5);
+  background: var(--surface);
+  border-block-end: 1px solid var(--border);
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 10;
+}
+
+.app-nav-brand {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1.05rem;
+}
+
+.app-nav a {
+  color: var(--text);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+.app-nav a:hover {
+  background: var(--surface-2);
+  text-decoration: none;
+}
+
+.app-nav a.active {
+  color: var(--primary);
+  background: var(--primary-soft);
+  font-weight: 600;
+}
+
+.app-nav-session {
+  margin-inline-start: auto;
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.app-main {
+  padding: var(--space-5);
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
+/* ---------- Primitives ---------- */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-5);
+  box-shadow: var(--shadow);
+}
+
+.card + .card {
+  margin-block-start: var(--space-5);
+}
+
+.page-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-block-end: var(--space-5);
+}
+
+.page-header p {
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  padding: var(--space-2) var(--space-4);
+  font: inherit;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--surface-2);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--on-primary);
+  font-weight: 600;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+.btn-danger {
+  background: var(--surface);
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: var(--danger);
+  color: var(--on-danger);
+}
+
+.btn-sm {
+  padding: var(--space-1) var(--space-3);
+  font-size: 0.85rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge-ok {
+  color: var(--status-ok);
+  background: var(--status-ok-soft);
+}
+
+.badge-info {
+  color: var(--status-info);
+  background: var(--status-info-soft);
+}
+
+.badge-warn {
+  color: var(--status-warn);
+  background: var(--status-warn-soft);
+}
+
+.badge-danger {
+  color: var(--status-danger);
+  background: var(--status-danger-soft);
+}
+
+.badge-muted {
+  color: var(--status-muted);
+  background: var(--status-muted-soft);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.table th {
+  text-align: start;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: var(--space-2) var(--space-3);
+  border-block-end: 1px solid var(--border);
+}
+
+.table td {
+  padding: var(--space-3);
+  border-block-end: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.table tr:last-child td {
+  border-block-end: none;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-block-end: var(--space-3);
+}
+
+.field > label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.input,
+.select,
+.textarea {
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  max-width: 28rem;
+}
+
+.textarea {
+  max-width: 100%;
+}
+
+.input:focus-visible,
+.select:focus-visible,
+.textarea:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+
+.form-row {
+  display: flex;
+  gap: var(--space-3);
+  align-items: end;
+  flex-wrap: wrap;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--text-muted);
+  padding: var(--space-6);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+}
+
+.denied-state {
+  color: var(--status-danger);
+  background: var(--status-danger-soft);
+  border: 1px solid var(--status-danger);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+}
+
+.notice {
+  border-radius: var(--radius-sm);
+  padding: var(--space-3) var(--space-4);
+  margin-block: var(--space-3);
+}
+
+.notice-error {
+  color: var(--status-danger);
+  background: var(--status-danger-soft);
+}
+
+.notice-ok {
+  color: var(--status-ok);
+  background: var(--status-ok-soft);
+}
+
+.child-flag {
+  font-size: 0.85rem;
+  color: var(--status-warn);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.row {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Arabic / RTL content blocks: apply dir="rtl" + this class. */
+.content-rtl {
+  direction: rtl;
+  text-align: start;
+}
+
+@media (max-width: 720px) {
+  .app-main {
+    padding: var(--space-4);
+  }
+
+  .app-nav {
+    padding: var(--space-2) var(--space-3);
+    gap: var(--space-2);
+  }
+}

@@ -25,16 +25,18 @@ export function SessionNav() {
   if (isPending) return null;
   if (!session) {
     return (
-      <span style={{ marginLeft: "auto" }}>
+      <span>
         <a href="/login">Sign in</a>
       </span>
     );
   }
 
   return (
-    <span style={{ marginLeft: "auto", display: "flex", gap: "0.75rem", alignItems: "center" }}>
+    <span className="row">
       {tenants.length > 0 && (
         <select
+          className="select"
+          aria-label="Switch workspace"
           defaultValue=""
           onChange={(e) => {
             if (!e.target.value) return;
@@ -55,8 +57,11 @@ export function SessionNav() {
           ))}
         </select>
       )}
-      <span>{session.user.email}</span>
-      <button onClick={() => void signOut().then(() => (window.location.href = "/login"))}>
+      <span className="muted">{session.user.email}</span>
+      <button
+        className="btn btn-sm"
+        onClick={() => void signOut().then(() => (window.location.href = "/login"))}
+      >
         Sign out
       </button>
     </span>

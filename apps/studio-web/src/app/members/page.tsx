@@ -66,86 +66,104 @@ export default function MembersPage() {
 
   return (
     <div>
-      <h1>Members</h1>
-      <form onSubmit={invite} style={{ display: "flex", gap: "0.5rem", marginBottom: "1rem" }}>
-        <input
-          type="email"
-          placeholder="invite email"
-          value={inviteEmail}
-          onChange={(e) => setInviteEmail(e.target.value)}
-          required
-        />
-        <select value={inviteRole} onChange={(e) => setInviteRole(e.target.value)}>
-          {ROLES.map((r) => (
-            <option key={r} value={r}>
-              {r}
-            </option>
-          ))}
-        </select>
-        <button type="submit">Invite</button>
-      </form>
-      {notice && <p style={{ color: "#2e8b57" }}>{notice}</p>}
-      {error && <p style={{ color: "#b22222" }}>{error}</p>}
-      <table style={{ borderCollapse: "collapse", width: "100%" }}>
-        <thead>
-          <tr>
-            {["Name", "Email", "Role", "Actions"].map((h) => (
-              <th
-                key={h}
-                style={{ textAlign: "left", borderBottom: "1px solid #ccc", padding: "0.4rem" }}
-              >
-                {h}
-              </th>
+      <div className="page-header">
+        <h1>Members</h1>
+        <p>Workspace roles — grants strictly below your own level</p>
+      </div>
+      <div className="card">
+        <form onSubmit={invite} className="form-row">
+          <input
+            className="input"
+            aria-label="Invite email"
+            type="email"
+            placeholder="invite email"
+            value={inviteEmail}
+            onChange={(e) => setInviteEmail(e.target.value)}
+            required
+          />
+          <select
+            className="select"
+            aria-label="Invite role"
+            value={inviteRole}
+            onChange={(e) => setInviteRole(e.target.value)}
+          >
+            {ROLES.map((r) => (
+              <option key={r} value={r}>
+                {r}
+              </option>
             ))}
-          </tr>
-        </thead>
-        <tbody>
-          {members.map((m) => (
-            <tr key={m.userId}>
-              <td style={{ padding: "0.4rem" }}>{m.name}</td>
-              <td style={{ padding: "0.4rem" }}>{m.email}</td>
-              <td style={{ padding: "0.4rem" }}>{m.role}</td>
-              <td style={{ padding: "0.4rem" }}>
-                {m.role !== "owner" && (
-                  <>
-                    <select
-                      value={m.role}
-                      onChange={(e) =>
-                        void call(
-                          `/api/members/${m.userId}`,
-                          {
-                            method: "PATCH",
-                            headers: { "content-type": "application/json" },
-                            body: JSON.stringify({ role: e.target.value }),
-                          },
-                          `Role updated for ${m.email}`,
-                        )
-                      }
-                    >
-                      {ROLES.map((r) => (
-                        <option key={r} value={r}>
-                          {r}
-                        </option>
-                      ))}
-                    </select>{" "}
-                    <button
-                      onClick={() =>
-                        void call(
-                          `/api/members/${m.userId}`,
-                          { method: "DELETE" },
-                          `Removed ${m.email}`,
-                        )
-                      }
-                    >
-                      remove
-                    </button>
-                  </>
-                )}
-              </td>
+          </select>
+          <button className="btn btn-primary" type="submit">
+            Invite
+          </button>
+        </form>
+        {notice && <p className="notice notice-ok">{notice}</p>}
+        {error && <p className="notice notice-error">{error}</p>}
+      </div>
+      <div className="card">
+        <table className="table">
+          <thead>
+            <tr>
+              {["Name", "Email", "Role", "Actions"].map((h) => (
+                <th key={h}>{h}</th>
+              ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {members.map((m) => (
+              <tr key={m.userId}>
+                <td>{m.name}</td>
+                <td>{m.email}</td>
+                <td>
+                  <span className={m.role === "owner" ? "badge badge-ok" : "badge badge-muted"}>
+                    {m.role}
+                  </span>
+                </td>
+                <td>
+                  {m.role !== "owner" && (
+                    <span className="row">
+                      <select
+                        className="select"
+                        aria-label={`Role for ${m.email}`}
+                        value={m.role}
+                        onChange={(e) =>
+                          void call(
+                            `/api/members/${m.userId}`,
+                            {
+                              method: "PATCH",
+                              headers: { "content-type": "application/json" },
+                              body: JSON.stringify({ role: e.target.value }),
+                            },
+                            `Role updated for ${m.email}`,
+                          )
+                        }
+                      >
+                        {ROLES.map((r) => (
+                          <option key={r} value={r}>
+                            {r}
+                          </option>
+                        ))}
+                      </select>
+                      <button
+                        className="btn btn-danger btn-sm"
+                        onClick={() =>
+                          void call(
+                            `/api/members/${m.userId}`,
+                            { method: "DELETE" },
+                            `Removed ${m.email}`,
+                          )
+                        }
+                      >
+                        remove
+                      </button>
+                    </span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

@@ -7,6 +7,7 @@
  */
 import { useParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
+import { badgeClass } from "@/lib/ui";
 
 interface SceneRow {
   id: string;
@@ -42,17 +43,6 @@ interface GenerationRow {
   finalAssetId: string | null;
   scenes: { position: number; status: string }[];
 }
-
-const STATUS_COLORS: Record<string, string> = {
-  draft: "#888",
-  in_review: "#1e90ff",
-  approved: "#2e8b57",
-  queued: "#888",
-  running: "#1e90ff",
-  succeeded: "#2e8b57",
-  partial: "#b8860b",
-  failed: "#b22222",
-};
 
 const PRESETS = [
   "youtube-1080p",
@@ -145,7 +135,7 @@ export default function ScriptEditorPage() {
     });
 
   if (!script) {
-    return error ? <p style={{ color: "#b22222" }}>{error}</p> : <p>Loading…</p>;
+    return error ? <p className="notice notice-error">{error}</p> : <p>Loading…</p>;
   }
 
   const editable = script.status === "draft";
@@ -153,28 +143,23 @@ export default function ScriptEditorPage() {
 
   return (
     <div>
-      <h1 dir="auto">
-        {script.title}{" "}
-        <span
-          style={{
-            background: STATUS_COLORS[script.status] ?? "#888",
-            color: "white",
-            borderRadius: "4px",
-            padding: "0.1rem 0.5rem",
-            fontSize: "1rem",
-            verticalAlign: "middle",
-          }}
-        >
-          {script.status}
-        </span>
-      </h1>
+      <div className="page-header">
+        <h1 dir="auto">
+          {script.title} <span className={badgeClass(script.status)}>{script.status}</span>
+        </h1>
+      </div>
       <p dir="auto" style={{ maxWidth: "48rem" }}>
         <strong>Brief:</strong> {script.brief}
       </p>
-      <p style={{ display: "flex", gap: "0.5rem" }}>
-        {editable && <button onClick={() => void action("generate")}>Regenerate from brief</button>}
+      <p className="row">
+        {editable && (
+          <button className="btn" onClick={() => void action("generate")}>
+            Regenerate from brief
+          </button>
+        )}
         {editable && (
           <button
+            className="btn"
             onClick={() =>
               void call(`/api/scripts/${id}/scenes`, {
                 method: "POST",
@@ -186,11 +171,18 @@ export default function ScriptEditorPage() {
             Add scene
           </button>
         )}
-        {editable && <button onClick={() => void action("submit")}>Submit for review</button>}
+        {editable && (
+          <button className="btn btn-primary" onClick={() => void action("submit")}>
+            Submit for review
+          </button>
+        )}
         {script.status === "in_review" && (
           <>
-            <button onClick={() => void action("approve")}>Approve</button>
+            <button className="btn btn-primary" onClick={() => void action("approve")}>
+              Approve
+            </button>
             <button
+              className="btn btn-danger"
               onClick={() => {
                 const reason = window.prompt("Reject back to draft — reason:");
                 if (reason) void action("reject", reason);
@@ -201,116 +193,136 @@ export default function ScriptEditorPage() {
           </>
         )}
       </p>
-      {error && <p style={{ color: "#b22222" }}>{error}</p>}
-      <table style={{ borderCollapse: "collapse", width: "100%" }}>
-        <thead>
-          <tr>
-            {["#", "Narration", "Visual", "Sec", "Reference", ""].map((h) => (
-              <th
-                key={h}
-                style={{ textAlign: "left", borderBottom: "1px solid #ccc", padding: "0.4rem" }}
-              >
-                {h}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {script.scenes.map((scene, index) => (
-            <tr key={scene.id}>
-              <td style={{ padding: "0.4rem", whiteSpace: "nowrap" }}>
-                {scene.position + 1}{" "}
-                {editable && index > 0 && (
-                  <button onClick={() => void patchScene(scene.id, { position: index - 1 })}>
-                    ↑
-                  </button>
-                )}
-                {editable && index < script.scenes.length - 1 && (
-                  <button onClick={() => void patchScene(scene.id, { position: index + 1 })}>
-                    ↓
-                  </button>
-                )}
-              </td>
-              <td style={{ padding: "0.4rem", minWidth: "18rem" }}>
-                <textarea
-                  key={`${scene.id}-n-${scene.narration}`}
-                  defaultValue={scene.narration}
-                  dir={rtl ? "rtl" : "ltr"}
-                  disabled={!editable}
-                  rows={2}
-                  style={{ width: "100%" }}
-                  onBlur={(e) => {
-                    if (e.target.value !== scene.narration && e.target.value.trim()) {
-                      void patchScene(scene.id, { narration: e.target.value });
-                    }
-                  }}
-                />
-              </td>
-              <td style={{ padding: "0.4rem", minWidth: "14rem" }}>
-                <textarea
-                  key={`${scene.id}-v-${scene.visualDescription}`}
-                  defaultValue={scene.visualDescription}
-                  dir="auto"
-                  disabled={!editable}
-                  rows={2}
-                  style={{ width: "100%" }}
-                  onBlur={(e) => {
-                    if (e.target.value !== scene.visualDescription && e.target.value.trim()) {
-                      void patchScene(scene.id, { visualDescription: e.target.value });
-                    }
-                  }}
-                />
-              </td>
-              <td style={{ padding: "0.4rem" }}>{scene.durationTargetSeconds ?? "—"}</td>
-              <td style={{ padding: "0.4rem" }}>
-                {scene.referenceMasked ? (
-                  <em title="reference restricted to child media reviewers">restricted 🛡️</em>
-                ) : editable ? (
-                  <select
-                    value={scene.referenceAssetId ?? ""}
-                    onChange={(e) =>
-                      void patchScene(scene.id, { referenceAssetId: e.target.value || null })
-                    }
-                  >
-                    <option value="">— none —</option>
-                    {assets.map((a) => (
-                      <option key={a.id} value={a.id}>
-                        {a.displayName}
-                      </option>
-                    ))}
-                  </select>
-                ) : (
-                  (scene.referenceAssetName ?? "—")
-                )}
-              </td>
-              <td style={{ padding: "0.4rem" }}>
-                {editable && (
-                  <button
-                    onClick={() =>
-                      void call(`/api/scripts/${id}/scenes/${scene.id}`, { method: "DELETE" })
-                    }
-                  >
-                    delete
-                  </button>
-                )}
-              </td>
-            </tr>
-          ))}
-          {script.scenes.length === 0 && (
+      {error && <p className="notice notice-error">{error}</p>}
+      <div className="card">
+        <table className="table">
+          <thead>
             <tr>
-              <td colSpan={6} style={{ padding: "0.6rem", color: "#888" }}>
-                No scenes — generate from the brief or add one.
-              </td>
+              {["#", "Narration", "Visual", "Sec", "Reference", ""].map((h) => (
+                <th key={h}>{h}</th>
+              ))}
             </tr>
-          )}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {script.scenes.map((scene, index) => (
+              <tr key={scene.id}>
+                <td style={{ whiteSpace: "nowrap" }}>
+                  {scene.position + 1}{" "}
+                  {editable && index > 0 && (
+                    <button
+                      className="btn btn-sm"
+                      onClick={() => void patchScene(scene.id, { position: index - 1 })}
+                    >
+                      ↑
+                    </button>
+                  )}
+                  {editable && index < script.scenes.length - 1 && (
+                    <button
+                      className="btn btn-sm"
+                      onClick={() => void patchScene(scene.id, { position: index + 1 })}
+                    >
+                      ↓
+                    </button>
+                  )}
+                </td>
+                <td style={{ minWidth: "18rem" }}>
+                  <textarea
+                    className="textarea"
+                    aria-label={`Scene ${scene.position + 1} narration`}
+                    key={`${scene.id}-n-${scene.narration}`}
+                    defaultValue={scene.narration}
+                    dir={rtl ? "rtl" : "ltr"}
+                    disabled={!editable}
+                    rows={2}
+                    style={{ width: "100%" }}
+                    onBlur={(e) => {
+                      if (e.target.value !== scene.narration && e.target.value.trim()) {
+                        void patchScene(scene.id, { narration: e.target.value });
+                      }
+                    }}
+                  />
+                </td>
+                <td style={{ minWidth: "14rem" }}>
+                  <textarea
+                    className="textarea"
+                    aria-label={`Scene ${scene.position + 1} visual description`}
+                    key={`${scene.id}-v-${scene.visualDescription}`}
+                    defaultValue={scene.visualDescription}
+                    dir="auto"
+                    disabled={!editable}
+                    rows={2}
+                    style={{ width: "100%" }}
+                    onBlur={(e) => {
+                      if (e.target.value !== scene.visualDescription && e.target.value.trim()) {
+                        void patchScene(scene.id, { visualDescription: e.target.value });
+                      }
+                    }}
+                  />
+                </td>
+                <td>{scene.durationTargetSeconds ?? "—"}</td>
+                <td>
+                  {scene.referenceMasked ? (
+                    <em
+                      className="child-flag"
+                      title="reference restricted to child media reviewers"
+                    >
+                      restricted 🛡️
+                    </em>
+                  ) : editable ? (
+                    <select
+                      className="select"
+                      aria-label={`Scene ${scene.position + 1} reference asset`}
+                      value={scene.referenceAssetId ?? ""}
+                      onChange={(e) =>
+                        void patchScene(scene.id, { referenceAssetId: e.target.value || null })
+                      }
+                    >
+                      <option value="">— none —</option>
+                      {assets.map((a) => (
+                        <option key={a.id} value={a.id}>
+                          {a.displayName}
+                        </option>
+                      ))}
+                    </select>
+                  ) : (
+                    (scene.referenceAssetName ?? "—")
+                  )}
+                </td>
+                <td>
+                  {editable && (
+                    <button
+                      className="btn btn-danger btn-sm"
+                      onClick={() =>
+                        void call(`/api/scripts/${id}/scenes/${scene.id}`, { method: "DELETE" })
+                      }
+                    >
+                      delete
+                    </button>
+                  )}
+                </td>
+              </tr>
+            ))}
+            {script.scenes.length === 0 && (
+              <tr>
+                <td colSpan={6} className="muted">
+                  No scenes — generate from the brief or add one.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
 
       {script.status === "approved" && (
-        <section style={{ marginTop: "1.5rem" }}>
+        <section className="card" style={{ marginBlockStart: "1.5rem" }}>
           <h2>Generations</h2>
-          <p style={{ display: "flex", gap: "0.5rem" }}>
-            <select value={preset} onChange={(e) => setPreset(e.target.value)}>
+          <p className="row">
+            <select
+              className="select"
+              aria-label="Target preset"
+              value={preset}
+              onChange={(e) => setPreset(e.target.value)}
+            >
               {PRESETS.map((p) => (
                 <option key={p} value={p}>
                   {p}
@@ -318,6 +330,7 @@ export default function ScriptEditorPage() {
               ))}
             </select>
             <button
+              className="btn btn-primary"
               onClick={() =>
                 void call(`/api/scripts/${id}/generations`, {
                   method: "POST",
@@ -329,47 +342,31 @@ export default function ScriptEditorPage() {
               Start generation
             </button>
           </p>
-          <table style={{ borderCollapse: "collapse", width: "100%" }}>
+          <table className="table">
             <thead>
               <tr>
                 {["Preset", "Status", "Scenes", "Final video"].map((h) => (
-                  <th
-                    key={h}
-                    style={{ textAlign: "left", borderBottom: "1px solid #ccc", padding: "0.4rem" }}
-                  >
-                    {h}
-                  </th>
+                  <th key={h}>{h}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
               {generations.map((g) => (
                 <tr key={g.id}>
-                  <td style={{ padding: "0.4rem" }}>{g.targetPreset}</td>
-                  <td style={{ padding: "0.4rem" }}>
-                    <span
-                      style={{
-                        background: STATUS_COLORS[g.status] ?? "#888",
-                        color: "white",
-                        borderRadius: "4px",
-                        padding: "0.1rem 0.5rem",
-                        fontSize: "0.85rem",
-                      }}
-                    >
-                      {g.status}
-                    </span>
-                    {g.error && (
-                      <span style={{ marginLeft: "0.5rem", color: "#b22222", fontSize: "0.85rem" }}>
-                        {g.error}
-                      </span>
-                    )}
+                  <td>{g.targetPreset}</td>
+                  <td>
+                    <span className={badgeClass(g.status)}>{g.status}</span>
+                    {g.error && <span className="muted"> {g.error}</span>}
                   </td>
-                  <td style={{ padding: "0.4rem" }}>
+                  <td>
                     {g.scenes.filter((s) => s.status === "succeeded").length}/{g.scenes.length}
                   </td>
-                  <td style={{ padding: "0.4rem" }}>
+                  <td>
                     {g.finalAssetId ? (
-                      <button onClick={() => void openFinalVideo(g.finalAssetId!)}>
+                      <button
+                        className="btn btn-sm"
+                        onClick={() => void openFinalVideo(g.finalAssetId!)}
+                      >
                         open video
                       </button>
                     ) : (
@@ -380,7 +377,7 @@ export default function ScriptEditorPage() {
               ))}
               {generations.length === 0 && (
                 <tr>
-                  <td colSpan={4} style={{ padding: "0.6rem", color: "#888" }}>
+                  <td colSpan={4} className="muted">
                     No generations yet.
                   </td>
                 </tr>

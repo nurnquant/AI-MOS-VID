@@ -6,6 +6,7 @@
  * mock external id when published.
  */
 import { useCallback, useEffect, useState } from "react";
+import { badgeClass } from "@/lib/ui";
 
 interface PublicationRow {
   id: string;
@@ -27,15 +28,6 @@ interface AssetOption {
 }
 
 const PLATFORMS = ["youtube", "instagram", "tiktok", "facebook", "whatsapp"];
-
-const STATUS_COLORS: Record<string, string> = {
-  draft: "#888",
-  in_review: "#1e90ff",
-  approved: "#2e8b57",
-  published: "#2e8b57",
-  failed: "#b22222",
-  retracted: "#b22222",
-};
 
 export default function PublicationsPage() {
   const [rows, setRows] = useState<PublicationRow[]>([]);
@@ -89,152 +81,166 @@ export default function PublicationsPage() {
 
   return (
     <div>
-      <h1>Publishing</h1>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (assetId) void call("/api/publications", { assetId, platform, caption });
-        }}
-        style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginBottom: "1rem" }}
-      >
-        <select value={assetId} onChange={(e) => setAssetId(e.target.value)} required>
-          <option value="">select ready video…</option>
-          {assets.map((a) => (
-            <option key={a.id} value={a.id}>
-              {a.displayName}
-            </option>
-          ))}
-        </select>
-        <select value={platform} onChange={(e) => setPlatform(e.target.value)}>
-          {PLATFORMS.map((p) => (
-            <option key={p} value={p}>
-              {p}
-            </option>
-          ))}
-        </select>
-        <input
-          placeholder="caption"
-          value={caption}
-          onChange={(e) => setCaption(e.target.value)}
-          required
-          style={{ minWidth: "18rem" }}
-          dir="auto"
-        />
-        <button type="submit">Create</button>
-      </form>
-      {error && <p style={{ color: "#b22222" }}>{error}</p>}
-      <table style={{ borderCollapse: "collapse", width: "100%" }}>
-        <thead>
-          <tr>
-            {["Video", "Platform", "Caption", "Status", "Approvals", "External ID", "Actions"].map(
-              (h) => (
-                <th
-                  key={h}
-                  style={{ textAlign: "left", borderBottom: "1px solid #ccc", padding: "0.4rem" }}
-                >
-                  {h}
-                </th>
-              ),
-            )}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row) => (
-            <tr key={row.id}>
-              <td style={{ padding: "0.4rem" }}>
-                {row.assetName}
-                {row.featuresMinor && (
-                  <span title="features a minor" style={{ marginLeft: "0.3rem" }}>
-                    🛡️
-                  </span>
-                )}
-              </td>
-              <td style={{ padding: "0.4rem" }}>{row.platform}</td>
-              <td style={{ padding: "0.4rem", maxWidth: "16rem" }} dir="auto">
-                {row.caption}
-              </td>
-              <td style={{ padding: "0.4rem" }}>
-                <span
-                  style={{
-                    background: STATUS_COLORS[row.status] ?? "#888",
-                    color: "white",
-                    borderRadius: "4px",
-                    padding: "0.1rem 0.5rem",
-                    fontSize: "0.85rem",
-                  }}
-                >
-                  {row.status}
-                </span>
-                {row.error && (
-                  <span style={{ marginLeft: "0.5rem", color: "#b22222", fontSize: "0.85rem" }}>
-                    {row.error}
-                  </span>
-                )}
-              </td>
-              <td style={{ padding: "0.4rem" }}>
-                {row.approvals.length}/{requiredCount(row)}
-              </td>
-              <td style={{ padding: "0.4rem", fontFamily: "monospace", fontSize: "0.85rem" }}>
-                {row.externalId ?? "—"}
-              </td>
-              <td style={{ padding: "0.4rem", whiteSpace: "nowrap" }}>
-                {(row.status === "draft" || row.status === "failed") && (
-                  <button
-                    onClick={() =>
-                      void call(`/api/publications/${row.id}/actions`, { action: "submit" })
-                    }
-                  >
-                    submit
-                  </button>
-                )}
-                {row.status === "in_review" && (
-                  <>
-                    {row.featuresMinor && (
+      <div className="page-header">
+        <h1>Publishing</h1>
+        <p>Ready videos → review → approval matrix → platform</p>
+      </div>
+      <div className="card">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (assetId) void call("/api/publications", { assetId, platform, caption });
+          }}
+          className="form-row"
+        >
+          <select
+            className="select"
+            aria-label="Ready video"
+            value={assetId}
+            onChange={(e) => setAssetId(e.target.value)}
+            required
+          >
+            <option value="">select ready video…</option>
+            {assets.map((a) => (
+              <option key={a.id} value={a.id}>
+                {a.displayName}
+              </option>
+            ))}
+          </select>
+          <select
+            className="select"
+            aria-label="Platform"
+            value={platform}
+            onChange={(e) => setPlatform(e.target.value)}
+          >
+            {PLATFORMS.map((p) => (
+              <option key={p} value={p}>
+                {p}
+              </option>
+            ))}
+          </select>
+          <input
+            className="input"
+            aria-label="Caption"
+            placeholder="caption"
+            value={caption}
+            onChange={(e) => setCaption(e.target.value)}
+            required
+            style={{ minWidth: "18rem" }}
+            dir="auto"
+          />
+          <button className="btn btn-primary" type="submit">
+            Create
+          </button>
+        </form>
+        {error && <p className="notice notice-error">{error}</p>}
+      </div>
+      <div className="card">
+        <table className="table">
+          <thead>
+            <tr>
+              {[
+                "Video",
+                "Platform",
+                "Caption",
+                "Status",
+                "Approvals",
+                "External ID",
+                "Actions",
+              ].map((h) => (
+                <th key={h}>{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr key={row.id}>
+                <td>
+                  {row.assetName}
+                  {row.featuresMinor && (
+                    <span className="child-flag" title="features a minor">
+                      {" "}
+                      🛡️
+                    </span>
+                  )}
+                </td>
+                <td>{row.platform}</td>
+                <td style={{ maxWidth: "16rem" }} dir="auto">
+                  {row.caption}
+                </td>
+                <td>
+                  <span className={badgeClass(row.status)}>{row.status}</span>
+                  {row.error && <span className="muted"> {row.error}</span>}
+                </td>
+                <td>
+                  {row.approvals.length}/{requiredCount(row)}
+                </td>
+                <td style={{ fontFamily: "monospace", fontSize: "0.85rem" }}>
+                  {row.externalId ?? "—"}
+                </td>
+                <td style={{ whiteSpace: "nowrap" }}>
+                  {(row.status === "draft" || row.status === "failed") && (
+                    <button
+                      className="btn btn-sm"
+                      onClick={() =>
+                        void call(`/api/publications/${row.id}/actions`, { action: "submit" })
+                      }
+                    >
+                      submit
+                    </button>
+                  )}
+                  {row.status === "in_review" && (
+                    <>
+                      {row.featuresMinor && (
+                        <button
+                          className="btn btn-sm"
+                          onClick={() =>
+                            void call(`/api/publications/${row.id}/actions`, {
+                              action: "content_approve",
+                            })
+                          }
+                        >
+                          content ✓
+                        </button>
+                      )}{" "}
                       <button
+                        className="btn btn-primary btn-sm"
                         onClick={() =>
                           void call(`/api/publications/${row.id}/actions`, {
-                            action: "content_approve",
+                            action: "final_approve",
                           })
                         }
                       >
-                        content ✓
+                        final ✓
+                      </button>{" "}
+                      <button
+                        className="btn btn-danger btn-sm"
+                        onClick={() => {
+                          const reason = window.prompt("Reject — reason:");
+                          if (reason)
+                            void call(`/api/publications/${row.id}/actions`, {
+                              action: "reject",
+                              reason,
+                            });
+                        }}
+                      >
+                        reject
                       </button>
-                    )}{" "}
-                    <button
-                      onClick={() =>
-                        void call(`/api/publications/${row.id}/actions`, {
-                          action: "final_approve",
-                        })
-                      }
-                    >
-                      final ✓
-                    </button>{" "}
-                    <button
-                      onClick={() => {
-                        const reason = window.prompt("Reject — reason:");
-                        if (reason)
-                          void call(`/api/publications/${row.id}/actions`, {
-                            action: "reject",
-                            reason,
-                          });
-                      }}
-                    >
-                      reject
-                    </button>
-                  </>
-                )}
-              </td>
-            </tr>
-          ))}
-          {rows.length === 0 && (
-            <tr>
-              <td colSpan={7} style={{ padding: "0.6rem", color: "#888" }}>
-                No publications yet.
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </table>
+                    </>
+                  )}
+                </td>
+              </tr>
+            ))}
+            {rows.length === 0 && (
+              <tr>
+                <td colSpan={7} className="muted">
+                  No publications yet.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

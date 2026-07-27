@@ -47,12 +47,21 @@ export default function RegisterPage() {
   }
 
   return (
-    <div style={{ maxWidth: 360 }}>
+    <div className="card" style={{ maxWidth: "24rem", marginInline: "auto" }}>
       <h1>Register</h1>
-      <form onSubmit={onSubmit} style={{ display: "grid", gap: "0.6rem" }}>
-        <input placeholder="name" value={name} onChange={(e) => setName(e.target.value)} required />
+      <form onSubmit={onSubmit} className="stack">
+        <input
+          className="input"
+          aria-label="Name"
+          placeholder="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
         <input
           type="email"
+          className="input"
+          aria-label="Email"
           placeholder="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -60,6 +69,8 @@ export default function RegisterPage() {
         />
         <input
           type="password"
+          className="input"
+          aria-label="Password"
           placeholder="password (min 10 chars)"
           value={password}
           minLength={10}
@@ -67,16 +78,18 @@ export default function RegisterPage() {
           required
         />
         <input
+          className="input"
+          aria-label="Workspace name"
           placeholder="workspace name (optional — skip if joining by invite)"
           value={workspace}
           onChange={(e) => setWorkspace(e.target.value)}
         />
-        <button type="submit" disabled={busy}>
+        <button className="btn btn-primary" type="submit" disabled={busy}>
           {busy ? "Creating…" : "Create account"}
         </button>
       </form>
-      {error && <p style={{ color: "#b22222" }}>{error}</p>}
-      <p>
+      {error && <p className="notice notice-error">{error}</p>}
+      <p className="muted">
         Have an account? <a href="/login">Sign in</a>
       </p>
     </div>

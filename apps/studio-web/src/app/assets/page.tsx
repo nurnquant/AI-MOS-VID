@@ -6,6 +6,7 @@
  * module.
  */
 import { useCallback, useEffect, useRef, useState } from "react";
+import { badgeClass } from "@/lib/ui";
 
 const POLL_MS = 2000;
 
@@ -25,15 +26,6 @@ interface ConsentOption {
   subjectLabel: string;
   status: string;
 }
-
-const STATUS_COLORS: Record<string, string> = {
-  uploaded: "#888",
-  quarantined: "#b8860b",
-  validating: "#1e90ff",
-  ready: "#2e8b57",
-  rejected: "#b22222",
-  archived: "#555",
-};
 
 export default function AssetsPage() {
   const [assets, setAssets] = useState<AssetRow[]>([]);
@@ -109,97 +101,91 @@ export default function AssetsPage() {
 
   return (
     <div>
-      <h1>Assets</h1>
-      <form onSubmit={onUpload} style={{ marginBottom: "1rem" }}>
-        <input ref={fileRef} type="file" accept="video/*,audio/*,image/*" required />
-        <label style={{ marginLeft: "0.5rem" }}>
+      <div className="page-header">
+        <h1>Assets</h1>
+        <p>Uploads and generated media — quarantine → validation → ready</p>
+      </div>
+      <div className="card">
+        <form onSubmit={onUpload} className="form-row">
           <input
-            type="checkbox"
-            checked={featuresMinor}
-            onChange={(e) => setFeaturesMinor(e.target.checked)}
-          />{" "}
-          features a minor
-        </label>
-        {featuresMinor && consents && (
-          <select
-            value={consentId}
-            onChange={(e) => setConsentId(e.target.value)}
-            style={{ marginLeft: "0.5rem" }}
-          >
-            <option value="">no consent (stays quarantined)</option>
-            {consents.map((c) => (
-              <option key={c.id} value={c.id}>
-                consent: {c.subjectLabel}
-              </option>
-            ))}
-          </select>
-        )}
-        <button type="submit" disabled={uploading || !projectId} style={{ marginLeft: "0.5rem" }}>
-          {uploading ? "Uploading…" : "Upload"}
-        </button>
-      </form>
-      {error && <p style={{ color: "#b22222" }}>Error: {error}</p>}
-      <table style={{ borderCollapse: "collapse", width: "100%" }}>
-        <thead>
-          <tr>
-            {["Name", "Kind", "Status", "Size", "Versions", "Detail"].map((h) => (
-              <th
-                key={h}
-                style={{ textAlign: "left", borderBottom: "1px solid #ccc", padding: "0.4rem" }}
-              >
-                {h}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {assets.map((asset) => (
-            <tr key={asset.id}>
-              <td style={{ padding: "0.4rem" }}>
-                {asset.displayName}
-                {asset.featuresMinor && (
-                  <span title="features a minor" style={{ marginLeft: "0.3rem" }}>
-                    🛡️
-                  </span>
-                )}
-              </td>
-              <td style={{ padding: "0.4rem" }}>{asset.kind}</td>
-              <td style={{ padding: "0.4rem" }}>
-                <span
-                  style={{
-                    background: STATUS_COLORS[asset.status] ?? "#888",
-                    color: "white",
-                    borderRadius: "4px",
-                    padding: "0.1rem 0.5rem",
-                    fontSize: "0.85rem",
-                  }}
-                >
-                  {asset.status}
-                </span>
-                {asset.rejectionReason && (
-                  <span style={{ marginLeft: "0.5rem", color: "#b22222", fontSize: "0.85rem" }}>
-                    {asset.rejectionReason}
-                  </span>
-                )}
-              </td>
-              <td style={{ padding: "0.4rem" }}>{(asset.sizeBytes / 1024).toFixed(1)} KiB</td>
-              <td style={{ padding: "0.4rem" }}>
-                {asset.versions.map((v) => v.preset ?? v.role).join(", ") || "—"}
-              </td>
-              <td style={{ padding: "0.4rem" }}>
-                <a href={`/api/assets/${asset.id}`}>json</a>
-              </td>
-            </tr>
-          ))}
-          {assets.length === 0 && (
-            <tr>
-              <td colSpan={6} style={{ padding: "0.6rem", color: "#888" }}>
-                No assets yet — upload one above.
-              </td>
-            </tr>
+            ref={fileRef}
+            type="file"
+            accept="video/*,audio/*,image/*"
+            aria-label="Media file"
+            required
+          />
+          <label className="row">
+            <input
+              type="checkbox"
+              checked={featuresMinor}
+              onChange={(e) => setFeaturesMinor(e.target.checked)}
+            />{" "}
+            features a minor
+          </label>
+          {featuresMinor && consents && (
+            <select
+              className="select"
+              aria-label="Consent record"
+              value={consentId}
+              onChange={(e) => setConsentId(e.target.value)}
+            >
+              <option value="">no consent (stays quarantined)</option>
+              {consents.map((c) => (
+                <option key={c.id} value={c.id}>
+                  consent: {c.subjectLabel}
+                </option>
+              ))}
+            </select>
           )}
-        </tbody>
-      </table>
+          <button className="btn btn-primary" type="submit" disabled={uploading || !projectId}>
+            {uploading ? "Uploading…" : "Upload"}
+          </button>
+        </form>
+        {error && <p className="notice notice-error">Error: {error}</p>}
+      </div>
+      <div className="card">
+        <table className="table">
+          <thead>
+            <tr>
+              {["Name", "Kind", "Status", "Size", "Versions", "Detail"].map((h) => (
+                <th key={h}>{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {assets.map((asset) => (
+              <tr key={asset.id}>
+                <td>
+                  {asset.displayName}
+                  {asset.featuresMinor && (
+                    <span className="child-flag" title="features a minor">
+                      {" "}
+                      🛡️
+                    </span>
+                  )}
+                </td>
+                <td>{asset.kind}</td>
+                <td>
+                  <span className={badgeClass(asset.status)}>{asset.status}</span>
+                  {asset.rejectionReason && <span className="muted"> {asset.rejectionReason}</span>}
+                </td>
+                <td>{(asset.sizeBytes / 1024).toFixed(1)} KiB</td>
+                <td>{asset.versions.map((v) => v.preset ?? v.role).join(", ") || "—"}</td>
+                <td>
+                  <a href={`/api/assets/${asset.id}`}>json</a>
+                </td>
+              </tr>
+            ))}
+            {assets.length === 0 && (
+              <tr>
+                <td colSpan={6} className="muted">
+                  No assets yet — upload one above.
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

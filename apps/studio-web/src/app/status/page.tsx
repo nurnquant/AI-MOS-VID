@@ -21,30 +21,40 @@ export default async function StatusPage() {
 
   return (
     <section>
-      <h1>Environment Status</h1>
-      <p>
-        Node env: <code>{process.env.NODE_ENV}</code>
-      </p>
-      {!status ? (
-        <p>Could not reach the services endpoint. Is the app running via `pnpm dev`?</p>
-      ) : (
-        <table style={{ borderCollapse: "collapse" }}>
-          <thead>
-            <tr>
-              <th style={{ textAlign: "left", padding: "0.25rem 1rem" }}>Service</th>
-              <th style={{ textAlign: "left", padding: "0.25rem 1rem" }}>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {Object.entries(status.services).map(([name, up]) => (
-              <tr key={name}>
-                <td style={{ padding: "0.25rem 1rem" }}>{name}</td>
-                <td style={{ padding: "0.25rem 1rem" }}>{up ? "✅ up" : "❌ down"}</td>
+      <div className="page-header">
+        <h1>Environment Status</h1>
+        <p>
+          Node env: <code>{process.env.NODE_ENV}</code>
+        </p>
+      </div>
+      <div className="card">
+        {!status ? (
+          <p className="notice notice-error">
+            Could not reach the services endpoint. Is the app running via `pnpm dev`?
+          </p>
+        ) : (
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Service</th>
+                <th>Status</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+            </thead>
+            <tbody>
+              {Object.entries(status.services).map(([name, up]) => (
+                <tr key={name}>
+                  <td>{name}</td>
+                  <td>
+                    <span className={up ? "badge badge-ok" : "badge badge-danger"}>
+                      {up ? "✅ up" : "❌ down"}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div>
     </section>
   );
 }

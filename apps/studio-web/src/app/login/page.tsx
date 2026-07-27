@@ -26,29 +26,33 @@ export default function LoginPage() {
   }
 
   return (
-    <div style={{ maxWidth: 360 }}>
+    <div className="card" style={{ maxWidth: "24rem", marginInline: "auto" }}>
       <h1>Sign in</h1>
-      <form onSubmit={onSubmit} style={{ display: "grid", gap: "0.6rem" }}>
+      <form onSubmit={onSubmit} className="stack">
         <input
+          className="input"
           type="email"
           placeholder="email"
+          aria-label="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
         <input
+          className="input"
           type="password"
           placeholder="password"
+          aria-label="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit" disabled={busy}>
+        <button className="btn btn-primary" type="submit" disabled={busy}>
           {busy ? "Signing in…" : "Sign in"}
         </button>
       </form>
-      {error && <p style={{ color: "#b22222" }}>{error}</p>}
-      <p>
+      {error && <p className="notice notice-error">{error}</p>}
+      <p className="muted">
         No account? <a href="/register">Register</a>
       </p>
     </div>

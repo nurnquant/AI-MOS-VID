@@ -32,7 +32,7 @@ export default function InviteAcceptPage() {
   if (isPending) return <p>Loading…</p>;
   if (!session) {
     return (
-      <div>
+      <div className="card" style={{ maxWidth: "28rem", marginInline: "auto" }}>
         <h1>Workspace invitation</h1>
         <p>
           <a href="/register">Register</a> or <a href="/login">sign in</a> with the invited email,
@@ -42,13 +42,13 @@ export default function InviteAcceptPage() {
     );
   }
   return (
-    <div>
+    <div className="card" style={{ maxWidth: "28rem", marginInline: "auto" }}>
       <h1>Workspace invitation</h1>
       <p>Signed in as {session.user.email}. Accept the invitation with this account?</p>
-      <button onClick={accept} disabled={busy}>
+      <button className="btn btn-primary" onClick={accept} disabled={busy}>
         {busy ? "Joining…" : "Accept invitation"}
       </button>
-      {error && <p style={{ color: "#b22222" }}>{error}</p>}
+      {error && <p className="notice notice-error">{error}</p>}
     </div>
   );
 }
