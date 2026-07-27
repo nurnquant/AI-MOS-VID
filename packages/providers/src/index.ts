@@ -32,6 +32,7 @@ export {
 } from "./factory.ts";
 export {
   ProviderBudgetError,
+  ProviderCallError,
   assertProviderBudget,
   budgetFromEnv,
   recordProviderUsage,

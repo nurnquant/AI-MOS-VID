@@ -10,6 +10,17 @@
 import { writeAudit } from "@aivs/auth";
 import type { PrismaClient, ProviderUnitType } from "@aivs/database";
 
+/** Upstream provider failure with an HTTP-ish status for API mapping. */
+export class ProviderCallError extends Error {
+  readonly status: number;
+
+  constructor(message: string, status: number) {
+    super(message);
+    this.name = "ProviderCallError";
+    this.status = status;
+  }
+}
+
 export class ProviderBudgetError extends Error {
   readonly status = 409;
 

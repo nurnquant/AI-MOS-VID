@@ -131,6 +131,26 @@ describe("AnthropicScriptProvider", () => {
   });
 });
 
+describe("upstream failure mapping", () => {
+  it("529 overload becomes a clear retryable 503", async () => {
+    vi.stubEnv("PROVIDER_DAILY_BUDGET_USD", "5");
+    vi.stubEnv("PROVIDER_MONTHLY_BUDGET_USD", "50");
+    const { APIError } = await import("@anthropic-ai/sdk");
+    const overloaded = Object.create(APIError.prototype) as InstanceType<typeof APIError>;
+    Object.assign(overloaded, { status: 529, message: "Overloaded" });
+    const parse = vi.fn(async (_p: unknown) => {
+      throw overloaded;
+    });
+    const provider = new AnthropicScriptProvider({
+      client: { messages: { parse } } as never,
+      prisma: fakePrisma(),
+    });
+    await expect(
+      provider.generate({ brief: "topic", language: "en", tenantId: "t1" }),
+    ).rejects.toMatchObject({ name: "ProviderCallError", status: 503 });
+  });
+});
+
 describe("factory: anthropic registration", () => {
   it("SCRIPT_PROVIDER=anthropic without key throws at resolution", () => {
     vi.stubEnv("SCRIPT_PROVIDER", "anthropic");

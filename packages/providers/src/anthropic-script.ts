@@ -7,11 +7,11 @@
  * the normal human review flow (draft → in_review → approved) before
  * any generation runs.
  */
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic, { APIError } from "@anthropic-ai/sdk";
 import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
 import { z } from "zod";
 import { getPrisma, type PrismaClient } from "@aivs/database";
-import { assertProviderBudget, recordProviderUsage } from "./budget.ts";
+import { ProviderCallError, assertProviderBudget, recordProviderUsage } from "./budget.ts";
 import type { GeneratedScene, ScriptGenerationRequest, ScriptProvider } from "./script.ts";
 
 const MODEL = "claude-opus-5";
@@ -83,13 +83,33 @@ export class AnthropicScriptProvider implements ScriptProvider {
     const worstCaseCost = estimateCostUsd(worstCaseInputTokens, MAX_TOKENS);
     await assertProviderBudget(prisma, request.tenantId, worstCaseCost);
 
-    const response = await this.client.messages.parse({
-      model: MODEL,
-      max_tokens: MAX_TOKENS,
-      system: systemPrompt(request.language, request.sceneCount),
-      messages: [{ role: "user", content: `Brief: ${brief}` }],
-      output_config: { format: zodOutputFormat(ScriptSchema) },
-    });
+    let response;
+    try {
+      response = await this.client.messages.parse({
+        model: MODEL,
+        max_tokens: MAX_TOKENS,
+        system: systemPrompt(request.language, request.sceneCount),
+        messages: [{ role: "user", content: `Brief: ${brief}` }],
+        output_config: { format: zodOutputFormat(ScriptSchema) },
+      });
+    } catch (error) {
+      // Transient upstream conditions (overload/rate limit/5xx) get a
+      // clear retryable message instead of an opaque 500 at the API.
+      if (error instanceof APIError) {
+        const status = typeof error.status === "number" ? error.status : 0;
+        if (status === 529 || status === 429 || status >= 500) {
+          throw new ProviderCallError(
+            "the AI script provider is temporarily overloaded — try again in a minute",
+            503,
+          );
+        }
+        throw new ProviderCallError(
+          `script provider request failed (${status}): ${error.message.slice(0, 200)}`,
+          502,
+        );
+      }
+      throw error;
+    }
 
     const usage = response.usage;
     await recordProviderUsage(prisma, {
