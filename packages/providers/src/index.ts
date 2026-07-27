@@ -1,5 +1,7 @@
 export type {
   ProviderJobStatus,
+  ImageGenerationRequest,
+  ImageGenerationProvider,
   VideoGenerationRequest,
   VideoGenerationJob,
   VideoGenerationProvider,
@@ -18,7 +20,13 @@ export {
   type ScriptGenerationRequest,
   type ScriptProvider,
 } from "./script.ts";
-export { LocalSynthVideoProvider, LocalSynthVoiceProvider } from "./local-synth.ts";
+export {
+  LocalSynthVideoProvider,
+  LocalSynthVoiceProvider,
+  MockImageProvider,
+} from "./local-synth.ts";
+export { FalImageProvider } from "./fal-image.ts";
+export { SlideshowVideoProvider, pickKenBurnsDirection } from "./slideshow-video.ts";
 export { MockPublishingProvider } from "./mock-publishing.ts";
 export { AnthropicScriptProvider } from "./anthropic-script.ts";
 export { ElevenLabsVoiceProvider } from "./elevenlabs-voice.ts";
@@ -26,6 +34,7 @@ export { AzureSpeechVoiceProvider } from "./azure-voice.ts";
 export { FalVideoProvider, pickFalDuration } from "./fal-video.ts";
 export { YouTubePublishingProvider } from "./youtube-publishing.ts";
 export {
+  resolveImageProvider,
   resolvePublishingProvider,
   resolveScriptProvider,
   resolveVideoProvider,

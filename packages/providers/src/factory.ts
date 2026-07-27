@@ -8,10 +8,21 @@
  */
 import { AnthropicScriptProvider } from "./anthropic-script.ts";
 import { AzureSpeechVoiceProvider } from "./azure-voice.ts";
-import type { PublishingProvider, VideoGenerationProvider, VoiceProvider } from "./contracts.ts";
+import type {
+  ImageGenerationProvider,
+  PublishingProvider,
+  VideoGenerationProvider,
+  VoiceProvider,
+} from "./contracts.ts";
 import { ElevenLabsVoiceProvider } from "./elevenlabs-voice.ts";
+import { FalImageProvider } from "./fal-image.ts";
 import { FalVideoProvider } from "./fal-video.ts";
-import { LocalSynthVideoProvider, LocalSynthVoiceProvider } from "./local-synth.ts";
+import {
+  LocalSynthVideoProvider,
+  LocalSynthVoiceProvider,
+  MockImageProvider,
+} from "./local-synth.ts";
+import { SlideshowVideoProvider } from "./slideshow-video.ts";
 import { MockPublishingProvider } from "./mock-publishing.ts";
 import { MockScriptProvider, type ScriptProvider } from "./script.ts";
 import { YouTubePublishingProvider } from "./youtube-publishing.ts";
@@ -41,6 +52,16 @@ const videoRegistry: Registry<VideoGenerationProvider> = {
   // PROV-009 Phase C (user-approved). Throws at resolution when
   // FAL_API_KEY is missing — fail loud, never silent fallback.
   fal: () => new FalVideoProvider(),
+  // SLIDESHOW-015 (user-approved): still image + local Ken Burns.
+  // Image source resolves separately (IMAGE_PROVIDER, mock default).
+  slideshow: () => new SlideshowVideoProvider(resolveImageProvider()),
+};
+
+const imageRegistry: Registry<ImageGenerationProvider> = {
+  [MOCK_KEY]: () => new MockImageProvider(),
+  // SLIDESHOW-015 (user-approved). Throws at resolution when
+  // FAL_API_KEY is missing — fail loud, never silent fallback.
+  fal: () => new FalImageProvider(),
 };
 
 const voiceRegistry: Registry<VoiceProvider> = {
@@ -66,6 +87,10 @@ export function resolveScriptProvider(): ScriptProvider {
 
 export function resolveVideoProvider(): VideoGenerationProvider {
   return resolveFromRegistry("VIDEO_PROVIDER", videoRegistry);
+}
+
+export function resolveImageProvider(): ImageGenerationProvider {
+  return resolveFromRegistry("IMAGE_PROVIDER", imageRegistry);
 }
 
 export function resolveVoiceProvider(): VoiceProvider {

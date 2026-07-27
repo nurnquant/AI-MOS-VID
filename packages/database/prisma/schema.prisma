@@ -510,4 +510,5 @@ enum ProviderUnitType {
   seconds
   calls
   characters
+  images
 }

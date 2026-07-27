@@ -9,8 +9,15 @@ import { mkdtemp } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { pathToFileURL } from "node:url";
-import { muxClip, synthesizeToneAudio, synthesizeVideoTrack } from "@aivs/media-core";
+import {
+  muxClip,
+  synthesizeStillImage,
+  synthesizeToneAudio,
+  synthesizeVideoTrack,
+} from "@aivs/media-core";
 import type {
+  ImageGenerationProvider,
+  ImageGenerationRequest,
   VideoGenerationJob,
   VideoGenerationProvider,
   VideoGenerationRequest,
@@ -58,6 +65,28 @@ export class LocalSynthVideoProvider implements VideoGenerationProvider {
     const job = this.jobs.get(jobId);
     if (!job) throw new Error(`unknown local synth job ${jobId}`);
     return job;
+  }
+}
+
+/** Local placeholder still (png) — free, offline (AIVS-SLIDESHOW-015). */
+export class MockImageProvider implements ImageGenerationProvider {
+  readonly name = "mock-image";
+
+  async generate(request: ImageGenerationRequest): Promise<{ imageUrl: string }> {
+    const workDir = await mkdtemp(join(tmpdir(), "aivs-image-"));
+    const imagePath = join(workDir, "still.png");
+    const [width, height] =
+      request.aspectRatio === "9:16"
+        ? [720, 1280]
+        : request.aspectRatio === "1:1"
+          ? [960, 960]
+          : [1280, 720];
+    await synthesizeStillImage(imagePath, {
+      width,
+      height,
+      seed: request.prompt.length,
+    });
+    return { imageUrl: pathToFileURL(imagePath).href };
   }
 }
 

@@ -28,6 +28,23 @@ export interface VideoGenerationProvider {
   getJob(jobId: string): Promise<VideoGenerationJob>;
 }
 
+export interface ImageGenerationRequest {
+  prompt: string;
+  aspectRatio: "16:9" | "9:16" | "1:1";
+  /** Required by real providers for budget scoping + spend ledger; mocks ignore it. */
+  tenantId?: string;
+}
+
+/**
+ * Still-image generation (AIVS-SLIDESHOW-015). Synchronous result —
+ * image models render in seconds, so adapters poll internally and
+ * return the finished URL (file:// or https://).
+ */
+export interface ImageGenerationProvider {
+  readonly name: string;
+  generate(request: ImageGenerationRequest): Promise<{ imageUrl: string }>;
+}
+
 export interface VoiceSynthesisRequest {
   text: string;
   voiceId: string;

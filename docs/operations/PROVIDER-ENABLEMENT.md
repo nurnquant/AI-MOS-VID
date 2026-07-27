@@ -67,6 +67,13 @@ the provider dashboard if needed.
 | `VIDEO_PROVIDER`   | `mock`, `fal`        | `fal` = fal.ai queue API (Phase C; needs `FAL_API_KEY`; model via `FAL_VIDEO_MODEL`, cost via `FAL_USD_PER_SECOND` — check fal.ai/models pricing and RAISE budget caps before enabling: video is dollars, not cents) |
 | `VOICE_PROVIDER`   | `mock`, `elevenlabs` | `elevenlabs` = ElevenLabs multilingual TTS (Phase B; needs `ELEVENLABS_API_KEY` + `VOICE_ID`)                                                                                                                        |
 | `PUBLISH_PROVIDER` | `mock`, `youtube`    | `youtube` = YouTube Data API v3 (Phase D; creds via `scripts/youtube-oauth.mjs`; madeForKids hard-coded, unlisted default, real takedown on revocation). Meta/Instagram/Pinterest/TikTok: placeholders               |
+| `IMAGE_PROVIDER`   | `mock`, `fal`        | `fal` = fal.ai image models (SLIDESHOW-015; needs `FAL_API_KEY`; model via `FAL_IMAGE_MODEL`, default flux/schnell; cost via `FAL_USD_PER_IMAGE`, default $0.005). Only used by `VIDEO_PROVIDER=slideshow`           |
+
+`VIDEO_PROVIDER` also registers `slideshow` (SLIDESHOW-015): one still
+per scene from `IMAGE_PROVIDER`, animated by local ffmpeg Ken Burns —
+~$0.003-0.03 per scene instead of $0.50-1.00. Picture-book aesthetic;
+switch production with `VIDEO_PROVIDER=slideshow` + `IMAGE_PROVIDER=fal`
+on the worker (needs user approval + Railway env change + redeploy).
 
 Update this table in each phase's PR.
 

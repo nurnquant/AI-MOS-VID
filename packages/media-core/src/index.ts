@@ -13,6 +13,12 @@ export {
   type PlatformPresetName,
 } from "./presets.ts";
 export {
+  renderKenBurns,
+  synthesizeStillImage,
+  type KenBurnsOptions,
+  type StillImageOptions,
+} from "./slideshow.ts";
+export {
   SYNTH_FPS,
   SYNTH_HEIGHT,
   SYNTH_WIDTH,
