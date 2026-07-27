@@ -76,7 +76,21 @@ Production flip (user actions, when wanted): Railway worker Variables —
 `PUBLISH_PROVIDER=youtube` (+ optional `YOUTUBE_PRIVACY_STATUS`) —
 restart worker. Rollback: `PUBLISH_PROVIDER=mock`.
 
-## 5. Next
+## 5. Production flip — DONE 2026-07-27
+
+User added the three YouTube credentials + `PUBLISH_PROVIDER=youtube`
+to Railway worker Variables (after the tracking branch was updated to
+main and the deploy went green — deploy-race lesson applied).
+End-to-end production verification: publication `415e7400` on the 66 s
+narrated final video → submit → final approval (non-minor matrix) →
+worker uploaded to the real channel → status `published`, externalId
+**`sp9Z6zvfmt8`** (real video id, unlisted, madeForKids), Neon ledger
+row `youtube publish.upload 1 calls jobId=sp9Z6zvfmt8`.
+
+**All four provider slots are now real in production.**
+Rollback per slot: set its `*_PROVIDER` var to `mock`, restart.
+
+## 6. Next
 
 Live smoke on credentials. Afterwards the paid-provider track is
 complete end-to-end (script/voice/video/publishing all real-capable);
