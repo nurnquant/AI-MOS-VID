@@ -83,7 +83,33 @@ Production flip (user actions, when wanted): add `FAL_API_KEY`,
 `FAL_VIDEO_MODEL`, `FAL_USD_PER_SECOND`) to Railway worker Variables,
 restart. Rollback: `VIDEO_PROVIDER=mock`.
 
-## 6. Next
+## 6. Production flip — 2026-07-27, lessons recorded
+
+User added `FAL_API_KEY`, `VIDEO_PROVIDER=fal`, raised caps (5/30) to
+Railway worker Variables. First production 4-scene generation
+(`73882fe5`) **failed on a deploy race**: the Railway tracking branch
+was force-updated minutes before the run, and the first scene attempts
+executed on the old worker image without the fal status-URL fix; BullMQ
+retries then hit the $5 daily cap and died non-retryably. The caps
+behaved exactly as designed — 4 renders committed ($4.00 estimated),
+retries added only $0.06, no runaway spend.
+
+**All four paid Kling renders were recovered** by jobId from the ledger
+and assembled locally through the identical pipeline functions
+(narration re-synthesized for $0.2631): a 60 s, 4-scene, fully-AI
+video — real script, real voice, real visuals.
+
+Operational lessons (runbook-relevant):
+
+1. After updating the Railway tracking branch, wait for the deploy to
+   go green in the Railway dashboard before starting paid generations.
+2. Real switch of the Railway service to track `main` would remove the
+   force-push workaround entirely (still pending, user action).
+3. A failed-then-retried scene job re-runs voice + submit; caps bound
+   the damage, but re-verification of a full prod video should wait for
+   the next UTC day (cap window) or a temporary cap raise.
+
+## 7. Next
 
 Then Phase D (platform publishing) — or
 stop the paid track here and start the UX/design module (scripts,
