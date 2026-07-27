@@ -20,6 +20,7 @@ export {
 } from "./script.ts";
 export { LocalSynthVideoProvider, LocalSynthVoiceProvider } from "./local-synth.ts";
 export { MockPublishingProvider } from "./mock-publishing.ts";
+export { AnthropicScriptProvider } from "./anthropic-script.ts";
 export {
   resolvePublishingProvider,
   resolveScriptProvider,

@@ -17,7 +17,9 @@
     "@aivs/auth": "workspace:*",
     "@aivs/database": "workspace:*",
     "@aivs/media-core": "workspace:*",
-    "@aivs/types": "workspace:*"
+    "@aivs/types": "workspace:*",
+    "@anthropic-ai/sdk": "^0.115.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "vitest": "^4.1.10"

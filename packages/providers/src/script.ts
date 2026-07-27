@@ -9,6 +9,8 @@ export interface ScriptGenerationRequest {
   language: "ar" | "en";
   /** 3-5 when omitted (derived from the brief). */
   sceneCount?: number;
+  /** Required by real providers for budget scoping + spend ledger; mocks ignore it. */
+  tenantId?: string;
 }
 
 export interface GeneratedScene {

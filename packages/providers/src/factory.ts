@@ -6,6 +6,7 @@
  * key at construction — a selected real provider with a missing key
  * throws loudly at resolution time.
  */
+import { AnthropicScriptProvider } from "./anthropic-script.ts";
 import type { PublishingProvider, VideoGenerationProvider, VoiceProvider } from "./contracts.ts";
 import { LocalSynthVideoProvider, LocalSynthVoiceProvider } from "./local-synth.ts";
 import { MockPublishingProvider } from "./mock-publishing.ts";
@@ -26,6 +27,9 @@ function resolveFromRegistry<T>(envVar: string, registry: Registry<T>): T {
 
 const scriptRegistry: Registry<ScriptProvider> = {
   [MOCK_KEY]: () => new MockScriptProvider(),
+  // PROV-009 Phase A (user-approved). Throws at resolution when
+  // ANTHROPIC_API_KEY is missing — fail loud, never silent fallback.
+  anthropic: () => new AnthropicScriptProvider(),
 };
 
 const videoRegistry: Registry<VideoGenerationProvider> = {

@@ -69,7 +69,11 @@ export async function createScript(
   if (!project) throw new ContentError("project not found", 404);
 
   const generated = params.provider
-    ? await params.provider.generate({ brief: params.brief, language: params.language })
+    ? await params.provider.generate({
+        brief: params.brief,
+        language: params.language,
+        tenantId: ctx.tenantId,
+      })
     : null;
 
   const script = await prisma.script.create({
@@ -120,7 +124,11 @@ export async function regenerateScenes(
 ) {
   const script = await getOwnedScript(prisma, ctx, scriptId);
   assertEditable(script.status);
-  const generated = await provider.generate({ brief: script.brief, language: script.language });
+  const generated = await provider.generate({
+    brief: script.brief,
+    language: script.language,
+    tenantId: ctx.tenantId,
+  });
   await prisma.$transaction([
     prisma.scene.deleteMany({ where: { scriptId } }),
     prisma.scene.createMany({
