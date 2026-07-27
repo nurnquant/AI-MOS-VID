@@ -47,6 +47,17 @@ services:
       timeout: 3s
       retries: 10
 
+  clamav:
+    image: clamav/clamav:stable
+    profiles: ["scan"]
+    ports:
+      - "${CLAMAV_PORT:-3310}:3310"
+    healthcheck:
+      test: ["CMD", "clamdscan", "--ping", "1"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+
   mailpit:
     image: axllent/mailpit:latest
     profiles: ["mail"]

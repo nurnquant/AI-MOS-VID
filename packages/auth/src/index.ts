@@ -30,7 +30,8 @@ export {
 } from "./audit.ts";
 export {
   ConsoleEmailSender,
-  ResendEmailSenderStub,
+  ResendEmailSender,
+  resolveEmailSender,
   type EmailMessage,
   type EmailSender,
 } from "./email.ts";

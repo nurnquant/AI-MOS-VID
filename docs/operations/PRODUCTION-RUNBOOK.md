@@ -81,3 +81,44 @@ workspace (becomes owner). Dev credentials are local-only.
 - Prisma `P1001` on migrate: use the NON-pooling URL.
 - Signed URL 403 from R2: token scope must include the bucket; check
   clock skew is not the issue before rotating keys.
+
+## Hardening (ADR-AIVS-011)
+
+### Uptime monitoring (user setup, ~5 min, free)
+
+`GET /api/services` on the production domain checks Postgres, Redis,
+storage, AND the worker heartbeat; any failure returns HTTP 503.
+Create a monitor in UptimeRobot / BetterStack (free tier):
+
+1. Monitor type: HTTPS, URL
+   `https://aivs-studio-web.vercel.app/api/services`, interval 5 min.
+2. Alert contact: your email. Done — a stalled Railway worker (e.g.
+   credit exhaustion) now alerts within ~7 minutes.
+
+### Malware scanning (ClamAV)
+
+- Default `SCAN_PROVIDER=off` — explicitly logged, uploads NOT scanned.
+- Local: `docker compose --profile scan up -d clamav`, then
+  `SCAN_PROVIDER=clamav` in `.env` (first boot downloads signatures,
+  several minutes).
+- Production flip (separate decision — memory/cost): add a ClamAV
+  service next to the Railway worker (image `clamav/clamav:stable`,
+  ~1 GB RAM), set `SCAN_PROVIDER=clamav` + `CLAMAV_HOST` (private
+  hostname) + `CLAMAV_PORT=3310` on the worker, restart. Scan errors
+  fail closed — assets stay quarantined.
+
+### Email (Resend)
+
+- Default `EMAIL_PROVIDER=console` (links print to server logs).
+- Enable: Resend account → verified domain (or onboarding@resend.dev
+  for tests) → `RESEND_API_KEY` + `RESEND_FROM_EMAIL` +
+  `EMAIL_PROVIDER=resend` in Vercel env (invitations + guardian
+  confirmations send from the web app), redeploy.
+
+### Guardian confirmation
+
+Consents with an email guardianContact send a single-use confirmation
+link automatically; the registry shows confirmed/unconfirmed.
+`ENFORCE_GUARDIAN_CONFIRMATION=true` (Vercel env) makes the §10
+guardian-scope check require confirmation — flip once real guardians
+are confirming.

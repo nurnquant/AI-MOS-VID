@@ -147,6 +147,10 @@ model ConsentRecord {
   platforms       String[]
   /// Optional contact for the guardian (email/phone) — minimal PII.
   guardianContact String?
+  /// Guardian email confirmation (ADR-AIVS-011 §D): single-use token,
+  /// cleared on confirmation; confirmedAt is the proof.
+  guardianConfirmationToken String?   @unique
+  guardianConfirmedAt       DateTime?
   /// Reference (path/URL) to the signed consent document; no uploads yet.
   documentRef     String?
   expiresAt       DateTime

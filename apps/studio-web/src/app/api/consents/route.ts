@@ -4,6 +4,7 @@
  */
 import { NextResponse, type NextRequest } from "next/server";
 import { ConsentError, createConsent, listConsents } from "@aivs/assets";
+import { resolveEmailSender } from "@aivs/auth";
 import { ConsentScope } from "@aivs/database";
 import { z } from "zod";
 import { MembershipRole, authErrorResponse, requireContext } from "@/lib/auth-context";
@@ -47,11 +48,18 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     if (!parsed.success) {
       return NextResponse.json({ error: z.prettifyError(parsed.error) }, { status: 400 });
     }
-    const record = await createConsent(prisma, {
-      tenantId: tenant.id,
-      userId: user.id,
-      ...parsed.data,
-    });
+    const record = await createConsent(
+      prisma,
+      {
+        tenantId: tenant.id,
+        userId: user.id,
+        ...parsed.data,
+      },
+      {
+        email: resolveEmailSender(),
+        appUrl: process.env.APP_URL ?? "http://localhost:3000",
+      },
+    );
     return NextResponse.json({ consentId: record.id }, { status: 201 });
   } catch (error) {
     return consentErrorResponse(error);

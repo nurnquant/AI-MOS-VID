@@ -3,7 +3,7 @@
  * POST /api/members — invite by email with a role (admin+).
  */
 import { NextResponse, type NextRequest } from "next/server";
-import { ConsoleEmailSender, inviteMember, listMembers } from "@aivs/auth";
+import { inviteMember, listMembers, resolveEmailSender } from "@aivs/auth";
 import { MembershipRole } from "@aivs/database";
 import { z } from "zod";
 import { authErrorResponse, requireContext } from "@/lib/auth-context";
@@ -12,7 +12,8 @@ import { getServices } from "@/lib/services";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-const emailSender = new ConsoleEmailSender();
+/** Env-selected (EMAIL_PROVIDER, ADR-AIVS-011); console default. */
+const emailSender = resolveEmailSender();
 
 const inviteSchema = z.object({
   email: z.email(),

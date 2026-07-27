@@ -13,7 +13,13 @@ export {
   sanitizeDisplayName,
   type KindLimits,
 } from "./limits.ts";
-export { AlwaysPassScanner, type MalwareScanner, type ScanResult } from "./scanner.ts";
+export {
+  AlwaysPassScanner,
+  ClamdScanner,
+  resolveScanner,
+  type MalwareScanner,
+  type ScanResult,
+} from "./scanner.ts";
 export { closeAssetServices, createAssetServices, type AssetServices } from "./context.ts";
 export { enqueueWithRecord, markJobFinished, markJobRunning } from "./jobs.ts";
 export {
@@ -39,6 +45,7 @@ export { SignedUrlError, issueAssetSignedUrl, type IssueSignedUrlParams } from "
 export {
   ConsentError,
   attachConsent,
+  confirmGuardianConsent,
   createConsent,
   getConsentStatus,
   listConsents,

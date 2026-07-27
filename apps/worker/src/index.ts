@@ -201,6 +201,23 @@ if (!process.argv.includes("--smoke")) {
   void scheduleRetentionSweep(services).catch((err) =>
     logger.error({ err: (err as Error).message }, "failed to schedule retention sweep"),
   );
+
+  // Liveness heartbeat (ADR-AIVS-011 §A): /api/services reports the
+  // worker down when this key goes stale — a stalled/killed worker is
+  // finally visible from the outside.
+  const HEARTBEAT_KEY = "aivs:worker:heartbeat";
+  const beat = async () => {
+    try {
+      const client = (await services.validationQueue.client) as unknown as {
+        set(key: string, value: string): Promise<unknown>;
+      };
+      await client.set(HEARTBEAT_KEY, Date.now().toString());
+    } catch (err) {
+      logger.error({ err: (err as Error).message }, "heartbeat write failed");
+    }
+  };
+  void beat();
+  setInterval(() => void beat(), 30_000).unref();
 }
 
 enforcementWorker.on("completed", (job, result) => {

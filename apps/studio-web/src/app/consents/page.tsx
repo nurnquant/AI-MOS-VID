@@ -15,6 +15,7 @@ interface ConsentRow {
   scope: string;
   expiresAt: string;
   status: "active" | "expired" | "revoked";
+  guardianConfirmedAt: string | null;
   revokeReason: string | null;
   linkedAssets: number;
 }
@@ -173,7 +174,18 @@ export default function ConsentsPage() {
             {consents.map((c) => (
               <tr key={c.id}>
                 <td>{c.subjectLabel}</td>
-                <td>{c.guardianName}</td>
+                <td>
+                  {c.guardianName}{" "}
+                  {c.guardianConfirmedAt ? (
+                    <span className="badge badge-ok" title="guardian confirmed by email">
+                      confirmed
+                    </span>
+                  ) : (
+                    <span className="badge badge-muted" title="guardian email confirmation pending">
+                      unconfirmed
+                    </span>
+                  )}
+                </td>
                 <td>{c.scope}</td>
                 <td>{c.expiresAt.slice(0, 10)}</td>
                 <td>

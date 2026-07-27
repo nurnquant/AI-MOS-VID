@@ -156,6 +156,14 @@ export async function contentApprove(
       409,
     );
   }
+  // ADR-AIVS-011 §D: flag-gated strengthening — when enforcement is on,
+  // the guardian must have confirmed via the emailed link.
+  if (process.env.ENFORCE_GUARDIAN_CONFIRMATION === "true" && !consent.guardianConfirmedAt) {
+    throw new PublishingError(
+      "guardian-scope check failed: guardian email confirmation is pending",
+      409,
+    );
+  }
 
   await prisma.publicationApproval.createMany({
     data: [

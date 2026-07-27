@@ -15,7 +15,7 @@ import {
   type ValidateAssetPayload,
 } from "@aivs/queue";
 import type { Queue } from "bullmq";
-import { AlwaysPassScanner, type MalwareScanner } from "./scanner.ts";
+import { resolveScanner, type MalwareScanner } from "./scanner.ts";
 
 export interface AssetServices {
   prisma: PrismaClient;
@@ -39,7 +39,7 @@ export function createAssetServices(overrides: Partial<AssetServices> = {}): Ass
       overrides.enforcementQueue ?? createQueue(QUEUES.consentEnforcement, connection),
     generationQueue: overrides.generationQueue ?? createQueue(QUEUES.generation, connection),
     publishingQueue: overrides.publishingQueue ?? createQueue(QUEUES.publishing, connection),
-    scanner: overrides.scanner ?? new AlwaysPassScanner(),
+    scanner: overrides.scanner ?? resolveScanner(),
   };
 }
 

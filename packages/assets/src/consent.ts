@@ -2,8 +2,9 @@
  * Child-media consent lifecycle (ADR-AIVS-004 §1-§2): create, attach,
  * revoke, list — every action audited. Status is derived, never stored.
  */
+import { randomBytes } from "node:crypto";
 import { AssetStatus, ConsentScope, type ConsentRecord, type PrismaClient } from "@aivs/database";
-import { writeAudit } from "@aivs/auth";
+import { writeAudit, type EmailSender } from "@aivs/auth";
 import { JOB_NAMES } from "@aivs/queue";
 import type { AssetServices } from "./context.ts";
 import { enqueueWithRecord } from "./jobs.ts";
@@ -42,16 +43,29 @@ export interface CreateConsentParams {
   documentRef?: string;
 }
 
-export async function createConsent(prisma: PrismaClient, params: CreateConsentParams) {
+const EMAIL_LIKE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+export async function createConsent(
+  prisma: PrismaClient,
+  params: CreateConsentParams,
+  confirmation?: { email: EmailSender; appUrl: string },
+) {
   if (params.expiresAt <= new Date()) {
     throw new ConsentError("expiresAt must be in the future", 400);
   }
+  const guardianContact = params.guardianContact?.trim();
+  // Guardian email confirmation (ADR-AIVS-011 SD): single-use token,
+  // emailed when the contact is an email address and a sender is wired.
+  const confirmable = Boolean(confirmation && guardianContact && EMAIL_LIKE.test(guardianContact));
+  const token = confirmable ? randomBytes(32).toString("hex") : null;
+
   const record = await prisma.consentRecord.create({
     data: {
       tenantId: params.tenantId,
       subjectLabel: params.subjectLabel.trim(),
       guardianName: params.guardianName.trim(),
-      guardianContact: params.guardianContact?.trim(),
+      guardianContact,
+      guardianConfirmationToken: token,
       scope: params.scope,
       platforms: params.platforms ?? [],
       expiresAt: params.expiresAt,
@@ -64,7 +78,63 @@ export async function createConsent(prisma: PrismaClient, params: CreateConsentP
     userId: params.userId,
     detail: { consentId: record.id, scope: record.scope, expiresAt: record.expiresAt },
   });
+
+  if (token && confirmation && guardianContact) {
+    const link = confirmation.appUrl.replace(/\/$/, "") + "/api/consents/confirm?token=" + token;
+    try {
+      await confirmation.email.send({
+        to: guardianContact,
+        subject: "Please confirm your consent - Riwaq Al Ilm",
+        text:
+          "Assalamu alaikum " +
+          record.guardianName +
+          ",\n\n" +
+          'A consent record for "' +
+          record.subjectLabel +
+          '" was created in the ' +
+          "Riwaq Al Ilm studio. If you are the guardian and agree, please " +
+          "confirm by opening this link:\n\n" +
+          link +
+          "\n\n" +
+          "If you did not expect this email, you can ignore it.",
+      });
+      await writeAudit(prisma, {
+        type: "consent.guardian_confirmation_sent",
+        tenantId: params.tenantId,
+        userId: params.userId,
+        detail: { consentId: record.id },
+      });
+    } catch (error) {
+      // Email failure must not lose the consent record - audited instead.
+      await writeAudit(prisma, {
+        type: "email.failed",
+        tenantId: params.tenantId,
+        detail: { consentId: record.id, error: (error as Error).message.slice(0, 200) },
+      });
+    }
+  }
   return record;
+}
+
+/**
+ * Public token confirmation (unauthenticated by design - guardians are
+ * not app users; the unguessable single-use token is the credential).
+ */
+export async function confirmGuardianConsent(prisma: PrismaClient, token: string) {
+  const record = await prisma.consentRecord.findUnique({
+    where: { guardianConfirmationToken: token },
+  });
+  if (!record) throw new ConsentError("confirmation link is invalid or already used", 404);
+  const updated = await prisma.consentRecord.update({
+    where: { id: record.id },
+    data: { guardianConfirmedAt: new Date(), guardianConfirmationToken: null },
+  });
+  await writeAudit(prisma, {
+    type: "consent.guardian_confirmed",
+    tenantId: record.tenantId,
+    detail: { consentId: record.id },
+  });
+  return updated;
 }
 
 /**
@@ -170,6 +240,7 @@ export async function listConsents(prisma: PrismaClient, tenantId: string, now: 
     revokeReason: record.revokeReason,
     enforcedAt: record.enforcedAt?.toISOString() ?? null,
     status: getConsentStatus(record, now),
+    guardianConfirmedAt: record.guardianConfirmedAt?.toISOString() ?? null,
     linkedAssets: record._count.assets,
     createdAt: record.createdAt.toISOString(),
   }));

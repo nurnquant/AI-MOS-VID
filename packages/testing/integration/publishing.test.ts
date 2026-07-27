@@ -4,7 +4,7 @@
  * consent revocation. Live local Postgres/MinIO/Redis.
  */
 import { randomUUID } from "node:crypto";
-import { afterAll, beforeAll, describe, expect, it } from "vitest";
+import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 import {
   closeAssetServices,
   createAssetServices,
@@ -294,6 +294,38 @@ describe("child-media approval matrix (baseline §10)", () => {
       (e) => e.type,
     );
     expect(types).toContain("publication.retracted");
+  });
+
+  it("HARDENING-011: ENFORCE_GUARDIAN_CONFIRMATION blocks unconfirmed guardians", async () => {
+    vi.stubEnv("ENFORCE_GUARDIAN_CONFIRMATION", "true");
+    try {
+      const consent = await publishingConsent([PublishPlatform.youtube]);
+      const asset = await readyVideo(true, consent.id);
+      const pub = await createPublication(services.prisma, adminCtx(), {
+        assetId: asset.id,
+        platform: PublishPlatform.youtube,
+        caption: "needs confirmed guardian",
+      });
+      await submitPublication(services.prisma, adminCtx(), pub.id);
+      await expect(contentApprove(services, adminCtx(), pub.id)).rejects.toThrow(
+        /guardian email confirmation is pending/,
+      );
+
+      // Confirmation unblocks the same publication.
+      await services.prisma.consentRecord.update({
+        where: { id: consent.id },
+        data: { guardianConfirmedAt: new Date() },
+      });
+      await contentApprove(services, adminCtx(), pub.id);
+      const rows = await services.prisma.publicationApproval.findMany({
+        where: { publicationId: pub.id },
+      });
+      expect(rows.map((r) => r.kind)).toEqual(
+        expect.arrayContaining([ApprovalKind.content_review, ApprovalKind.guardian_scope]),
+      );
+    } finally {
+      vi.unstubAllEnvs();
+    }
   });
 
   it("PROV-009D: enforcement calls real takedown for published youtube items", async () => {
