@@ -36,14 +36,17 @@ themselves; the key never entered chat or the repo.
   (draft → in_review → approved) before any generation runs — the human
   gate in front of downstream spend is unchanged.
 
-## 4. Production enablement (user actions, when ready)
+## 4. Production enablement — DONE 2026-07-27
 
-Local: key + budget caps are in `.env`; set `SCRIPT_PROVIDER=anthropic`
-there to use the real provider locally (smoke test called the adapter
-directly). For production: add to Vercel env —
-`SCRIPT_PROVIDER=anthropic`, `PROVIDER_DAILY_BUDGET_USD`,
-`PROVIDER_MONTHLY_BUDGET_USD` (key already there) — then redeploy.
-Rollback: set `SCRIPT_PROVIDER=mock`.
+User set `SCRIPT_PROVIDER=anthropic` + budget caps in local `.env` and
+Vercel env; production redeployed (`vercel redeploy`). End-to-end
+production smoke: fresh account → workspace → `POST /api/scripts`
+`generate:true` → **4 real Claude scenes** (script
+`79f58c17-353a-4dd1-86b2-1639b89cd584`, smoke workspace
+`prov-smoke-ws` = demo data). Production Neon ledger row:
+`anthropic script.generate 1788 tokens $0.0311`. Local factory
+resolution verified (`resolved: anthropic`).
+Rollback remains: set `SCRIPT_PROVIDER=mock`, redeploy.
 
 ## 5. Next
 
