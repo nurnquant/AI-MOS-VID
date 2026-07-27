@@ -7,6 +7,7 @@
  * throws loudly at resolution time.
  */
 import { AnthropicScriptProvider } from "./anthropic-script.ts";
+import { AzureSpeechVoiceProvider } from "./azure-voice.ts";
 import type { PublishingProvider, VideoGenerationProvider, VoiceProvider } from "./contracts.ts";
 import { ElevenLabsVoiceProvider } from "./elevenlabs-voice.ts";
 import { FalVideoProvider } from "./fal-video.ts";
@@ -47,6 +48,8 @@ const voiceRegistry: Registry<VoiceProvider> = {
   // PROV-009 Phase B (user-approved). Throws at resolution when
   // ELEVENLABS_API_KEY is missing — fail loud, never silent fallback.
   elevenlabs: () => new ElevenLabsVoiceProvider(),
+  // POLISH-013 Arabic bake-off candidate. Fail-loud without key/region.
+  azure: () => new AzureSpeechVoiceProvider(),
 };
 
 const publishingRegistry: Registry<PublishingProvider> = {

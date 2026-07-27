@@ -22,6 +22,7 @@ export { LocalSynthVideoProvider, LocalSynthVoiceProvider } from "./local-synth.
 export { MockPublishingProvider } from "./mock-publishing.ts";
 export { AnthropicScriptProvider } from "./anthropic-script.ts";
 export { ElevenLabsVoiceProvider } from "./elevenlabs-voice.ts";
+export { AzureSpeechVoiceProvider } from "./azure-voice.ts";
 export { FalVideoProvider, pickFalDuration } from "./fal-video.ts";
 export { YouTubePublishingProvider } from "./youtube-publishing.ts";
 export {
@@ -38,3 +39,4 @@ export {
   recordProviderUsage,
   type ProviderUsageEntry,
 } from "./budget.ts";
+export { summarizeProviderUsage, type ProviderSpend, type UsageSummary } from "./usage.ts";

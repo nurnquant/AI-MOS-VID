@@ -28,6 +28,7 @@ export default tseslint.config(
         process: "readonly",
         console: "readonly",
         fetch: "readonly",
+        setTimeout: "readonly",
         URL: "readonly",
         URLSearchParams: "readonly",
       },

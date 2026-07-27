@@ -69,3 +69,21 @@ the provider dashboard if needed.
 | `PUBLISH_PROVIDER` | `mock`, `youtube`    | `youtube` = YouTube Data API v3 (Phase D; creds via `scripts/youtube-oauth.mjs`; madeForKids hard-coded, unlisted default, real takedown on revocation). Meta/Instagram/Pinterest/TikTok: placeholders               |
 
 Update this table in each phase's PR.
+
+## Usage dashboard & bake-offs (AIVS-POLISH-013)
+
+- **/usage** (admin+): today/month spend per provider vs the budget
+  caps, blocked-call count, last 25 ledger rows. Estimates only —
+  reconcile monthly with each provider's own dashboard.
+- **Arabic voice bake-off:** `node --env-file=.env
+scripts/voice-bakeoff.mjs --yes` → two labeled MP3s on the Desktop
+  (ElevenLabs vs Azure, same narration, ~$0.05). Requires both keys;
+  Azure voice via `AZURE_VOICE_NAME` (default ar-SA-ZariyahNeural).
+  Switch production narration to Azure with `VOICE_PROVIDER=azure` +
+  `AZURE_SPEECH_KEY`/`AZURE_SPEECH_REGION` on the worker.
+- **Video model bake-off:** `node --env-file=.env
+scripts/video-bakeoff.mjs --yes [model…]` → one labeled 5s clip per
+  model on the Desktop. REAL dollars per model — check fal.ai/models
+  pricing first; raise budget caps to fit. Record outcomes in
+  `docs/operations/BAKEOFF-RESULTS.md`; change production video with
+  `FAL_VIDEO_MODEL` (+ `FAL_USD_PER_SECOND` to match its price).

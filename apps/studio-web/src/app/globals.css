@@ -432,6 +432,32 @@ code {
   flex-wrap: wrap;
 }
 
+.meter {
+  display: inline-block;
+  inline-size: 10rem;
+  block-size: 0.6rem;
+  border-radius: 999px;
+  background: var(--surface-2);
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.meter-fill {
+  display: block;
+  block-size: 100%;
+  background: var(--status-ok);
+  border-radius: 999px;
+  transition: width 0.3s;
+}
+
+.meter-fill-warn {
+  background: var(--status-warn);
+}
+
+.meter-fill-danger {
+  background: var(--status-danger);
+}
+
 /* Arabic / RTL content blocks: apply dir="rtl" + this class. */
 .content-rtl {
   direction: rtl;

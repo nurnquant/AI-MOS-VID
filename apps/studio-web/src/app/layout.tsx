@@ -28,6 +28,7 @@ const navItems = [
   { href: "/consents", label: "Consents" },
   { href: "/scripts", label: "Scripts" },
   { href: "/publications", label: "Publishing" },
+  { href: "/usage", label: "Usage" },
 ];
 
 /** Runs before paint: honor stored choice, else system preference. */
