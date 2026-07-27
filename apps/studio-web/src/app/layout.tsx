@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { IBM_Plex_Sans_Arabic } from "next/font/google";
+import { ProjectSelector } from "./project-selector";
 import { SessionNav } from "./session-nav";
 import { ThemeToggle } from "./theme-toggle";
 import "./globals.css";
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/status", label: "Environment Status" },
-  { href: "#", label: "Projects (soon)" },
+  { href: "/projects", label: "Projects" },
   { href: "/assets", label: "Assets" },
   { href: "/members", label: "Members" },
   { href: "/consents", label: "Consents" },
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </a>
           ))}
           <span className="app-nav-session">
+            <ProjectSelector />
             <ThemeToggle />
             <SessionNav />
           </span>

@@ -346,7 +346,9 @@ export async function listPublications(
     },
     include: {
       approvals: { orderBy: { createdAt: "asc" } },
-      asset: { select: { displayName: true, featuresMinor: true } },
+      asset: {
+        select: { displayName: true, featuresMinor: true, project: { select: { name: true } } },
+      },
     },
     orderBy: { createdAt: "desc" },
   });

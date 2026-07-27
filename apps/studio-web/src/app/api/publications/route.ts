@@ -33,6 +33,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
         externalId: p.externalId,
         error: p.error,
         assetName: p.asset?.displayName ?? "(deleted)",
+        projectName: p.asset?.project?.name ?? null,
         featuresMinor: p.asset?.featuresMinor ?? false,
         approvals: p.approvals.map((a) => ({ kind: a.kind, approvedBy: a.approvedBy })),
         createdAt: p.createdAt.toISOString(),

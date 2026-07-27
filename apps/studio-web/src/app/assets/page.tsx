@@ -6,6 +6,7 @@
  * module.
  */
 import { useCallback, useEffect, useRef, useState } from "react";
+import { readActiveProject } from "@/app/project-selector";
 import { badgeClass } from "@/lib/ui";
 
 const POLL_MS = 2000;
@@ -32,6 +33,7 @@ export default function AssetsPage() {
   const [error, setError] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false);
   const [projectId, setProjectId] = useState<string | null>(null);
+  const [activeProject, setActiveProject] = useState<string>("");
   const [featuresMinor, setFeaturesMinor] = useState(false);
   const [consentId, setConsentId] = useState("");
   const [consents, setConsents] = useState<ConsentOption[] | null>(null);
@@ -41,7 +43,11 @@ export default function AssetsPage() {
     void fetch("/api/projects").then(async (r) => {
       if (!r.ok) return;
       const data = (await r.json()) as { projects: { id: string }[] };
-      setProjectId(data.projects[0]?.id ?? null);
+      // Active project (nav selector) wins; "All projects" creates
+      // into the first project.
+      const active = readActiveProject(data.projects.map((p) => p.id));
+      setActiveProject(active);
+      setProjectId(active || (data.projects[0]?.id ?? null));
     });
     // Consent list is reviewer+ only; 403 just hides the selector.
     void fetch("/api/consents").then(async (r) => {
@@ -53,7 +59,8 @@ export default function AssetsPage() {
 
   const refresh = useCallback(async () => {
     try {
-      const response = await fetch("/api/assets");
+      const query = activeProject ? `?projectId=${activeProject}` : "";
+      const response = await fetch(`/api/assets${query}`);
       if (response.status === 401) {
         window.location.href = "/login";
         return;
@@ -65,7 +72,7 @@ export default function AssetsPage() {
     } catch (e) {
       setError((e as Error).message);
     }
-  }, []);
+  }, [activeProject]);
 
   useEffect(() => {
     void refresh();

@@ -2,6 +2,7 @@
 
 /** Script list: status badges, create form with optional mock generation. */
 import { useCallback, useEffect, useState } from "react";
+import { readActiveProject } from "@/app/project-selector";
 import { badgeClass } from "@/lib/ui";
 
 interface ScriptRow {
@@ -16,6 +17,7 @@ interface ScriptRow {
 export default function ScriptsPage() {
   const [scripts, setScripts] = useState<ScriptRow[]>([]);
   const [projectId, setProjectId] = useState<string | null>(null);
+  const [activeProject, setActiveProject] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
   const [title, setTitle] = useState("");
   const [brief, setBrief] = useState("");
@@ -24,7 +26,8 @@ export default function ScriptsPage() {
   const [busy, setBusy] = useState(false);
 
   const refresh = useCallback(async () => {
-    const response = await fetch("/api/scripts");
+    const query = activeProject ? `?projectId=${activeProject}` : "";
+    const response = await fetch(`/api/scripts${query}`);
     if (response.status === 401) {
       window.location.href = "/login";
       return;
@@ -35,14 +38,16 @@ export default function ScriptsPage() {
     }
     setScripts(((await response.json()) as { scripts: ScriptRow[] }).scripts);
     setError(null);
-  }, []);
+  }, [activeProject]);
 
   useEffect(() => {
     void refresh();
     void fetch("/api/projects").then(async (r) => {
       if (!r.ok) return;
       const data = (await r.json()) as { projects: { id: string }[] };
-      setProjectId(data.projects[0]?.id ?? null);
+      const active = readActiveProject(data.projects.map((p) => p.id));
+      setActiveProject(active);
+      setProjectId(active || (data.projects[0]?.id ?? null));
     });
   }, [refresh]);
 

@@ -35,3 +35,11 @@ export {
   type EmailMessage,
   type EmailSender,
 } from "./email.ts";
+export {
+  createProject,
+  deleteProject,
+  deriveProjectSlug,
+  listProjects,
+  renameProject,
+  type ProjectContext,
+} from "./projects.ts";

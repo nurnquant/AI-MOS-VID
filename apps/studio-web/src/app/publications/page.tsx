@@ -16,6 +16,7 @@ interface PublicationRow {
   externalId: string | null;
   error: string | null;
   assetName: string;
+  projectName: string | null;
   featuresMinor: boolean;
   approvals: { kind: string }[];
 }
@@ -233,7 +234,7 @@ export default function PublicationsPage() {
             ))}
             {rows.length === 0 && (
               <tr>
-                <td colSpan={7} className="muted">
+                <td colSpan={8} className="muted">
                   No publications yet.
                 </td>
               </tr>
