@@ -30,6 +30,10 @@ export interface VoiceSynthesisRequest {
   text: string;
   voiceId: string;
   language: string;
+  /** Target length hint — honored by mocks for determinism; real TTS ignores it. */
+  durationTargetSeconds?: number;
+  /** Required by real providers for budget scoping + spend ledger; mocks ignore it. */
+  tenantId?: string;
 }
 
 export interface VoiceProvider {

@@ -67,8 +67,10 @@ export class LocalSynthVoiceProvider implements VoiceProvider {
   async synthesize(request: VoiceSynthesisRequest): Promise<{ audioUrl: string }> {
     const workDir = await mkdtemp(join(tmpdir(), "aivs-voice-"));
     const audioPath = join(workDir, "voice.wav");
-    // Rough speech pace stand-in: ~15 chars/second, clamped 2-30s.
-    const duration = Math.min(30, Math.max(2, request.text.length / 15));
+    // Honor the duration hint when given (deterministic tests); else a
+    // rough speech-pace stand-in: ~15 chars/second, clamped 2-30s.
+    const duration =
+      request.durationTargetSeconds ?? Math.min(30, Math.max(2, request.text.length / 15));
     const frequency = 220 + ((request.voiceId.length * 53) % 300);
     await synthesizeToneAudio(audioPath, { durationSeconds: duration, frequency });
     return { audioUrl: pathToFileURL(audioPath).href };

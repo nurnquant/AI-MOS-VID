@@ -4,7 +4,7 @@
  * failures are marked dead and mid-validation assets fall to rejected.
  * `--smoke` retains the ENV-001 environment smoke check.
  */
-import { Queue, QueueEvents, Worker, type Job } from "bullmq";
+import { Queue, QueueEvents, UnrecoverableError, Worker, type Job } from "bullmq";
 import { pino } from "pino";
 import {
   closeAssetServices,
@@ -43,6 +43,7 @@ import {
   processAssembleVideo,
   processGenerateScene,
 } from "@aivs/generation";
+import { ProviderBudgetError } from "@aivs/providers";
 import { markPublishFailed, processPublishPublication } from "@aivs/publishing";
 import type { TestJobPayload, TestJobResult } from "@aivs/types";
 
@@ -106,21 +107,28 @@ const enforcementWorker = new Worker<ConsentEnforcementPayload>(
 const generationWorker = new Worker<GenerationQueuePayload>(
   QUEUES.generation,
   async (job) => {
-    switch (job.name) {
-      case JOB_NAMES.generateScene: {
-        const payload = job.data as GenerateScenePayload;
-        const result = await processGenerateScene(services, payload);
-        const sceneGen = await services.prisma.sceneGeneration.findUnique({
-          where: { id: payload.sceneGenerationId },
-          select: { generationId: true },
-        });
-        if (sceneGen) await checkGeneration(services, sceneGen.generationId);
-        return result;
+    try {
+      switch (job.name) {
+        case JOB_NAMES.generateScene: {
+          const payload = job.data as GenerateScenePayload;
+          const result = await processGenerateScene(services, payload);
+          const sceneGen = await services.prisma.sceneGeneration.findUnique({
+            where: { id: payload.sceneGenerationId },
+            select: { generationId: true },
+          });
+          if (sceneGen) await checkGeneration(services, sceneGen.generationId);
+          return result;
+        }
+        case JOB_NAMES.assembleVideo:
+          return processAssembleVideo(services, job.data as AssembleVideoPayload);
+        default:
+          throw new Error(`Unknown generation job ${job.name}`);
       }
-      case JOB_NAMES.assembleVideo:
-        return processAssembleVideo(services, job.data as AssembleVideoPayload);
-      default:
-        throw new Error(`Unknown generation job ${job.name}`);
+    } catch (err) {
+      // Budget exhaustion cannot heal by retrying — retries would only
+      // hammer the caps. Fail the job immediately (ADR-AIVS-009 §2).
+      if (err instanceof ProviderBudgetError) throw new UnrecoverableError(err.message);
+      throw err;
     }
   },
   { connection },

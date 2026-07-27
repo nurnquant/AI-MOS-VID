@@ -114,6 +114,9 @@ importers:
       '@aivs/media-core':
         specifier: workspace:*
         version: link:../../packages/media-core
+      '@aivs/providers':
+        specifier: workspace:*
+        version: link:../../packages/providers
       '@aivs/publishing':
         specifier: workspace:*
         version: link:../../packages/publishing

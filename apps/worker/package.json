@@ -15,6 +15,7 @@
     "@aivs/database": "workspace:*",
     "@aivs/generation": "workspace:*",
     "@aivs/media-core": "workspace:*",
+    "@aivs/providers": "workspace:*",
     "@aivs/publishing": "workspace:*",
     "@aivs/queue": "workspace:*",
     "@aivs/storage": "workspace:*",

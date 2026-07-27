@@ -15,8 +15,19 @@ import { fileURLToPath } from "node:url";
 import { ingestUpload, validateAsset, type AssetServices } from "@aivs/assets";
 import { writeAudit } from "@aivs/auth";
 import { AssetStatus, GenerationStatus, SceneGenerationStatus, ScriptStatus } from "@aivs/database";
-import { concatClips, getPreset, normalizeVideo } from "@aivs/media-core";
-import { resolveVideoProvider, type VideoGenerationProvider } from "@aivs/providers";
+import {
+  concatClips,
+  getPreset,
+  inspectMedia,
+  normalizeVideo,
+  replaceAudioTrack,
+} from "@aivs/media-core";
+import {
+  resolveVideoProvider,
+  resolveVoiceProvider,
+  type VideoGenerationProvider,
+  type VoiceProvider,
+} from "@aivs/providers";
 import { JOB_NAMES, type AssembleVideoPayload, type GenerateScenePayload } from "@aivs/queue";
 
 export class GenerationError extends Error {
@@ -29,10 +40,13 @@ export class GenerationError extends Error {
   }
 }
 
-/** Env-selected (VIDEO_PROVIDER, ADR-AIVS-009); mock/local-synth default. */
+/** Env-selected (VIDEO_PROVIDER / VOICE_PROVIDER, ADR-AIVS-009); mocks default. */
 const defaultProvider = resolveVideoProvider();
+const defaultVoiceProvider = resolveVoiceProvider();
 
 const DEFAULT_SCENE_SECONDS = 8;
+/** Clip length always comes from the narration; clamp to sane bounds. */
+const MAX_SCENE_SECONDS = 60;
 
 export async function startGeneration(
   services: AssetServices,
@@ -92,11 +106,15 @@ export async function startGeneration(
   return generation;
 }
 
-/** Synthesize → ingest (quarantine) → validate (ready) → link. Idempotent. */
+/**
+ * Narration TTS → video sized to the narration → narration muxed over
+ * the clip → ingest (quarantine) → validate (ready) → link. Idempotent.
+ */
 export async function processGenerateScene(
   services: AssetServices,
   payload: GenerateScenePayload,
   provider: VideoGenerationProvider = defaultProvider,
+  voice: VoiceProvider = defaultVoiceProvider,
 ): Promise<{ assetId: string | null; skipped?: boolean }> {
   const { prisma } = services;
   const sceneGen = await prisma.sceneGeneration.findFirstOrThrow({
@@ -111,27 +129,50 @@ export async function processGenerateScene(
     data: { status: SceneGenerationStatus.running, error: null },
   });
 
-  const job = await provider.submit({
-    prompt: `${sceneGen.scene.visualDescription}\nNarration: ${sceneGen.scene.narration}`,
-    durationSeconds: sceneGen.scene.durationTargetSeconds ?? DEFAULT_SCENE_SECONDS,
-    aspectRatio: "16:9",
+  // Narration first (PROV-009B): its real length defines the clip length.
+  const narration = await voice.synthesize({
+    text: sceneGen.scene.narration,
+    voiceId: process.env.VOICE_ID ?? "narrator",
+    language: sceneGen.generation.script.language,
+    durationTargetSeconds: sceneGen.scene.durationTargetSeconds ?? DEFAULT_SCENE_SECONDS,
+    tenantId: payload.tenantId,
   });
-  if (job.status !== "succeeded" || !job.outputUrl) {
-    throw new Error(`provider ${provider.name} failed: ${job.error ?? "no output"}`);
+  if (!narration.audioUrl.startsWith("file://")) {
+    throw new Error(`unsupported audio URL scheme: ${narration.audioUrl}`);
   }
-  if (!job.outputUrl.startsWith("file://")) {
-    throw new Error(`unsupported output URL scheme for local module: ${job.outputUrl}`);
-  }
-  const clipPath = fileURLToPath(job.outputUrl);
+  const audioPath = fileURLToPath(narration.audioUrl);
 
+  let clipDir: string | undefined;
   try {
+    const audioMeta = await inspectMedia(audioPath);
+    const clipSeconds = Math.min(
+      MAX_SCENE_SECONDS,
+      Math.max(1, Math.ceil(audioMeta.durationSeconds)),
+    );
+
+    const job = await provider.submit({
+      prompt: `${sceneGen.scene.visualDescription}\nNarration: ${sceneGen.scene.narration}`,
+      durationSeconds: clipSeconds,
+      aspectRatio: "16:9",
+    });
+    if (job.status !== "succeeded" || !job.outputUrl) {
+      throw new Error(`provider ${provider.name} failed: ${job.error ?? "no output"}`);
+    }
+    if (!job.outputUrl.startsWith("file://")) {
+      throw new Error(`unsupported output URL scheme for local module: ${job.outputUrl}`);
+    }
+    const clipPath = fileURLToPath(job.outputUrl);
+    clipDir = dirname(clipPath);
+    const voicedPath = join(clipDir, "voiced.mp4");
+    await replaceAudioTrack(clipPath, audioPath, voicedPath);
+
     const { asset } = await ingestUpload(services, {
       tenantId: payload.tenantId,
       projectId: sceneGen.generation.script.projectId,
       originalFilename: `gen-scene-${sceneGen.position + 1}.mp4`,
       claimedContentType: "video/mp4",
       featuresMinor: false,
-      body: createReadStream(clipPath),
+      body: createReadStream(voicedPath),
       enqueueValidation: false,
     });
     const outcome = await validateAsset(services, asset.id);
@@ -144,7 +185,8 @@ export async function processGenerateScene(
     });
     return { assetId: asset.id };
   } finally {
-    await rm(dirname(clipPath), { recursive: true, force: true });
+    await rm(dirname(audioPath), { recursive: true, force: true });
+    if (clipDir) await rm(clipDir, { recursive: true, force: true });
   }
 }
 

@@ -8,6 +8,7 @@
  */
 import { AnthropicScriptProvider } from "./anthropic-script.ts";
 import type { PublishingProvider, VideoGenerationProvider, VoiceProvider } from "./contracts.ts";
+import { ElevenLabsVoiceProvider } from "./elevenlabs-voice.ts";
 import { LocalSynthVideoProvider, LocalSynthVoiceProvider } from "./local-synth.ts";
 import { MockPublishingProvider } from "./mock-publishing.ts";
 import { MockScriptProvider, type ScriptProvider } from "./script.ts";
@@ -38,6 +39,9 @@ const videoRegistry: Registry<VideoGenerationProvider> = {
 
 const voiceRegistry: Registry<VoiceProvider> = {
   [MOCK_KEY]: () => new LocalSynthVoiceProvider(),
+  // PROV-009 Phase B (user-approved). Throws at resolution when
+  // ELEVENLABS_API_KEY is missing — fail loud, never silent fallback.
+  elevenlabs: () => new ElevenLabsVoiceProvider(),
 };
 
 const publishingRegistry: Registry<PublishingProvider> = {

@@ -81,6 +81,39 @@ export async function muxClip(
 }
 
 /**
+ * Replaces a clip's audio track with the given audio file (PROV-009B).
+ * Explicit stream maps — never relies on ffmpeg's default selection,
+ * which could keep the clip's own audio. Audio is padded with silence
+ * to the video's length, then `-shortest` trims any overrun, so the
+ * video track always defines the clip duration.
+ */
+export async function replaceAudioTrack(
+  clipPath: string,
+  audioPath: string,
+  outputPath: string,
+): Promise<void> {
+  await runFfmpeg([
+    "-y",
+    "-i",
+    clipPath,
+    "-i",
+    audioPath,
+    "-map",
+    "0:v:0",
+    "-map",
+    "1:a:0",
+    "-c:v",
+    "copy",
+    "-c:a",
+    "aac",
+    "-af",
+    "apad",
+    "-shortest",
+    outputPath,
+  ]);
+}
+
+/**
  * Losslessly concatenates stream-uniform clips (concat demuxer, `-c copy`).
  * Caller guarantees uniformity — all inputs come from this module.
  */

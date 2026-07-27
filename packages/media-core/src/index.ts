@@ -18,6 +18,7 @@ export {
   SYNTH_WIDTH,
   concatClips,
   muxClip,
+  replaceAudioTrack,
   synthesizeToneAudio,
   synthesizeVideoTrack,
   type SynthVideoOptions,

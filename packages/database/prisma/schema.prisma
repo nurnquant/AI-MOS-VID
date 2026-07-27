@@ -503,4 +503,5 @@ enum ProviderUnitType {
   tokens
   seconds
   calls
+  characters
 }
