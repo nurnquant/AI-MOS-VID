@@ -1,6 +1,6 @@
 # AIVS-PROV-009 Phase B Verification Report
 
-**Result:** **PASS (code complete; live smoke pending user key)**
+**Result:** **PASS (live-smoked 2026-07-27, $0.0600)**
 **Date:** 2026-07-27
 **Branch:** `feature/aivs-prov-009b-elevenlabs-voice`
 **Provider:** ElevenLabs TTS (`eleven_multilingual_v2` — covers Arabic + English)
@@ -49,17 +49,27 @@ Real narration voice for generated videos. Two parts:
 - Voice selection: `VOICE_ID` env (a real ElevenLabs voice id) +
   optional `ELEVENLABS_MODEL_ID` override.
 
-## 4. Enablement (user actions)
+## 4. Live smoke — DONE 2026-07-27
 
-1. Create ElevenLabs account; put `ELEVENLABS_API_KEY` in local `.env`
-   (+ Railway worker vars for production — voice runs in the worker,
-   not Vercel).
-2. Pick a voice (child-friendly, supports Arabic) and set `VOICE_ID`.
-3. Set `VOICE_PROVIDER=elevenlabs` (local first for the smoke).
-4. Live smoke: one script → generation → final video with real
-   narration, ledger row verified — then production flip.
+User created the account and placed `ELEVENLABS_API_KEY` + `VOICE_ID` +
+`VOICE_PROVIDER=elevenlabs` in local `.env` (key never in chat/repo).
+Full local pipeline (mock script + **real ElevenLabs narration** +
+local-synth video): 3 scenes → assembled `youtube-1080p` final video,
+14.0 s, aac audio; ledger 3 × `voice.synthesize` rows, **$0.0600
+total** (51/75/74 characters). Lesson: ElevenLabs **library/professional
+voices return 402 on the free plan via API** — premade voices work
+(smoke used premade "Jessica" `cgSgspJ2msm6clMCkdW9`; the multilingual
+model speaks Arabic with premade voices too). Upgrading the plan
+unlocks library voices like the user's original Arabic pick.
 
-## 5. Next
+## 5. Production flip (user actions, when ready)
 
-Live smoke on key arrival, then Phase C (video generation, fal.ai) or
-Azure Speech Arabic bake-off (optional comparison) — user's call.
+Add to **Railway worker** Variables (voice runs in the worker, not
+Vercel): `ELEVENLABS_API_KEY`, `VOICE_ID`, `VOICE_PROVIDER=elevenlabs`,
+`PROVIDER_DAILY_BUDGET_USD`, `PROVIDER_MONTHLY_BUDGET_USD` — then
+restart the worker service. Rollback: `VOICE_PROVIDER=mock`.
+
+## 6. Next
+
+Phase C (video generation, fal.ai) or Azure Speech Arabic bake-off
+(optional comparison) — user's call.
