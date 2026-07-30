@@ -195,7 +195,9 @@ export async function processGenerateScene(
     const job = await awaitVideoJob(provider, {
       prompt: `${sceneGen.scene.visualDescription}\nNarration: ${sceneGen.scene.narration}`,
       durationSeconds: clipSeconds,
-      aspectRatio: "16:9",
+      // Render in the target preset's orientation — vertical presets
+      // must not letterbox a 16:9 source (AIVS: sneeze-video fix).
+      aspectRatio: getPreset(sceneGen.generation.targetPreset).aspect,
       tenantId: payload.tenantId,
     });
     if (job.status !== "succeeded" || !job.outputUrl) {

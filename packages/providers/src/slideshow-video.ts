@@ -56,9 +56,17 @@ export class SlideshowVideoProvider implements VideoGenerationProvider {
       const workDir = await mkdtemp(join(tmpdir(), "aivs-slideshow-"));
       const imagePath = await this.localizeImage(imageUrl, workDir);
       const clipPath = join(workDir, "clip.mp4");
+      const [width, height] =
+        request.aspectRatio === "9:16"
+          ? [720, 1280]
+          : request.aspectRatio === "1:1"
+            ? [960, 960]
+            : [1280, 720];
       await renderKenBurns(imagePath, clipPath, {
         durationSeconds: Math.max(1, request.durationSeconds),
         direction: pickKenBurnsDirection(request.prompt),
+        width,
+        height,
       });
       const job: VideoGenerationJob = {
         jobId,
