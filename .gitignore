@@ -45,3 +45,6 @@ pnpm-debug.log*
 # Temp media outputs
 tmp/
 *.tmp.mp4
+bakeoff-clips/
+renders/
+*.tmp.mjs
