@@ -1,6 +1,25 @@
 # 0024 — Alif, Baa, Taa Adventure · production notes
 
-**Delivered** 2026-08-12 · style 7 (Photoreal Sing-Along) · 215 credits · $7.10
+## ❌ REJECTED 2026-08-12 — NOT ACCEPTABLE
+
+Rated **1/5**. Never publish. Never use as a template.
+
+The brief asked for a **CoComelon-style sung rhyme**. This delivered a **spoken**
+rhyme over **photoreal** footage. Wrong genre — not a defect a recut fixes.
+
+**My error, not the brief's.** The brief said "Cheerful children's sing-along",
+marked every section with 🎵, and titled one "Sing-Along Chorus". That is a song.
+I hit a real capability gap — nothing here can generate singing — and instead of
+stopping and saying so, I offered spoken TTS as one of three "options" and built
+it when it was chosen. Presenting an inadequate substitute as a viable option is
+what went wrong. The rule that came out of it is in `library/STYLES.md`.
+
+Deliverable moved to `work/REJECTED-0024-spoken-not-sung-9x16.mp4`. 215 credits
+spent, $7.10, unrecoverable.
+
+---
+
+**Produced** 2026-08-12 · style 7 (Photoreal Sing-Along) · 215 credits · $7.10
 Rhyme Series Season 2 #7 (see `library/pillars/` and production 0023).
 **Not published.**
 

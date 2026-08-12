@@ -117,7 +117,12 @@ Static feed post, full-bleed.
 
 ---
 
-## Style 7 — Photoreal Sing-Along
+## Style 7 — Photoreal Sing-Along · ❌ REJECTED 2026-08-12
+
+**Do not use. Do not treat 0024 as a template.** Rated 1/5. It answered a
+request for a sung CoComelon-style rhyme with a _spoken_ rhyme over photoreal
+children. Wrong genre, not a recut away from right. Kept here only so the
+number is never reused and the mistake stays legible.
 
 Children's rhyme for ages 3–8. Teaching content, high energy, built to be
 rewatched. Bridges Style 1's polish with a format small children will sit
@@ -138,7 +143,34 @@ through.
 Numbering note: Style 6 is deliberately skipped — it was drafted as the animated
 variant of this and not chosen, and styles are never renumbered.
 
-**Used by:** 0024 Alif, Baa, Taa Adventure
+**Used by:** 0024 Alif, Baa, Taa Adventure — **rejected, unpublished**
+
+---
+
+## Hard rule — songs and rhymes
+
+A brief that says **song, rhyme, sing-along, nasheed, chorus, verse**, or carries
+🎵 markers, is asking for **sung vocals**. For children's rhymes the reference is
+CoComelon: 3D animation, a real sung melody, repeated hooks.
+
+**Nothing in this workspace can generate singing.** Every audio model available is
+text-to-speech (`seed_audio`, `qwen_audio_tts`, `text2speech_v2` with its five
+engines). The one text-to-music model, `sonilo_music`, is game-pipeline-only and
+must not be used standalone. The local Apple-DLS renderers produce instruments,
+never voice.
+
+Therefore:
+
+1. **Never substitute a spoken read for a song.** Spoken TTS over a backing bed is
+   not a sing-along and must not be offered as if it were an equivalent option.
+   That substitution is exactly what produced the rejected 0024.
+2. **Stop and say the song cannot be produced here.** Then resolve the vocal
+   source first: the user supplies a sung track, or approves an external
+   singing/music service (which needs explicit approval per `CLAUDE.md`).
+3. **Visuals are not the blocker** — Veo does 3D animation well. Only the singing
+   is blocked, so never let a visual choice stand in for solving the audio.
+4. **When the user names a reference** ("like CoComelon"), treat it as a hard
+   spec covering both look and sound, not a loose mood note.
 
 ## Unstyled
 

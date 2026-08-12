@@ -731,7 +731,7 @@
       "slug": "alif-baa-taa-adventure",
       "title": "Alif, Baa, Taa Adventure",
       "type": "video",
-      "status": "delivered",
+      "status": "parked",
       "folder": "productions/0024-alif-baa-taa-adventure",
       "model": "nano_banana_pro + veo-3-1-fast + seed_audio (Juno)",
       "cost": {
@@ -752,11 +752,15 @@
         "youtube": null
       },
       "ratings": {
-        "editor": null,
+        "editor": 1,
         "visitors": null
       },
       "style": 7,
-      "confirmed_unpublished": "2026-08-12"
+      "confirmed_unpublished": "2026-08-12",
+      "rejected": {
+        "date": "2026-08-12",
+        "reason": "NOT ACCEPTABLE. Brief asked for a CoComelon-style sung rhyme; delivered a spoken rhyme over photoreal footage. Wrong genre, not a fixable-by-recut defect."
+      }
     },
     {
       "id": "0025",
@@ -793,5 +797,6 @@
   "_platforms": ["facebook", "instagram", "pinterest", "x", "tiktok", "youtube"],
   "_platform_note": "Recorded only from what the user states. Never scanned from live social accounts. platforms value = ISO date, 'scheduled', or null. confirmed_unpublished = user explicitly said nothing is live yet.",
   "_ratings_note": "editor = user's rating of delivery quality, 1-5. visitors = engagement in the first 24h after publishing, 1-5. Both set ONLY from what the user states — never inferred, never estimated.",
-  "_style_note": "style = the finishing treatment; catalogue in library/STYLES.md. The user names the style in the request. Never guess or backfill one. 0001-0005 predate the catalogue and stay null."
+  "_style_note": "style = the finishing treatment; catalogue in library/STYLES.md. The user names the style in the request. Never guess or backfill one. 0001-0005 predate the catalogue and stay null.",
+  "_rejected_note": "A production marked rejected keeps its number and its files for reference, but must never be published and must never be used as a template. See its 01-NOTES.md."
 }

@@ -37,10 +37,10 @@ request; it is never assumed.
 | `0021` | Wudu Together | video | 2 | ★ published | 0021-wudu-together-9x16.mp4 | [0021-wudu-together](0021-wudu-together/) |
 | `0022` | Lā ḥawla wa lā quwwata illā billāh | video | 1 | ✓ delivered | 0022-la-hawla-9x16.mp4 | [0022-la-hawla](0022-la-hawla/) |
 | `0023` | Rhyme Series | program | — | · requested | — | [0023-rhyme-series](0023-rhyme-series/) |
-| `0024` | Alif, Baa, Taa Adventure | video | 7 | ✓ delivered | 0024-alif-baa-taa-adventure-9x16.mp4 | [0024-alif-baa-taa-adventure](0024-alif-baa-taa-adventure/) |
+| `0024` | Alif, Baa, Taa Adventure | video | 7 | ! parked | — | [0024-alif-baa-taa-adventure](0024-alif-baa-taa-adventure/) |
 | `0025` | Little Muslim, Big Heart | video | — | · requested | — | [0025-little-muslim-big-heart](0025-little-muslim-big-heart/) |
 
-**25 productions** — 5 delivered · 18 published · 2 requested
+**25 productions** — 4 delivered · 1 parked · 18 published · 2 requested
 
 Next free number: **0026**
 
