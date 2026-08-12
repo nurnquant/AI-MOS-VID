@@ -15,6 +15,7 @@ import argparse
 import datetime as _dt
 import json
 import re
+import shutil
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
@@ -81,6 +82,87 @@ def deliverables(folder: Path) -> list[str]:
         return []
     return sorted(f.name for f in out.iterdir()
                   if f.is_file() and f.suffix.lower() in MEDIA)
+
+
+def read_title(brief: Path, fallback: str) -> str:
+    """Title from the first '# heading' or 'TITLE:' line, else the filename."""
+    lines = brief.read_text(errors="replace").lstrip().splitlines()
+    for line in lines[:5]:
+        t = line.strip()
+        if t.startswith("#"):
+            return t.lstrip("# ").strip()
+        if t.upper().startswith("TITLE"):
+            return t.split(":", 1)[-1].strip().strip('"')
+    return fallback
+
+
+def guess_type(media: list[Path]) -> str:
+    """Supplied media means finishing work, not generation."""
+    if not media:
+        return "video"
+    exts = {m.suffix.lower() for m in media}
+    if exts <= IMAGE_EXT:
+        return "image-set"
+    return "watermark"          # supplied video/audio to finish
+
+
+def intake_scan(inbox: Path) -> list[dict]:
+    """
+    Work out what is waiting in inbox/. Three shapes are accepted:
+
+      inbox/my idea.md                 brief alone            -> generate from scratch
+      inbox/clip.mp4                   media alone            -> finishing job, request stubbed
+      inbox/clip.mp4 + inbox/clip.md   same basename, paired  -> finishing job with a brief
+      inbox/thank-you-allah/           folder: any mix        -> ONE production
+
+    A subfolder always becomes a single production, which is how several clips
+    that belong together (three nasheed verses, say) stay in one job.
+    """
+    jobs: list[dict] = []
+    if not inbox.is_dir():
+        return jobs
+
+    for d in sorted(p for p in inbox.iterdir() if p.is_dir()):
+        files = sorted(f for f in d.rglob("*") if f.is_file())
+        briefs = [f for f in files if f.suffix.lower() == ".md"]
+        media = [f for f in files if f.suffix.lower() in MEDIA]
+        if not briefs and not media:
+            continue
+        brief = briefs[0] if briefs else None
+        jobs.append({
+            "label": f"{d.name}/",
+            "dir": d,
+            "brief": brief,
+            "media": media,
+            "type": guess_type(media),
+            "title": read_title(brief, d.name) if brief else d.name,
+        })
+
+    loose = sorted(f for f in inbox.iterdir()
+                   if f.is_file() and f.name != "README.md")
+    briefs = [f for f in loose if f.suffix.lower() == ".md"]
+    media = [f for f in loose if f.suffix.lower() in MEDIA]
+    paired: set[Path] = set()
+
+    for m in media:                                   # media + same-name brief
+        mate = next((b for b in briefs if b.stem == m.stem), None)
+        if mate:
+            paired.add(mate)
+        jobs.append({
+            "label": m.name, "dir": None, "brief": mate, "media": [m],
+            "type": guess_type([m]),
+            "title": read_title(mate, m.stem) if mate else m.stem,
+        })
+
+    for b in briefs:                                  # briefs with no media
+        if b in paired:
+            continue
+        jobs.append({
+            "label": b.name, "dir": None, "brief": b, "media": [],
+            "type": "video", "title": read_title(b, b.stem),
+        })
+
+    return jobs
 
 
 def index(reg: dict) -> str:
@@ -505,36 +587,56 @@ def main() -> int:
     reg = load()
 
     if args.intake:
-        inbox = REPO / "inbox"
-        briefs = sorted(f for f in inbox.glob("*.md") if f.name != "README.md")
-        if not briefs:
+        jobs = intake_scan(REPO / "inbox")
+        if not jobs:
             print("inbox/ is empty — nothing waiting")
-        for brief in briefs:
-            title = brief.stem
-            first = brief.read_text(errors="replace").lstrip().splitlines()
-            for line in first[:5]:                    # prefer an H1/TITLE line
-                t = line.strip()
-                if t.startswith("#"):
-                    title = t.lstrip("# ").strip(); break
-                if t.upper().startswith("TITLE"):
-                    title = t.split(":", 1)[-1].strip().strip('"'); break
+        for job in jobs:
             num = reg["_next_id"]
-            slug = slugify(title)[:48] or slugify(brief.stem)
+            slug = slugify(job["title"])[:48] or f"job-{num:04d}"
             folder = PROD / f"{num:04d}-{slug}"
             for sub in ("OUTPUT", "work", "source"):
                 (folder / sub).mkdir(parents=True, exist_ok=True)
-            brief.rename(folder / "00-REQUEST.md")
+
+            if job["brief"]:
+                shutil.move(str(job["brief"]), folder / "00-REQUEST.md")
+            # bytes stay untouched, but the NAME is sanitised — spaces and
+            # quotes in supplied filenames have broken globbing before
+            moved: list[str] = []
+            for m in job["media"]:
+                safe = (slugify(m.stem)[:60] or "source") + m.suffix.lower()
+                dest = folder / "source" / safe
+                n = 2
+                while dest.exists():
+                    dest = folder / "source" / f"{Path(safe).stem}-{n}{m.suffix.lower()}"
+                    n += 1
+                shutil.move(str(m), dest)
+                moved.append(f"- `source/{dest.name}`"
+                             + (f"  (was `{m.name}`)" if dest.name != m.name else ""))
+            if not job["brief"]:
+                # media with no brief: stub the request so it is never blank
+                listed = "\n".join(moved)
+                (folder / "00-REQUEST.md").write_text(
+                    f"# {job['title']}\n\n_Production {num:04d} · type: "
+                    f"{job['type']}_\n\n## Supplied media\n\n{listed}\n\n"
+                    "## Request\n\n<!-- what should be done to these files:\n"
+                    "     watermark? end card? captions? trim? which style? -->\n")
+            if job["dir"] and job["dir"].is_dir() and not any(job["dir"].iterdir()):
+                job["dir"].rmdir()
+
             reg["productions"].append({
-                "id": f"{num:04d}", "slug": slug, "title": title,
-                "type": "video", "status": "requested",
+                "id": f"{num:04d}", "slug": slug, "title": job["title"],
+                "type": job["type"], "status": "requested",
                 "folder": f"productions/{num:04d}-{slug}",
                 "style": None,
             })
             reg["_next_id"] = num + 1
-            print(f"intake: {brief.name}  ->  {folder.relative_to(REPO)}/00-REQUEST.md")
+            print(f"intake: {job['label']}  ->  {folder.relative_to(REPO)}")
+            print(f"  type {job['type']}"
+                  + (f", {len(job['media'])} file(s) in source/" if job["media"] else "")
+                  + ("" if job["brief"] else ", request stubbed — needs your brief"))
             print(f"  style not set — ask before producing "
                   f"(--set {num:04d} --style N)")
-        if briefs:
+        if jobs:
             save(reg)
 
     if args.new:

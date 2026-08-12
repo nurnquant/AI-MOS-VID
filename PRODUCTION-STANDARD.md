@@ -4,17 +4,33 @@ How content work is organised in this repo. One rule above all others:
 
 > **One number = one request = one output folder.**
 
-## The two kinds of input
+## The kinds of input
 
-| You have                                               | Put it                                 |
-| ------------------------------------------------------ | -------------------------------------- |
-| A story/brief you want produced                        | `inbox/` — **this is the entry point** |
-| Brand assets reused across jobs (logo, character refs) | `suppliedMedia/`                       |
-| A supplied clip/photo for one specific job             | `productions/NNNN-*/source/`           |
-| A reference doc or plan, not a thing to produce        | `library/`                             |
+| You have                                                | Put it                                 |
+| ------------------------------------------------------- | -------------------------------------- |
+| A story/brief you want produced                         | `inbox/` — **this is the entry point** |
+| A clip/photo needing watermark, end card, captions, cut | `inbox/` — same place                  |
+| Brand assets reused across jobs (logo, character refs)  | `suppliedMedia/`                       |
+| More source files for a job already numbered            | `productions/NNNN-*/source/`           |
+| A reference doc or plan, not a thing to produce         | `library/`                             |
 
-Drop a brief in `inbox/` under any filename — spaces and punctuation are fine
-there, intake renames everything. Then either tell me to produce it, or run:
+`inbox/` takes **both** a brief to generate from and finished media to work on.
+Four shapes, detailed in [inbox/README.md](inbox/README.md):
+
+| Dropped                   | Becomes                                            |
+| ------------------------- | -------------------------------------------------- |
+| `idea.md`                 | generate from scratch, type `video`                |
+| `clip.mp4`                | finishing job, request stubbed for you             |
+| `clip.mp4` + `clip.md`    | finishing job with your brief (paired by basename) |
+| `some-folder/` with a mix | **one** production from everything inside          |
+
+A folder is how several files stay in one job — three verses of one nasheed in a
+folder is one production; three loose mp4s are three. Media lands in the job's
+`source/` with bytes untouched and the filename slugified, the original name
+recorded in the request.
+
+Any filename is fine **in the inbox** — spaces and punctuation, intake renames
+everything. Then either tell me to produce it, or run:
 
 ```bash
 python3 scripts/social/productions.py --intake
