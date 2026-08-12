@@ -16,7 +16,7 @@ They will not remember the rules you recited at them. They will remember that
 wudu was calm, that nobody rushed them, and that their father waited while their
 small hands figured it out.
 
-Teach the order. Let them copy the calm.
+Teach the order. Let them copy the culture.
 
 👇 How old was your child when they started making wudu on their own?
 
