@@ -68,3 +68,7 @@ library/**/*.wav
 suppliedMedia/**/*.mp4
 suppliedMedia/**/*.mov
 suppliedMedia/**/*.wav
+
+# build scratch: absolute paths, regenerated every run
+productions/**/seg/list.txt
+productions/**/work/seg/

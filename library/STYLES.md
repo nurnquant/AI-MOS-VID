@@ -117,6 +117,29 @@ Static feed post, full-bleed.
 
 ---
 
+## Style 7 — Photoreal Sing-Along
+
+Children's rhyme for ages 3–8. Teaching content, high energy, built to be
+rewatched. Bridges Style 1's polish with a format small children will sit
+through.
+
+| Element        | Treatment                                                                                                                                          |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cast           | Recurring photoreal children, identity-pinned from a reference still. Johra is the established lead                                                |
+| Setting        | Bright Islamic classroom, morning light. **No readable Arabic on set dressing** — AI garbles it; posters must be geometric patterns and stars only |
+| On-screen text | Arabic letter huge and gold, centred; the rhyme line beneath in cream Georgia Bold Italic. All Pillow-rendered, never AI-baked                     |
+| Scrims         | Soft, only where text sits, so the classroom stays bright                                                                                          |
+| Audio          | Spoken rhyme with rhythm, one continuous read, over a cheerful major-key DLS piano melody at ~50%                                                  |
+| Watermark      | Gold wordmark, rotates per beat, clear of the letter card                                                                                          |
+| Ending         | Emerald brand end card, tagline `Learn · Grow · Love the Qur'an`                                                                                   |
+| Pacing         | Fast and bouncy. One beat per verse, 8s each, hard cuts not fades                                                                                  |
+| Length         | 45–60s                                                                                                                                             |
+
+Numbering note: Style 6 is deliberately skipped — it was drafted as the animated
+variant of this and not chosen, and styles are never renumbered.
+
+**Used by:** 0024 Alif, Baa, Taa Adventure
+
 ## Unstyled
 
 `0001`–`0005` predate this catalogue and are left **unstyled** rather than

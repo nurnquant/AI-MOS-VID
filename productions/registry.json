@@ -731,16 +731,16 @@
       "slug": "alif-baa-taa-adventure",
       "title": "Alif, Baa, Taa Adventure",
       "type": "video",
-      "status": "requested",
+      "status": "delivered",
       "folder": "productions/0024-alif-baa-taa-adventure",
-      "model": null,
+      "model": "nano_banana_pro + veo-3-1-fast + seed_audio (Juno)",
       "cost": {
-        "credits": 0,
-        "usd": 0.0
+        "credits": 215,
+        "usd": 7.1
       },
       "dates": {
-        "requested": null,
-        "produced": null,
+        "requested": "2026-08-12",
+        "produced": "2026-08-12",
         "published": null
       },
       "platforms": {
@@ -755,7 +755,8 @@
         "editor": null,
         "visitors": null
       },
-      "style": null
+      "style": 7,
+      "confirmed_unpublished": "2026-08-12"
     },
     {
       "id": "0025",
