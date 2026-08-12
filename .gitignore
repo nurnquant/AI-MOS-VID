@@ -46,5 +46,19 @@ pnpm-debug.log*
 tmp/
 *.tmp.mp4
 bakeoff-clips/
-renders/
 *.tmp.mjs
+
+# Generated media stays local; requests, notes, captions and plans are tracked.
+# See PRODUCTION-STANDARD.md for the layout.
+productions/**/*.png
+productions/**/*.jpg
+productions/**/*.jpeg
+productions/**/*.webp
+productions/**/*.mp4
+productions/**/*.mov
+productions/**/*.wav
+productions/**/*.m4a
+library/**/*.png
+library/**/*.jpg
+library/**/*.mp4
+library/**/*.wav

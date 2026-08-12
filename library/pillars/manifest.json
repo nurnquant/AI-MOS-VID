@@ -1,0 +1,566 @@
+{
+  "_comment": "Source of truth for the 49-post social plan (see storyToCreate/riwaq_social_media_package_v4.md). Edit 'status' as work completes, then run: python3 scripts/social/pillar_status.py",
+  "_status_values": ["todo", "master_done", "exported", "captioned", "published", "blocked"],
+  "_master_spec": "nano_banana_pro, aspect_ratio 1:1, resolution 4k (~4096x4096), 4cr each. Square master crops to every platform ratio without upscaling.",
+  "pillars": [
+    {
+      "n": 1,
+      "slug": "islamic-moments-at-home",
+      "name": "Islamic Moments at Home",
+      "day": "Monday",
+      "funnel": "Awareness",
+      "note": "Parent-facing. Atmosphere of a Muslim home. Emotional, cinematic.",
+      "posts": [
+        {
+          "id": "1.1",
+          "title": "Bismillah Before Breakfast",
+          "status": "published",
+          "existing": "productions/0015-islamic-moments-at-home/OUTPUT/post2-bismillah-dinner.png",
+          "hook": "Small habits create great Muslims.",
+          "focus": "center",
+          "prompt": "Warm morning kitchen, Muslim family of four at the breakfast table, father raising a gentle finger to remind the children before the first bite, steaming food, emerald-and-gold interior, golden window light, shallow depth of field, photorealistic. Subject centred with clear margin on all sides. NO text anywhere.",
+          "hashtags": "#Bismillah #SunnahHabits #MuslimFamily #IslamicParenting #FamilyBreakfast #RaisingMuslims #RiwaqAlIlm"
+        },
+        {
+          "id": "1.2",
+          "title": "The Last Words Before Sleep",
+          "status": "published",
+          "existing": "productions/0015-islamic-moments-at-home/OUTPUT/post1-bedtime-dua.png",
+          "hook": "The last words of the day shape the heart that hears them.",
+          "focus": "center",
+          "prompt": "Night bedroom, young girl in a beige khimar hugging her mother before sleep, cool moonlight through the window mixed with warm lamp glow, open Quran on the bedside table, emerald and cream tones, photorealistic, tender. Subject centred with clear margin on all sides. NO text anywhere.",
+          "hashtags": "#BedtimeDua #MuslimParenting #NightRoutine #DuaForKids #IslamicHome #TenderMoments #RiwaqAlIlm"
+        },
+        {
+          "id": "1.3",
+          "title": "Family Quran Time",
+          "status": "published",
+          "existing": "productions/0015-islamic-moments-at-home/OUTPUT/post4-mother-daughter-quran.png",
+          "hook": "A home filled with Quran is a home filled with light.",
+          "focus": "center",
+          "prompt": "Mother in cream hijab and young daughter reading one open Quran together beside a tall window at dusk after Maghrib, last warm light plus a small glowing lamp, emerald cushions, gold accents, photorealistic, cozy and spiritual. Subject centred with clear margin on all sides. NO readable text.",
+          "hashtags": "#QuranTime #FamilyWorship #IslamicHome #MotherAndDaughter #HomeFilledWithLight #AfterMaghrib #RiwaqAlIlm"
+        },
+        {
+          "id": "1.4",
+          "title": "Friday Preparation",
+          "status": "published",
+          "existing": "productions/0015-islamic-moments-at-home/OUTPUT/post9-friday-preparation.png",
+          "hook": "Teach them to love Friday.",
+          "focus": "center",
+          "prompt": "Bright Friday morning hallway, mother straightening her son's crisp white thobe while the father places a kufi on his head, daughter smiling beside them, emerald wall with subtle geometric pattern, photorealistic, joyful. Subject centred with clear margin on all sides. NO text anywhere.",
+          "hashtags": "#Jumuah #JumuahMubarak #FridayFeeling #MuslimFamily #IslamicTraditions #BlessedFriday #RiwaqAlIlm"
+        },
+        {
+          "id": "1.5",
+          "title": "Wudu Together",
+          "status": "captioned",
+          "hook": "Before the prayer comes the water — and the lesson.",
+          "focus": "upper",
+          "prompt": "Warm bathroom tap in golden afternoon light, father crouched beside his small son showing him how to wash his forearms for wudu, water catching the light with droplets mid-air, emerald towel on the rail, close intimate framing, photorealistic. Both faces clearly visible, subject centred with generous clear margin on all sides. NO text anywhere.",
+          "hashtags": "#Wudu #TeachingSalah #MuslimFathers #LittleMuslims #IslamicBasics #FirstSteps #RiwaqAlIlm",
+          "video": "productions/0021-wudu-together/OUTPUT/0021-wudu-together-9x16.mp4",
+          "note": "Reel produced 2026-08-11 from Pillers/Wudu Together.md (silent, on-screen text baked). Image card also ready."
+        },
+        {
+          "id": "1.6",
+          "title": "When the Adhan Plays",
+          "status": "captioned",
+          "hook": "The moment the adhan starts, the whole house changes.",
+          "focus": "center",
+          "prompt": "Living room in late afternoon light, a phone on the low table glowing softly, two children pausing mid-play and looking up toward it, mother rising from the couch in the background, toys still scattered on the rug, emerald-and-gold interior, photorealistic, hushed reverence. Subject centred with clear margin on all sides. NO readable text on the phone screen.",
+          "hashtags": "#Adhan #CallToPrayer #SalahOnTime #MuslimKids #IslamicParenting #HomeAtmosphere #RiwaqAlIlm"
+        },
+        {
+          "id": "1.7",
+          "title": "The Quran Shelf",
+          "status": "captioned",
+          "hook": "Where the Quran sits in your home tells your children what matters.",
+          "focus": "center",
+          "prompt": "Elegant wooden shelf at child height, an ornate Quran resting on a carved rehal in the centre, a small child's hand reaching up toward it from below, warm lantern light, emerald wall with gold arabesque detail behind, shallow depth of field, photorealistic, reverent. Subject centred with clear margin on all sides. NO readable text.",
+          "hashtags": "#QuranInTheHome #IslamicInteriors #RaisingMuslims #MuslimHome #RespectForQuran #LittleHands #RiwaqAlIlm"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "slug": "quran-journey",
+      "name": "Quran Journey",
+      "day": "Tuesday",
+      "funnel": "Education",
+      "note": "The learning path, first letter to fluency. Educational, aspirational.",
+      "posts": [
+        {
+          "id": "2.1",
+          "title": "First Letter, First Step",
+          "status": "captioned",
+          "hook": "Every hafiz in the world started with one letter: alif.",
+          "focus": "center",
+          "prompt": "Young girl at a warm wooden desk tracing a large wooden Arabic alif block with her fingertip, soft lamp light, emerald wall softly blurred behind, a laptop glowing gently at the side, photorealistic, focused and hopeful. Subject centred with clear margin on all sides. NO readable words, only abstract letter shapes on the blocks.",
+          "hashtags": "#AlifBaTa #ArabicAlphabet #FirstStep #ArabicForKids #LearnQuran #BeginnersJourney #RiwaqAlIlm"
+        },
+        {
+          "id": "2.2",
+          "title": "The Beauty of Surah Al-Fatihah",
+          "status": "captioned",
+          "existing": "productions/0015-islamic-moments-at-home/OUTPUT/post3-father-alfatihah.png",
+          "note": "Existing image reusable; this is a different caption angle (meaning, not the moment).",
+          "hook": "Your child recites it seventeen times a day. Do they know what it means?",
+          "focus": "center",
+          "prompt": "Ornate open Quran on a dark wooden rehal, opening page lit by a single warm shaft of light, golden dust motes in the beam, deep emerald darkness around it, gold arabesque bokeh, photorealistic, luminous. Subject centred with clear margin on all sides. NO readable text — page calligraphy softly blurred.",
+          "hashtags": "#AlFatihah #UnderstandTheQuran #SalahWithMeaning #QuranTafsir #QuranForKids #SevenVerses #RiwaqAlIlm"
+        },
+        {
+          "id": "2.3",
+          "title": "One Verse a Day",
+          "status": "captioned",
+          "hook": "One ayah a day is more than three hundred and fifty a year.",
+          "focus": "center",
+          "prompt": "Warm still life, a small brass hourglass with golden sand beside an open child's Quran on a wooden table, warm lantern glow, a child's small hand resting on the page, deep emerald background with soft gold bokeh, photorealistic, calm. Subject centred with clear margin on all sides. NO readable text.",
+          "hashtags": "#OneAyahADay #ConsistencyInIslam #DailyQuran #SmallSteps #QuranRoutine #IstiqamahGoals #RiwaqAlIlm"
+        },
+        {
+          "id": "2.4",
+          "title": "Learning Tajweed",
+          "status": "captioned",
+          "hook": "Tajweed is not decoration — it is how the words were meant to sound.",
+          "focus": "upper",
+          "prompt": "Close portrait of a boy in a white kufi at a desk wearing headphones, mouth mid-articulation, eyes on an open Quran, a teacher visible small and soft on a laptop screen beside him, warm lamp light, emerald-and-gold study nook, shallow depth of field, photorealistic. Subject centred with clear margin on all sides. NO readable text on the screen.",
+          "hashtags": "#Tajweed #QuranRecitation #Makhraj #LearnQuranOnline #QuranTeacher #BeautifulRecitation #RiwaqAlIlm"
+        },
+        {
+          "id": "2.5",
+          "title": "Quran and Character",
+          "status": "captioned",
+          "hook": "A hafiz who forgets kindness — did we succeed?",
+          "focus": "center",
+          "prompt": "Young boy in a kufi offering a glass of water with both hands to his smiling elderly grandfather seated in an armchair, an open Quran resting on the side table between them, warm golden lamp light, emerald-and-gold living room, photorealistic, heartwarming. Subject centred with clear margin on all sides. NO text anywhere.",
+          "hashtags": "#QuranicCharacter #Akhlaq #IslamicManners #MoreThanMemorization #TarbiyahMatters #AdabFirst #RiwaqAlIlm"
+        },
+        {
+          "id": "2.6",
+          "title": "Reading Together",
+          "status": "captioned",
+          "hook": "Reading alone builds skill. Reading together builds love.",
+          "focus": "center",
+          "prompt": "Father and young son sitting close on a floor cushion sharing one open Quran, the father's finger tracking the line, the boy leaning in, warm lamp light, emerald-and-gold living room, shallow depth of field, photorealistic, intimate. Subject centred with clear margin on all sides. NO readable text.",
+          "hashtags": "#ReadingTogether #FatherAndSon #QuranWithDad #FamilyLearning #LearnQuran #SharedMoments #RiwaqAlIlm"
+        },
+        {
+          "id": "2.7",
+          "title": "Celebrate Progress",
+          "status": "captioned",
+          "hook": "She finished her first surah. That deserves more than a nod.",
+          "focus": "center",
+          "prompt": "Young girl beaming while her parents clap softly behind her, a small gold-ribboned certificate in her hands, an open Quran on the table, cream and emerald living room with warm gold balloons softly blurred, photorealistic, joyful celebration. Subject centred with clear margin on all sides. NO readable text on the certificate.",
+          "hashtags": "#CelebrateProgress #QuranMilestone #FirstSurah #ProudParents #MuslimKids #KeepGoing #RiwaqAlIlm"
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "slug": "teacher-spotlight",
+      "name": "Teacher Spotlight",
+      "day": "Wednesday",
+      "funnel": "Authority",
+      "note": "BLOCKED. Brand rule: always use the teacher's real photo, never generate AI faces. Needs real photos, bios and written consent. Cards composed locally, 0 credits.",
+      "posts": [
+        {
+          "id": "3.1",
+          "title": "Meet Our Faculty",
+          "status": "blocked",
+          "blocker": "Real teacher photos + names + departments + consent",
+          "hook": "Behind every lesson is a teacher who spent years earning the right to give it.",
+          "layout": "Faculty grid card — 3–6 real photos, name + department under each, emerald ground, gold hairline frames.",
+          "hashtags": "#MeetOurTeachers #AlAzhar #QualifiedTeachers #IslamicScholarship #OurFaculty #TeacherIntroduction #RiwaqAlIlm"
+        },
+        {
+          "id": "3.2",
+          "title": "A Day in the Life of a Teacher",
+          "status": "blocked",
+          "blocker": "Real teacher photos + consent",
+          "hook": "Fajr, preparation, and then twelve children in twelve time zones.",
+          "layout": "Photo-led carousel, 4 slides, real photos only, timeline captions.",
+          "hashtags": "#DayInTheLife #OnlineTeaching #QuranTeacher #BehindTheScenes #TeacherLife #GlobalClassroom #RiwaqAlIlm"
+        },
+        {
+          "id": "3.3",
+          "title": "Why We Teach",
+          "status": "blocked",
+          "blocker": "Real teacher photo + quote + consent",
+          "hook": "\"I teach because someone once taught me — for free.\"",
+          "layout": "Quote card — real photo left, pull-quote right, gold rule between.",
+          "hashtags": "#WhyWeTeach #TeacherStory #PassItOn #SadaqahJariyah #IslamicEducation #Vocation #RiwaqAlIlm"
+        },
+        {
+          "id": "3.4",
+          "title": "Student Success Stories",
+          "status": "blocked",
+          "blocker": "Student/parent testimonial + written consent. Text-only quote card is the safe default.",
+          "hook": "Six months ago he could not read alif. Last week he led the family in prayer.",
+          "layout": "Testimonial card — quote, first name + age + state only, no photo unless consent is on file.",
+          "hashtags": "#StudentSuccess #RealProgress #ParentReview #QuranJourney #Testimonial #ProudMoment #RiwaqAlIlm"
+        },
+        {
+          "id": "3.5",
+          "title": "Learning from Al-Azhar Graduates",
+          "status": "blocked",
+          "blocker": "Real teacher photo + credential line + consent",
+          "hook": "A thousand years of scholarship, in a one-on-one class with your child.",
+          "layout": "Authority card — real photo, credential line, Al-Azhar reference, emerald-and-gold framing.",
+          "hashtags": "#AlAzhar #ClassicalScholarship #QualifiedTeachers #Ijazah #IslamicHeritage #TrustedTeaching #RiwaqAlIlm"
+        },
+        {
+          "id": "3.6",
+          "title": "More Than a Teacher",
+          "status": "blocked",
+          "blocker": "Real teacher photo + anecdote + consent",
+          "hook": "She noticed he was quiet that week — and asked why before asking for homework.",
+          "layout": "Warm portrait card, real photo, short anecdote caption.",
+          "hashtags": "#MoreThanATeacher #Mentorship #ChildWellbeing #CaringTeachers #OneOnOne #StudentFirst #RiwaqAlIlm"
+        },
+        {
+          "id": "3.7",
+          "title": "Thank You, Teachers",
+          "status": "blocked",
+          "blocker": "Faculty photo strip + consent",
+          "hook": "Every letter your child learns is on someone's record of good deeds.",
+          "layout": "Gratitude card — emerald ground, gold calligraphic accent, faculty photos as a small strip.",
+          "hashtags": "#ThankYouTeachers #Barakah #SadaqahJariyah #Gratitude #IslamicEducation #TeacherAppreciation #RiwaqAlIlm"
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "slug": "daily-duas-for-kids",
+      "name": "Daily Duas for Kids",
+      "day": "Thursday",
+      "funnel": "Education",
+      "note": "Dua text itself: Arabic (harakat stripped on images) + transliteration + translation. Highest save and Pinterest potential.",
+      "posts": [
+        {
+          "id": "4.1",
+          "title": "Morning Dua",
+          "status": "captioned",
+          "dua_ar": "الحمد لله الذي احيانا بعد ما اماتنا واليه النشور",
+          "dua_tr": "Alhamdulillahilladhi ahyana ba'da ma amatana wa ilayhin-nushur",
+          "dua_en": "All praise to Allah who gave us life after death, and to Him is the return.",
+          "hook": "The first sentence of her day set the tone for all of it.",
+          "focus": "center",
+          "prompt": "Child sitting up in bed in soft dawn light, stretching and smiling, curtains glowing behind, emerald blanket, cream pillows, photorealistic, serene. Subject centred with generous clear margin on all sides. NO text anywhere.",
+          "hashtags": "#MorningDua #StartTheDayRight #DuaForKids #IslamicRoutine #Alhamdulillah #TeachYourChild #RiwaqAlIlm"
+        },
+        {
+          "id": "4.2",
+          "title": "Dua Before Eating",
+          "status": "captioned",
+          "dua_ar": "بسم الله",
+          "dua_tr": "Bismillah",
+          "dua_en": "In the name of Allah.",
+          "hook": "One word turns a meal into worship.",
+          "focus": "center",
+          "prompt": "Overhead shot of a child's small hands about to take a date from a plate, family table set with bread, fruit and milk, warm sunset light, lanterns softly glowing, photorealistic, warm. Subject centred with clear margin on all sides. NO text anywhere.",
+          "hashtags": "#Bismillah #DuaBeforeEating #SunnahOfEating #MuslimKids #TableManners #IslamicHabits #RiwaqAlIlm"
+        },
+        {
+          "id": "4.3",
+          "title": "Dua Before Sleeping",
+          "status": "captioned",
+          "dua_ar": "بسمك اللهم اموت واحيا",
+          "dua_tr": "Bismika Allahumma amutu wa ahya",
+          "dua_en": "In Your name, O Allah, I die and I live.",
+          "hook": "Teach her this, and she will never sleep unprotected.",
+          "focus": "center",
+          "prompt": "Child lying in bed with hands tucked under one cheek, eyes gently closing, a crescent-moon night lamp glowing warm on the nightstand, emerald blanket, dim cozy bedroom, photorealistic, peaceful. Subject centred with clear margin on all sides. NO text anywhere.",
+          "hashtags": "#BedtimeDua #SleepSunnah #NightRoutine #DuaForKids #ProtectionDua #MuslimParenting #RiwaqAlIlm"
+        },
+        {
+          "id": "4.4",
+          "title": "Dua for Parents",
+          "status": "captioned",
+          "existing": "productions/0016-rabbi-irhamhuma-johra/OUTPUT/0016-rabbi-irhamhuma-9x16.mp4",
+          "note": "Video produced and published. Feed image card still to build.",
+          "dua_ar": "رب ارحمهما كما ربياني صغيرا",
+          "dua_tr": "Rabbi irhamhuma kama rabbayani sagheera",
+          "dua_en": "My Lord, have mercy upon them as they brought me up when I was small. (Quran 17:24)",
+          "hook": "The dua every parent hopes to hear one day.",
+          "focus": "center",
+          "prompt": "Close-up of a child's small raised hands in dua, warm lantern glow, a mother's hands resting on the child's shoulders softly blurred behind, deep emerald background with gold bokeh, photorealistic, moving. Subject centred with clear margin on all sides. NO text.",
+          "hashtags": "#DuaForParents #RabbiIrhamhuma #Quran1724 #HonourYourParents #DuaForKids #FamilyDua #RiwaqAlIlm"
+        },
+        {
+          "id": "4.5",
+          "title": "Dua for Knowledge",
+          "status": "captioned",
+          "existing": "productions/0009-dua-before-learning/OUTPUT/0009-dua-before-learning-johra-9x16.mp4",
+          "note": "Video produced. Feed image card still to build.",
+          "dua_ar": "رب زدني علما",
+          "dua_tr": "Rabbi zidni ilma",
+          "dua_en": "My Lord, increase me in knowledge. (Quran 20:114)",
+          "hook": "Before she opens her notebook, she opens her heart.",
+          "focus": "center",
+          "prompt": "Girl at a wooden study desk with hands raised in dua, an open notebook and Quran in front of her, warm lantern light, cozy study corner, emerald-and-gold interior, photorealistic, hopeful. Subject centred with clear margin on all sides. NO text anywhere.",
+          "hashtags": "#RabbiZidniIlma #DuaForKnowledge #BeforeStudying #StudentDua #QuranForKids #SeekKnowledge #RiwaqAlIlm"
+        },
+        {
+          "id": "4.6",
+          "title": "Dua for Guidance",
+          "status": "captioned",
+          "existing": "The Lantern in the Dark — Dua for Guidance (tracker SL 4)",
+          "note": "Video produced earlier. Feed image card still to build.",
+          "dua_ar": "اهدنا الصراط المستقيم",
+          "dua_tr": "Ihdinas-siratal-mustaqeem",
+          "dua_en": "Guide us to the straight path. (Quran 1:6)",
+          "hook": "When a child does not know which way to go, teach them who to ask.",
+          "focus": "center",
+          "prompt": "Child holding a small glowing lantern on a dim path at dusk, warm gold light on their face, deep emerald-blue shadows around, soft mist, photorealistic, hopeful and cinematic. Subject centred with clear margin on all sides. NO text anywhere.",
+          "hashtags": "#DuaForGuidance #Hidayah #StraightPath #AlFatihah #DuaForKids #IslamicParenting #RiwaqAlIlm"
+        },
+        {
+          "id": "4.7",
+          "title": "Dua When Leaving Home",
+          "status": "captioned",
+          "dua_ar": "بسم الله توكلت على الله ولا حول ولا قوة الا بالله",
+          "dua_tr": "Bismillah, tawakkaltu 'alallah, wa la hawla wa la quwwata illa billah",
+          "dua_en": "In the name of Allah, I place my trust in Allah, and there is no power except with Allah.",
+          "hook": "Three sentences at the door, and she leaves protected.",
+          "focus": "center",
+          "prompt": "Young girl with a backpack at the front door, her mother's hand resting on her head in blessing, bright morning light spilling in from outside, emerald door frame with gold detail, photorealistic, warm. Subject centred with clear margin on all sides. NO text anywhere.",
+          "hashtags": "#DuaLeavingHome #SchoolMornings #ProtectionDua #Tawakkul #DuaForKids #MuslimMornings #RiwaqAlIlm"
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "slug": "little-muslim-big-heart",
+      "name": "Little Muslim, Big Heart",
+      "day": "Friday",
+      "funnel": "Awareness",
+      "note": "Child-facing character and akhlaq. Warm, simple, shareable.",
+      "posts": [
+        {
+          "id": "5.1",
+          "title": "Smile and Say Salam",
+          "status": "captioned",
+          "hook": "The Prophet ﷺ greeted children first. So can yours.",
+          "focus": "center",
+          "prompt": "Two young children meeting on a sunlit doorstep, one offering a hand and a bright smile, the other beaming back, warm daylight, emerald door and gold accents, photorealistic, joyful. Subjects centred with clear margin on all sides. NO text anywhere.",
+          "hashtags": "#Salam #IslamicManners #KindKids #SunnahOfGreeting #LittleMuslims #Akhlaq #RiwaqAlIlm"
+        },
+        {
+          "id": "5.2",
+          "title": "Help Your Parents",
+          "status": "captioned",
+          "hook": "Helping at home is not a chore — it is worship with a smile.",
+          "focus": "center",
+          "prompt": "Small boy setting a plate at the table beside his mother, both smiling, warm kitchen light, emerald and cream interior, photorealistic, wholesome. Subjects centred with clear margin on all sides. NO text anywhere.",
+          "hashtags": "#HelpYourParents #BirrAlWalidayn #KindKids #HomeHelpers #IslamicManners #LittleMuslims #RiwaqAlIlm"
+        },
+        {
+          "id": "5.3",
+          "title": "Share Your Toys",
+          "status": "captioned",
+          "hook": "Sharing is the first sadaqah a child ever gives.",
+          "focus": "center",
+          "prompt": "Two small children on a patterned rug, one holding out a wooden toy to the other with an open hand, warm afternoon light, emerald cushions, photorealistic, gentle. Subjects centred with clear margin on all sides. NO text anywhere.",
+          "hashtags": "#Sharing #FirstSadaqah #GenerousKids #Akhlaq #LittleMuslims #KindnessMatters #RiwaqAlIlm"
+        },
+        {
+          "id": "5.4",
+          "title": "Tell the Truth",
+          "status": "captioned",
+          "hook": "Truth is easier to say when a child knows they will still be loved.",
+          "focus": "upper",
+          "prompt": "Child looking up at a kneeling parent with an honest, slightly nervous expression, the parent's hand warm on their shoulder, a knocked-over cup softly blurred behind, warm living-room light, photorealistic, tender. Both faces clearly visible, subjects centred with clear margin on all sides. NO text.",
+          "hashtags": "#Honesty #Sidq #TruthfulKids #IslamicValues #GentleParenting #Akhlaq #RiwaqAlIlm"
+        },
+        {
+          "id": "5.5",
+          "title": "Be Thankful",
+          "status": "captioned",
+          "hook": "Gratitude is a habit before it is a feeling.",
+          "focus": "center",
+          "prompt": "Child holding a simple piece of fruit with both hands, looking up with a wide grateful smile, warm golden light, emerald-and-cream interior, photorealistic, bright. Subject centred with clear margin on all sides. NO text anywhere.",
+          "hashtags": "#Shukr #Gratitude #Alhamdulillah #ThankfulKids #LittleMuslims #IslamicValues #RiwaqAlIlm"
+        },
+        {
+          "id": "5.6",
+          "title": "Help a Friend",
+          "status": "captioned",
+          "hook": "The best of people are the most useful to others.",
+          "focus": "center",
+          "prompt": "Young child helping a classmate pick up scattered books in a sunlit school hallway, both smiling, warm light, emerald wall softly blurred, photorealistic, kind. Subjects centred with clear margin on all sides. NO text anywhere.",
+          "hashtags": "#HelpAFriend #Ukhuwah #KindKids #BestOfPeople #SchoolKindness #Akhlaq #RiwaqAlIlm"
+        },
+        {
+          "id": "5.7",
+          "title": "Spread Kindness",
+          "status": "captioned",
+          "hook": "Kindness costs a child nothing and teaches them everything.",
+          "focus": "center",
+          "prompt": "Small child offering a flower to an elderly neighbour at a doorway, both smiling warmly, soft golden late-afternoon light, emerald and gold accents, photorealistic, heartwarming. Subjects centred with clear margin on all sides. NO text anywhere.",
+          "hashtags": "#SpreadKindness #Rahmah #KindKids #GoodCharacter #IslamicManners #LittleMuslims #RiwaqAlIlm"
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "slug": "community-engagement",
+      "name": "Community Engagement",
+      "day": "Saturday",
+      "funnel": "Trust",
+      "note": "Built to be replied to. Every post asks for something small. Lowest production cost, highest comment volume.",
+      "posts": [
+        {
+          "id": "6.1",
+          "title": "Which Dua Should We Teach Next?",
+          "status": "captioned",
+          "hook": "You pick — which dua should we teach next week?",
+          "format": "Four-option poll card. Numbered gold list over the photo. Story version uses the poll sticker.",
+          "options": "1 Dua before eating / 2 Dua for travel / 3 Dua for exams / 4 Dua when angry",
+          "focus": "bottom",
+          "prompt": "Child's hands raised in dua over an open Quran, warm lantern light, deep emerald background with soft gold bokeh, subject sitting low in the frame leaving a large clean dark area in the upper half for a text list, photorealistic. NO text anywhere.",
+          "hashtags": "#YouChoose #DuaForKids #CommunityPoll #MuslimParents #TeachTheDua #YourTurn #RiwaqAlIlm"
+        },
+        {
+          "id": "6.2",
+          "title": "Your Child's First Surah",
+          "status": "captioned",
+          "hook": "Everyone remembers the first surah their child learned. Ours was Al-Fatihah.",
+          "format": "Question card. Comment-thread driver — reply to every comment for 24 hours to lift reach.",
+          "focus": "center",
+          "prompt": "Young child holding an open Quran to their chest with a proud shy smile, warm golden light, emerald-and-gold home interior softly blurred, photorealistic, tender. Subject centred with clear margin on all sides. NO text anywhere.",
+          "hashtags": "#FirstSurah #Hifz #MuslimParents #ShareYourStory #QuranForKids #MilestoneMemories #RiwaqAlIlm"
+        },
+        {
+          "id": "6.3",
+          "title": "Caption This Moment",
+          "status": "captioned",
+          "hook": "Caption this. Best one gets pinned. 👇",
+          "format": "Single expressive photo, no text on image beyond the watermark — the caption box does the work.",
+          "focus": "center",
+          "prompt": "Toddler in a kufi standing on a prayer rug looking up with a comically determined expression, mid-imitation of salah, warm morning light, emerald rug and gold accents, photorealistic, charming. Subject centred with clear margin on all sides. NO text anywhere.",
+          "hashtags": "#CaptionThis #LittleMuslims #MuslimFamilyLife #TooCute #ParentingWins #JoinIn #RiwaqAlIlm"
+        },
+        {
+          "id": "6.4",
+          "title": "Ask Our Teachers Anything",
+          "status": "captioned",
+          "hook": "Your Quran questions, answered by Al-Azhar teachers. Ask below.",
+          "format": "Invitation card. Collect questions Saturday, answer in Sunday's Story set and Wednesday's Teacher post.",
+          "focus": "bottom",
+          "prompt": "Warm study desk with an open Quran, a notebook, a pen and a steaming cup, soft lamp light, emerald-and-gold interior, no people, inviting and calm, photorealistic, objects sitting low in the frame with a large clean upper area for text. NO readable text.",
+          "hashtags": "#AskATeacher #QuranQuestions #AlAzhar #IslamicEducation #AMA #WeAnswer #RiwaqAlIlm"
+        },
+        {
+          "id": "6.5",
+          "title": "Tag a Parent Who Needs This",
+          "status": "captioned",
+          "hook": "Tag the parent who has been meaning to start this for months. ❤️",
+          "format": "Share-mechanic card. Short, warm, no guilt — encouragement only.",
+          "focus": "center",
+          "prompt": "Parent and child sitting close on a couch with an open Quran between them, both laughing softly, warm golden-hour light, emerald cushions, photorealistic, inviting. Subjects centred with clear margin on all sides. NO text anywhere.",
+          "hashtags": "#TagAParent #ItIsNotTooLate #StartToday #MuslimParenting #QuranForKids #Encouragement #RiwaqAlIlm"
+        },
+        {
+          "id": "6.6",
+          "title": "Student Milestone Wall",
+          "status": "blocked",
+          "blocker": "Parent permission per child. First names and state only; no photos without written consent.",
+          "hook": "Six students finished their first surah this month. Say mashaAllah. 🌿",
+          "format": "Milestone card — first names, ages, milestone. Text only unless consent is on file.",
+          "hashtags": "#MashaAllah #StudentMilestones #Hifz #CelebrateProgress #OurStudents #WellDone #RiwaqAlIlm"
+        },
+        {
+          "id": "6.7",
+          "title": "Seasonal Community Check-In",
+          "status": "captioned",
+          "hook": "Ramadan is four weeks away. What is your family's one goal this year?",
+          "format": "Seasonal question card. Rotate the occasion — Ramadan, Eid, back-to-school, new Hijri year.",
+          "focus": "bottom",
+          "prompt": "Family silhouette at a window at dusk with a crescent moon visible in a deep blue-emerald sky, warm interior glow, lanterns softly lit, photorealistic, anticipatory, figures low in the frame with a large clean sky area above for text. NO text anywhere.",
+          "hashtags": "#RamadanGoals #FamilyGoals #SeasonalCheckIn #MuslimFamily #Intentions #TogetherThisYear #RiwaqAlIlm"
+        }
+      ]
+    },
+    {
+      "n": 7,
+      "slug": "free-trial-campaign",
+      "name": "Free Trial Campaign",
+      "day": "Sunday",
+      "funnel": "Conversion",
+      "note": "The only openly commercial day. One clear ask, link in every post. Answer the objection, then remove the risk.",
+      "posts": [
+        {
+          "id": "7.1",
+          "title": "What Happens in a Free Trial Class",
+          "status": "captioned",
+          "hook": "Thirty minutes. One teacher. Your child, and no pressure.",
+          "format": "4-slide carousel — the ask / what happens / what you get after / CTA card with link.",
+          "focus": "center",
+          "prompt": "Child at a desk with headphones smiling at a laptop showing a warm teacher on a video call, a parent watching proudly from the doorway, warm evening lamp light, fairy lights, emerald accents, photorealistic. Subject centred with clear margin on all sides. NO readable text on the screen.",
+          "hashtags": "#FreeTrialClass #OnlineQuranClasses #TryItFree #NoPressure #QuranForKids #FirstClass #RiwaqAlIlm"
+        },
+        {
+          "id": "7.2",
+          "title": "Meet Your Teacher Before You Commit",
+          "status": "blocked",
+          "blocker": "Real teacher photo (see pillar 3 dependencies)",
+          "hook": "You meet the teacher first. If it is not the right fit, you walk away.",
+          "format": "Teacher card + CTA. Real photo only.",
+          "hashtags": "#MeetYourTeacher #NoCommitment #QualifiedTeachers #AlAzhar #FreeTrial #RightFit #RiwaqAlIlm"
+        },
+        {
+          "id": "7.3",
+          "title": "One-on-One vs Group — Why It Matters",
+          "status": "captioned",
+          "hook": "In a room of twenty, a shy child never raises their hand.",
+          "format": "Comparison card — two panels, group vs one-on-one, gold divider.",
+          "focus": "center",
+          "prompt": "Quiet young girl with soft headphones smiling shyly but confidently at a laptop showing a kind teacher, cozy desk with warm fairy lights and emerald cushions, evening lamp glow, photorealistic, safe and intimate. Subject centred with clear margin on all sides. NO readable text on the screen.",
+          "hashtags": "#OneOnOne #ShyKids #PersonalisedLearning #EveryChildLearns #OnlineQuranClasses #ConfidenceBuilding #RiwaqAlIlm"
+        },
+        {
+          "id": "7.4",
+          "title": "Flexible Times for Busy Families",
+          "status": "captioned",
+          "hook": "After school. After Maghrib. After bedtime for the little one. Your call.",
+          "format": "Schedule card — US time-zone friendly slots, gold on emerald.",
+          "focus": "center",
+          "prompt": "Warm evening kitchen table, a child doing Quran work on a laptop while a parent cooks in the softly blurred background, a clock on the wall, emerald-and-gold interior, photorealistic, realistic family evening. Subject centred with clear margin on all sides. NO readable text.",
+          "hashtags": "#FlexibleSchedule #BusyFamilies #AfterSchool #WorkingParents #OnlineQuranClasses #YourTimeZone #RiwaqAlIlm"
+        },
+        {
+          "id": "7.5",
+          "title": "No Card, No Commitment",
+          "status": "captioned",
+          "hook": "No card. No contract. One free class, and you decide.",
+          "format": "Objection-handling card — three gold ticks on emerald, minimal photo.",
+          "focus": "center",
+          "prompt": "Simple elegant still life, an open Quran, a notebook and a child's pencil on a cream desk, soft warm light, deep emerald background with a subtle gold geometric pattern, photorealistic, clean and premium. Objects centred with generous clear margin on all sides. NO text.",
+          "hashtags": "#NoCommitment #FreeTrialClass #RiskFree #TryFirst #OnlineQuranClasses #ParentFriendly #RiwaqAlIlm"
+        },
+        {
+          "id": "7.6",
+          "title": "From First Letter to First Surah",
+          "status": "captioned",
+          "hook": "Alif today. Al-Fatihah by winter. It starts with one class.",
+          "format": "Journey card or 3-slide mini carousel — letter, verse, surah.",
+          "focus": "center",
+          "prompt": "Child's hand tracing a single large Arabic letter on a page, warm gold light, deep emerald background, generous negative space around the hand for staged text, photorealistic. Subject centred. NO readable words.",
+          "hashtags": "#FromAlifToFatihah #QuranJourney #LearningPath #ProgressNotPerfection #LearnQuran #StartNow #RiwaqAlIlm"
+        },
+        {
+          "id": "7.7",
+          "title": "This Week's Open Slots",
+          "status": "captioned",
+          "hook": "A few trial slots left this week. Comment \"TRIAL\" and we will send the link.",
+          "format": "Evergreen recurring card. Update the slot count weekly. Comment keyword lifts reach more than an outbound link.",
+          "focus": "center",
+          "prompt": "Warm inviting study nook, an empty chair pulled slightly out at a desk with an open Quran and a glowing laptop, soft lamp light, emerald-and-gold interior, photorealistic, the feeling of a seat waiting for someone. Centred with clear margin on all sides. NO readable text.",
+          "hashtags": "#OpenSlots #FreeTrialClass #BookThisWeek #LimitedSpots #OnlineQuranClasses #CommentToBook #RiwaqAlIlm"
+        }
+      ]
+    }
+  ]
+}

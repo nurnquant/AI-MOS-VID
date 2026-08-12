@@ -1,0 +1,770 @@
+{
+  "_standard": "PRODUCTION-STANDARD.md",
+  "_next_id": 26,
+  "productions": [
+    {
+      "id": "0001",
+      "slug": "sneezing-etiquette-family-story",
+      "title": "Sneezing Etiquette Family Story",
+      "type": "video",
+      "status": "published",
+      "folder": "productions/0001-sneezing-etiquette-family-story",
+      "model": "Kling v2.5 turbo pro (fal.ai) + ElevenLabs multilingual v2",
+      "cost": {
+        "credits": 0,
+        "usd": 4.18
+      },
+      "dates": {
+        "requested": null,
+        "produced": "2026-07-30",
+        "published": null
+      },
+      "platforms": {
+        "facebook": null,
+        "instagram": null,
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
+      },
+      "confirmed_unpublished": "2026-08-12",
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      }
+    },
+    {
+      "id": "0002",
+      "slug": "dua-boy-rabbana-atina",
+      "title": "Dua Boy — Rabbana Atina",
+      "type": "video",
+      "status": "published",
+      "folder": "productions/0002-dua-boy-rabbana-atina",
+      "model": "kling3_0_turbo + seedance_2_0",
+      "cost": {
+        "credits": 69,
+        "usd": 2.3
+      },
+      "dates": {
+        "requested": null,
+        "produced": "2026-07-31",
+        "published": null
+      },
+      "platforms": {
+        "facebook": null,
+        "instagram": null,
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
+      },
+      "confirmed_unpublished": "2026-08-12",
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      }
+    },
+    {
+      "id": "0003",
+      "slug": "quran-class-ad-johra",
+      "title": "Riwaq Quran Class Ad (Johra)",
+      "type": "video",
+      "status": "published",
+      "folder": "productions/0003-quran-class-ad-johra",
+      "model": "seedance_2_0",
+      "cost": {
+        "credits": 72,
+        "usd": 2.4
+      },
+      "dates": {
+        "requested": null,
+        "produced": "2026-08-01",
+        "published": null
+      },
+      "platforms": {
+        "facebook": null,
+        "instagram": null,
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
+      },
+      "confirmed_unpublished": "2026-08-12",
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      }
+    },
+    {
+      "id": "0004",
+      "slug": "lantern-in-the-dark",
+      "title": "The Lantern in the Dark — Dua for Guidance",
+      "type": "video",
+      "status": "published",
+      "folder": "productions/0004-lantern-in-the-dark",
+      "model": "nano_banana_pro (stills) + veo3_1 fast",
+      "cost": {
+        "credits": 142,
+        "usd": 4.7
+      },
+      "dates": {
+        "requested": null,
+        "produced": "2026-08-02",
+        "published": "2026-08-02"
+      },
+      "platforms": {
+        "facebook": "2026-08-02",
+        "instagram": "2026-08-02",
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
+      },
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      }
+    },
+    {
+      "id": "0005",
+      "slug": "cozy-classroom-asmr",
+      "title": "Cozy Islamic Classroom ASMR (Alif)",
+      "type": "video",
+      "status": "published",
+      "folder": "productions/0005-cozy-classroom-asmr",
+      "model": "nano_banana_pro (frames) + kling3_0_turbo 1080p",
+      "cost": {
+        "credits": 132,
+        "usd": 4.35
+      },
+      "dates": {
+        "requested": null,
+        "produced": "2026-08-02",
+        "published": null
+      },
+      "platforms": {
+        "facebook": null,
+        "instagram": null,
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
+      },
+      "confirmed_unpublished": "2026-08-12",
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      }
+    },
+    {
+      "id": "0006",
+      "slug": "dream-of-every-parent",
+      "title": "The Dream of Every Parent",
+      "type": "video",
+      "status": "published",
+      "folder": "productions/0006-dream-of-every-parent",
+      "model": "nano_banana_pro (stills) + veo3_1 fast",
+      "cost": {
+        "credits": 214,
+        "usd": 7.06
+      },
+      "dates": {
+        "requested": null,
+        "produced": "2026-08-03",
+        "published": null
+      },
+      "platforms": {
+        "facebook": null,
+        "instagram": null,
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
+      },
+      "confirmed_unpublished": "2026-08-12",
+      "ratings": {
+        "editor": 5,
+        "visitors": null
+      }
+    },
+    {
+      "id": "0007",
+      "slug": "legacy-post",
+      "title": "The Legacy Post",
+      "type": "image-set",
+      "status": "published",
+      "folder": "productions/0007-legacy-post",
+      "model": "nano_banana_pro",
+      "cost": {
+        "credits": 2,
+        "usd": 0.07
+      },
+      "dates": {
+        "requested": null,
+        "produced": "2026-08-04",
+        "published": "2026-08-04"
+      },
+      "platforms": {
+        "facebook": "2026-08-04",
+        "instagram": null,
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
+      },
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      }
+    },
+    {
+      "id": "0008",
+      "slug": "little-girl-reciting-dua",
+      "title": "Little Girl Reciting Dua",
+      "type": "video",
+      "status": "published",
+      "folder": "productions/0008-little-girl-reciting-dua",
+      "model": "nano_banana_pro (still) + veo3_1 fast",
+      "cost": {
+        "credits": 24,
+        "usd": 0.79
+      },
+      "dates": {
+        "requested": null,
+        "produced": "2026-08-04",
+        "published": null
+      },
+      "platforms": {
+        "facebook": null,
+        "instagram": null,
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
+      },
+      "confirmed_unpublished": "2026-08-12",
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      }
+    },
+    {
+      "id": "0009",
+      "slug": "dua-before-learning",
+      "title": "The Dua Before Learning",
+      "type": "video",
+      "status": "published",
+      "folder": "productions/0009-dua-before-learning",
+      "model": "nano_banana_pro (stills) + veo3_1 fast",
+      "cost": {
+        "credits": 118,
+        "usd": 3.89
+      },
+      "dates": {
+        "requested": null,
+        "produced": "2026-08-04",
+        "published": null
+      },
+      "platforms": {
+        "facebook": null,
+        "instagram": null,
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
+      },
+      "confirmed_unpublished": "2026-08-12",
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      }
+    },
+    {
+      "id": "0010",
+      "slug": "allah-is-sufficient-johra",
+      "title": "Allah Is Sufficient for Me (Johra)",
+      "type": "video",
+      "status": "delivered",
+      "folder": "productions/0010-allah-is-sufficient-johra",
+      "model": "nano_banana_pro (stills) + veo3_1 fast",
+      "cost": {
+        "credits": 50,
+        "usd": 1.65
+      },
+      "dates": {
+        "requested": null,
+        "produced": "2026-08-04",
+        "published": null
+      },
+      "platforms": {
+        "facebook": null,
+        "instagram": null,
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
+      },
+      "confirmed_unpublished": "2026-08-12",
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      }
+    },
+    {
+      "id": "0011",
+      "slug": "fb-series-01",
+      "title": "FB Series 01 — 6 post images",
+      "type": "image-set",
+      "status": "published",
+      "folder": "productions/0011-fb-series-01",
+      "model": "nano_banana_pro",
+      "cost": {
+        "credits": 24,
+        "usd": 0.79
+      },
+      "dates": {
+        "requested": null,
+        "produced": "2026-08-04",
+        "published": "2026-08-04"
+      },
+      "platforms": {
+        "facebook": "2026-08-04",
+        "instagram": null,
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
+      },
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      }
+    },
+    {
+      "id": "0012",
+      "slug": "fb-series-02",
+      "title": "FB Series 02 — 6 post images",
+      "type": "image-set",
+      "status": "published",
+      "folder": "productions/0012-fb-series-02",
+      "model": "nano_banana_pro",
+      "cost": {
+        "credits": 32,
+        "usd": 1.06
+      },
+      "dates": {
+        "requested": null,
+        "produced": "2026-08-04",
+        "published": null
+      },
+      "platforms": {
+        "facebook": "scheduled",
+        "instagram": null,
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
+      },
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      }
+    },
+    {
+      "id": "0013",
+      "slug": "fb-series-03",
+      "title": "FB Series 03 — 6 post images",
+      "type": "image-set",
+      "status": "published",
+      "folder": "productions/0013-fb-series-03",
+      "model": "nano_banana_pro",
+      "cost": {
+        "credits": 12,
+        "usd": 0.4
+      },
+      "dates": {
+        "requested": null,
+        "produced": "2026-08-04",
+        "published": "2026-08-04"
+      },
+      "platforms": {
+        "facebook": "2026-08-04",
+        "instagram": null,
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
+      },
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      }
+    },
+    {
+      "id": "0014",
+      "slug": "most-beautiful-sound",
+      "title": "The Most Beautiful Sound",
+      "type": "video",
+      "status": "delivered",
+      "folder": "productions/0014-most-beautiful-sound",
+      "model": "nano_banana_pro (stills) + veo3_1 fast",
+      "cost": {
+        "credits": 168,
+        "usd": 5.54
+      },
+      "dates": {
+        "requested": null,
+        "produced": "2026-08-05",
+        "published": null
+      },
+      "platforms": {
+        "facebook": null,
+        "instagram": null,
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
+      },
+      "confirmed_unpublished": "2026-08-12",
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      }
+    },
+    {
+      "id": "0015",
+      "slug": "islamic-moments-at-home",
+      "title": "Islamic Moments at Home — 10 post images",
+      "type": "image-set",
+      "status": "published",
+      "folder": "productions/0015-islamic-moments-at-home",
+      "model": "nano_banana_pro",
+      "cost": {
+        "credits": 20,
+        "usd": 0.66
+      },
+      "dates": {
+        "requested": null,
+        "produced": "2026-08-08",
+        "published": "2026-08-11"
+      },
+      "platforms": {
+        "facebook": "2026-08-11",
+        "instagram": "scheduled",
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
+      },
+      "ratings": {
+        "editor": null,
+        "visitors": 2
+      }
+    },
+    {
+      "id": "0016",
+      "slug": "rabbi-irhamhuma-johra",
+      "title": "Rabbi Irhamhuma (Johra)",
+      "type": "video",
+      "status": "published",
+      "folder": "productions/0016-rabbi-irhamhuma-johra",
+      "model": "nano_banana_pro (still) + veo3_1 fast",
+      "cost": {
+        "credits": 24,
+        "usd": 0.79
+      },
+      "dates": {
+        "requested": null,
+        "produced": "2026-08-08",
+        "published": "2026-08-08"
+      },
+      "platforms": {
+        "facebook": "2026-08-08",
+        "instagram": "2026-08-08",
+        "pinterest": null,
+        "x": null,
+        "tiktok": "2026-08-08",
+        "youtube": null
+      },
+      "ratings": {
+        "editor": null,
+        "visitors": 5
+      }
+    },
+    {
+      "id": "0017",
+      "slug": "children-learning-arabic",
+      "title": "Children Learning Arabic",
+      "type": "watermark",
+      "status": "published",
+      "folder": "productions/0017-children-learning-arabic",
+      "model": "supplied clip — local watermark only",
+      "cost": {
+        "credits": 0,
+        "usd": 0.0
+      },
+      "dates": {
+        "requested": null,
+        "produced": "2026-08-09",
+        "published": "2026-08-09"
+      },
+      "platforms": {
+        "facebook": "2026-08-09",
+        "instagram": "2026-08-09",
+        "pinterest": null,
+        "x": null,
+        "tiktok": "2026-08-09",
+        "youtube": "2026-08-09"
+      },
+      "ratings": {
+        "editor": 5,
+        "visitors": 5
+      }
+    },
+    {
+      "id": "0018",
+      "slug": "wake-up-and-thank-allah",
+      "title": "Wake Up and Thank Allah",
+      "type": "watermark",
+      "status": "published",
+      "folder": "productions/0018-wake-up-and-thank-allah",
+      "model": "supplied clip — local watermark only",
+      "cost": {
+        "credits": 0,
+        "usd": 0.0
+      },
+      "dates": {
+        "requested": null,
+        "produced": "2026-08-09",
+        "published": "2026-08-09"
+      },
+      "platforms": {
+        "facebook": "2026-08-09",
+        "instagram": "2026-08-09",
+        "pinterest": null,
+        "x": null,
+        "tiktok": "2026-08-09",
+        "youtube": "2026-08-09"
+      },
+      "ratings": {
+        "editor": 5,
+        "visitors": 5
+      }
+    },
+    {
+      "id": "0019",
+      "slug": "bismillah-before-we-eat",
+      "title": "Bismillah Before We Eat",
+      "type": "watermark",
+      "status": "published",
+      "folder": "productions/0019-bismillah-before-we-eat",
+      "model": "supplied clip — local watermark only",
+      "cost": {
+        "credits": 0,
+        "usd": 0.0
+      },
+      "dates": {
+        "requested": null,
+        "produced": "2026-08-09",
+        "published": "2026-08-09"
+      },
+      "platforms": {
+        "facebook": "2026-08-09",
+        "instagram": "2026-08-09",
+        "pinterest": null,
+        "x": null,
+        "tiktok": "2026-08-09",
+        "youtube": "2026-08-09"
+      },
+      "ratings": {
+        "editor": 5,
+        "visitors": null
+      }
+    },
+    {
+      "id": "0020",
+      "slug": "thank-you-allah-nasheed",
+      "title": "Thank You, Allah — nasheed verses 1-3",
+      "type": "watermark",
+      "status": "delivered",
+      "folder": "productions/0020-thank-you-allah-nasheed",
+      "model": "supplied clip — local watermark only",
+      "cost": {
+        "credits": 0,
+        "usd": 0.0
+      },
+      "dates": {
+        "requested": null,
+        "produced": "2026-08-10",
+        "published": null
+      },
+      "platforms": {
+        "facebook": null,
+        "instagram": null,
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
+      },
+      "confirmed_unpublished": "2026-08-12",
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      }
+    },
+    {
+      "id": "0021",
+      "slug": "wudu-together",
+      "title": "Wudu Together",
+      "type": "video",
+      "status": "published",
+      "folder": "productions/0021-wudu-together",
+      "model": "nano_banana_pro + veo3_1 fast",
+      "cost": {
+        "credits": 68,
+        "usd": 2.24
+      },
+      "dates": {
+        "requested": null,
+        "produced": "2026-08-11",
+        "published": "2026-08-11"
+      },
+      "platforms": {
+        "facebook": "2026-08-11",
+        "instagram": "2026-08-11",
+        "pinterest": null,
+        "x": null,
+        "tiktok": "2026-08-11",
+        "youtube": "2026-08-11"
+      },
+      "ratings": {
+        "editor": 4,
+        "visitors": null
+      }
+    },
+    {
+      "id": "0022",
+      "slug": "la-hawla",
+      "title": "Lā ḥawla wa lā quwwata illā billāh",
+      "type": "video",
+      "status": "delivered",
+      "folder": "productions/0022-la-hawla",
+      "model": "nano_banana_pro + veo3_1 fast + seed_audio (Emmett VO)",
+      "cost": {
+        "credits": 231,
+        "usd": 7.62
+      },
+      "dates": {
+        "requested": null,
+        "produced": "2026-08-11",
+        "published": null
+      },
+      "platforms": {
+        "facebook": null,
+        "instagram": null,
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
+      },
+      "confirmed_unpublished": "2026-08-12",
+      "ratings": {
+        "editor": 2,
+        "visitors": null
+      }
+    },
+    {
+      "id": "0023",
+      "slug": "rhyme-series",
+      "title": "Rhyme Series",
+      "type": "program",
+      "status": "requested",
+      "folder": "productions/0023-rhyme-series",
+      "model": null,
+      "cost": {
+        "credits": 0,
+        "usd": 0.0
+      },
+      "dates": {
+        "requested": null,
+        "produced": null,
+        "published": null
+      },
+      "platforms": {
+        "facebook": null,
+        "instagram": null,
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
+      },
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      }
+    },
+    {
+      "id": "0024",
+      "slug": "alif-baa-taa-adventure",
+      "title": "Alif, Baa, Taa Adventure",
+      "type": "video",
+      "status": "requested",
+      "folder": "productions/0024-alif-baa-taa-adventure",
+      "model": null,
+      "cost": {
+        "credits": 0,
+        "usd": 0.0
+      },
+      "dates": {
+        "requested": null,
+        "produced": null,
+        "published": null
+      },
+      "platforms": {
+        "facebook": null,
+        "instagram": null,
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
+      },
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      }
+    },
+    {
+      "id": "0025",
+      "slug": "little-muslim-big-heart",
+      "title": "Little Muslim, Big Heart",
+      "type": "video",
+      "status": "requested",
+      "folder": "productions/0025-little-muslim-big-heart",
+      "model": null,
+      "cost": {
+        "credits": 0,
+        "usd": 0.0
+      },
+      "dates": {
+        "requested": null,
+        "produced": null,
+        "published": null
+      },
+      "platforms": {
+        "facebook": null,
+        "instagram": null,
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
+      },
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      }
+    }
+  ],
+  "_platforms": ["facebook", "instagram", "pinterest", "x", "tiktok", "youtube"],
+  "_platform_note": "Recorded only from what the user states. Never scanned from live social accounts. platforms value = ISO date, 'scheduled', or null. confirmed_unpublished = user explicitly said nothing is live yet.",
+  "_ratings_note": "editor = user's rating of delivery quality, 1-5. visitors = engagement in the first 24h after publishing, 1-5. Both set ONLY from what the user states — never inferred, never estimated."
+}

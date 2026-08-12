@@ -1,0 +1,2 @@
+file '/Users/oldmac/Claude/Projects/AI-MOS-VID/renders/la-hawla/seg/main.mp4'
+file '/Users/oldmac/Claude/Projects/AI-MOS-VID/renders/la-hawla/seg/end.mp4'
