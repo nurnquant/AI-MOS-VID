@@ -62,3 +62,9 @@ library/**/*.png
 library/**/*.jpg
 library/**/*.mp4
 library/**/*.wav
+
+# Git is the codebase: structure, scripts and docs only. No footage.
+# Brand stills in suppliedMedia/ stay tracked because scripts depend on them.
+suppliedMedia/**/*.mp4
+suppliedMedia/**/*.mov
+suppliedMedia/**/*.wav
