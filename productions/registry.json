@@ -31,7 +31,8 @@
       "ratings": {
         "editor": null,
         "visitors": null
-      }
+      },
+      "style": null
     },
     {
       "id": "0002",
@@ -62,7 +63,8 @@
       "ratings": {
         "editor": null,
         "visitors": null
-      }
+      },
+      "style": null
     },
     {
       "id": "0003",
@@ -93,7 +95,8 @@
       "ratings": {
         "editor": null,
         "visitors": null
-      }
+      },
+      "style": null
     },
     {
       "id": "0004",
@@ -123,7 +126,8 @@
       "ratings": {
         "editor": null,
         "visitors": null
-      }
+      },
+      "style": null
     },
     {
       "id": "0005",
@@ -154,7 +158,8 @@
       "ratings": {
         "editor": null,
         "visitors": null
-      }
+      },
+      "style": null
     },
     {
       "id": "0006",
@@ -185,7 +190,8 @@
       "ratings": {
         "editor": 5,
         "visitors": null
-      }
+      },
+      "style": 1
     },
     {
       "id": "0007",
@@ -215,7 +221,8 @@
       "ratings": {
         "editor": null,
         "visitors": null
-      }
+      },
+      "style": 5
     },
     {
       "id": "0008",
@@ -246,7 +253,8 @@
       "ratings": {
         "editor": null,
         "visitors": null
-      }
+      },
+      "style": 3
     },
     {
       "id": "0009",
@@ -277,7 +285,8 @@
       "ratings": {
         "editor": null,
         "visitors": null
-      }
+      },
+      "style": 3
     },
     {
       "id": "0010",
@@ -308,7 +317,8 @@
       "ratings": {
         "editor": null,
         "visitors": null
-      }
+      },
+      "style": 3
     },
     {
       "id": "0011",
@@ -338,7 +348,8 @@
       "ratings": {
         "editor": null,
         "visitors": null
-      }
+      },
+      "style": 5
     },
     {
       "id": "0012",
@@ -368,7 +379,8 @@
       "ratings": {
         "editor": null,
         "visitors": null
-      }
+      },
+      "style": 5
     },
     {
       "id": "0013",
@@ -398,7 +410,8 @@
       "ratings": {
         "editor": null,
         "visitors": null
-      }
+      },
+      "style": 5
     },
     {
       "id": "0014",
@@ -429,7 +442,8 @@
       "ratings": {
         "editor": null,
         "visitors": null
-      }
+      },
+      "style": 1
     },
     {
       "id": "0015",
@@ -459,7 +473,8 @@
       "ratings": {
         "editor": null,
         "visitors": 2
-      }
+      },
+      "style": 5
     },
     {
       "id": "0016",
@@ -489,7 +504,8 @@
       "ratings": {
         "editor": null,
         "visitors": 5
-      }
+      },
+      "style": 3
     },
     {
       "id": "0017",
@@ -519,7 +535,8 @@
       "ratings": {
         "editor": 5,
         "visitors": 5
-      }
+      },
+      "style": 4
     },
     {
       "id": "0018",
@@ -549,7 +566,8 @@
       "ratings": {
         "editor": 5,
         "visitors": 5
-      }
+      },
+      "style": 4
     },
     {
       "id": "0019",
@@ -579,7 +597,8 @@
       "ratings": {
         "editor": 5,
         "visitors": null
-      }
+      },
+      "style": 4
     },
     {
       "id": "0020",
@@ -610,7 +629,8 @@
       "ratings": {
         "editor": null,
         "visitors": null
-      }
+      },
+      "style": 4
     },
     {
       "id": "0021",
@@ -640,7 +660,8 @@
       "ratings": {
         "editor": 4,
         "visitors": null
-      }
+      },
+      "style": 2
     },
     {
       "id": "0022",
@@ -671,7 +692,8 @@
       "ratings": {
         "editor": 2,
         "visitors": null
-      }
+      },
+      "style": 1
     },
     {
       "id": "0023",
@@ -701,7 +723,8 @@
       "ratings": {
         "editor": null,
         "visitors": null
-      }
+      },
+      "style": null
     },
     {
       "id": "0024",
@@ -731,7 +754,8 @@
       "ratings": {
         "editor": null,
         "visitors": null
-      }
+      },
+      "style": null
     },
     {
       "id": "0025",
@@ -761,10 +785,12 @@
       "ratings": {
         "editor": null,
         "visitors": null
-      }
+      },
+      "style": null
     }
   ],
   "_platforms": ["facebook", "instagram", "pinterest", "x", "tiktok", "youtube"],
   "_platform_note": "Recorded only from what the user states. Never scanned from live social accounts. platforms value = ISO date, 'scheduled', or null. confirmed_unpublished = user explicitly said nothing is live yet.",
-  "_ratings_note": "editor = user's rating of delivery quality, 1-5. visitors = engagement in the first 24h after publishing, 1-5. Both set ONLY from what the user states — never inferred, never estimated."
+  "_ratings_note": "editor = user's rating of delivery quality, 1-5. visitors = engagement in the first 24h after publishing, 1-5. Both set ONLY from what the user states — never inferred, never estimated.",
+  "_style_note": "style = the finishing treatment; catalogue in library/STYLES.md. The user names the style in the request. Never guess or backfill one. 0001-0005 predate the catalogue and stay null."
 }

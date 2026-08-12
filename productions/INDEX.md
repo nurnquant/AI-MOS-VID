@@ -8,33 +8,37 @@ Every row is one request. Open the folder to find `00-REQUEST.md`
 
 Legend: `·` requested · `~` in progress · `✓` delivered · `★` published · `!` parked
 
-| #      | Title                                      | Type      | Status      | Deliverables                                    | Folder                                                                        |
-| ------ | ------------------------------------------ | --------- | ----------- | ----------------------------------------------- | ----------------------------------------------------------------------------- |
-| `0001` | Sneezing Etiquette Family Story            | video     | ★ published | 0001-sneeze-etiquette-9x16.mp4                  | [0001-sneezing-etiquette-family-story](0001-sneezing-etiquette-family-story/) |
-| `0002` | Dua Boy — Rabbana Atina                    | video     | ★ published | 0002-dua-boy-9x16.mp4 _(+1)_                    | [0002-dua-boy-rabbana-atina](0002-dua-boy-rabbana-atina/)                     |
-| `0003` | Riwaq Quran Class Ad (Johra)               | video     | ★ published | 0003-quran-class-ad-9x16-v2.mp4 _(+1)_          | [0003-quran-class-ad-johra](0003-quran-class-ad-johra/)                       |
-| `0004` | The Lantern in the Dark — Dua for Guidance | video     | ★ published | 0004-lantern-dua-guidance-9x16-wm.mp4 _(+1)_    | [0004-lantern-in-the-dark](0004-lantern-in-the-dark/)                         |
-| `0005` | Cozy Islamic Classroom ASMR (Alif)         | video     | ★ published | 0005-asmr-alif-classroom-9x16.mp4 _(+1)_        | [0005-cozy-classroom-asmr](0005-cozy-classroom-asmr/)                         |
-| `0006` | The Dream of Every Parent                  | video     | ★ published | 0006-dream-of-every-parent-9x16-copy.mp4 _(+1)_ | [0006-dream-of-every-parent](0006-dream-of-every-parent/)                     |
-| `0007` | The Legacy Post                            | image-set | ★ published | 0007-legacy-post-4x5.png                        | [0007-legacy-post](0007-legacy-post/)                                         |
-| `0008` | Little Girl Reciting Dua                   | video     | ★ published | 0008-little-girl-dua-9x16.mp4                   | [0008-little-girl-reciting-dua](0008-little-girl-reciting-dua/)               |
-| `0009` | The Dua Before Learning                    | video     | ★ published | 0009-dua-before-learning-9x16.mp4 _(+1)_        | [0009-dua-before-learning](0009-dua-before-learning/)                         |
-| `0010` | Allah Is Sufficient for Me (Johra)         | video     | ✓ delivered | 0010-allah-is-sufficient-9x16.mp4               | [0010-allah-is-sufficient-johra](0010-allah-is-sufficient-johra/)             |
-| `0011` | FB Series 01 — 6 post images               | image-set | ★ published | 0011-post1-mothers-prayer.png _(+5)_            | [0011-fb-series-01](0011-fb-series-01/)                                       |
-| `0012` | FB Series 02 — 6 post images               | image-set | ★ published | 0012-post1-screen-time.png _(+5)_               | [0012-fb-series-02](0012-fb-series-02/)                                       |
-| `0013` | FB Series 03 — 6 post images               | image-set | ★ published | 0013-post1-crown-of-light.png _(+5)_            | [0013-fb-series-03](0013-fb-series-03/)                                       |
-| `0014` | The Most Beautiful Sound                   | video     | ✓ delivered | 0014-most-beautiful-sound-9x16.mp4              | [0014-most-beautiful-sound](0014-most-beautiful-sound/)                       |
-| `0015` | Islamic Moments at Home — 10 post images   | image-set | ★ published | 0015-post1-bedtime-dua.png _(+9)_               | [0015-islamic-moments-at-home](0015-islamic-moments-at-home/)                 |
-| `0016` | Rabbi Irhamhuma (Johra)                    | video     | ★ published | 0016-rabbi-irhamhuma-9x16.mp4                   | [0016-rabbi-irhamhuma-johra](0016-rabbi-irhamhuma-johra/)                     |
-| `0017` | Children Learning Arabic                   | watermark | ★ published | 0017-children-learning-arabic-9x16.mp4          | [0017-children-learning-arabic](0017-children-learning-arabic/)               |
-| `0018` | Wake Up and Thank Allah                    | watermark | ★ published | 0018-wake-up-and-thank-allah-9x16.mp4           | [0018-wake-up-and-thank-allah](0018-wake-up-and-thank-allah/)                 |
-| `0019` | Bismillah Before We Eat                    | watermark | ★ published | 0019-bismillah-before-we-eat-9x16.mp4           | [0019-bismillah-before-we-eat](0019-bismillah-before-we-eat/)                 |
-| `0020` | Thank You, Allah — nasheed verses 1-3      | watermark | ✓ delivered | 0020-verse1-morning-9x16.mp4 _(+2)_             | [0020-thank-you-allah-nasheed](0020-thank-you-allah-nasheed/)                 |
-| `0021` | Wudu Together                              | video     | ★ published | 0021-wudu-together-9x16.mp4                     | [0021-wudu-together](0021-wudu-together/)                                     |
-| `0022` | Lā ḥawla wa lā quwwata illā billāh         | video     | ✓ delivered | 0022-la-hawla-9x16.mp4                          | [0022-la-hawla](0022-la-hawla/)                                               |
-| `0023` | Rhyme Series                               | program   | · requested | —                                               | [0023-rhyme-series](0023-rhyme-series/)                                       |
-| `0024` | Alif, Baa, Taa Adventure                   | video     | · requested | —                                               | [0024-alif-baa-taa-adventure](0024-alif-baa-taa-adventure/)                   |
-| `0025` | Little Muslim, Big Heart                   | video     | · requested | —                                               | [0025-little-muslim-big-heart](0025-little-muslim-big-heart/)                 |
+Style numbers are the finishing treatment — see
+[library/STYLES.md](../library/STYLES.md). You name the style in the
+request; it is never assumed.
+
+| #      | Title                                      | Type      | Style | Status      | Deliverables                                    | Folder                                                                        |
+| ------ | ------------------------------------------ | --------- | ----- | ----------- | ----------------------------------------------- | ----------------------------------------------------------------------------- |
+| `0001` | Sneezing Etiquette Family Story            | video     | —     | ★ published | 0001-sneeze-etiquette-9x16.mp4                  | [0001-sneezing-etiquette-family-story](0001-sneezing-etiquette-family-story/) |
+| `0002` | Dua Boy — Rabbana Atina                    | video     | —     | ★ published | 0002-dua-boy-9x16.mp4 _(+1)_                    | [0002-dua-boy-rabbana-atina](0002-dua-boy-rabbana-atina/)                     |
+| `0003` | Riwaq Quran Class Ad (Johra)               | video     | —     | ★ published | 0003-quran-class-ad-9x16-v2.mp4 _(+1)_          | [0003-quran-class-ad-johra](0003-quran-class-ad-johra/)                       |
+| `0004` | The Lantern in the Dark — Dua for Guidance | video     | —     | ★ published | 0004-lantern-dua-guidance-9x16-wm.mp4 _(+1)_    | [0004-lantern-in-the-dark](0004-lantern-in-the-dark/)                         |
+| `0005` | Cozy Islamic Classroom ASMR (Alif)         | video     | —     | ★ published | 0005-asmr-alif-classroom-9x16.mp4 _(+1)_        | [0005-cozy-classroom-asmr](0005-cozy-classroom-asmr/)                         |
+| `0006` | The Dream of Every Parent                  | video     | 1     | ★ published | 0006-dream-of-every-parent-9x16-copy.mp4 _(+1)_ | [0006-dream-of-every-parent](0006-dream-of-every-parent/)                     |
+| `0007` | The Legacy Post                            | image-set | 5     | ★ published | 0007-legacy-post-4x5.png                        | [0007-legacy-post](0007-legacy-post/)                                         |
+| `0008` | Little Girl Reciting Dua                   | video     | 3     | ★ published | 0008-little-girl-dua-9x16.mp4                   | [0008-little-girl-reciting-dua](0008-little-girl-reciting-dua/)               |
+| `0009` | The Dua Before Learning                    | video     | 3     | ★ published | 0009-dua-before-learning-9x16.mp4 _(+1)_        | [0009-dua-before-learning](0009-dua-before-learning/)                         |
+| `0010` | Allah Is Sufficient for Me (Johra)         | video     | 3     | ✓ delivered | 0010-allah-is-sufficient-9x16.mp4               | [0010-allah-is-sufficient-johra](0010-allah-is-sufficient-johra/)             |
+| `0011` | FB Series 01 — 6 post images               | image-set | 5     | ★ published | 0011-post1-mothers-prayer.png _(+5)_            | [0011-fb-series-01](0011-fb-series-01/)                                       |
+| `0012` | FB Series 02 — 6 post images               | image-set | 5     | ★ published | 0012-post1-screen-time.png _(+5)_               | [0012-fb-series-02](0012-fb-series-02/)                                       |
+| `0013` | FB Series 03 — 6 post images               | image-set | 5     | ★ published | 0013-post1-crown-of-light.png _(+5)_            | [0013-fb-series-03](0013-fb-series-03/)                                       |
+| `0014` | The Most Beautiful Sound                   | video     | 1     | ✓ delivered | 0014-most-beautiful-sound-9x16.mp4              | [0014-most-beautiful-sound](0014-most-beautiful-sound/)                       |
+| `0015` | Islamic Moments at Home — 10 post images   | image-set | 5     | ★ published | 0015-post1-bedtime-dua.png _(+9)_               | [0015-islamic-moments-at-home](0015-islamic-moments-at-home/)                 |
+| `0016` | Rabbi Irhamhuma (Johra)                    | video     | 3     | ★ published | 0016-rabbi-irhamhuma-9x16.mp4                   | [0016-rabbi-irhamhuma-johra](0016-rabbi-irhamhuma-johra/)                     |
+| `0017` | Children Learning Arabic                   | watermark | 4     | ★ published | 0017-children-learning-arabic-9x16.mp4          | [0017-children-learning-arabic](0017-children-learning-arabic/)               |
+| `0018` | Wake Up and Thank Allah                    | watermark | 4     | ★ published | 0018-wake-up-and-thank-allah-9x16.mp4           | [0018-wake-up-and-thank-allah](0018-wake-up-and-thank-allah/)                 |
+| `0019` | Bismillah Before We Eat                    | watermark | 4     | ★ published | 0019-bismillah-before-we-eat-9x16.mp4           | [0019-bismillah-before-we-eat](0019-bismillah-before-we-eat/)                 |
+| `0020` | Thank You, Allah — nasheed verses 1-3      | watermark | 4     | ✓ delivered | 0020-verse1-morning-9x16.mp4 _(+2)_             | [0020-thank-you-allah-nasheed](0020-thank-you-allah-nasheed/)                 |
+| `0021` | Wudu Together                              | video     | 2     | ★ published | 0021-wudu-together-9x16.mp4                     | [0021-wudu-together](0021-wudu-together/)                                     |
+| `0022` | Lā ḥawla wa lā quwwata illā billāh         | video     | 1     | ✓ delivered | 0022-la-hawla-9x16.mp4                          | [0022-la-hawla](0022-la-hawla/)                                               |
+| `0023` | Rhyme Series                               | program   | —     | · requested | —                                               | [0023-rhyme-series](0023-rhyme-series/)                                       |
+| `0024` | Alif, Baa, Taa Adventure                   | video     | —     | · requested | —                                               | [0024-alif-baa-taa-adventure](0024-alif-baa-taa-adventure/)                   |
+| `0025` | Little Muslim, Big Heart                   | video     | —     | · requested | —                                               | [0025-little-muslim-big-heart](0025-little-muslim-big-heart/)                 |
 
 **25 productions** — 4 delivered · 18 published · 3 requested
 

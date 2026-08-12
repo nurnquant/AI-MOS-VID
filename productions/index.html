@@ -42,6 +42,21 @@ color:var(--dim);text-transform:lowercase}
 .s-published{background:var(--emerald);border-color:var(--emerald);color:#fff}
 @media(prefers-color-scheme:dark){.s-published{color:#0e1512}}
 .s-delivered{border-color:var(--gold);color:var(--gold)}
+.pill.sty{background:var(--goldbg);border-color:var(--gold);color:var(--gold);
+font-weight:600;text-decoration:none}
+.pill.sty.off{background:transparent;border-color:var(--line);color:var(--dim);
+font-weight:400}
+.refs{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+.refs a{font-size:.74rem;padding:4px 10px;border-radius:20px;border:1px solid var(--line);
+color:var(--dim);text-decoration:none}
+.refs a:hover{color:var(--emerald);border-color:var(--emerald)}
+.board{margin-top:12px;font-size:.8rem;color:var(--dim)}
+.board summary{cursor:pointer;color:var(--emerald);font-weight:600}
+.board table{border-collapse:collapse;margin-top:8px;font-size:.76rem}
+.board th{text-align:left;color:var(--gold);font-size:.72rem;padding:2px 14px 4px 0}
+.board td{padding:3px 14px 3px 0;border-top:1px solid var(--line)}
+.board p{margin:8px 0 0;font-size:.72rem}
+.board a{color:var(--emerald)}
 nav{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto}
 a.btn{font-size:.78rem;padding:5px 10px;border-radius:7px;border:1px solid var(--line);
 color:var(--fg);text-decoration:none}
@@ -75,6 +90,11 @@ details a{color:var(--fg)}
     55 images · 4 delivered · 18 published · 3 requested<br>
     total spend <strong>1402 credits · $50.49</strong> ·
     next number <strong>0026</strong> · editor avg <strong>4.3</strong>/5 (6 rated) · visitors avg <strong>4.2</strong>/5 (4 rated)</div>
+  <div class="refs"><a href="../library/STYLES.md">styles</a>
+    <a href="../CONNECTIONS.md">connections</a>
+    <a href="../PRODUCTION-STANDARD.md">standard</a>
+    <a href="INDEX.md">index.md</a></div>
+  <details class="board"><summary>style performance</summary><table><tr><th>Style</th><th>Used</th><th>Editor</th><th>Visitors</th></tr><tr><td>Style 1 — Cinematic Reverent</td><td>3</td><td>3.5</td><td>—</td></tr><tr><td>Style 2 — Quiet Observational</td><td>1</td><td>4.0</td><td>—</td></tr><tr><td>Style 3 — Dua Teaching</td><td>4</td><td>—</td><td>5.0</td></tr><tr><td>Style 4 — Animated Nasheed</td><td>4</td><td>5.0</td><td>5.0</td></tr><tr><td>Style 5 — Image Post</td><td>5</td><td>—</td><td>2.0</td></tr></table><p>Averages only — small samples. Full spec: <a href="../library/STYLES.md">library/STYLES.md</a></p></details>
 </header>
 
 <div class="controls"><div class="inner">
@@ -82,334 +102,359 @@ details a{color:var(--fg)}
   <button class="on" data-f="all" data-v="">all</button>
   <button data-f="rated" data-v="editor">rated by me</button>
   <button data-f="unrated" data-v="editor">needs my rating</button>
-  <button data-f="status" data-v="published">published</button><button data-f="status" data-v="delivered">delivered</button><button data-f="status" data-v="requested">requested</button><button data-f="type" data-v="image-set">image-set</button><button data-f="type" data-v="program">program</button><button data-f="type" data-v="video">video</button><button data-f="type" data-v="watermark">watermark</button>
+  <button data-f="status" data-v="published">published</button><button data-f="status" data-v="delivered">delivered</button><button data-f="status" data-v="requested">requested</button><button data-f="type" data-v="image-set">image-set</button><button data-f="type" data-v="program">program</button><button data-f="type" data-v="video">video</button><button data-f="type" data-v="watermark">watermark</button><button data-f="style" data-v="1" title="Cinematic Reverent">style 1</button><button data-f="style" data-v="2" title="Quiet Observational">style 2</button><button data-f="style" data-v="3" title="Dua Teaching">style 3</button><button data-f="style" data-v="4" title="Animated Nasheed">style 4</button><button data-f="style" data-v="5" title="Image Post">style 5</button><button data-f="style" data-v="0">unstyled</button>
 </div></div>
 
 <main id="grid">
 <article class="card" data-status="published" data-type="video"
    data-ed="0" data-vi="0" data-produced="1"
-   data-search="0001 sneezing etiquette family story video published">
+   data-style="0"
+   data-search="0001 sneezing etiquette family story video published unstyled">
   <header><span class="num">0001</span>
     <h2>Sneezing Etiquette Family Story</h2></header>
   <video class="prev" controls preload="metadata" src="0001-sneezing-etiquette-family-story/OUTPUT/0001-sneeze-etiquette-9x16.mp4"></video>
   <div class="meta"><span class="pill t-video">video</span>
-    <span class="pill s-published">published</span></div>
+    <span class="pill s-published">published</span><span class="pill sty off" title="no style recorded">unstyled</span></div>
   <div class="rates"><div class="rate"><span class="rl">editor</span><span class="rv r0" title="delivery quality, 1-5">—</span></div></div>
   <div class="chips"><span class="chip off" title="Facebook: not published">Facebook</span><span class="chip off" title="Instagram: not published">Instagram</span><span class="chip off" title="Pinterest: not published">Pinterest</span><span class="chip off" title="X: not published">X</span><span class="chip off" title="TikTok: not published">TikTok</span><span class="chip off" title="YouTube: not published">YouTube</span></div>
   <nav><a class="btn" href="0001-sneezing-etiquette-family-story/">folder</a><a class="btn" href="0001-sneezing-etiquette-family-story/00-REQUEST.md">request</a></nav>
-  <details class='det'><summary>details</summary><table><tr><td>Model</td><td>Kling v2.5 turbo pro (fal.ai) + ElevenLabs multilingual v2</td></tr><tr><td>Cost</td><td>0 cr · $4.18</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-07-30</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
+  <details class='det'><summary>details</summary><table><tr><td>Style</td><td>unstyled</td></tr><tr><td>Model</td><td>Kling v2.5 turbo pro (fal.ai) + ElevenLabs multilingual v2</td></tr><tr><td>Cost</td><td>0 cr · $4.18</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-07-30</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   
 </article><article class="card" data-status="published" data-type="video"
    data-ed="0" data-vi="0" data-produced="1"
-   data-search="0002 dua boy — rabbana atina video published">
+   data-style="0"
+   data-search="0002 dua boy — rabbana atina video published unstyled">
   <header><span class="num">0002</span>
     <h2>Dua Boy — Rabbana Atina</h2></header>
   <video class="prev" controls preload="metadata" src="0002-dua-boy-rabbana-atina/OUTPUT/0002-dua-boy-9x16.mp4"></video>
   <div class="meta"><span class="pill t-video">video</span>
-    <span class="pill s-published">published</span></div>
+    <span class="pill s-published">published</span><span class="pill sty off" title="no style recorded">unstyled</span></div>
   <div class="rates"><div class="rate"><span class="rl">editor</span><span class="rv r0" title="delivery quality, 1-5">—</span></div></div>
   <div class="chips"><span class="chip off" title="Facebook: not published">Facebook</span><span class="chip off" title="Instagram: not published">Instagram</span><span class="chip off" title="Pinterest: not published">Pinterest</span><span class="chip off" title="X: not published">X</span><span class="chip off" title="TikTok: not published">TikTok</span><span class="chip off" title="YouTube: not published">YouTube</span></div>
   <nav><a class="btn" href="0002-dua-boy-rabbana-atina/">folder</a><a class="btn" href="0002-dua-boy-rabbana-atina/00-REQUEST.md">request</a></nav>
-  <details class='det'><summary>details</summary><table><tr><td>Model</td><td>kling3_0_turbo + seedance_2_0</td></tr><tr><td>Cost</td><td>69 cr · $2.30</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-07-31</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
+  <details class='det'><summary>details</summary><table><tr><td>Style</td><td>unstyled</td></tr><tr><td>Model</td><td>kling3_0_turbo + seedance_2_0</td></tr><tr><td>Cost</td><td>69 cr · $2.30</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-07-31</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   <details><summary>1 more file</summary><ul><li><a href="0002-dua-boy-rabbana-atina/OUTPUT/0002-dua-recitation-9x16.mp4">0002-dua-recitation-9x16.mp4</a></li></ul></details>
 </article><article class="card" data-status="published" data-type="video"
    data-ed="0" data-vi="0" data-produced="1"
-   data-search="0003 riwaq quran class ad (johra) video published">
+   data-style="0"
+   data-search="0003 riwaq quran class ad (johra) video published unstyled">
   <header><span class="num">0003</span>
     <h2>Riwaq Quran Class Ad (Johra)</h2></header>
   <video class="prev" controls preload="metadata" src="0003-quran-class-ad-johra/OUTPUT/0003-quran-class-ad-9x16-v2.mp4"></video>
   <div class="meta"><span class="pill t-video">video</span>
-    <span class="pill s-published">published</span></div>
+    <span class="pill s-published">published</span><span class="pill sty off" title="no style recorded">unstyled</span></div>
   <div class="rates"><div class="rate"><span class="rl">editor</span><span class="rv r0" title="delivery quality, 1-5">—</span></div></div>
   <div class="chips"><span class="chip off" title="Facebook: not published">Facebook</span><span class="chip off" title="Instagram: not published">Instagram</span><span class="chip off" title="Pinterest: not published">Pinterest</span><span class="chip off" title="X: not published">X</span><span class="chip off" title="TikTok: not published">TikTok</span><span class="chip off" title="YouTube: not published">YouTube</span></div>
   <nav><a class="btn" href="0003-quran-class-ad-johra/">folder</a><a class="btn" href="0003-quran-class-ad-johra/00-REQUEST.md">request</a></nav>
-  <details class='det'><summary>details</summary><table><tr><td>Model</td><td>seedance_2_0</td></tr><tr><td>Cost</td><td>72 cr · $2.40</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-01</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
+  <details class='det'><summary>details</summary><table><tr><td>Style</td><td>unstyled</td></tr><tr><td>Model</td><td>seedance_2_0</td></tr><tr><td>Cost</td><td>72 cr · $2.40</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-01</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   <details><summary>1 more file</summary><ul><li><a href="0003-quran-class-ad-johra/OUTPUT/0003-quran-class-ad-9x16.mp4">0003-quran-class-ad-9x16.mp4</a></li></ul></details>
 </article><article class="card" data-status="published" data-type="video"
    data-ed="0" data-vi="0" data-produced="1"
-   data-search="0004 the lantern in the dark — dua for guidance video published">
+   data-style="0"
+   data-search="0004 the lantern in the dark — dua for guidance video published unstyled">
   <header><span class="num">0004</span>
     <h2>The Lantern in the Dark — Dua for Guidance</h2></header>
   <video class="prev" controls preload="metadata" src="0004-lantern-in-the-dark/OUTPUT/0004-lantern-dua-guidance-9x16-wm.mp4"></video>
   <div class="meta"><span class="pill t-video">video</span>
-    <span class="pill s-published">published</span></div>
+    <span class="pill s-published">published</span><span class="pill sty off" title="no style recorded">unstyled</span></div>
   <div class="rates"><div class="rate"><span class="rl">editor</span><span class="rv r0" title="delivery quality, 1-5">—</span></div><div class="rate"><span class="rl">visitors</span><span class="rv r0" title="engagement in first 24h, 1-5">—</span></div></div>
   <div class="chips"><span class="chip on" title="Facebook: 2026-08-02">Facebook</span><span class="chip on" title="Instagram: 2026-08-02">Instagram</span><span class="chip off" title="Pinterest: not published">Pinterest</span><span class="chip off" title="X: not published">X</span><span class="chip off" title="TikTok: not published">TikTok</span><span class="chip off" title="YouTube: not published">YouTube</span></div>
   <nav><a class="btn" href="0004-lantern-in-the-dark/">folder</a><a class="btn" href="0004-lantern-in-the-dark/00-REQUEST.md">request</a></nav>
-  <details class='det'><summary>details</summary><table><tr><td>Model</td><td>nano_banana_pro (stills) + veo3_1 fast</td></tr><tr><td>Cost</td><td>142 cr · $4.70</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-02</td></tr><tr><td>First published</td><td>2026-08-02</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-02</td></tr><tr><td>Instagram</td><td>2026-08-02</td></tr></table></details>
+  <details class='det'><summary>details</summary><table><tr><td>Style</td><td>unstyled</td></tr><tr><td>Model</td><td>nano_banana_pro (stills) + veo3_1 fast</td></tr><tr><td>Cost</td><td>142 cr · $4.70</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-02</td></tr><tr><td>First published</td><td>2026-08-02</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-02</td></tr><tr><td>Instagram</td><td>2026-08-02</td></tr></table></details>
   <details><summary>1 more file</summary><ul><li><a href="0004-lantern-in-the-dark/OUTPUT/0004-lantern-dua-guidance-9x16.mp4">0004-lantern-dua-guidance-9x16.mp4</a></li></ul></details>
 </article><article class="card" data-status="published" data-type="video"
    data-ed="0" data-vi="0" data-produced="1"
-   data-search="0005 cozy islamic classroom asmr (alif) video published">
+   data-style="0"
+   data-search="0005 cozy islamic classroom asmr (alif) video published unstyled">
   <header><span class="num">0005</span>
     <h2>Cozy Islamic Classroom ASMR (Alif)</h2></header>
   <video class="prev" controls preload="metadata" src="0005-cozy-classroom-asmr/OUTPUT/0005-asmr-alif-classroom-9x16.mp4"></video>
   <div class="meta"><span class="pill t-video">video</span>
-    <span class="pill s-published">published</span></div>
+    <span class="pill s-published">published</span><span class="pill sty off" title="no style recorded">unstyled</span></div>
   <div class="rates"><div class="rate"><span class="rl">editor</span><span class="rv r0" title="delivery quality, 1-5">—</span></div></div>
   <div class="chips"><span class="chip off" title="Facebook: not published">Facebook</span><span class="chip off" title="Instagram: not published">Instagram</span><span class="chip off" title="Pinterest: not published">Pinterest</span><span class="chip off" title="X: not published">X</span><span class="chip off" title="TikTok: not published">TikTok</span><span class="chip off" title="YouTube: not published">YouTube</span></div>
   <nav><a class="btn" href="0005-cozy-classroom-asmr/">folder</a><a class="btn" href="0005-cozy-classroom-asmr/00-REQUEST.md">request</a></nav>
-  <details class='det'><summary>details</summary><table><tr><td>Model</td><td>nano_banana_pro (frames) + kling3_0_turbo 1080p</td></tr><tr><td>Cost</td><td>132 cr · $4.35</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-02</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
+  <details class='det'><summary>details</summary><table><tr><td>Style</td><td>unstyled</td></tr><tr><td>Model</td><td>nano_banana_pro (frames) + kling3_0_turbo 1080p</td></tr><tr><td>Cost</td><td>132 cr · $4.35</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-02</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   <details><summary>1 more file</summary><ul><li><a href="0005-cozy-classroom-asmr/OUTPUT/0005-asmr-alif-classroom-full-9x16.mp4">0005-asmr-alif-classroom-full-9x16.mp4</a></li></ul></details>
 </article><article class="card" data-status="published" data-type="video"
    data-ed="5" data-vi="0" data-produced="1"
-   data-search="0006 the dream of every parent video published">
+   data-style="1"
+   data-search="0006 the dream of every parent video published style 1 — cinematic reverent">
   <header><span class="num">0006</span>
     <h2>The Dream of Every Parent</h2></header>
   <video class="prev" controls preload="metadata" src="0006-dream-of-every-parent/OUTPUT/0006-dream-of-every-parent-9x16-copy.mp4"></video>
   <div class="meta"><span class="pill t-video">video</span>
-    <span class="pill s-published">published</span></div>
+    <span class="pill s-published">published</span><a class="pill sty" href="../library/STYLES.md" title="Style 1 — Cinematic Reverent">style 1</a></div>
   <div class="rates"><div class="rate"><span class="rl">editor</span><span class="rv r5" title="delivery quality, 1-5">★★★★★</span></div></div>
   <div class="chips"><span class="chip off" title="Facebook: not published">Facebook</span><span class="chip off" title="Instagram: not published">Instagram</span><span class="chip off" title="Pinterest: not published">Pinterest</span><span class="chip off" title="X: not published">X</span><span class="chip off" title="TikTok: not published">TikTok</span><span class="chip off" title="YouTube: not published">YouTube</span></div>
   <nav><a class="btn" href="0006-dream-of-every-parent/">folder</a><a class="btn" href="0006-dream-of-every-parent/00-REQUEST.md">request</a></nav>
-  <details class='det'><summary>details</summary><table><tr><td>Model</td><td>nano_banana_pro (stills) + veo3_1 fast</td></tr><tr><td>Cost</td><td>214 cr · $7.06</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-03</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>★★★★★ 5/5</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
+  <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 1 — Cinematic Reverent</td></tr><tr><td>Model</td><td>nano_banana_pro (stills) + veo3_1 fast</td></tr><tr><td>Cost</td><td>214 cr · $7.06</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-03</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>★★★★★ 5/5</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   <details><summary>1 more file</summary><ul><li><a href="0006-dream-of-every-parent/OUTPUT/0006-dream-of-every-parent-9x16.mp4">0006-dream-of-every-parent-9x16.mp4</a></li></ul></details>
 </article><article class="card" data-status="published" data-type="image-set"
    data-ed="0" data-vi="0" data-produced="1"
-   data-search="0007 the legacy post image-set published">
+   data-style="5"
+   data-search="0007 the legacy post image-set published style 5 — image post">
   <header><span class="num">0007</span>
     <h2>The Legacy Post</h2></header>
   <a href="0007-legacy-post/OUTPUT/0007-legacy-post-4x5.png"><img class="prev" loading="lazy" src="0007-legacy-post/OUTPUT/0007-legacy-post-4x5.png" alt=""></a>
   <div class="meta"><span class="pill t-image-set">image-set</span>
-    <span class="pill s-published">published</span></div>
+    <span class="pill s-published">published</span><a class="pill sty" href="../library/STYLES.md" title="Style 5 — Image Post">style 5</a></div>
   <div class="rates"><div class="rate"><span class="rl">editor</span><span class="rv r0" title="delivery quality, 1-5">—</span></div><div class="rate"><span class="rl">visitors</span><span class="rv r0" title="engagement in first 24h, 1-5">—</span></div></div>
   <div class="chips"><span class="chip on" title="Facebook: 2026-08-04">Facebook</span><span class="chip off" title="Instagram: not published">Instagram</span><span class="chip off" title="Pinterest: not published">Pinterest</span><span class="chip off" title="X: not published">X</span><span class="chip off" title="TikTok: not published">TikTok</span><span class="chip off" title="YouTube: not published">YouTube</span></div>
   <nav><a class="btn" href="0007-legacy-post/">folder</a><a class="btn" href="0007-legacy-post/00-REQUEST.md">request</a></nav>
-  <details class='det'><summary>details</summary><table><tr><td>Model</td><td>nano_banana_pro</td></tr><tr><td>Cost</td><td>2 cr · $0.07</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-04</td></tr><tr><td>First published</td><td>2026-08-04</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-04</td></tr></table></details>
+  <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 5 — Image Post</td></tr><tr><td>Model</td><td>nano_banana_pro</td></tr><tr><td>Cost</td><td>2 cr · $0.07</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-04</td></tr><tr><td>First published</td><td>2026-08-04</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-04</td></tr></table></details>
   
 </article><article class="card" data-status="published" data-type="video"
    data-ed="0" data-vi="0" data-produced="1"
-   data-search="0008 little girl reciting dua video published">
+   data-style="3"
+   data-search="0008 little girl reciting dua video published style 3 — dua teaching">
   <header><span class="num">0008</span>
     <h2>Little Girl Reciting Dua</h2></header>
   <video class="prev" controls preload="metadata" src="0008-little-girl-reciting-dua/OUTPUT/0008-little-girl-dua-9x16.mp4"></video>
   <div class="meta"><span class="pill t-video">video</span>
-    <span class="pill s-published">published</span></div>
+    <span class="pill s-published">published</span><a class="pill sty" href="../library/STYLES.md" title="Style 3 — Dua Teaching">style 3</a></div>
   <div class="rates"><div class="rate"><span class="rl">editor</span><span class="rv r0" title="delivery quality, 1-5">—</span></div></div>
   <div class="chips"><span class="chip off" title="Facebook: not published">Facebook</span><span class="chip off" title="Instagram: not published">Instagram</span><span class="chip off" title="Pinterest: not published">Pinterest</span><span class="chip off" title="X: not published">X</span><span class="chip off" title="TikTok: not published">TikTok</span><span class="chip off" title="YouTube: not published">YouTube</span></div>
   <nav><a class="btn" href="0008-little-girl-reciting-dua/">folder</a><a class="btn" href="0008-little-girl-reciting-dua/00-REQUEST.md">request</a></nav>
-  <details class='det'><summary>details</summary><table><tr><td>Model</td><td>nano_banana_pro (still) + veo3_1 fast</td></tr><tr><td>Cost</td><td>24 cr · $0.79</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-04</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
+  <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 3 — Dua Teaching</td></tr><tr><td>Model</td><td>nano_banana_pro (still) + veo3_1 fast</td></tr><tr><td>Cost</td><td>24 cr · $0.79</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-04</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   
 </article><article class="card" data-status="published" data-type="video"
    data-ed="0" data-vi="0" data-produced="1"
-   data-search="0009 the dua before learning video published">
+   data-style="3"
+   data-search="0009 the dua before learning video published style 3 — dua teaching">
   <header><span class="num">0009</span>
     <h2>The Dua Before Learning</h2></header>
   <video class="prev" controls preload="metadata" src="0009-dua-before-learning/OUTPUT/0009-dua-before-learning-9x16.mp4"></video>
   <div class="meta"><span class="pill t-video">video</span>
-    <span class="pill s-published">published</span></div>
+    <span class="pill s-published">published</span><a class="pill sty" href="../library/STYLES.md" title="Style 3 — Dua Teaching">style 3</a></div>
   <div class="rates"><div class="rate"><span class="rl">editor</span><span class="rv r0" title="delivery quality, 1-5">—</span></div></div>
   <div class="chips"><span class="chip off" title="Facebook: not published">Facebook</span><span class="chip off" title="Instagram: not published">Instagram</span><span class="chip off" title="Pinterest: not published">Pinterest</span><span class="chip off" title="X: not published">X</span><span class="chip off" title="TikTok: not published">TikTok</span><span class="chip off" title="YouTube: not published">YouTube</span></div>
   <nav><a class="btn" href="0009-dua-before-learning/">folder</a><a class="btn" href="0009-dua-before-learning/00-REQUEST.md">request</a></nav>
-  <details class='det'><summary>details</summary><table><tr><td>Model</td><td>nano_banana_pro (stills) + veo3_1 fast</td></tr><tr><td>Cost</td><td>118 cr · $3.89</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-04</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
+  <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 3 — Dua Teaching</td></tr><tr><td>Model</td><td>nano_banana_pro (stills) + veo3_1 fast</td></tr><tr><td>Cost</td><td>118 cr · $3.89</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-04</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   <details><summary>1 more file</summary><ul><li><a href="0009-dua-before-learning/OUTPUT/0009-dua-before-learning-johra-9x16.mp4">0009-dua-before-learning-johra-9x16.mp4</a></li></ul></details>
 </article><article class="card" data-status="delivered" data-type="video"
    data-ed="0" data-vi="0" data-produced="1"
-   data-search="0010 allah is sufficient for me (johra) video delivered">
+   data-style="3"
+   data-search="0010 allah is sufficient for me (johra) video delivered style 3 — dua teaching">
   <header><span class="num">0010</span>
     <h2>Allah Is Sufficient for Me (Johra)</h2></header>
   <video class="prev" controls preload="metadata" src="0010-allah-is-sufficient-johra/OUTPUT/0010-allah-is-sufficient-9x16.mp4"></video>
   <div class="meta"><span class="pill t-video">video</span>
-    <span class="pill s-delivered">delivered</span></div>
+    <span class="pill s-delivered">delivered</span><a class="pill sty" href="../library/STYLES.md" title="Style 3 — Dua Teaching">style 3</a></div>
   <div class="rates"><div class="rate"><span class="rl">editor</span><span class="rv r0" title="delivery quality, 1-5">—</span></div></div>
   <div class="chips"><span class="chip off" title="Facebook: not published">Facebook</span><span class="chip off" title="Instagram: not published">Instagram</span><span class="chip off" title="Pinterest: not published">Pinterest</span><span class="chip off" title="X: not published">X</span><span class="chip off" title="TikTok: not published">TikTok</span><span class="chip off" title="YouTube: not published">YouTube</span></div>
   <nav><a class="btn" href="0010-allah-is-sufficient-johra/">folder</a><a class="btn" href="0010-allah-is-sufficient-johra/00-REQUEST.md">request</a></nav>
-  <details class='det'><summary>details</summary><table><tr><td>Model</td><td>nano_banana_pro (stills) + veo3_1 fast</td></tr><tr><td>Cost</td><td>50 cr · $1.65</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-04</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
+  <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 3 — Dua Teaching</td></tr><tr><td>Model</td><td>nano_banana_pro (stills) + veo3_1 fast</td></tr><tr><td>Cost</td><td>50 cr · $1.65</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-04</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   
 </article><article class="card" data-status="published" data-type="image-set"
    data-ed="0" data-vi="0" data-produced="1"
-   data-search="0011 fb series 01 — 6 post images image-set published">
+   data-style="5"
+   data-search="0011 fb series 01 — 6 post images image-set published style 5 — image post">
   <header><span class="num">0011</span>
     <h2>FB Series 01 — 6 post images</h2></header>
   <a href="0011-fb-series-01/OUTPUT/0011-post1-mothers-prayer.png"><img class="prev" loading="lazy" src="0011-fb-series-01/OUTPUT/0011-post1-mothers-prayer.png" alt=""></a>
   <div class="meta"><span class="pill t-image-set">image-set</span>
-    <span class="pill s-published">published</span></div>
+    <span class="pill s-published">published</span><a class="pill sty" href="../library/STYLES.md" title="Style 5 — Image Post">style 5</a></div>
   <div class="rates"><div class="rate"><span class="rl">editor</span><span class="rv r0" title="delivery quality, 1-5">—</span></div><div class="rate"><span class="rl">visitors</span><span class="rv r0" title="engagement in first 24h, 1-5">—</span></div></div>
   <div class="chips"><span class="chip on" title="Facebook: 2026-08-04">Facebook</span><span class="chip off" title="Instagram: not published">Instagram</span><span class="chip off" title="Pinterest: not published">Pinterest</span><span class="chip off" title="X: not published">X</span><span class="chip off" title="TikTok: not published">TikTok</span><span class="chip off" title="YouTube: not published">YouTube</span></div>
   <nav><a class="btn" href="0011-fb-series-01/">folder</a><a class="btn" href="0011-fb-series-01/00-REQUEST.md">request</a><a class="btn" href="0011-fb-series-01/OUTPUT/CAPTION.md">caption</a></nav>
-  <details class='det'><summary>details</summary><table><tr><td>Model</td><td>nano_banana_pro</td></tr><tr><td>Cost</td><td>24 cr · $0.79</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-04</td></tr><tr><td>First published</td><td>2026-08-04</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-04</td></tr></table></details>
+  <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 5 — Image Post</td></tr><tr><td>Model</td><td>nano_banana_pro</td></tr><tr><td>Cost</td><td>24 cr · $0.79</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-04</td></tr><tr><td>First published</td><td>2026-08-04</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-04</td></tr></table></details>
   <details><summary>25 more files</summary><ul><li><a href="0011-fb-series-01/OUTPUT/0011-post2-first-word.png">0011-post2-first-word.png</a></li><li><a href="0011-fb-series-01/OUTPUT/0011-post3-true-success.png">0011-post3-true-success.png</a></li><li><a href="0011-fb-series-01/OUTPUT/0011-post4-beautiful-sound.png">0011-post4-beautiful-sound.png</a></li><li><a href="0011-fb-series-01/OUTPUT/0011-post5-one-dua.png">0011-post5-one-dua.png</a></li><li><a href="0011-fb-series-01/OUTPUT/0011-post6-before-they-sleep.png">0011-post6-before-they-sleep.png</a></li><li><a href="0011-fb-series-01/OUTPUT/4x5-original/0011-post1-mothers-prayer.png">0011-post1-mothers-prayer.png</a></li><li><a href="0011-fb-series-01/OUTPUT/4x5-original/0011-post2-first-word.png">0011-post2-first-word.png</a></li><li><a href="0011-fb-series-01/OUTPUT/4x5-original/0011-post3-true-success.png">0011-post3-true-success.png</a></li><li><a href="0011-fb-series-01/OUTPUT/4x5-original/0011-post4-beautiful-sound.png">0011-post4-beautiful-sound.png</a></li><li><a href="0011-fb-series-01/OUTPUT/4x5-original/0011-post5-one-dua.png">0011-post5-one-dua.png</a></li><li><a href="0011-fb-series-01/OUTPUT/4x5-original/0011-post6-before-they-sleep.png">0011-post6-before-they-sleep.png</a></li><li><a href="0011-fb-series-01/OUTPUT/carousel/0011-slide1-cover.png">0011-slide1-cover.png</a></li><li><a href="0011-fb-series-01/OUTPUT/carousel/0011-slide2-mothers-prayer.png">0011-slide2-mothers-prayer.png</a></li><li><a href="0011-fb-series-01/OUTPUT/carousel/0011-slide3-first-word.png">0011-slide3-first-word.png</a></li><li><a href="0011-fb-series-01/OUTPUT/carousel/0011-slide4-true-success.png">0011-slide4-true-success.png</a></li><li><a href="0011-fb-series-01/OUTPUT/carousel/0011-slide5-beautiful-sound.png">0011-slide5-beautiful-sound.png</a></li><li><a href="0011-fb-series-01/OUTPUT/carousel/0011-slide6-one-dua.png">0011-slide6-one-dua.png</a></li><li><a href="0011-fb-series-01/OUTPUT/carousel/0011-slide7-before-they-sleep.png">0011-slide7-before-they-sleep.png</a></li><li><a href="0011-fb-series-01/OUTPUT/carousel/0011-slide8-cta.png">0011-slide8-cta.png</a></li><li><a href="0011-fb-series-01/OUTPUT/instagram-4x5/0011-post1-mothers-prayer.png">0011-post1-mothers-prayer.png</a></li><li><a href="0011-fb-series-01/OUTPUT/instagram-4x5/0011-post2-first-word.png">0011-post2-first-word.png</a></li><li><a href="0011-fb-series-01/OUTPUT/instagram-4x5/0011-post3-true-success.png">0011-post3-true-success.png</a></li><li><a href="0011-fb-series-01/OUTPUT/instagram-4x5/0011-post4-beautiful-sound.png">0011-post4-beautiful-sound.png</a></li><li><a href="0011-fb-series-01/OUTPUT/instagram-4x5/0011-post5-one-dua.png">0011-post5-one-dua.png</a></li><li><a href="0011-fb-series-01/OUTPUT/instagram-4x5/0011-post6-before-they-sleep.png">0011-post6-before-they-sleep.png</a></li></ul></details>
 </article><article class="card" data-status="published" data-type="image-set"
    data-ed="0" data-vi="0" data-produced="1"
-   data-search="0012 fb series 02 — 6 post images image-set published">
+   data-style="5"
+   data-search="0012 fb series 02 — 6 post images image-set published style 5 — image post">
   <header><span class="num">0012</span>
     <h2>FB Series 02 — 6 post images</h2></header>
   <a href="0012-fb-series-02/OUTPUT/0012-post1-screen-time.png"><img class="prev" loading="lazy" src="0012-fb-series-02/OUTPUT/0012-post1-screen-time.png" alt=""></a>
   <div class="meta"><span class="pill t-image-set">image-set</span>
-    <span class="pill s-published">published</span></div>
+    <span class="pill s-published">published</span><a class="pill sty" href="../library/STYLES.md" title="Style 5 — Image Post">style 5</a></div>
   <div class="rates"><div class="rate"><span class="rl">editor</span><span class="rv r0" title="delivery quality, 1-5">—</span></div><div class="rate"><span class="rl">visitors</span><span class="rv r0" title="engagement in first 24h, 1-5">—</span></div></div>
   <div class="chips"><span class="chip on" title="Facebook: scheduled">Facebook</span><span class="chip off" title="Instagram: not published">Instagram</span><span class="chip off" title="Pinterest: not published">Pinterest</span><span class="chip off" title="X: not published">X</span><span class="chip off" title="TikTok: not published">TikTok</span><span class="chip off" title="YouTube: not published">YouTube</span></div>
   <nav><a class="btn" href="0012-fb-series-02/">folder</a><a class="btn" href="0012-fb-series-02/00-REQUEST.md">request</a><a class="btn" href="0012-fb-series-02/OUTPUT/CAPTION.md">caption</a></nav>
-  <details class='det'><summary>details</summary><table><tr><td>Model</td><td>nano_banana_pro</td></tr><tr><td>Cost</td><td>32 cr · $1.06</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-04</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>scheduled</td></tr></table></details>
+  <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 5 — Image Post</td></tr><tr><td>Model</td><td>nano_banana_pro</td></tr><tr><td>Cost</td><td>32 cr · $1.06</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-04</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>scheduled</td></tr></table></details>
   <details><summary>11 more files</summary><ul><li><a href="0012-fb-series-02/OUTPUT/0012-post2-seventeen-times.png">0012-post2-seventeen-times.png</a></li><li><a href="0012-fb-series-02/OUTPUT/0012-post3-fathers-voice.png">0012-post3-fathers-voice.png</a></li><li><a href="0012-fb-series-02/OUTPUT/0012-post4-big-questions.png">0012-post4-big-questions.png</a></li><li><a href="0012-fb-series-02/OUTPUT/0012-post5-five-minutes.png">0012-post5-five-minutes.png</a></li><li><a href="0012-fb-series-02/OUTPUT/0012-post6-dua-inherited.png">0012-post6-dua-inherited.png</a></li><li><a href="0012-fb-series-02/OUTPUT/4x5-original/0012-post1-screen-time.png">0012-post1-screen-time.png</a></li><li><a href="0012-fb-series-02/OUTPUT/4x5-original/0012-post2-seventeen-times.png">0012-post2-seventeen-times.png</a></li><li><a href="0012-fb-series-02/OUTPUT/4x5-original/0012-post3-fathers-voice.png">0012-post3-fathers-voice.png</a></li><li><a href="0012-fb-series-02/OUTPUT/4x5-original/0012-post4-big-questions.png">0012-post4-big-questions.png</a></li><li><a href="0012-fb-series-02/OUTPUT/4x5-original/0012-post5-five-minutes.png">0012-post5-five-minutes.png</a></li><li><a href="0012-fb-series-02/OUTPUT/4x5-original/0012-post6-dua-inherited.png">0012-post6-dua-inherited.png</a></li></ul></details>
 </article><article class="card" data-status="published" data-type="image-set"
    data-ed="0" data-vi="0" data-produced="1"
-   data-search="0013 fb series 03 — 6 post images image-set published">
+   data-style="5"
+   data-search="0013 fb series 03 — 6 post images image-set published style 5 — image post">
   <header><span class="num">0013</span>
     <h2>FB Series 03 — 6 post images</h2></header>
   <a href="0013-fb-series-03/OUTPUT/0013-post1-crown-of-light.png"><img class="prev" loading="lazy" src="0013-fb-series-03/OUTPUT/0013-post1-crown-of-light.png" alt=""></a>
   <div class="meta"><span class="pill t-image-set">image-set</span>
-    <span class="pill s-published">published</span></div>
+    <span class="pill s-published">published</span><a class="pill sty" href="../library/STYLES.md" title="Style 5 — Image Post">style 5</a></div>
   <div class="rates"><div class="rate"><span class="rl">editor</span><span class="rv r0" title="delivery quality, 1-5">—</span></div><div class="rate"><span class="rl">visitors</span><span class="rv r0" title="engagement in first 24h, 1-5">—</span></div></div>
   <div class="chips"><span class="chip on" title="Facebook: 2026-08-04">Facebook</span><span class="chip off" title="Instagram: not published">Instagram</span><span class="chip off" title="Pinterest: not published">Pinterest</span><span class="chip off" title="X: not published">X</span><span class="chip off" title="TikTok: not published">TikTok</span><span class="chip off" title="YouTube: not published">YouTube</span></div>
   <nav><a class="btn" href="0013-fb-series-03/">folder</a><a class="btn" href="0013-fb-series-03/00-REQUEST.md">request</a><a class="btn" href="0013-fb-series-03/OUTPUT/CAPTION.md">caption</a></nav>
-  <details class='det'><summary>details</summary><table><tr><td>Model</td><td>nano_banana_pro</td></tr><tr><td>Cost</td><td>12 cr · $0.40</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-04</td></tr><tr><td>First published</td><td>2026-08-04</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-04</td></tr></table></details>
+  <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 5 — Image Post</td></tr><tr><td>Model</td><td>nano_banana_pro</td></tr><tr><td>Cost</td><td>12 cr · $0.40</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-04</td></tr><tr><td>First published</td><td>2026-08-04</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-04</td></tr></table></details>
   <details><summary>5 more files</summary><ul><li><a href="0013-fb-series-03/OUTPUT/0013-post2-right-age.png">0013-post2-right-age.png</a></li><li><a href="0013-fb-series-03/OUTPUT/0013-post3-children-copy.png">0013-post3-children-copy.png</a></li><li><a href="0013-fb-series-03/OUTPUT/0013-post4-language-of-quran.png">0013-post4-language-of-quran.png</a></li><li><a href="0013-fb-series-03/OUTPUT/0013-post5-more-than-memorization.png">0013-post5-more-than-memorization.png</a></li><li><a href="0013-fb-series-03/OUTPUT/0013-post6-too-shy.png">0013-post6-too-shy.png</a></li></ul></details>
 </article><article class="card" data-status="delivered" data-type="video"
    data-ed="0" data-vi="0" data-produced="1"
-   data-search="0014 the most beautiful sound video delivered">
+   data-style="1"
+   data-search="0014 the most beautiful sound video delivered style 1 — cinematic reverent">
   <header><span class="num">0014</span>
     <h2>The Most Beautiful Sound</h2></header>
   <video class="prev" controls preload="metadata" src="0014-most-beautiful-sound/OUTPUT/0014-most-beautiful-sound-9x16.mp4"></video>
   <div class="meta"><span class="pill t-video">video</span>
-    <span class="pill s-delivered">delivered</span></div>
+    <span class="pill s-delivered">delivered</span><a class="pill sty" href="../library/STYLES.md" title="Style 1 — Cinematic Reverent">style 1</a></div>
   <div class="rates"><div class="rate"><span class="rl">editor</span><span class="rv r0" title="delivery quality, 1-5">—</span></div></div>
   <div class="chips"><span class="chip off" title="Facebook: not published">Facebook</span><span class="chip off" title="Instagram: not published">Instagram</span><span class="chip off" title="Pinterest: not published">Pinterest</span><span class="chip off" title="X: not published">X</span><span class="chip off" title="TikTok: not published">TikTok</span><span class="chip off" title="YouTube: not published">YouTube</span></div>
   <nav><a class="btn" href="0014-most-beautiful-sound/">folder</a><a class="btn" href="0014-most-beautiful-sound/00-REQUEST.md">request</a><a class="btn" href="0014-most-beautiful-sound/OUTPUT/CAPTION.md">caption</a></nav>
-  <details class='det'><summary>details</summary><table><tr><td>Model</td><td>nano_banana_pro (stills) + veo3_1 fast</td></tr><tr><td>Cost</td><td>168 cr · $5.54</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-05</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
+  <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 1 — Cinematic Reverent</td></tr><tr><td>Model</td><td>nano_banana_pro (stills) + veo3_1 fast</td></tr><tr><td>Cost</td><td>168 cr · $5.54</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-05</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   
 </article><article class="card" data-status="published" data-type="image-set"
    data-ed="0" data-vi="2" data-produced="1"
-   data-search="0015 islamic moments at home — 10 post images image-set published">
+   data-style="5"
+   data-search="0015 islamic moments at home — 10 post images image-set published style 5 — image post">
   <header><span class="num">0015</span>
     <h2>Islamic Moments at Home — 10 post images</h2></header>
   <a href="0015-islamic-moments-at-home/OUTPUT/0015-post1-bedtime-dua.png"><img class="prev" loading="lazy" src="0015-islamic-moments-at-home/OUTPUT/0015-post1-bedtime-dua.png" alt=""></a>
   <div class="meta"><span class="pill t-image-set">image-set</span>
-    <span class="pill s-published">published</span></div>
+    <span class="pill s-published">published</span><a class="pill sty" href="../library/STYLES.md" title="Style 5 — Image Post">style 5</a></div>
   <div class="rates"><div class="rate"><span class="rl">editor</span><span class="rv r0" title="delivery quality, 1-5">—</span></div><div class="rate"><span class="rl">visitors</span><span class="rv r2" title="engagement in first 24h, 1-5">★★☆☆☆</span></div></div>
   <div class="chips"><span class="chip on" title="Facebook: 2026-08-11">Facebook</span><span class="chip on" title="Instagram: scheduled">Instagram</span><span class="chip off" title="Pinterest: not published">Pinterest</span><span class="chip off" title="X: not published">X</span><span class="chip off" title="TikTok: not published">TikTok</span><span class="chip off" title="YouTube: not published">YouTube</span></div>
   <nav><a class="btn" href="0015-islamic-moments-at-home/">folder</a><a class="btn" href="0015-islamic-moments-at-home/00-REQUEST.md">request</a><a class="btn" href="0015-islamic-moments-at-home/OUTPUT/CAPTION.md">caption</a></nav>
-  <details class='det'><summary>details</summary><table><tr><td>Model</td><td>nano_banana_pro</td></tr><tr><td>Cost</td><td>20 cr · $0.66</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-08</td></tr><tr><td>First published</td><td>2026-08-11</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>★★☆☆☆ 2/5</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-11</td></tr><tr><td>Instagram</td><td>scheduled</td></tr></table></details>
+  <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 5 — Image Post</td></tr><tr><td>Model</td><td>nano_banana_pro</td></tr><tr><td>Cost</td><td>20 cr · $0.66</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-08</td></tr><tr><td>First published</td><td>2026-08-11</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>★★☆☆☆ 2/5</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-11</td></tr><tr><td>Instagram</td><td>scheduled</td></tr></table></details>
   <details><summary>9 more files</summary><ul><li><a href="0015-islamic-moments-at-home/OUTPUT/0015-post10-quran-at-dawn.png">0015-post10-quran-at-dawn.png</a></li><li><a href="0015-islamic-moments-at-home/OUTPUT/0015-post2-bismillah-dinner.png">0015-post2-bismillah-dinner.png</a></li><li><a href="0015-islamic-moments-at-home/OUTPUT/0015-post3-father-alfatihah.png">0015-post3-father-alfatihah.png</a></li><li><a href="0015-islamic-moments-at-home/OUTPUT/0015-post4-mother-daughter-quran.png">0015-post4-mother-daughter-quran.png</a></li><li><a href="0015-islamic-moments-at-home/OUTPUT/0015-post5-learning-to-pray.png">0015-post5-learning-to-pray.png</a></li><li><a href="0015-islamic-moments-at-home/OUTPUT/0015-post6-family-dua.png">0015-post6-family-dua.png</a></li><li><a href="0015-islamic-moments-at-home/OUTPUT/0015-post7-quran-before-school.png">0015-post7-quran-before-school.png</a></li><li><a href="0015-islamic-moments-at-home/OUTPUT/0015-post8-grandfathers-stories.png">0015-post8-grandfathers-stories.png</a></li><li><a href="0015-islamic-moments-at-home/OUTPUT/0015-post9-friday-preparation.png">0015-post9-friday-preparation.png</a></li></ul></details>
 </article><article class="card" data-status="published" data-type="video"
    data-ed="0" data-vi="5" data-produced="1"
-   data-search="0016 rabbi irhamhuma (johra) video published">
+   data-style="3"
+   data-search="0016 rabbi irhamhuma (johra) video published style 3 — dua teaching">
   <header><span class="num">0016</span>
     <h2>Rabbi Irhamhuma (Johra)</h2></header>
   <video class="prev" controls preload="metadata" src="0016-rabbi-irhamhuma-johra/OUTPUT/0016-rabbi-irhamhuma-9x16.mp4"></video>
   <div class="meta"><span class="pill t-video">video</span>
-    <span class="pill s-published">published</span></div>
+    <span class="pill s-published">published</span><a class="pill sty" href="../library/STYLES.md" title="Style 3 — Dua Teaching">style 3</a></div>
   <div class="rates"><div class="rate"><span class="rl">editor</span><span class="rv r0" title="delivery quality, 1-5">—</span></div><div class="rate"><span class="rl">visitors</span><span class="rv r5" title="engagement in first 24h, 1-5">★★★★★</span></div></div>
   <div class="chips"><span class="chip on" title="Facebook: 2026-08-08">Facebook</span><span class="chip on" title="Instagram: 2026-08-08">Instagram</span><span class="chip off" title="Pinterest: not published">Pinterest</span><span class="chip off" title="X: not published">X</span><span class="chip on" title="TikTok: 2026-08-08">TikTok</span><span class="chip off" title="YouTube: not published">YouTube</span></div>
   <nav><a class="btn" href="0016-rabbi-irhamhuma-johra/">folder</a><a class="btn" href="0016-rabbi-irhamhuma-johra/00-REQUEST.md">request</a><a class="btn" href="0016-rabbi-irhamhuma-johra/OUTPUT/CAPTION.md">caption</a></nav>
-  <details class='det'><summary>details</summary><table><tr><td>Model</td><td>nano_banana_pro (still) + veo3_1 fast</td></tr><tr><td>Cost</td><td>24 cr · $0.79</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-08</td></tr><tr><td>First published</td><td>2026-08-08</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>★★★★★ 5/5</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-08</td></tr><tr><td>Instagram</td><td>2026-08-08</td></tr><tr><td>TikTok</td><td>2026-08-08</td></tr></table></details>
+  <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 3 — Dua Teaching</td></tr><tr><td>Model</td><td>nano_banana_pro (still) + veo3_1 fast</td></tr><tr><td>Cost</td><td>24 cr · $0.79</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-08</td></tr><tr><td>First published</td><td>2026-08-08</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>★★★★★ 5/5</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-08</td></tr><tr><td>Instagram</td><td>2026-08-08</td></tr><tr><td>TikTok</td><td>2026-08-08</td></tr></table></details>
   
 </article><article class="card" data-status="published" data-type="watermark"
    data-ed="5" data-vi="5" data-produced="1"
-   data-search="0017 children learning arabic watermark published">
+   data-style="4"
+   data-search="0017 children learning arabic watermark published style 4 — animated nasheed">
   <header><span class="num">0017</span>
     <h2>Children Learning Arabic</h2></header>
   <video class="prev" controls preload="metadata" src="0017-children-learning-arabic/OUTPUT/0017-children-learning-arabic-9x16.mp4"></video>
   <div class="meta"><span class="pill t-watermark">watermark</span>
-    <span class="pill s-published">published</span></div>
+    <span class="pill s-published">published</span><a class="pill sty" href="../library/STYLES.md" title="Style 4 — Animated Nasheed">style 4</a></div>
   <div class="rates"><div class="rate"><span class="rl">editor</span><span class="rv r5" title="delivery quality, 1-5">★★★★★</span></div><div class="rate"><span class="rl">visitors</span><span class="rv r5" title="engagement in first 24h, 1-5">★★★★★</span></div></div>
   <div class="chips"><span class="chip on" title="Facebook: 2026-08-09">Facebook</span><span class="chip on" title="Instagram: 2026-08-09">Instagram</span><span class="chip off" title="Pinterest: not published">Pinterest</span><span class="chip off" title="X: not published">X</span><span class="chip on" title="TikTok: 2026-08-09">TikTok</span><span class="chip on" title="YouTube: 2026-08-09">YouTube</span></div>
   <nav><a class="btn" href="0017-children-learning-arabic/">folder</a><a class="btn" href="0017-children-learning-arabic/00-REQUEST.md">request</a><a class="btn" href="0017-children-learning-arabic/OUTPUT/CAPTION.md">caption</a></nav>
-  <details class='det'><summary>details</summary><table><tr><td>Model</td><td>supplied clip — local watermark only</td></tr><tr><td>Cost</td><td>local only — no credits</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-09</td></tr><tr><td>First published</td><td>2026-08-09</td></tr><tr><td>Editor rating</td><td>★★★★★ 5/5</td></tr><tr><td>Visitor reactions</td><td>★★★★★ 5/5</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-09</td></tr><tr><td>Instagram</td><td>2026-08-09</td></tr><tr><td>TikTok</td><td>2026-08-09</td></tr><tr><td>YouTube</td><td>2026-08-09</td></tr></table></details>
+  <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 4 — Animated Nasheed</td></tr><tr><td>Model</td><td>supplied clip — local watermark only</td></tr><tr><td>Cost</td><td>local only — no credits</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-09</td></tr><tr><td>First published</td><td>2026-08-09</td></tr><tr><td>Editor rating</td><td>★★★★★ 5/5</td></tr><tr><td>Visitor reactions</td><td>★★★★★ 5/5</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-09</td></tr><tr><td>Instagram</td><td>2026-08-09</td></tr><tr><td>TikTok</td><td>2026-08-09</td></tr><tr><td>YouTube</td><td>2026-08-09</td></tr></table></details>
   
 </article><article class="card" data-status="published" data-type="watermark"
    data-ed="5" data-vi="5" data-produced="1"
-   data-search="0018 wake up and thank allah watermark published">
+   data-style="4"
+   data-search="0018 wake up and thank allah watermark published style 4 — animated nasheed">
   <header><span class="num">0018</span>
     <h2>Wake Up and Thank Allah</h2></header>
   <video class="prev" controls preload="metadata" src="0018-wake-up-and-thank-allah/OUTPUT/0018-wake-up-and-thank-allah-9x16.mp4"></video>
   <div class="meta"><span class="pill t-watermark">watermark</span>
-    <span class="pill s-published">published</span></div>
+    <span class="pill s-published">published</span><a class="pill sty" href="../library/STYLES.md" title="Style 4 — Animated Nasheed">style 4</a></div>
   <div class="rates"><div class="rate"><span class="rl">editor</span><span class="rv r5" title="delivery quality, 1-5">★★★★★</span></div><div class="rate"><span class="rl">visitors</span><span class="rv r5" title="engagement in first 24h, 1-5">★★★★★</span></div></div>
   <div class="chips"><span class="chip on" title="Facebook: 2026-08-09">Facebook</span><span class="chip on" title="Instagram: 2026-08-09">Instagram</span><span class="chip off" title="Pinterest: not published">Pinterest</span><span class="chip off" title="X: not published">X</span><span class="chip on" title="TikTok: 2026-08-09">TikTok</span><span class="chip on" title="YouTube: 2026-08-09">YouTube</span></div>
   <nav><a class="btn" href="0018-wake-up-and-thank-allah/">folder</a><a class="btn" href="0018-wake-up-and-thank-allah/00-REQUEST.md">request</a><a class="btn" href="0018-wake-up-and-thank-allah/OUTPUT/CAPTION.md">caption</a></nav>
-  <details class='det'><summary>details</summary><table><tr><td>Model</td><td>supplied clip — local watermark only</td></tr><tr><td>Cost</td><td>local only — no credits</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-09</td></tr><tr><td>First published</td><td>2026-08-09</td></tr><tr><td>Editor rating</td><td>★★★★★ 5/5</td></tr><tr><td>Visitor reactions</td><td>★★★★★ 5/5</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-09</td></tr><tr><td>Instagram</td><td>2026-08-09</td></tr><tr><td>TikTok</td><td>2026-08-09</td></tr><tr><td>YouTube</td><td>2026-08-09</td></tr></table></details>
+  <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 4 — Animated Nasheed</td></tr><tr><td>Model</td><td>supplied clip — local watermark only</td></tr><tr><td>Cost</td><td>local only — no credits</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-09</td></tr><tr><td>First published</td><td>2026-08-09</td></tr><tr><td>Editor rating</td><td>★★★★★ 5/5</td></tr><tr><td>Visitor reactions</td><td>★★★★★ 5/5</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-09</td></tr><tr><td>Instagram</td><td>2026-08-09</td></tr><tr><td>TikTok</td><td>2026-08-09</td></tr><tr><td>YouTube</td><td>2026-08-09</td></tr></table></details>
   
 </article><article class="card" data-status="published" data-type="watermark"
    data-ed="5" data-vi="0" data-produced="1"
-   data-search="0019 bismillah before we eat watermark published">
+   data-style="4"
+   data-search="0019 bismillah before we eat watermark published style 4 — animated nasheed">
   <header><span class="num">0019</span>
     <h2>Bismillah Before We Eat</h2></header>
   <video class="prev" controls preload="metadata" src="0019-bismillah-before-we-eat/OUTPUT/0019-bismillah-before-we-eat-9x16.mp4"></video>
   <div class="meta"><span class="pill t-watermark">watermark</span>
-    <span class="pill s-published">published</span></div>
+    <span class="pill s-published">published</span><a class="pill sty" href="../library/STYLES.md" title="Style 4 — Animated Nasheed">style 4</a></div>
   <div class="rates"><div class="rate"><span class="rl">editor</span><span class="rv r5" title="delivery quality, 1-5">★★★★★</span></div><div class="rate"><span class="rl">visitors</span><span class="rv r0" title="engagement in first 24h, 1-5">—</span></div></div>
   <div class="chips"><span class="chip on" title="Facebook: 2026-08-09">Facebook</span><span class="chip on" title="Instagram: 2026-08-09">Instagram</span><span class="chip off" title="Pinterest: not published">Pinterest</span><span class="chip off" title="X: not published">X</span><span class="chip on" title="TikTok: 2026-08-09">TikTok</span><span class="chip on" title="YouTube: 2026-08-09">YouTube</span></div>
   <nav><a class="btn" href="0019-bismillah-before-we-eat/">folder</a><a class="btn" href="0019-bismillah-before-we-eat/00-REQUEST.md">request</a><a class="btn" href="0019-bismillah-before-we-eat/OUTPUT/CAPTION.md">caption</a></nav>
-  <details class='det'><summary>details</summary><table><tr><td>Model</td><td>supplied clip — local watermark only</td></tr><tr><td>Cost</td><td>local only — no credits</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-09</td></tr><tr><td>First published</td><td>2026-08-09</td></tr><tr><td>Editor rating</td><td>★★★★★ 5/5</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-09</td></tr><tr><td>Instagram</td><td>2026-08-09</td></tr><tr><td>TikTok</td><td>2026-08-09</td></tr><tr><td>YouTube</td><td>2026-08-09</td></tr></table></details>
+  <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 4 — Animated Nasheed</td></tr><tr><td>Model</td><td>supplied clip — local watermark only</td></tr><tr><td>Cost</td><td>local only — no credits</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-09</td></tr><tr><td>First published</td><td>2026-08-09</td></tr><tr><td>Editor rating</td><td>★★★★★ 5/5</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-09</td></tr><tr><td>Instagram</td><td>2026-08-09</td></tr><tr><td>TikTok</td><td>2026-08-09</td></tr><tr><td>YouTube</td><td>2026-08-09</td></tr></table></details>
   
 </article><article class="card" data-status="delivered" data-type="watermark"
    data-ed="0" data-vi="0" data-produced="1"
-   data-search="0020 thank you, allah — nasheed verses 1-3 watermark delivered">
+   data-style="4"
+   data-search="0020 thank you, allah — nasheed verses 1-3 watermark delivered style 4 — animated nasheed">
   <header><span class="num">0020</span>
     <h2>Thank You, Allah — nasheed verses 1-3</h2></header>
   <video class="prev" controls preload="metadata" src="0020-thank-you-allah-nasheed/OUTPUT/0020-verse1-morning-9x16.mp4"></video>
   <div class="meta"><span class="pill t-watermark">watermark</span>
-    <span class="pill s-delivered">delivered</span></div>
+    <span class="pill s-delivered">delivered</span><a class="pill sty" href="../library/STYLES.md" title="Style 4 — Animated Nasheed">style 4</a></div>
   <div class="rates"><div class="rate"><span class="rl">editor</span><span class="rv r0" title="delivery quality, 1-5">—</span></div></div>
   <div class="chips"><span class="chip off" title="Facebook: not published">Facebook</span><span class="chip off" title="Instagram: not published">Instagram</span><span class="chip off" title="Pinterest: not published">Pinterest</span><span class="chip off" title="X: not published">X</span><span class="chip off" title="TikTok: not published">TikTok</span><span class="chip off" title="YouTube: not published">YouTube</span></div>
   <nav><a class="btn" href="0020-thank-you-allah-nasheed/">folder</a><a class="btn" href="0020-thank-you-allah-nasheed/00-REQUEST.md">request</a><a class="btn" href="0020-thank-you-allah-nasheed/OUTPUT/CAPTION.md">caption</a></nav>
-  <details class='det'><summary>details</summary><table><tr><td>Model</td><td>supplied clip — local watermark only</td></tr><tr><td>Cost</td><td>local only — no credits</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-10</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
+  <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 4 — Animated Nasheed</td></tr><tr><td>Model</td><td>supplied clip — local watermark only</td></tr><tr><td>Cost</td><td>local only — no credits</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-10</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   <details><summary>2 more files</summary><ul><li><a href="0020-thank-you-allah-nasheed/OUTPUT/0020-verse2-park-9x16.mp4">0020-verse2-park-9x16.mp4</a></li><li><a href="0020-thank-you-allah-nasheed/OUTPUT/0020-verse3-evening-9x16.mp4">0020-verse3-evening-9x16.mp4</a></li></ul></details>
 </article><article class="card" data-status="published" data-type="video"
    data-ed="4" data-vi="0" data-produced="1"
-   data-search="0021 wudu together video published">
+   data-style="2"
+   data-search="0021 wudu together video published style 2 — quiet observational">
   <header><span class="num">0021</span>
     <h2>Wudu Together</h2></header>
   <video class="prev" controls preload="metadata" src="0021-wudu-together/OUTPUT/0021-wudu-together-9x16.mp4"></video>
   <div class="meta"><span class="pill t-video">video</span>
-    <span class="pill s-published">published</span></div>
+    <span class="pill s-published">published</span><a class="pill sty" href="../library/STYLES.md" title="Style 2 — Quiet Observational">style 2</a></div>
   <div class="rates"><div class="rate"><span class="rl">editor</span><span class="rv r4" title="delivery quality, 1-5">★★★★☆</span></div><div class="rate"><span class="rl">visitors</span><span class="rv r0" title="engagement in first 24h, 1-5">—</span></div></div>
   <div class="chips"><span class="chip on" title="Facebook: 2026-08-11">Facebook</span><span class="chip on" title="Instagram: 2026-08-11">Instagram</span><span class="chip off" title="Pinterest: not published">Pinterest</span><span class="chip off" title="X: not published">X</span><span class="chip on" title="TikTok: 2026-08-11">TikTok</span><span class="chip on" title="YouTube: 2026-08-11">YouTube</span></div>
   <nav><a class="btn" href="0021-wudu-together/">folder</a><a class="btn" href="0021-wudu-together/00-REQUEST.md">request</a><a class="btn" href="0021-wudu-together/OUTPUT/CAPTION.md">caption</a></nav>
-  <details class='det'><summary>details</summary><table><tr><td>Model</td><td>nano_banana_pro + veo3_1 fast</td></tr><tr><td>Cost</td><td>68 cr · $2.24</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-11</td></tr><tr><td>First published</td><td>2026-08-11</td></tr><tr><td>Editor rating</td><td>★★★★☆ 4/5</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-11</td></tr><tr><td>Instagram</td><td>2026-08-11</td></tr><tr><td>TikTok</td><td>2026-08-11</td></tr><tr><td>YouTube</td><td>2026-08-11</td></tr></table></details>
+  <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 2 — Quiet Observational</td></tr><tr><td>Model</td><td>nano_banana_pro + veo3_1 fast</td></tr><tr><td>Cost</td><td>68 cr · $2.24</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-11</td></tr><tr><td>First published</td><td>2026-08-11</td></tr><tr><td>Editor rating</td><td>★★★★☆ 4/5</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-11</td></tr><tr><td>Instagram</td><td>2026-08-11</td></tr><tr><td>TikTok</td><td>2026-08-11</td></tr><tr><td>YouTube</td><td>2026-08-11</td></tr></table></details>
   
 </article><article class="card" data-status="delivered" data-type="video"
    data-ed="2" data-vi="0" data-produced="1"
-   data-search="0022 lā ḥawla wa lā quwwata illā billāh video delivered">
+   data-style="1"
+   data-search="0022 lā ḥawla wa lā quwwata illā billāh video delivered style 1 — cinematic reverent">
   <header><span class="num">0022</span>
     <h2>Lā ḥawla wa lā quwwata illā billāh</h2></header>
   <video class="prev" controls preload="metadata" src="0022-la-hawla/OUTPUT/0022-la-hawla-9x16.mp4"></video>
   <div class="meta"><span class="pill t-video">video</span>
-    <span class="pill s-delivered">delivered</span></div>
+    <span class="pill s-delivered">delivered</span><a class="pill sty" href="../library/STYLES.md" title="Style 1 — Cinematic Reverent">style 1</a></div>
   <div class="rates"><div class="rate"><span class="rl">editor</span><span class="rv r2" title="delivery quality, 1-5">★★☆☆☆</span></div></div>
   <div class="chips"><span class="chip off" title="Facebook: not published">Facebook</span><span class="chip off" title="Instagram: not published">Instagram</span><span class="chip off" title="Pinterest: not published">Pinterest</span><span class="chip off" title="X: not published">X</span><span class="chip off" title="TikTok: not published">TikTok</span><span class="chip off" title="YouTube: not published">YouTube</span></div>
   <nav><a class="btn" href="0022-la-hawla/">folder</a><a class="btn" href="0022-la-hawla/00-REQUEST.md">request</a></nav>
-  <details class='det'><summary>details</summary><table><tr><td>Model</td><td>nano_banana_pro + veo3_1 fast + seed_audio (Emmett VO)</td></tr><tr><td>Cost</td><td>231 cr · $7.62</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-11</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>★★☆☆☆ 2/5</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
+  <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 1 — Cinematic Reverent</td></tr><tr><td>Model</td><td>nano_banana_pro + veo3_1 fast + seed_audio (Emmett VO)</td></tr><tr><td>Cost</td><td>231 cr · $7.62</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-11</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>★★☆☆☆ 2/5</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   
 </article><article class="card" data-status="requested" data-type="program"
    data-ed="0" data-vi="0" data-produced="0"
-   data-search="0023 rhyme series program requested">
+   data-style="0"
+   data-search="0023 rhyme series program requested unstyled">
   <header><span class="num">0023</span>
     <h2>Rhyme Series</h2></header>
   <div class="prev empty">no output yet</div>
   <div class="meta"><span class="pill t-program">program</span>
-    <span class="pill s-requested">requested</span></div>
+    <span class="pill s-requested">requested</span><span class="pill sty off" title="no style recorded">unstyled</span></div>
   <div class="rates"><div class="rate"><span class="rl">editor</span><span class="rv r0" title="delivery quality, 1-5">—</span></div></div>
   <div class="chips"><span class="chip off" title="Facebook: not published">Facebook</span><span class="chip off" title="Instagram: not published">Instagram</span><span class="chip off" title="Pinterest: not published">Pinterest</span><span class="chip off" title="X: not published">X</span><span class="chip off" title="TikTok: not published">TikTok</span><span class="chip off" title="YouTube: not published">YouTube</span></div>
   <nav><a class="btn" href="0023-rhyme-series/">folder</a><a class="btn" href="0023-rhyme-series/00-REQUEST.md">request</a></nav>
-  <details class='det'><summary>details</summary><table><tr><td>Model</td><td>—</td></tr><tr><td>Cost</td><td>local only — no credits</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>—</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
+  <details class='det'><summary>details</summary><table><tr><td>Style</td><td>unstyled</td></tr><tr><td>Model</td><td>—</td></tr><tr><td>Cost</td><td>local only — no credits</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>—</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   
 </article><article class="card" data-status="requested" data-type="video"
    data-ed="0" data-vi="0" data-produced="0"
-   data-search="0024 alif, baa, taa adventure video requested">
+   data-style="0"
+   data-search="0024 alif, baa, taa adventure video requested unstyled">
   <header><span class="num">0024</span>
     <h2>Alif, Baa, Taa Adventure</h2></header>
   <div class="prev empty">no output yet</div>
   <div class="meta"><span class="pill t-video">video</span>
-    <span class="pill s-requested">requested</span></div>
+    <span class="pill s-requested">requested</span><span class="pill sty off" title="no style recorded">unstyled</span></div>
   <div class="rates"><div class="rate"><span class="rl">editor</span><span class="rv r0" title="delivery quality, 1-5">—</span></div></div>
   <div class="chips"><span class="chip off" title="Facebook: not published">Facebook</span><span class="chip off" title="Instagram: not published">Instagram</span><span class="chip off" title="Pinterest: not published">Pinterest</span><span class="chip off" title="X: not published">X</span><span class="chip off" title="TikTok: not published">TikTok</span><span class="chip off" title="YouTube: not published">YouTube</span></div>
   <nav><a class="btn" href="0024-alif-baa-taa-adventure/">folder</a><a class="btn" href="0024-alif-baa-taa-adventure/00-REQUEST.md">request</a></nav>
-  <details class='det'><summary>details</summary><table><tr><td>Model</td><td>—</td></tr><tr><td>Cost</td><td>local only — no credits</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>—</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
+  <details class='det'><summary>details</summary><table><tr><td>Style</td><td>unstyled</td></tr><tr><td>Model</td><td>—</td></tr><tr><td>Cost</td><td>local only — no credits</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>—</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   
 </article><article class="card" data-status="requested" data-type="video"
    data-ed="0" data-vi="0" data-produced="0"
-   data-search="0025 little muslim, big heart video requested">
+   data-style="0"
+   data-search="0025 little muslim, big heart video requested unstyled">
   <header><span class="num">0025</span>
     <h2>Little Muslim, Big Heart</h2></header>
   <div class="prev empty">no output yet</div>
   <div class="meta"><span class="pill t-video">video</span>
-    <span class="pill s-requested">requested</span></div>
+    <span class="pill s-requested">requested</span><span class="pill sty off" title="no style recorded">unstyled</span></div>
   <div class="rates"><div class="rate"><span class="rl">editor</span><span class="rv r0" title="delivery quality, 1-5">—</span></div></div>
   <div class="chips"><span class="chip off" title="Facebook: not published">Facebook</span><span class="chip off" title="Instagram: not published">Instagram</span><span class="chip off" title="Pinterest: not published">Pinterest</span><span class="chip off" title="X: not published">X</span><span class="chip off" title="TikTok: not published">TikTok</span><span class="chip off" title="YouTube: not published">YouTube</span></div>
   <nav><a class="btn" href="0025-little-muslim-big-heart/">folder</a><a class="btn" href="0025-little-muslim-big-heart/00-REQUEST.md">request</a></nav>
-  <details class='det'><summary>details</summary><table><tr><td>Model</td><td>—</td></tr><tr><td>Cost</td><td>local only — no credits</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>—</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
+  <details class='det'><summary>details</summary><table><tr><td>Style</td><td>unstyled</td></tr><tr><td>Model</td><td>—</td></tr><tr><td>Cost</td><td>local only — no credits</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>—</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   
 </article>
 <p id="none">Nothing matches.</p>

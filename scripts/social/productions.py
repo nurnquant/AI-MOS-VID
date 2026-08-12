@@ -30,6 +30,21 @@ STATUS_ICON = {
     "requested": "·", "in-progress": "~", "delivered": "✓",
     "published": "★", "parked": "!",
 }
+# finishing treatments — full spec in library/STYLES.md. The user names the
+# style; never guess one. Add a number here when a new style is written up.
+STYLES = {
+    1: "Cinematic Reverent",
+    2: "Quiet Observational",
+    3: "Dua Teaching",
+    4: "Animated Nasheed",
+    5: "Image Post",
+}
+
+
+def style_label(n) -> str:
+    if not n:
+        return "unstyled"
+    return f"Style {n} — {STYLES.get(int(n), 'unknown')}"
 
 
 def load() -> dict:
@@ -38,6 +53,7 @@ def load() -> dict:
         e.setdefault("ratings", {"editor": None, "visitors": None})
         e["ratings"].setdefault("editor", None)
         e["ratings"].setdefault("visitors", None)
+        e.setdefault("style", None)
     return reg
 
 
@@ -80,8 +96,12 @@ def index(reg: dict) -> str:
     a("")
     a("Legend: `·` requested · `~` in progress · `✓` delivered · `★` published · `!` parked")
     a("")
-    a("| # | Title | Type | Status | Deliverables | Folder |")
-    a("| --- | --- | --- | --- | --- | --- |")
+    a("Style numbers are the finishing treatment — see")
+    a("[library/STYLES.md](../library/STYLES.md). You name the style in the")
+    a("request; it is never assumed.")
+    a("")
+    a("| # | Title | Type | Style | Status | Deliverables | Folder |")
+    a("| --- | --- | --- | --- | --- | --- | --- |")
 
     counts: dict[str, int] = {}
     for p in reg["productions"]:
@@ -93,7 +113,8 @@ def index(reg: dict) -> str:
         first = files[0] if files else "—"
         if n > 1:
             first = f"{first} _(+{n - 1})_"
-        a(f"| `{p['id']}` | {p['title']} | {p['type']} | {icon} {p['status']} "
+        sty = f"{p['style']}" if p.get("style") else "—"
+        a(f"| `{p['id']}` | {p['title']} | {p['type']} | {sty} | {icon} {p['status']} "
           f"| {first} | [{p['folder'].split('/')[-1]}]({p['folder'].split('/')[-1]}/) |")
 
     total = len(reg["productions"])
@@ -207,7 +228,9 @@ def html(reg: dict) -> str:
 
         cost = p.get("cost") or {}
         dts = p.get("dates") or {}
+        st = p.get("style")
         rows = [
+            ("Style", escape(style_label(st))),
             ("Model", escape(str(p.get("model") or "—"))),
             ("Cost", f'{cost.get("credits", 0)} cr · ${cost.get("usd", 0):.2f}'
                      if cost.get("credits") or cost.get("usd") else "local only — no credits"),
@@ -235,14 +258,21 @@ def html(reg: dict) -> str:
             extra = (f'<details><summary>{len(rest)} more file'
                      f'{"s" if len(rest) != 1 else ""}</summary><ul>{items}</ul></details>')
 
+        style_pill = (
+            f'<a class="pill sty" href="../library/STYLES.md"'
+            f' title="{escape(style_label(st))}">style {st}</a>'
+            if st else '<span class="pill sty off" title="no style recorded">unstyled</span>')
+
         cards.append(f"""<article class="card" data-status="{p['status']}" data-type="{p['type']}"
    data-ed="{ed or 0}" data-vi="{vi or 0}" data-produced="{0 if p['status']=='requested' else 1}"
-   data-search="{escape((p['id'] + ' ' + p['title'] + ' ' + p['type'] + ' ' + p['status']).lower())}">
+   data-style="{st or 0}"
+   data-search="{escape((p['id'] + ' ' + p['title'] + ' ' + p['type'] + ' ' + p['status']
+                         + ' ' + style_label(st)).lower())}">
   <header><span class="num">{p['id']}</span>
     <h2>{escape(p['title'])}</h2></header>
   {media}
   <div class="meta"><span class="pill t-{p['type']}">{p['type']}</span>
-    <span class="pill s-{p['status']}">{p['status']}</span></div>
+    <span class="pill s-{p['status']}">{p['status']}</span>{style_pill}</div>
   <div class="rates">{rate_rows}</div>
   <div class="chips">{chips}</div>
   <nav>{''.join(links)}</nav>
@@ -264,6 +294,33 @@ def html(reg: dict) -> str:
         avg += f" · visitors avg <strong>{sum(vis)/len(vis):.1f}</strong>/5 ({len(vis)} rated)"
     types = sorted({p["type"] for p in reg["productions"]})
     tbtns = "".join(f'<button data-f="type" data-v="{t}">{t}</button>' for t in types)
+
+    # per-style visitor average — the point of recording styles at all
+    used = sorted({p["style"] for p in reg["productions"] if p.get("style")})
+    stbtns = "".join(
+        f'<button data-f="style" data-v="{n}" title="{STYLES.get(n, "?")}">'
+        f'style {n}</button>' for n in used)
+    if any(not p.get("style") for p in reg["productions"]):
+        stbtns += '<button data-f="style" data-v="0">unstyled</button>'
+    srows = ""
+    for n in used:
+        grp = [p for p in reg["productions"] if p.get("style") == n]
+        gv = [(p.get("ratings") or {}).get("visitors") for p in grp]
+        gv = [x for x in gv if x]
+        ge = [(p.get("ratings") or {}).get("editor") for p in grp]
+        ge = [x for x in ge if x]
+        srows += (
+            f"<tr><td>Style {n} — {STYLES.get(n, '?')}</td>"
+            f"<td>{len(grp)}</td>"
+            f"<td>{f'{sum(ge)/len(ge):.1f}' if ge else '—'}</td>"
+            f"<td>{f'{sum(gv)/len(gv):.1f}' if gv else '—'}</td></tr>")
+    styleboard = (
+        '<details class="board"><summary>style performance</summary>'
+        '<table><tr><th>Style</th><th>Used</th><th>Editor</th><th>Visitors</th></tr>'
+        f'{srows}</table>'
+        '<p>Averages only — small samples. Full spec: '
+        '<a href="../library/STYLES.md">library/STYLES.md</a></p></details>'
+        if srows else "")
     sbtns = "".join(f'<button data-f="status" data-v="{s}">{s}</button>'
                     for s in ["published", "delivered", "in-progress", "requested", "parked"]
                     if s in counts)
@@ -312,6 +369,21 @@ color:var(--dim);text-transform:lowercase}}
 .s-published{{background:var(--emerald);border-color:var(--emerald);color:#fff}}
 @media(prefers-color-scheme:dark){{.s-published{{color:#0e1512}}}}
 .s-delivered{{border-color:var(--gold);color:var(--gold)}}
+.pill.sty{{background:var(--goldbg);border-color:var(--gold);color:var(--gold);
+font-weight:600;text-decoration:none}}
+.pill.sty.off{{background:transparent;border-color:var(--line);color:var(--dim);
+font-weight:400}}
+.refs{{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}}
+.refs a{{font-size:.74rem;padding:4px 10px;border-radius:20px;border:1px solid var(--line);
+color:var(--dim);text-decoration:none}}
+.refs a:hover{{color:var(--emerald);border-color:var(--emerald)}}
+.board{{margin-top:12px;font-size:.8rem;color:var(--dim)}}
+.board summary{{cursor:pointer;color:var(--emerald);font-weight:600}}
+.board table{{border-collapse:collapse;margin-top:8px;font-size:.76rem}}
+.board th{{text-align:left;color:var(--gold);font-size:.72rem;padding:2px 14px 4px 0}}
+.board td{{padding:3px 14px 3px 0;border-top:1px solid var(--line)}}
+.board p{{margin:8px 0 0;font-size:.72rem}}
+.board a{{color:var(--emerald)}}
 nav{{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto}}
 a.btn{{font-size:.78rem;padding:5px 10px;border-radius:7px;border:1px solid var(--line);
 color:var(--fg);text-decoration:none}}
@@ -345,6 +417,11 @@ details a{{color:var(--fg)}}
     {n_img} images · {summary}<br>
     total spend <strong>{tot_cr} credits · ${tot_usd:.2f}</strong> ·
     next number <strong>{reg['_next_id']:04d}</strong>{avg}</div>
+  <div class="refs"><a href="../library/STYLES.md">styles</a>
+    <a href="../CONNECTIONS.md">connections</a>
+    <a href="../PRODUCTION-STANDARD.md">standard</a>
+    <a href="INDEX.md">index.md</a></div>
+  {styleboard}
 </header>
 
 <div class="controls"><div class="inner">
@@ -352,7 +429,7 @@ details a{{color:var(--fg)}}
   <button class="on" data-f="all" data-v="">all</button>
   <button data-f="rated" data-v="editor">rated by me</button>
   <button data-f="unrated" data-v="editor">needs my rating</button>
-  {sbtns}{tbtns}
+  {sbtns}{tbtns}{stbtns}
 </div></div>
 
 <main id="grid">
@@ -411,7 +488,19 @@ def main() -> int:
     ap.add_argument("--status",
                     choices=["requested", "in-progress", "delivered",
                              "published", "parked"])
+    ap.add_argument("--style", type=int, choices=list(STYLES),
+                    help="finishing style (see library/STYLES.md); use with "
+                         "--set ID or --new. Never guessed — the user names it")
+    ap.add_argument("--styles", action="store_true",
+                    help="list the style catalogue and exit")
     args = ap.parse_args()
+
+    if args.styles:
+        print("Finishing styles — full spec in library/STYLES.md\n")
+        for n, name in STYLES.items():
+            print(f"  {n}  {name}")
+        print("\nThe style is named in the request. It is never assumed.")
+        return 0
 
     reg = load()
 
@@ -439,9 +528,12 @@ def main() -> int:
                 "id": f"{num:04d}", "slug": slug, "title": title,
                 "type": "video", "status": "requested",
                 "folder": f"productions/{num:04d}-{slug}",
+                "style": None,
             })
             reg["_next_id"] = num + 1
             print(f"intake: {brief.name}  ->  {folder.relative_to(REPO)}/00-REQUEST.md")
+            print(f"  style not set — ask before producing "
+                  f"(--set {num:04d} --style N)")
         if briefs:
             save(reg)
 
@@ -460,11 +552,17 @@ def main() -> int:
             "id": f"{num:04d}", "slug": slug, "title": args.new,
             "type": args.type, "status": "requested",
             "folder": f"productions/{num:04d}-{slug}",
+            "style": args.style,
         })
         reg["_next_id"] = num + 1
         save(reg)
         print(f"created {folder.relative_to(REPO)}")
         print(f"  write the brief -> {req.relative_to(REPO)}")
+        if args.style is None:
+            print("  no style set — name one before production "
+                  "(--styles to list, --set ID --style N)")
+        else:
+            print(f"  {style_label(args.style)}")
 
     if args.publish:
         if not args.on:
@@ -517,13 +615,17 @@ def main() -> int:
             print(f"no production {args.rate}"); return 1
 
     if args.set:
-        if not args.status:
-            print("--set needs --status"); return 2
+        if not args.status and args.style is None:
+            print("--set needs --status and/or --style"); return 2
         for p in reg["productions"]:
             if p["id"] == args.set:
-                p["status"] = args.status
+                if args.status:
+                    p["status"] = args.status
+                    print(f"{args.set} -> {args.status}")
+                if args.style is not None:
+                    p["style"] = args.style
+                    print(f"{args.set} -> {style_label(args.style)}")
                 save(reg)
-                print(f"{args.set} -> {args.status}")
                 break
         else:
             print(f"no production {args.set}"); return 1

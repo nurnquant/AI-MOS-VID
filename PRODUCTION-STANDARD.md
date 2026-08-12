@@ -67,6 +67,28 @@ traceable back to its request.
 
 Suffix conventions: `-9x16` `-16x9` `-4x5` `-1x1` `-2x3` for aspect ratio.
 
+## Style
+
+Every production records a **style** — the complete finishing treatment: text
+setting, subtitles, ending card, watermark behaviour, audio bed, pacing.
+Catalogue: [library/STYLES.md](library/STYLES.md).
+
+```bash
+python3 scripts/social/productions.py --styles              # list the catalogue
+python3 scripts/social/productions.py --set 0026 --style 3  # record one
+python3 scripts/social/productions.py --new "Title" --style 1
+```
+
+Two rules that do not bend:
+
+1. **You name the style in the request.**
+2. **If a request does not name one, I ask before producing.** Never assumed,
+   never back-filled from a guess.
+
+The dashboard groups editor and visitor averages by style, which is the whole
+point of recording it — so "style 4 outperforms style 5" becomes a fact rather
+than a hunch.
+
 ## Path hygiene (learned the hard way)
 
 Folder and file names use **lowercase kebab-case, ASCII only**.
