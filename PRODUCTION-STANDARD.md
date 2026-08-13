@@ -105,6 +105,17 @@ The dashboard groups editor and visitor averages by style, which is the whole
 point of recording it — so "style 4 outperforms style 5" becomes a fact rather
 than a hunch.
 
+## Skills
+
+Repeatable pipelines live in `.claude/skills/`. Invoke with `/<name>`.
+
+| Skill              | Covers                                                                                                                   |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| `riwaq-image-post` | image posts end to end: 4K animated illustration, type composited locally, logo, every platform ratio, caption, tracking |
+
+Its `scripts/postkit.py` turns one textless square into all five platform sizes
+and is the reusable half — reach for it rather than re-deriving crop maths.
+
 ## Path hygiene (learned the hard way)
 
 Folder and file names use **lowercase kebab-case, ASCII only**.
