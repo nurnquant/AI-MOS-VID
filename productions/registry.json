@@ -293,7 +293,7 @@
       "slug": "allah-is-sufficient-johra",
       "title": "Allah Is Sufficient for Me (Johra)",
       "type": "video",
-      "status": "delivered",
+      "status": "published",
       "folder": "productions/0010-allah-is-sufficient-johra",
       "model": "nano_banana_pro (stills) + veo3_1 fast",
       "cost": {
@@ -303,19 +303,19 @@
       "dates": {
         "requested": null,
         "produced": "2026-08-04",
-        "published": null
+        "published": "2026-08-13"
       },
       "platforms": {
-        "facebook": null,
-        "instagram": null,
+        "facebook": "2026-08-13",
+        "instagram": "2026-08-13",
         "pinterest": null,
         "x": null,
-        "tiktok": null,
+        "tiktok": "2026-08-13",
         "youtube": null
       },
       "confirmed_unpublished": "2026-08-12",
       "ratings": {
-        "editor": null,
+        "editor": 5,
         "visitors": null
       },
       "style": 3

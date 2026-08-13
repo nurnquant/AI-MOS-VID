@@ -23,7 +23,7 @@ request; it is never assumed.
 | `0007` | The Legacy Post | image-set | 5 | ★ published | 0007-legacy-post-4x5.png | [0007-legacy-post](0007-legacy-post/) |
 | `0008` | Little Girl Reciting Dua | video | 3 | ★ published | 0008-little-girl-dua-9x16.mp4 | [0008-little-girl-reciting-dua](0008-little-girl-reciting-dua/) |
 | `0009` | The Dua Before Learning | video | 3 | ★ published | 0009-dua-before-learning-9x16.mp4 _(+1)_ | [0009-dua-before-learning](0009-dua-before-learning/) |
-| `0010` | Allah Is Sufficient for Me (Johra) | video | 3 | ✓ delivered | 0010-allah-is-sufficient-9x16.mp4 | [0010-allah-is-sufficient-johra](0010-allah-is-sufficient-johra/) |
+| `0010` | Allah Is Sufficient for Me (Johra) | video | 3 | ★ published | 0010-allah-is-sufficient-9x16.mp4 | [0010-allah-is-sufficient-johra](0010-allah-is-sufficient-johra/) |
 | `0011` | FB Series 01 — 6 post images | image-set | 5 | ★ published | 0011-post1-mothers-prayer.png _(+5)_ | [0011-fb-series-01](0011-fb-series-01/) |
 | `0012` | FB Series 02 — 6 post images | image-set | 5 | ★ published | 0012-post1-screen-time.png _(+5)_ | [0012-fb-series-02](0012-fb-series-02/) |
 | `0013` | FB Series 03 — 6 post images | image-set | 5 | ★ published | 0013-post1-crown-of-light.png _(+5)_ | [0013-fb-series-03](0013-fb-series-03/) |
@@ -50,7 +50,7 @@ request; it is never assumed.
 | `0034` | Alif CoComelon 10s (Omni Flash) | video | — | ✓ delivered | 0034-alif-cocomelon-10s-9x16.mp4 | [0034-alif-cocomelon-10s-omni-flash](0034-alif-cocomelon-10s-omni-flash/) |
 | `0035` | Alif Baa Taa full rhyme (CoComelon, 50-60s) | video | — | ✓ delivered | 0035-alif-baa-taa-rhyme-9x16.mp4 | [0035-alif-baa-taa-full-rhyme-cocomelon-50-60s](0035-alif-baa-taa-full-rhyme-cocomelon-50-60s/) |
 
-**35 productions** — 7 delivered · 2 parked · 24 published · 2 requested
+**35 productions** — 6 delivered · 2 parked · 25 published · 2 requested
 
 Next free number: **0036**
 
