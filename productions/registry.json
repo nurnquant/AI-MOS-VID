@@ -1089,7 +1089,7 @@
       "type": "video",
       "status": "delivered",
       "folder": "productions/0036-youre-already-teaching-them",
-      "style": 8,
+      "style": 9,
       "model": "gemini_omni (V2) + seed_audio & library reuse (V1)",
       "cost": {
         "credits": 125.5,
@@ -1101,7 +1101,7 @@
         "published": null
       },
       "ratings": {
-        "editor": 4.0,
+        "editor": 4.5,
         "visitors": null
       }
     }

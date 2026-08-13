@@ -150,6 +150,36 @@ producing; several of its lines cost money to learn.
 
 ---
 
+## Style 9 — Table Talk Captioned
+
+**Call it by name: "Table Talk Captioned", or "Style 9".**
+
+[Style 8](#style-8--table-talk) with burned captions. Two variants, both built and
+kept: **kinetic** (condensed caps, louder, higher reach) and **quiet** (sentence
+case over a soft gradient, closer to the film's tone).
+
+**First use: 0036 V3, editor 4.5/5.** Shipped on the kinetic variant.
+
+| Element     | Treatment                                                                 |
+| ----------- | ------------------------------------------------------------------------- |
+| Timing      | Whisper word starts. The words themselves are authored, never transcribed |
+| Chunking    | Phrases of 4-6 words, not word-by-word karaoke                            |
+| Emphasis    | One gold word per chunk; everything else cream                            |
+| Background  | Soft bottom gradient, never a slab box                                    |
+| Entrance    | Rise and fade over ~160 ms, ease-out, no bounce                           |
+| Safe area   | Nothing below y=1044                                                      |
+| First chunk | Pinned to 0.00 s, before the first word is spoken                         |
+| Audio       | Continuous bed, sidechained to the voice                                  |
+| Watermark   | Stops before the end card                                                 |
+
+A caption layer composes with any style, so if captions are ever wanted elsewhere,
+**port the layer rather than minting a new number**. Recipe:
+[STYLE-9-TABLE-TALK-CAPTIONED.md](STYLE-9-TABLE-TALK-CAPTIONED.md).
+
+**Used by:** 0036 V3 You're Already Teaching Them
+
+---
+
 ## Style 7 — Photoreal Sing-Along · ❌ REJECTED 2026-08-12
 
 **Do not use. Do not treat 0024 as a template.** Rated 1/5. It answered a

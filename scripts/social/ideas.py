@@ -44,6 +44,7 @@ STYLES = {
     5: "Image Post",
     7: "Photoreal Sing-Along",
     8: "Table Talk",
+    9: "Table Talk Captioned",
 }
 
 
