@@ -101,9 +101,40 @@ then goes into ONE final Omni Flash run.
 v2 is kept at `work/clips/omni-10s-v2.mp4`. **The delivered file remains v1**, whose
 picture the user approved.
 
+## Attempt 3 (user picked "Alif" plain) — also wrong. Stopping.
+
+| Attempt | Model      | Spelling in lyric   | Whisper heard | Cuts                   |
+| ------- | ---------- | ------------------- | ------------- | ---------------------- |
+| 0033    | veo        | "Alif" + prose rule | "Elef"        | none (one static shot) |
+| 0034 v1 | Omni Flash | `AH-lif`            | "Ahlif"       | 3.50 / 6.54 ✅         |
+| 0034 v2 | Omni Flash | `AL-if`             | "Elif"        | 3.46 / 6.38 ✅         |
+| 0034 v3 | Omni Flash | `Alif` plain        | **"Elif"**    | 3.46 / **9.88** ❌     |
+
+v3 was the user's own pick from the probe, with the respellings removed and only
+negative guards kept. It still renders as "Elif", **and** it lost the third cut —
+beats 2 and 3 merged into one 6.4 s shot, so the approved three-scene structure
+regressed too.
+
+**Conclusion: Omni Flash cannot be steered to pronounce "Alif" correctly.** Four
+attempts across two models and three spellings all land on Elef / Ahlif / Elif. The
+generated-vocal route is closed for Arabic letter names.
+
+**v1 remains the delivered file** — best picture, wrong word.
+
+## The remaining path, and it needs the user
+
+Replace only the audio on v1's approved picture:
+
+1. User supplies the rhyme **sung correctly** (recorded, or an approved external
+   singing service), OR approves such a service.
+2. Local rebuild uses v1's picture with that vocal. **Zero credits** — it is an
+   ffmpeg mux, and the picture is already signed off.
+
+Spend on 0034 so far: **90 credits / $2.97** for three 10 s generations, plus 26 on 0033. Further blind attempts are not justified.
+
 ## Open
 
-- **Which pronunciation option**, from the probe file.
+- **A correctly sung vocal from the user** — the only unblocked route.
 - **User's ear on the singing.** If it reads as chanting rather than a tune, the answer
   is a supplied sung vocal with Omni Flash for picture.
 - The third "Ahlif".

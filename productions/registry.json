@@ -1052,11 +1052,11 @@
         "published": null
       },
       "cost": {
-        "credits": 30,
-        "usd": 0.99
+        "credits": 90,
+        "usd": 2.97
       },
       "confirmed_unpublished": "2026-08-13",
-      "note": "Gemini Omni Flash 10s single clip. Cuts at 3.50/6.54 as specified; pronunciation FIXED ('Ahlif') via phonetic lyric. Garbled 'UXely' text covered by local Arabic Alif card. Open: pitch spread only 5.7 semitones vs veo's 18.1 — may be chanting, needs user's ear."
+      "note": "Omni Flash: picture APPROVED by user (v1). Pronunciation of 'Alif' unfixable across 3 spellings — renders Ahlif/Elif. Blocked pending a supplied sung vocal; rebuild is then free using v1 picture."
     }
   ],
   "_platforms": ["facebook", "instagram", "pinterest", "x", "tiktok", "youtube"],

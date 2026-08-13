@@ -28,9 +28,12 @@ stills, the verification plan.
 > measured cuts at 3.50 s and 6.54 s, where veo gave one locked-off shot. 30 credits
 > for 10 s.
 >
-> **Spell sung names phonetically in the lyric.** A prose rule ("Alif is pronounced
-> AH-lif, never Aleph") failed on 0033, which sang "Elef". Writing the lyric itself as
-> **"AH-lif"** worked first time on 0034.
+> **Generated vocals cannot be trusted with Arabic letter names. Do not try.**
+> Four attempts across two models and three spellings — prose rule, `AH-lif`,
+> `AL-if`, plain `Alif` — every one rendered as Elef, Ahlif or Elif. Changing the
+> spelling also perturbs the picture: 0034 v3 lost one of its three cuts. Budget
+> **zero** further attempts at steering pronunciation; get the vocal supplied and use
+> the model for picture only, muxing locally at no credit cost.
 >
 > Open trade-off: veo's singing was far more melodic (18.1-semitone spread) than Omni
 > Flash's (5.7, which is speech range and may be chanting). If the user's ear says
