@@ -109,3 +109,49 @@ would have put both misspellings on screen in a video about the deen.
 
 Fault 3 is the useful one: it passed every duration and drift check and was only
 visible by looking.
+
+## The joins were audibly broken, and the user caught it
+
+**User, on V3 kinetic: 4/5, "I heard the disconnection in background music in
+between frames."** Correct, and it measured worse than it sounded.
+
+Each of the four clips generated **its own room tone**, so every join stepped to a
+different ambience. Measured before the fix:
+
+| join | before   | after    | step        |
+| ---- | -------- | -------- | ----------- |
+| 10 s | -38.1 dB | -21.2 dB | **17.0 dB** |
+| 20 s | -47.0 dB | -43.0 dB | 4.0 dB      |
+| 30 s | -48.1 dB | -55.1 dB | 7.0 dB      |
+
+Trailing room-tone floors: A -42.9, B -54.1, C -53.4, D -58.5 dB. Four rooms
+pretending to be one.
+
+### Fix — a continuous bed, not a patch at each seam
+
+The piano now runs **under the whole 42 s** at about -34 dB, so the ear has one
+unbroken thread across the cuts, with the existing lift still rising under the
+tag. After:
+
+| join | step before | step after |
+| ---- | ----------- | ---------- |
+| 10 s | 17.0 dB     | 10.0 dB    |
+| 20 s | 4.0 dB      | **2.3 dB** |
+| 30 s | 7.0 dB      | **0.8 dB** |
+
+Speech still sits on top at -22 to -24 dB, roughly 11 dB above the bed.
+
+**The 10 s join is not a defect and was left alone.** What remains there is clip B
+beginning to speak at 0.00 s with no lead-in — silence into a voice, which is what
+a person starting to talk sounds like. The other two were ambience changing
+underneath, which is what the ear correctly refused to accept.
+
+### What was rejected, and why
+
+- **Fading each clip in at its head** would have attenuated "Bismillah" — clip B
+  starts speaking at 0.00 s with nothing in front of it.
+- **Crossfading the joins** would have shortened the film and pulled the picture
+  out of sync with captions already burned per clip.
+- **A video dissolve at the joins** was not added. The cuts inside each clip are
+  hard cuts; dissolving only at the clip boundaries would make those three joins
+  look different from the other four cuts and advertise where the seams are.

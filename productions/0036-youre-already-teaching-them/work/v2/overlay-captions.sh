@@ -60,10 +60,19 @@ TOTAL=$(ffprobe -v error -show_entries format=duration -of csv=p=0 seg/joined-$S
 BEDIN=$(python3 -c "print(round(float('$TOTAL')-3.6,2))")
 MS=$(python3 -c "print(int(float('$BEDIN')*1000))")
 
+# Each clip generated its OWN room tone, so every join stepped to a different
+# ambience — measured 17 dB at the 10 s join. A continuous bed under the whole
+# film is the fix: one unbroken thread the ear can follow across the cuts.
+# Cheaper tricks were rejected: fading each clip in would have attenuated
+# "Bismillah", which clip B begins speaking at 0.00 s with no lead-in.
 ffmpeg -v error -y -i seg/joined-$STYLE.mov -i ../../../0022-la-hawla/work/music-piano.m4a \
-  -filter_complex "[1:a]atrim=0:4.2,asetpts=PTS-STARTPTS,volume=0.55,\
-afade=t=in:st=0:d=1.4,afade=t=out:st=2.9:d=1.3,adelay=$MS|$MS[bed];\
-[0:a][bed]amix=inputs=2:normalize=0:duration=first,alimiter=limit=0.95,aresample=48000[a]" \
+  -filter_complex "[1:a]atrim=0:$TOTAL,asetpts=PTS-STARTPTS,volume=0.73,\
+afade=t=in:st=0:d=2.2,afade=t=out:st=$(python3 -c "print(round(float('$TOTAL')-1.8,2))"):d=1.8,\
+aresample=48000[body];\
+[1:a]atrim=6:10.2,asetpts=PTS-STARTPTS,volume=0.62,\
+afade=t=in:st=0:d=1.4,afade=t=out:st=2.9:d=1.3,adelay=$MS|$MS[lift];\
+[0:a][body][lift]amix=inputs=3:normalize=0:duration=first,\
+alimiter=limit=0.95,aresample=48000[a]" \
   -map 0:v -map "[a]" -c:v copy -c:a pcm_s16le seg/mixed-$STYLE.mov
 
 mkdir -p ../../OUTPUT
