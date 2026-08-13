@@ -822,12 +822,12 @@
       "slug": "allah-made-everything-post-image",
       "title": "Allah Made Everything (post image)",
       "type": "image-set",
-      "status": "delivered",
+      "status": "published",
       "folder": "productions/0027-allah-made-everything-post-image",
       "style": 5,
       "model": "nano_banana_pro",
       "ratings": {
-        "editor": null,
+        "editor": 4,
         "visitors": null
       },
       "cost": {
@@ -837,131 +837,173 @@
       "dates": {
         "requested": "2026-08-12",
         "produced": "2026-08-12",
-        "published": null
+        "published": "2026-08-12"
       },
-      "confirmed_unpublished": "2026-08-12",
-      "accepted": "2026-08-12"
+      "accepted": "2026-08-12",
+      "platforms": {
+        "facebook": "2026-08-12",
+        "instagram": "2026-08-12",
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
+      }
     },
     {
       "id": "0028",
       "slug": "thank-you-allah",
       "title": "Thank You, Allah",
       "type": "image-set",
-      "status": "delivered",
+      "status": "published",
       "folder": "productions/0028-thank-you-allah",
       "style": 5,
       "ratings": {
-        "editor": null,
+        "editor": 4,
         "visitors": null
       },
       "model": "nano_banana_pro",
       "dates": {
         "requested": "2026-08-12",
         "produced": "2026-08-12",
-        "published": null
+        "published": "2026-08-12"
       },
       "cost": {
         "credits": 4,
         "usd": 0.13
       },
-      "confirmed_unpublished": "2026-08-12",
-      "accepted": "2026-08-12"
+      "accepted": "2026-08-12",
+      "platforms": {
+        "facebook": "2026-08-12",
+        "instagram": "2026-08-12",
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
+      }
     },
     {
       "id": "0029",
       "slug": "allah-loves-when-i-do-good",
       "title": "Allah Loves When I Do Good",
       "type": "image-set",
-      "status": "delivered",
+      "status": "published",
       "folder": "productions/0029-allah-loves-when-i-do-good",
       "style": 5,
       "ratings": {
-        "editor": null,
+        "editor": 4,
         "visitors": null
       },
       "model": "nano_banana_pro",
       "dates": {
         "requested": "2026-08-12",
         "produced": "2026-08-12",
-        "published": null
+        "published": "2026-08-12"
       },
       "cost": {
         "credits": 4,
         "usd": 0.13
       },
-      "confirmed_unpublished": "2026-08-12"
+      "platforms": {
+        "facebook": "2026-08-12",
+        "instagram": "2026-08-12",
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
+      }
     },
     {
       "id": "0030",
       "slug": "bismillah-before-i-begin",
       "title": "Bismillah Before I Begin",
       "type": "image-set",
-      "status": "delivered",
+      "status": "published",
       "folder": "productions/0030-bismillah-before-i-begin",
       "style": 5,
       "ratings": {
-        "editor": null,
+        "editor": 4,
         "visitors": null
       },
       "model": "nano_banana_pro",
       "dates": {
         "requested": "2026-08-12",
         "produced": "2026-08-12",
-        "published": null
+        "published": "2026-08-12"
       },
       "cost": {
         "credits": 4,
         "usd": 0.13
       },
-      "confirmed_unpublished": "2026-08-12"
+      "platforms": {
+        "facebook": "2026-08-12",
+        "instagram": "2026-08-12",
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
+      }
     },
     {
       "id": "0031",
       "slug": "alhamdulillah-every-day",
       "title": "Alhamdulillah Every Day",
       "type": "image-set",
-      "status": "delivered",
+      "status": "published",
       "folder": "productions/0031-alhamdulillah-every-day",
       "style": 5,
       "ratings": {
-        "editor": null,
+        "editor": 4,
         "visitors": null
       },
       "model": "nano_banana_pro",
       "dates": {
         "requested": "2026-08-12",
         "produced": "2026-08-12",
-        "published": null
+        "published": "2026-08-12"
       },
       "cost": {
         "credits": 4,
         "usd": 0.13
       },
-      "confirmed_unpublished": "2026-08-12"
+      "platforms": {
+        "facebook": "2026-08-12",
+        "instagram": "2026-08-12",
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
+      }
     },
     {
       "id": "0032",
       "slug": "subhanallah-look-around",
       "title": "SubhanAllah, Look Around",
       "type": "image-set",
-      "status": "delivered",
+      "status": "published",
       "folder": "productions/0032-subhanallah-look-around",
       "style": 5,
       "ratings": {
-        "editor": null,
+        "editor": 4,
         "visitors": null
       },
       "model": "nano_banana_pro",
       "dates": {
         "requested": "2026-08-12",
         "produced": "2026-08-12",
-        "published": null
+        "published": "2026-08-12"
       },
       "cost": {
         "credits": 4,
         "usd": 0.13
       },
-      "confirmed_unpublished": "2026-08-12"
+      "platforms": {
+        "facebook": "2026-08-12",
+        "instagram": "2026-08-12",
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
+      }
     }
   ],
   "_platforms": ["facebook", "instagram", "pinterest", "x", "tiktok", "youtube"],

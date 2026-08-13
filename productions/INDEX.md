@@ -40,14 +40,14 @@ request; it is never assumed.
 | `0024` | Alif, Baa, Taa Adventure | video | 7 | ! parked | — | [0024-alif-baa-taa-adventure](0024-alif-baa-taa-adventure/) |
 | `0025` | Little Muslim, Big Heart | video | — | · requested | — | [0025-little-muslim-big-heart](0025-little-muslim-big-heart/) |
 | `0026` | Allah Made Everything | image-set | — | ✓ delivered | 0026-allah-made-everything-1x1-4k.png | [0026-allah-made-everything](0026-allah-made-everything/) |
-| `0027` | Allah Made Everything (post image) | image-set | 5 | ✓ delivered | 0027-allah-made-everything-16x9.png _(+5)_ | [0027-allah-made-everything-post-image](0027-allah-made-everything-post-image/) |
-| `0028` | Thank You, Allah | image-set | 5 | ✓ delivered | 0028-thank-you-allah-16x9.png _(+5)_ | [0028-thank-you-allah](0028-thank-you-allah/) |
-| `0029` | Allah Loves When I Do Good | image-set | 5 | ✓ delivered | 0029-allah-loves-when-i-do-good-16x9.png _(+5)_ | [0029-allah-loves-when-i-do-good](0029-allah-loves-when-i-do-good/) |
-| `0030` | Bismillah Before I Begin | image-set | 5 | ✓ delivered | 0030-bismillah-before-i-begin-16x9.png _(+5)_ | [0030-bismillah-before-i-begin](0030-bismillah-before-i-begin/) |
-| `0031` | Alhamdulillah Every Day | image-set | 5 | ✓ delivered | 0031-alhamdulillah-every-day-16x9.png _(+5)_ | [0031-alhamdulillah-every-day](0031-alhamdulillah-every-day/) |
-| `0032` | SubhanAllah, Look Around | image-set | 5 | ✓ delivered | 0032-subhanallah-look-around-16x9.png _(+5)_ | [0032-subhanallah-look-around](0032-subhanallah-look-around/) |
+| `0027` | Allah Made Everything (post image) | image-set | 5 | ★ published | 0027-allah-made-everything-16x9.png _(+5)_ | [0027-allah-made-everything-post-image](0027-allah-made-everything-post-image/) |
+| `0028` | Thank You, Allah | image-set | 5 | ★ published | 0028-thank-you-allah-16x9.png _(+5)_ | [0028-thank-you-allah](0028-thank-you-allah/) |
+| `0029` | Allah Loves When I Do Good | image-set | 5 | ★ published | 0029-allah-loves-when-i-do-good-16x9.png _(+5)_ | [0029-allah-loves-when-i-do-good](0029-allah-loves-when-i-do-good/) |
+| `0030` | Bismillah Before I Begin | image-set | 5 | ★ published | 0030-bismillah-before-i-begin-16x9.png _(+5)_ | [0030-bismillah-before-i-begin](0030-bismillah-before-i-begin/) |
+| `0031` | Alhamdulillah Every Day | image-set | 5 | ★ published | 0031-alhamdulillah-every-day-16x9.png _(+5)_ | [0031-alhamdulillah-every-day](0031-alhamdulillah-every-day/) |
+| `0032` | SubhanAllah, Look Around | image-set | 5 | ★ published | 0032-subhanallah-look-around-16x9.png _(+5)_ | [0032-subhanallah-look-around](0032-subhanallah-look-around/) |
 
-**32 productions** — 11 delivered · 1 parked · 18 published · 2 requested
+**32 productions** — 5 delivered · 1 parked · 24 published · 2 requested
 
 Next free number: **0033**
 
