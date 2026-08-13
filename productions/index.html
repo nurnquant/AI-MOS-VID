@@ -11,6 +11,7 @@ font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif}
 header.top{padding:26px 22px 14px;max-width:1400px;margin:0 auto}
 h1{margin:0 0 4px;font-size:1.5rem;letter-spacing:-.01em}
 .sub{color:var(--dim);font-size:.87rem}
+.prodwrap{position:relative}
 .controls{position:sticky;top:0;z-index:5;background:var(--bg);
 border-bottom:1px solid var(--line);padding:12px 22px}
 .controls .inner{max-width:1400px;margin:0 auto;display:flex;gap:10px;
@@ -82,6 +83,36 @@ details.det th{text-align:left;padding:7px 0 2px;color:var(--gold);font-size:.72
 details ul{margin:6px 0 0;padding-left:18px}
 details a{color:var(--fg)}
 #none{grid-column:1/-1;text-align:center;color:var(--dim);padding:40px;display:none}
+/* --- Ideas section: the stage before a production --- */
+#ideas{max-width:1400px;margin:0 auto;padding:10px 22px 70px;
+border-top:1px solid var(--line)}
+.shead{padding:22px 0 6px}
+.shead h2{margin:0 0 4px;font-size:1.25rem;letter-spacing:-.01em}
+.shead .sub a{color:var(--emerald)}
+.ifilters{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 4px}
+.sgroup{margin:26px 0 10px;font-size:.82rem;font-weight:600;color:var(--gold);
+text-transform:uppercase;letter-spacing:.06em}
+.igrid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.icard{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:13px;display:flex;flex-direction:column;gap:9px}
+.icard.hide{display:none}
+.icard header{display:flex;gap:9px;align-items:baseline}
+.icard h3{margin:0;font-size:.94rem;font-weight:600;line-height:1.3}
+.hook{margin:0;font-size:.83rem;line-height:1.45;color:var(--fg);
+border-left:2px solid var(--gold);padding-left:9px}
+.i-proposed{color:var(--dim)}
+.i-approved{background:var(--goldbg);border-color:var(--gold);color:var(--gold);
+font-weight:600}
+.i-delivered{border-color:var(--gold);color:var(--gold)}
+.i-published{background:var(--emerald);border-color:var(--emerald);color:#fff}
+@media(prefers-color-scheme:dark){.i-published{color:#0e1512}}
+.i-rejected{color:var(--dim);text-decoration:line-through}
+.pill.prod{border-color:var(--emerald);color:var(--emerald);text-decoration:none;
+font-weight:600}
+.gate{font-size:.71rem;line-height:1.4;color:#c2564a;border:1px solid #c2564a;
+border-radius:7px;padding:5px 8px;background:transparent}
+#inone{text-align:center;color:var(--dim);padding:30px;display:none}
+.card:target{outline:2px solid var(--emerald);outline-offset:3px}
 </style>
 
 <header class="top">
@@ -93,10 +124,12 @@ details a{color:var(--fg)}
   <div class="refs"><a href="../library/STYLES.md">styles</a>
     <a href="../CONNECTIONS.md">connections</a>
     <a href="../PRODUCTION-STANDARD.md">standard</a>
-    <a href="INDEX.md">index.md</a></div>
+    <a href="INDEX.md">index.md</a>
+    <a href="#ideas">ideas</a></div>
   <details class="board"><summary>style performance</summary><table><tr><th>Style</th><th>Used</th><th>Editor</th><th>Visitors</th></tr><tr><td>Style 1 — Cinematic Reverent</td><td>3</td><td>4.0</td><td>—</td></tr><tr><td>Style 2 — Quiet Observational</td><td>1</td><td>4.0</td><td>—</td></tr><tr><td>Style 3 — Dua Teaching</td><td>4</td><td>5.0</td><td>5.0</td></tr><tr><td>Style 4 — Animated Nasheed</td><td>4</td><td>5.0</td><td>5.0</td></tr><tr><td>Style 5 — Image Post</td><td>11</td><td>4.0</td><td>2.0</td></tr><tr><td>Style 7 — Photoreal Sing-Along</td><td>1</td><td>1.0</td><td>—</td></tr></table><p>Averages only — small samples. Full spec: <a href="../library/STYLES.md">library/STYLES.md</a></p></details>
 </header>
 
+<div class="prodwrap">
 <div class="controls"><div class="inner">
   <input type="search" id="q" placeholder="Search title, number, type…" autocomplete="off">
   <button class="on" data-f="all" data-v="">all</button>
@@ -106,7 +139,8 @@ details a{color:var(--fg)}
 </div></div>
 
 <main id="grid">
-<article class="card" data-status="published" data-type="video"
+<article class="card" id="p0001"
+   data-status="published" data-type="video"
    data-ed="0" data-vi="0" data-produced="1"
    data-style="0"
    data-search="0001 sneezing etiquette family story video published unstyled">
@@ -120,7 +154,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0001-sneezing-etiquette-family-story/">folder</a><a class="btn" href="0001-sneezing-etiquette-family-story/00-REQUEST.md">request</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>unstyled</td></tr><tr><td>Model</td><td>Kling v2.5 turbo pro (fal.ai) + ElevenLabs multilingual v2</td></tr><tr><td>Cost</td><td>0 cr · $4.18</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-07-30</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   
-</article><article class="card" data-status="published" data-type="video"
+</article><article class="card" id="p0002"
+   data-status="published" data-type="video"
    data-ed="0" data-vi="0" data-produced="1"
    data-style="0"
    data-search="0002 dua boy — rabbana atina video published unstyled">
@@ -134,7 +169,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0002-dua-boy-rabbana-atina/">folder</a><a class="btn" href="0002-dua-boy-rabbana-atina/00-REQUEST.md">request</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>unstyled</td></tr><tr><td>Model</td><td>kling3_0_turbo + seedance_2_0</td></tr><tr><td>Cost</td><td>69 cr · $2.30</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-07-31</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   <details><summary>1 more file</summary><ul><li><a href="0002-dua-boy-rabbana-atina/OUTPUT/0002-dua-recitation-9x16.mp4">0002-dua-recitation-9x16.mp4</a></li></ul></details>
-</article><article class="card" data-status="published" data-type="video"
+</article><article class="card" id="p0003"
+   data-status="published" data-type="video"
    data-ed="0" data-vi="0" data-produced="1"
    data-style="0"
    data-search="0003 riwaq quran class ad (johra) video published unstyled">
@@ -148,7 +184,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0003-quran-class-ad-johra/">folder</a><a class="btn" href="0003-quran-class-ad-johra/00-REQUEST.md">request</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>unstyled</td></tr><tr><td>Model</td><td>seedance_2_0</td></tr><tr><td>Cost</td><td>72 cr · $2.40</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-01</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   <details><summary>1 more file</summary><ul><li><a href="0003-quran-class-ad-johra/OUTPUT/0003-quran-class-ad-9x16.mp4">0003-quran-class-ad-9x16.mp4</a></li></ul></details>
-</article><article class="card" data-status="published" data-type="video"
+</article><article class="card" id="p0004"
+   data-status="published" data-type="video"
    data-ed="0" data-vi="0" data-produced="1"
    data-style="0"
    data-search="0004 the lantern in the dark — dua for guidance video published unstyled">
@@ -162,7 +199,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0004-lantern-in-the-dark/">folder</a><a class="btn" href="0004-lantern-in-the-dark/00-REQUEST.md">request</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>unstyled</td></tr><tr><td>Model</td><td>nano_banana_pro (stills) + veo3_1 fast</td></tr><tr><td>Cost</td><td>142 cr · $4.70</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-02</td></tr><tr><td>First published</td><td>2026-08-02</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-02</td></tr><tr><td>Instagram</td><td>2026-08-02</td></tr></table></details>
   <details><summary>1 more file</summary><ul><li><a href="0004-lantern-in-the-dark/OUTPUT/0004-lantern-dua-guidance-9x16.mp4">0004-lantern-dua-guidance-9x16.mp4</a></li></ul></details>
-</article><article class="card" data-status="published" data-type="video"
+</article><article class="card" id="p0005"
+   data-status="published" data-type="video"
    data-ed="0" data-vi="0" data-produced="1"
    data-style="0"
    data-search="0005 cozy islamic classroom asmr (alif) video published unstyled">
@@ -176,7 +214,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0005-cozy-classroom-asmr/">folder</a><a class="btn" href="0005-cozy-classroom-asmr/00-REQUEST.md">request</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>unstyled</td></tr><tr><td>Model</td><td>nano_banana_pro (frames) + kling3_0_turbo 1080p</td></tr><tr><td>Cost</td><td>132 cr · $4.35</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-02</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   <details><summary>1 more file</summary><ul><li><a href="0005-cozy-classroom-asmr/OUTPUT/0005-asmr-alif-classroom-full-9x16.mp4">0005-asmr-alif-classroom-full-9x16.mp4</a></li></ul></details>
-</article><article class="card" data-status="published" data-type="video"
+</article><article class="card" id="p0006"
+   data-status="published" data-type="video"
    data-ed="5" data-vi="0" data-produced="1"
    data-style="1"
    data-search="0006 the dream of every parent video published style 1 — cinematic reverent">
@@ -190,7 +229,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0006-dream-of-every-parent/">folder</a><a class="btn" href="0006-dream-of-every-parent/00-REQUEST.md">request</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 1 — Cinematic Reverent</td></tr><tr><td>Model</td><td>nano_banana_pro (stills) + veo3_1 fast</td></tr><tr><td>Cost</td><td>214 cr · $7.06</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-03</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>★★★★★ 5/5</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   <details><summary>1 more file</summary><ul><li><a href="0006-dream-of-every-parent/OUTPUT/0006-dream-of-every-parent-9x16.mp4">0006-dream-of-every-parent-9x16.mp4</a></li></ul></details>
-</article><article class="card" data-status="published" data-type="image-set"
+</article><article class="card" id="p0007"
+   data-status="published" data-type="image-set"
    data-ed="0" data-vi="0" data-produced="1"
    data-style="5"
    data-search="0007 the legacy post image-set published style 5 — image post">
@@ -204,7 +244,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0007-legacy-post/">folder</a><a class="btn" href="0007-legacy-post/00-REQUEST.md">request</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 5 — Image Post</td></tr><tr><td>Model</td><td>nano_banana_pro</td></tr><tr><td>Cost</td><td>2 cr · $0.07</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-04</td></tr><tr><td>First published</td><td>2026-08-04</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-04</td></tr></table></details>
   
-</article><article class="card" data-status="published" data-type="video"
+</article><article class="card" id="p0008"
+   data-status="published" data-type="video"
    data-ed="0" data-vi="0" data-produced="1"
    data-style="3"
    data-search="0008 little girl reciting dua video published style 3 — dua teaching">
@@ -218,7 +259,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0008-little-girl-reciting-dua/">folder</a><a class="btn" href="0008-little-girl-reciting-dua/00-REQUEST.md">request</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 3 — Dua Teaching</td></tr><tr><td>Model</td><td>nano_banana_pro (still) + veo3_1 fast</td></tr><tr><td>Cost</td><td>24 cr · $0.79</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-04</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   
-</article><article class="card" data-status="published" data-type="video"
+</article><article class="card" id="p0009"
+   data-status="published" data-type="video"
    data-ed="0" data-vi="0" data-produced="1"
    data-style="3"
    data-search="0009 the dua before learning video published style 3 — dua teaching">
@@ -232,7 +274,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0009-dua-before-learning/">folder</a><a class="btn" href="0009-dua-before-learning/00-REQUEST.md">request</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 3 — Dua Teaching</td></tr><tr><td>Model</td><td>nano_banana_pro (stills) + veo3_1 fast</td></tr><tr><td>Cost</td><td>118 cr · $3.89</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-04</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   <details><summary>1 more file</summary><ul><li><a href="0009-dua-before-learning/OUTPUT/0009-dua-before-learning-johra-9x16.mp4">0009-dua-before-learning-johra-9x16.mp4</a></li></ul></details>
-</article><article class="card" data-status="published" data-type="video"
+</article><article class="card" id="p0010"
+   data-status="published" data-type="video"
    data-ed="5" data-vi="0" data-produced="1"
    data-style="3"
    data-search="0010 allah is sufficient for me (johra) video published style 3 — dua teaching">
@@ -246,7 +289,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0010-allah-is-sufficient-johra/">folder</a><a class="btn" href="0010-allah-is-sufficient-johra/00-REQUEST.md">request</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 3 — Dua Teaching</td></tr><tr><td>Model</td><td>nano_banana_pro (stills) + veo3_1 fast</td></tr><tr><td>Cost</td><td>50 cr · $1.65</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-04</td></tr><tr><td>First published</td><td>2026-08-13</td></tr><tr><td>Editor rating</td><td>★★★★★ 5/5</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-13</td></tr><tr><td>Instagram</td><td>2026-08-13</td></tr><tr><td>TikTok</td><td>2026-08-13</td></tr></table></details>
   
-</article><article class="card" data-status="published" data-type="image-set"
+</article><article class="card" id="p0011"
+   data-status="published" data-type="image-set"
    data-ed="0" data-vi="0" data-produced="1"
    data-style="5"
    data-search="0011 fb series 01 — 6 post images image-set published style 5 — image post">
@@ -260,7 +304,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0011-fb-series-01/">folder</a><a class="btn" href="0011-fb-series-01/00-REQUEST.md">request</a><a class="btn" href="0011-fb-series-01/OUTPUT/CAPTION.md">caption</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 5 — Image Post</td></tr><tr><td>Model</td><td>nano_banana_pro</td></tr><tr><td>Cost</td><td>24 cr · $0.79</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-04</td></tr><tr><td>First published</td><td>2026-08-04</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-04</td></tr></table></details>
   <details><summary>25 more files</summary><ul><li><a href="0011-fb-series-01/OUTPUT/0011-post2-first-word.png">0011-post2-first-word.png</a></li><li><a href="0011-fb-series-01/OUTPUT/0011-post3-true-success.png">0011-post3-true-success.png</a></li><li><a href="0011-fb-series-01/OUTPUT/0011-post4-beautiful-sound.png">0011-post4-beautiful-sound.png</a></li><li><a href="0011-fb-series-01/OUTPUT/0011-post5-one-dua.png">0011-post5-one-dua.png</a></li><li><a href="0011-fb-series-01/OUTPUT/0011-post6-before-they-sleep.png">0011-post6-before-they-sleep.png</a></li><li><a href="0011-fb-series-01/OUTPUT/4x5-original/0011-post1-mothers-prayer.png">0011-post1-mothers-prayer.png</a></li><li><a href="0011-fb-series-01/OUTPUT/4x5-original/0011-post2-first-word.png">0011-post2-first-word.png</a></li><li><a href="0011-fb-series-01/OUTPUT/4x5-original/0011-post3-true-success.png">0011-post3-true-success.png</a></li><li><a href="0011-fb-series-01/OUTPUT/4x5-original/0011-post4-beautiful-sound.png">0011-post4-beautiful-sound.png</a></li><li><a href="0011-fb-series-01/OUTPUT/4x5-original/0011-post5-one-dua.png">0011-post5-one-dua.png</a></li><li><a href="0011-fb-series-01/OUTPUT/4x5-original/0011-post6-before-they-sleep.png">0011-post6-before-they-sleep.png</a></li><li><a href="0011-fb-series-01/OUTPUT/carousel/0011-slide1-cover.png">0011-slide1-cover.png</a></li><li><a href="0011-fb-series-01/OUTPUT/carousel/0011-slide2-mothers-prayer.png">0011-slide2-mothers-prayer.png</a></li><li><a href="0011-fb-series-01/OUTPUT/carousel/0011-slide3-first-word.png">0011-slide3-first-word.png</a></li><li><a href="0011-fb-series-01/OUTPUT/carousel/0011-slide4-true-success.png">0011-slide4-true-success.png</a></li><li><a href="0011-fb-series-01/OUTPUT/carousel/0011-slide5-beautiful-sound.png">0011-slide5-beautiful-sound.png</a></li><li><a href="0011-fb-series-01/OUTPUT/carousel/0011-slide6-one-dua.png">0011-slide6-one-dua.png</a></li><li><a href="0011-fb-series-01/OUTPUT/carousel/0011-slide7-before-they-sleep.png">0011-slide7-before-they-sleep.png</a></li><li><a href="0011-fb-series-01/OUTPUT/carousel/0011-slide8-cta.png">0011-slide8-cta.png</a></li><li><a href="0011-fb-series-01/OUTPUT/instagram-4x5/0011-post1-mothers-prayer.png">0011-post1-mothers-prayer.png</a></li><li><a href="0011-fb-series-01/OUTPUT/instagram-4x5/0011-post2-first-word.png">0011-post2-first-word.png</a></li><li><a href="0011-fb-series-01/OUTPUT/instagram-4x5/0011-post3-true-success.png">0011-post3-true-success.png</a></li><li><a href="0011-fb-series-01/OUTPUT/instagram-4x5/0011-post4-beautiful-sound.png">0011-post4-beautiful-sound.png</a></li><li><a href="0011-fb-series-01/OUTPUT/instagram-4x5/0011-post5-one-dua.png">0011-post5-one-dua.png</a></li><li><a href="0011-fb-series-01/OUTPUT/instagram-4x5/0011-post6-before-they-sleep.png">0011-post6-before-they-sleep.png</a></li></ul></details>
-</article><article class="card" data-status="published" data-type="image-set"
+</article><article class="card" id="p0012"
+   data-status="published" data-type="image-set"
    data-ed="0" data-vi="0" data-produced="1"
    data-style="5"
    data-search="0012 fb series 02 — 6 post images image-set published style 5 — image post">
@@ -274,7 +319,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0012-fb-series-02/">folder</a><a class="btn" href="0012-fb-series-02/00-REQUEST.md">request</a><a class="btn" href="0012-fb-series-02/OUTPUT/CAPTION.md">caption</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 5 — Image Post</td></tr><tr><td>Model</td><td>nano_banana_pro</td></tr><tr><td>Cost</td><td>32 cr · $1.06</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-04</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>scheduled</td></tr></table></details>
   <details><summary>11 more files</summary><ul><li><a href="0012-fb-series-02/OUTPUT/0012-post2-seventeen-times.png">0012-post2-seventeen-times.png</a></li><li><a href="0012-fb-series-02/OUTPUT/0012-post3-fathers-voice.png">0012-post3-fathers-voice.png</a></li><li><a href="0012-fb-series-02/OUTPUT/0012-post4-big-questions.png">0012-post4-big-questions.png</a></li><li><a href="0012-fb-series-02/OUTPUT/0012-post5-five-minutes.png">0012-post5-five-minutes.png</a></li><li><a href="0012-fb-series-02/OUTPUT/0012-post6-dua-inherited.png">0012-post6-dua-inherited.png</a></li><li><a href="0012-fb-series-02/OUTPUT/4x5-original/0012-post1-screen-time.png">0012-post1-screen-time.png</a></li><li><a href="0012-fb-series-02/OUTPUT/4x5-original/0012-post2-seventeen-times.png">0012-post2-seventeen-times.png</a></li><li><a href="0012-fb-series-02/OUTPUT/4x5-original/0012-post3-fathers-voice.png">0012-post3-fathers-voice.png</a></li><li><a href="0012-fb-series-02/OUTPUT/4x5-original/0012-post4-big-questions.png">0012-post4-big-questions.png</a></li><li><a href="0012-fb-series-02/OUTPUT/4x5-original/0012-post5-five-minutes.png">0012-post5-five-minutes.png</a></li><li><a href="0012-fb-series-02/OUTPUT/4x5-original/0012-post6-dua-inherited.png">0012-post6-dua-inherited.png</a></li></ul></details>
-</article><article class="card" data-status="published" data-type="image-set"
+</article><article class="card" id="p0013"
+   data-status="published" data-type="image-set"
    data-ed="0" data-vi="0" data-produced="1"
    data-style="5"
    data-search="0013 fb series 03 — 6 post images image-set published style 5 — image post">
@@ -288,7 +334,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0013-fb-series-03/">folder</a><a class="btn" href="0013-fb-series-03/00-REQUEST.md">request</a><a class="btn" href="0013-fb-series-03/OUTPUT/CAPTION.md">caption</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 5 — Image Post</td></tr><tr><td>Model</td><td>nano_banana_pro</td></tr><tr><td>Cost</td><td>12 cr · $0.40</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-04</td></tr><tr><td>First published</td><td>2026-08-04</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-04</td></tr></table></details>
   <details><summary>5 more files</summary><ul><li><a href="0013-fb-series-03/OUTPUT/0013-post2-right-age.png">0013-post2-right-age.png</a></li><li><a href="0013-fb-series-03/OUTPUT/0013-post3-children-copy.png">0013-post3-children-copy.png</a></li><li><a href="0013-fb-series-03/OUTPUT/0013-post4-language-of-quran.png">0013-post4-language-of-quran.png</a></li><li><a href="0013-fb-series-03/OUTPUT/0013-post5-more-than-memorization.png">0013-post5-more-than-memorization.png</a></li><li><a href="0013-fb-series-03/OUTPUT/0013-post6-too-shy.png">0013-post6-too-shy.png</a></li></ul></details>
-</article><article class="card" data-status="published" data-type="video"
+</article><article class="card" id="p0014"
+   data-status="published" data-type="video"
    data-ed="5" data-vi="0" data-produced="1"
    data-style="1"
    data-search="0014 the most beautiful sound video published style 1 — cinematic reverent">
@@ -302,7 +349,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0014-most-beautiful-sound/">folder</a><a class="btn" href="0014-most-beautiful-sound/00-REQUEST.md">request</a><a class="btn" href="0014-most-beautiful-sound/OUTPUT/CAPTION.md">caption</a><a class="btn" href="0014-most-beautiful-sound/01-NOTES.md">notes</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 1 — Cinematic Reverent</td></tr><tr><td>Model</td><td>nano_banana_pro (stills) + veo3_1 fast</td></tr><tr><td>Cost</td><td>168 cr · $5.54</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-05</td></tr><tr><td>First published</td><td>2026-08-13</td></tr><tr><td>Editor rating</td><td>★★★★★ 5/5</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-13</td></tr><tr><td>Instagram</td><td>2026-08-13</td></tr></table></details>
   
-</article><article class="card" data-status="published" data-type="image-set"
+</article><article class="card" id="p0015"
+   data-status="published" data-type="image-set"
    data-ed="0" data-vi="2" data-produced="1"
    data-style="5"
    data-search="0015 islamic moments at home — 10 post images image-set published style 5 — image post">
@@ -316,7 +364,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0015-islamic-moments-at-home/">folder</a><a class="btn" href="0015-islamic-moments-at-home/00-REQUEST.md">request</a><a class="btn" href="0015-islamic-moments-at-home/OUTPUT/CAPTION.md">caption</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 5 — Image Post</td></tr><tr><td>Model</td><td>nano_banana_pro</td></tr><tr><td>Cost</td><td>20 cr · $0.66</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-08</td></tr><tr><td>First published</td><td>2026-08-11</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>★★☆☆☆ 2/5</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-11</td></tr><tr><td>Instagram</td><td>scheduled</td></tr></table></details>
   <details><summary>9 more files</summary><ul><li><a href="0015-islamic-moments-at-home/OUTPUT/0015-post10-quran-at-dawn.png">0015-post10-quran-at-dawn.png</a></li><li><a href="0015-islamic-moments-at-home/OUTPUT/0015-post2-bismillah-dinner.png">0015-post2-bismillah-dinner.png</a></li><li><a href="0015-islamic-moments-at-home/OUTPUT/0015-post3-father-alfatihah.png">0015-post3-father-alfatihah.png</a></li><li><a href="0015-islamic-moments-at-home/OUTPUT/0015-post4-mother-daughter-quran.png">0015-post4-mother-daughter-quran.png</a></li><li><a href="0015-islamic-moments-at-home/OUTPUT/0015-post5-learning-to-pray.png">0015-post5-learning-to-pray.png</a></li><li><a href="0015-islamic-moments-at-home/OUTPUT/0015-post6-family-dua.png">0015-post6-family-dua.png</a></li><li><a href="0015-islamic-moments-at-home/OUTPUT/0015-post7-quran-before-school.png">0015-post7-quran-before-school.png</a></li><li><a href="0015-islamic-moments-at-home/OUTPUT/0015-post8-grandfathers-stories.png">0015-post8-grandfathers-stories.png</a></li><li><a href="0015-islamic-moments-at-home/OUTPUT/0015-post9-friday-preparation.png">0015-post9-friday-preparation.png</a></li></ul></details>
-</article><article class="card" data-status="published" data-type="video"
+</article><article class="card" id="p0016"
+   data-status="published" data-type="video"
    data-ed="0" data-vi="5" data-produced="1"
    data-style="3"
    data-search="0016 rabbi irhamhuma (johra) video published style 3 — dua teaching">
@@ -330,7 +379,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0016-rabbi-irhamhuma-johra/">folder</a><a class="btn" href="0016-rabbi-irhamhuma-johra/00-REQUEST.md">request</a><a class="btn" href="0016-rabbi-irhamhuma-johra/OUTPUT/CAPTION.md">caption</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 3 — Dua Teaching</td></tr><tr><td>Model</td><td>nano_banana_pro (still) + veo3_1 fast</td></tr><tr><td>Cost</td><td>24 cr · $0.79</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-08</td></tr><tr><td>First published</td><td>2026-08-08</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>★★★★★ 5/5</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-08</td></tr><tr><td>Instagram</td><td>2026-08-08</td></tr><tr><td>TikTok</td><td>2026-08-08</td></tr></table></details>
   
-</article><article class="card" data-status="published" data-type="watermark"
+</article><article class="card" id="p0017"
+   data-status="published" data-type="watermark"
    data-ed="5" data-vi="5" data-produced="1"
    data-style="4"
    data-search="0017 children learning arabic watermark published style 4 — animated nasheed">
@@ -344,7 +394,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0017-children-learning-arabic/">folder</a><a class="btn" href="0017-children-learning-arabic/00-REQUEST.md">request</a><a class="btn" href="0017-children-learning-arabic/OUTPUT/CAPTION.md">caption</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 4 — Animated Nasheed</td></tr><tr><td>Model</td><td>supplied clip — local watermark only</td></tr><tr><td>Cost</td><td>local only — no credits</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-09</td></tr><tr><td>First published</td><td>2026-08-09</td></tr><tr><td>Editor rating</td><td>★★★★★ 5/5</td></tr><tr><td>Visitor reactions</td><td>★★★★★ 5/5</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-09</td></tr><tr><td>Instagram</td><td>2026-08-09</td></tr><tr><td>TikTok</td><td>2026-08-09</td></tr><tr><td>YouTube</td><td>2026-08-09</td></tr></table></details>
   
-</article><article class="card" data-status="published" data-type="watermark"
+</article><article class="card" id="p0018"
+   data-status="published" data-type="watermark"
    data-ed="5" data-vi="5" data-produced="1"
    data-style="4"
    data-search="0018 wake up and thank allah watermark published style 4 — animated nasheed">
@@ -358,7 +409,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0018-wake-up-and-thank-allah/">folder</a><a class="btn" href="0018-wake-up-and-thank-allah/00-REQUEST.md">request</a><a class="btn" href="0018-wake-up-and-thank-allah/OUTPUT/CAPTION.md">caption</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 4 — Animated Nasheed</td></tr><tr><td>Model</td><td>supplied clip — local watermark only</td></tr><tr><td>Cost</td><td>local only — no credits</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-09</td></tr><tr><td>First published</td><td>2026-08-09</td></tr><tr><td>Editor rating</td><td>★★★★★ 5/5</td></tr><tr><td>Visitor reactions</td><td>★★★★★ 5/5</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-09</td></tr><tr><td>Instagram</td><td>2026-08-09</td></tr><tr><td>TikTok</td><td>2026-08-09</td></tr><tr><td>YouTube</td><td>2026-08-09</td></tr></table></details>
   
-</article><article class="card" data-status="published" data-type="watermark"
+</article><article class="card" id="p0019"
+   data-status="published" data-type="watermark"
    data-ed="5" data-vi="0" data-produced="1"
    data-style="4"
    data-search="0019 bismillah before we eat watermark published style 4 — animated nasheed">
@@ -372,7 +424,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0019-bismillah-before-we-eat/">folder</a><a class="btn" href="0019-bismillah-before-we-eat/00-REQUEST.md">request</a><a class="btn" href="0019-bismillah-before-we-eat/OUTPUT/CAPTION.md">caption</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 4 — Animated Nasheed</td></tr><tr><td>Model</td><td>supplied clip — local watermark only</td></tr><tr><td>Cost</td><td>local only — no credits</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-09</td></tr><tr><td>First published</td><td>2026-08-09</td></tr><tr><td>Editor rating</td><td>★★★★★ 5/5</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-09</td></tr><tr><td>Instagram</td><td>2026-08-09</td></tr><tr><td>TikTok</td><td>2026-08-09</td></tr><tr><td>YouTube</td><td>2026-08-09</td></tr></table></details>
   
-</article><article class="card" data-status="published" data-type="watermark"
+</article><article class="card" id="p0020"
+   data-status="published" data-type="watermark"
    data-ed="5" data-vi="0" data-produced="1"
    data-style="4"
    data-search="0020 thank you, allah — nasheed verses 1-3 watermark published style 4 — animated nasheed">
@@ -386,7 +439,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0020-thank-you-allah-nasheed/">folder</a><a class="btn" href="0020-thank-you-allah-nasheed/00-REQUEST.md">request</a><a class="btn" href="0020-thank-you-allah-nasheed/OUTPUT/CAPTION.md">caption</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 4 — Animated Nasheed</td></tr><tr><td>Model</td><td>supplied clip — local watermark only</td></tr><tr><td>Cost</td><td>local only — no credits</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-10</td></tr><tr><td>First published</td><td>2026-08-13</td></tr><tr><td>Editor rating</td><td>★★★★★ 5/5</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-13</td></tr><tr><td>Instagram</td><td>2026-08-13</td></tr></table></details>
   <details><summary>2 more files</summary><ul><li><a href="0020-thank-you-allah-nasheed/OUTPUT/0020-verse2-park-9x16.mp4">0020-verse2-park-9x16.mp4</a></li><li><a href="0020-thank-you-allah-nasheed/OUTPUT/0020-verse3-evening-9x16.mp4">0020-verse3-evening-9x16.mp4</a></li></ul></details>
-</article><article class="card" data-status="published" data-type="video"
+</article><article class="card" id="p0021"
+   data-status="published" data-type="video"
    data-ed="4" data-vi="0" data-produced="1"
    data-style="2"
    data-search="0021 wudu together video published style 2 — quiet observational">
@@ -400,7 +454,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0021-wudu-together/">folder</a><a class="btn" href="0021-wudu-together/00-REQUEST.md">request</a><a class="btn" href="0021-wudu-together/OUTPUT/CAPTION.md">caption</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 2 — Quiet Observational</td></tr><tr><td>Model</td><td>nano_banana_pro + veo3_1 fast</td></tr><tr><td>Cost</td><td>68 cr · $2.24</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>2026-08-11</td></tr><tr><td>First published</td><td>2026-08-11</td></tr><tr><td>Editor rating</td><td>★★★★☆ 4/5</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-11</td></tr><tr><td>Instagram</td><td>2026-08-11</td></tr><tr><td>TikTok</td><td>2026-08-11</td></tr><tr><td>YouTube</td><td>2026-08-11</td></tr></table></details>
   
-</article><article class="card" data-status="parked" data-type="video"
+</article><article class="card" id="p0022"
+   data-status="parked" data-type="video"
    data-ed="2" data-vi="0" data-produced="1"
    data-style="1"
    data-search="0022 lā ḥawla wa lā quwwata illā billāh video parked style 1 — cinematic reverent">
@@ -414,7 +469,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0022-la-hawla/">folder</a><a class="btn" href="0022-la-hawla/00-REQUEST.md">request</a><a class="btn" href="0022-la-hawla/OUTPUT/CAPTION.md">caption</a><a class="btn" href="0022-la-hawla/01-NOTES.md">notes</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 1 — Cinematic Reverent</td></tr><tr><td>Model</td><td>nano_banana_pro + veo3_1 fast + seed_audio (Emmett VO)</td></tr><tr><td>Cost</td><td>231 cr · $7.62</td></tr><tr><td>Requested</td><td>2026-08-11</td></tr><tr><td>Produced</td><td>2026-08-11</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>★★☆☆☆ 2/5</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   
-</article><article class="card" data-status="requested" data-type="program"
+</article><article class="card" id="p0023"
+   data-status="requested" data-type="program"
    data-ed="0" data-vi="0" data-produced="0"
    data-style="0"
    data-search="0023 rhyme series program requested unstyled">
@@ -428,7 +484,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0023-rhyme-series/">folder</a><a class="btn" href="0023-rhyme-series/00-REQUEST.md">request</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>unstyled</td></tr><tr><td>Model</td><td>—</td></tr><tr><td>Cost</td><td>local only — no credits</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>—</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   
-</article><article class="card" data-status="parked" data-type="video"
+</article><article class="card" id="p0024"
+   data-status="parked" data-type="video"
    data-ed="1" data-vi="0" data-produced="1"
    data-style="7"
    data-search="0024 alif, baa, taa adventure video parked style 7 — photoreal sing-along">
@@ -442,7 +499,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0024-alif-baa-taa-adventure/">folder</a><a class="btn" href="0024-alif-baa-taa-adventure/00-REQUEST.md">request</a><a class="btn" href="0024-alif-baa-taa-adventure/OUTPUT/CAPTION.md">caption</a><a class="btn" href="0024-alif-baa-taa-adventure/01-NOTES.md">notes</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 7 — Photoreal Sing-Along</td></tr><tr><td>Model</td><td>nano_banana_pro + veo-3-1-fast + seed_audio (Juno)</td></tr><tr><td>Cost</td><td>215 cr · $7.10</td></tr><tr><td>Requested</td><td>2026-08-12</td></tr><tr><td>Produced</td><td>2026-08-12</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>★☆☆☆☆ 1/5</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   
-</article><article class="card" data-status="requested" data-type="video"
+</article><article class="card" id="p0025"
+   data-status="requested" data-type="video"
    data-ed="0" data-vi="0" data-produced="0"
    data-style="0"
    data-search="0025 little muslim, big heart video requested unstyled">
@@ -456,7 +514,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0025-little-muslim-big-heart/">folder</a><a class="btn" href="0025-little-muslim-big-heart/00-REQUEST.md">request</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>unstyled</td></tr><tr><td>Model</td><td>—</td></tr><tr><td>Cost</td><td>local only — no credits</td></tr><tr><td>Requested</td><td>—</td></tr><tr><td>Produced</td><td>—</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   
-</article><article class="card" data-status="delivered" data-type="image-set"
+</article><article class="card" id="p0026"
+   data-status="delivered" data-type="image-set"
    data-ed="0" data-vi="0" data-produced="1"
    data-style="0"
    data-search="0026 allah made everything image-set delivered unstyled">
@@ -470,7 +529,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0026-allah-made-everything/">folder</a><a class="btn" href="0026-allah-made-everything/00-REQUEST.md">request</a><a class="btn" href="0026-allah-made-everything/01-NOTES.md">notes</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>unstyled</td></tr><tr><td>Model</td><td>nano_banana_pro</td></tr><tr><td>Cost</td><td>4 cr · $0.13</td></tr><tr><td>Requested</td><td>2026-08-12</td></tr><tr><td>Produced</td><td>2026-08-12</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   
-</article><article class="card" data-status="published" data-type="image-set"
+</article><article class="card" id="p0027"
+   data-status="published" data-type="image-set"
    data-ed="4" data-vi="0" data-produced="1"
    data-style="5"
    data-search="0027 allah made everything (post image) image-set published style 5 — image post">
@@ -484,7 +544,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0027-allah-made-everything-post-image/">folder</a><a class="btn" href="0027-allah-made-everything-post-image/00-REQUEST.md">request</a><a class="btn" href="0027-allah-made-everything-post-image/OUTPUT/CAPTION.md">caption</a><a class="btn" href="0027-allah-made-everything-post-image/01-NOTES.md">notes</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 5 — Image Post</td></tr><tr><td>Model</td><td>nano_banana_pro</td></tr><tr><td>Cost</td><td>4 cr · $0.13</td></tr><tr><td>Requested</td><td>2026-08-12</td></tr><tr><td>Produced</td><td>2026-08-12</td></tr><tr><td>First published</td><td>2026-08-12</td></tr><tr><td>Editor rating</td><td>★★★★☆ 4/5</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-12</td></tr><tr><td>Instagram</td><td>2026-08-12</td></tr></table></details>
   <details><summary>5 more files</summary><ul><li><a href="0027-allah-made-everything-post-image/OUTPUT/0027-allah-made-everything-2x3.png">0027-allah-made-everything-2x3.png</a></li><li><a href="0027-allah-made-everything-post-image/OUTPUT/0027-allah-made-everything-4x5.png">0027-allah-made-everything-4x5.png</a></li><li><a href="0027-allah-made-everything-post-image/OUTPUT/0027-allah-made-everything-9x16.png">0027-allah-made-everything-9x16.png</a></li><li><a href="0027-allah-made-everything-post-image/OUTPUT/0027-allah-made-everything-clean-1x1-4k.png">0027-allah-made-everything-clean-1x1-4k.png</a></li><li><a href="0027-allah-made-everything-post-image/OUTPUT/0027-allah-made-everything-titled-1x1-4k.png">0027-allah-made-everything-titled-1x1-4k.png</a></li></ul></details>
-</article><article class="card" data-status="published" data-type="image-set"
+</article><article class="card" id="p0028"
+   data-status="published" data-type="image-set"
    data-ed="4" data-vi="0" data-produced="1"
    data-style="5"
    data-search="0028 thank you, allah image-set published style 5 — image post">
@@ -498,7 +559,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0028-thank-you-allah/">folder</a><a class="btn" href="0028-thank-you-allah/00-REQUEST.md">request</a><a class="btn" href="0028-thank-you-allah/OUTPUT/CAPTION.md">caption</a><a class="btn" href="0028-thank-you-allah/01-NOTES.md">notes</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 5 — Image Post</td></tr><tr><td>Model</td><td>nano_banana_pro</td></tr><tr><td>Cost</td><td>4 cr · $0.13</td></tr><tr><td>Requested</td><td>2026-08-12</td></tr><tr><td>Produced</td><td>2026-08-12</td></tr><tr><td>First published</td><td>2026-08-12</td></tr><tr><td>Editor rating</td><td>★★★★☆ 4/5</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-12</td></tr><tr><td>Instagram</td><td>2026-08-12</td></tr></table></details>
   <details><summary>5 more files</summary><ul><li><a href="0028-thank-you-allah/OUTPUT/0028-thank-you-allah-1x1.png">0028-thank-you-allah-1x1.png</a></li><li><a href="0028-thank-you-allah/OUTPUT/0028-thank-you-allah-2x3.png">0028-thank-you-allah-2x3.png</a></li><li><a href="0028-thank-you-allah/OUTPUT/0028-thank-you-allah-4x5.png">0028-thank-you-allah-4x5.png</a></li><li><a href="0028-thank-you-allah/OUTPUT/0028-thank-you-allah-9x16.png">0028-thank-you-allah-9x16.png</a></li><li><a href="0028-thank-you-allah/OUTPUT/0028-thank-you-allah-clean-1x1-4k.png">0028-thank-you-allah-clean-1x1-4k.png</a></li></ul></details>
-</article><article class="card" data-status="published" data-type="image-set"
+</article><article class="card" id="p0029"
+   data-status="published" data-type="image-set"
    data-ed="4" data-vi="0" data-produced="1"
    data-style="5"
    data-search="0029 allah loves when i do good image-set published style 5 — image post">
@@ -512,7 +574,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0029-allah-loves-when-i-do-good/">folder</a><a class="btn" href="0029-allah-loves-when-i-do-good/00-REQUEST.md">request</a><a class="btn" href="0029-allah-loves-when-i-do-good/OUTPUT/CAPTION.md">caption</a><a class="btn" href="0029-allah-loves-when-i-do-good/01-NOTES.md">notes</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 5 — Image Post</td></tr><tr><td>Model</td><td>nano_banana_pro</td></tr><tr><td>Cost</td><td>4 cr · $0.13</td></tr><tr><td>Requested</td><td>2026-08-12</td></tr><tr><td>Produced</td><td>2026-08-12</td></tr><tr><td>First published</td><td>2026-08-12</td></tr><tr><td>Editor rating</td><td>★★★★☆ 4/5</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-12</td></tr><tr><td>Instagram</td><td>2026-08-12</td></tr></table></details>
   <details><summary>5 more files</summary><ul><li><a href="0029-allah-loves-when-i-do-good/OUTPUT/0029-allah-loves-when-i-do-good-1x1.png">0029-allah-loves-when-i-do-good-1x1.png</a></li><li><a href="0029-allah-loves-when-i-do-good/OUTPUT/0029-allah-loves-when-i-do-good-2x3.png">0029-allah-loves-when-i-do-good-2x3.png</a></li><li><a href="0029-allah-loves-when-i-do-good/OUTPUT/0029-allah-loves-when-i-do-good-4x5.png">0029-allah-loves-when-i-do-good-4x5.png</a></li><li><a href="0029-allah-loves-when-i-do-good/OUTPUT/0029-allah-loves-when-i-do-good-9x16.png">0029-allah-loves-when-i-do-good-9x16.png</a></li><li><a href="0029-allah-loves-when-i-do-good/OUTPUT/0029-allah-loves-when-i-do-good-clean-1x1-4k.png">0029-allah-loves-when-i-do-good-clean-1x1-4k.png</a></li></ul></details>
-</article><article class="card" data-status="published" data-type="image-set"
+</article><article class="card" id="p0030"
+   data-status="published" data-type="image-set"
    data-ed="4" data-vi="0" data-produced="1"
    data-style="5"
    data-search="0030 bismillah before i begin image-set published style 5 — image post">
@@ -526,7 +589,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0030-bismillah-before-i-begin/">folder</a><a class="btn" href="0030-bismillah-before-i-begin/00-REQUEST.md">request</a><a class="btn" href="0030-bismillah-before-i-begin/OUTPUT/CAPTION.md">caption</a><a class="btn" href="0030-bismillah-before-i-begin/01-NOTES.md">notes</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 5 — Image Post</td></tr><tr><td>Model</td><td>nano_banana_pro</td></tr><tr><td>Cost</td><td>4 cr · $0.13</td></tr><tr><td>Requested</td><td>2026-08-12</td></tr><tr><td>Produced</td><td>2026-08-12</td></tr><tr><td>First published</td><td>2026-08-12</td></tr><tr><td>Editor rating</td><td>★★★★☆ 4/5</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-12</td></tr><tr><td>Instagram</td><td>2026-08-12</td></tr></table></details>
   <details><summary>5 more files</summary><ul><li><a href="0030-bismillah-before-i-begin/OUTPUT/0030-bismillah-before-i-begin-1x1.png">0030-bismillah-before-i-begin-1x1.png</a></li><li><a href="0030-bismillah-before-i-begin/OUTPUT/0030-bismillah-before-i-begin-2x3.png">0030-bismillah-before-i-begin-2x3.png</a></li><li><a href="0030-bismillah-before-i-begin/OUTPUT/0030-bismillah-before-i-begin-4x5.png">0030-bismillah-before-i-begin-4x5.png</a></li><li><a href="0030-bismillah-before-i-begin/OUTPUT/0030-bismillah-before-i-begin-9x16.png">0030-bismillah-before-i-begin-9x16.png</a></li><li><a href="0030-bismillah-before-i-begin/OUTPUT/0030-bismillah-before-i-begin-clean-1x1-4k.png">0030-bismillah-before-i-begin-clean-1x1-4k.png</a></li></ul></details>
-</article><article class="card" data-status="published" data-type="image-set"
+</article><article class="card" id="p0031"
+   data-status="published" data-type="image-set"
    data-ed="4" data-vi="0" data-produced="1"
    data-style="5"
    data-search="0031 alhamdulillah every day image-set published style 5 — image post">
@@ -540,7 +604,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0031-alhamdulillah-every-day/">folder</a><a class="btn" href="0031-alhamdulillah-every-day/00-REQUEST.md">request</a><a class="btn" href="0031-alhamdulillah-every-day/OUTPUT/CAPTION.md">caption</a><a class="btn" href="0031-alhamdulillah-every-day/01-NOTES.md">notes</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 5 — Image Post</td></tr><tr><td>Model</td><td>nano_banana_pro</td></tr><tr><td>Cost</td><td>4 cr · $0.13</td></tr><tr><td>Requested</td><td>2026-08-12</td></tr><tr><td>Produced</td><td>2026-08-12</td></tr><tr><td>First published</td><td>2026-08-12</td></tr><tr><td>Editor rating</td><td>★★★★☆ 4/5</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-12</td></tr><tr><td>Instagram</td><td>2026-08-12</td></tr></table></details>
   <details><summary>5 more files</summary><ul><li><a href="0031-alhamdulillah-every-day/OUTPUT/0031-alhamdulillah-every-day-1x1.png">0031-alhamdulillah-every-day-1x1.png</a></li><li><a href="0031-alhamdulillah-every-day/OUTPUT/0031-alhamdulillah-every-day-2x3.png">0031-alhamdulillah-every-day-2x3.png</a></li><li><a href="0031-alhamdulillah-every-day/OUTPUT/0031-alhamdulillah-every-day-4x5.png">0031-alhamdulillah-every-day-4x5.png</a></li><li><a href="0031-alhamdulillah-every-day/OUTPUT/0031-alhamdulillah-every-day-9x16.png">0031-alhamdulillah-every-day-9x16.png</a></li><li><a href="0031-alhamdulillah-every-day/OUTPUT/0031-alhamdulillah-every-day-clean-1x1-4k.png">0031-alhamdulillah-every-day-clean-1x1-4k.png</a></li></ul></details>
-</article><article class="card" data-status="published" data-type="image-set"
+</article><article class="card" id="p0032"
+   data-status="published" data-type="image-set"
    data-ed="4" data-vi="0" data-produced="1"
    data-style="5"
    data-search="0032 subhanallah, look around image-set published style 5 — image post">
@@ -554,7 +619,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0032-subhanallah-look-around/">folder</a><a class="btn" href="0032-subhanallah-look-around/00-REQUEST.md">request</a><a class="btn" href="0032-subhanallah-look-around/OUTPUT/CAPTION.md">caption</a><a class="btn" href="0032-subhanallah-look-around/01-NOTES.md">notes</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>Style 5 — Image Post</td></tr><tr><td>Model</td><td>nano_banana_pro</td></tr><tr><td>Cost</td><td>4 cr · $0.13</td></tr><tr><td>Requested</td><td>2026-08-12</td></tr><tr><td>Produced</td><td>2026-08-12</td></tr><tr><td>First published</td><td>2026-08-12</td></tr><tr><td>Editor rating</td><td>★★★★☆ 4/5</td></tr><tr><td>Visitor reactions</td><td>not rated</td></tr><tr><th colspan=2>Published</th></tr><tr><td>Facebook</td><td>2026-08-12</td></tr><tr><td>Instagram</td><td>2026-08-12</td></tr></table></details>
   <details><summary>5 more files</summary><ul><li><a href="0032-subhanallah-look-around/OUTPUT/0032-subhanallah-look-around-1x1.png">0032-subhanallah-look-around-1x1.png</a></li><li><a href="0032-subhanallah-look-around/OUTPUT/0032-subhanallah-look-around-2x3.png">0032-subhanallah-look-around-2x3.png</a></li><li><a href="0032-subhanallah-look-around/OUTPUT/0032-subhanallah-look-around-4x5.png">0032-subhanallah-look-around-4x5.png</a></li><li><a href="0032-subhanallah-look-around/OUTPUT/0032-subhanallah-look-around-9x16.png">0032-subhanallah-look-around-9x16.png</a></li><li><a href="0032-subhanallah-look-around/OUTPUT/0032-subhanallah-look-around-clean-1x1-4k.png">0032-subhanallah-look-around-clean-1x1-4k.png</a></li></ul></details>
-</article><article class="card" data-status="parked" data-type="video"
+</article><article class="card" id="p0033"
+   data-status="parked" data-type="video"
    data-ed="0" data-vi="0" data-produced="1"
    data-style="0"
    data-search="0033 alif baa taa rhyme (10s sung test) video parked unstyled">
@@ -568,7 +634,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0033-alif-baa-taa-rhyme-10s-sung-test/">folder</a><a class="btn" href="0033-alif-baa-taa-rhyme-10s-sung-test/00-REQUEST.md">request</a><a class="btn" href="0033-alif-baa-taa-rhyme-10s-sung-test/01-NOTES.md">notes</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>unstyled</td></tr><tr><td>Model</td><td>nano_banana_pro + veo3_1 fast (veo-sung audio)</td></tr><tr><td>Cost</td><td>26 cr · $0.86</td></tr><tr><td>Requested</td><td>2026-08-13</td></tr><tr><td>Produced</td><td>2026-08-13</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   
-</article><article class="card" data-status="parked" data-type="video"
+</article><article class="card" id="p0034"
+   data-status="parked" data-type="video"
    data-ed="0" data-vi="0" data-produced="1"
    data-style="0"
    data-search="0034 alif cocomelon 10s (omni flash) video parked unstyled">
@@ -582,7 +649,8 @@ details a{color:var(--fg)}
   <nav><a class="btn" href="0034-alif-cocomelon-10s-omni-flash/">folder</a><a class="btn" href="0034-alif-cocomelon-10s-omni-flash/00-REQUEST.md">request</a><a class="btn" href="0034-alif-cocomelon-10s-omni-flash/01-NOTES.md">notes</a></nav>
   <details class='det'><summary>details</summary><table><tr><td>Style</td><td>unstyled</td></tr><tr><td>Model</td><td>gemini_omni (Gemini Omni Flash)</td></tr><tr><td>Cost</td><td>90 cr · $2.97</td></tr><tr><td>Requested</td><td>2026-08-13</td></tr><tr><td>Produced</td><td>2026-08-13</td></tr><tr><td>First published</td><td>—</td></tr><tr><td>Editor rating</td><td>not rated</td></tr><tr><td>Visitor reactions</td><td>n/a — not published</td></tr></table></details>
   
-</article><article class="card" data-status="delivered" data-type="video"
+</article><article class="card" id="p0035"
+   data-status="delivered" data-type="video"
    data-ed="4" data-vi="0" data-produced="1"
    data-style="0"
    data-search="0035 alif baa taa full rhyme (cocomelon, 50-60s) video delivered unstyled">
@@ -599,10 +667,297 @@ details a{color:var(--fg)}
 </article>
 <p id="none">Nothing matches.</p>
 </main>
+</div>
+
+<section id="ideas">
+  <header class="shead">
+    <h2>Ideas</h2>
+    <div class="sub">30 proposals · 30 proposed<br>
+      None approved yet — nothing here has been built or spent on. An idea is not a request: nothing is built until you approve it.
+      <a href="../ideas/INDEX.md">index.md</a> ·
+      <a href="../ideas/IDEA-STANDARD.md">standard</a></div>
+  </header>
+  <div class="ifilters" id="ifilters">
+    <button class="on" data-if="all" data-iv="">all</button>
+    <button data-if="istatus" data-iv="proposed">proposed</button><button data-if="igate" data-iv="1">needs sign-off</button>
+  </div>
+  <h3 class="sgroup">A — You&#x27;re Already Teaching Them</h3><div class="igrid"><article class="icard" data-istatus="proposed"
+   data-igate="0"
+   data-isearch="i001 you&#x27;re already teaching them proposed a — you&#x27;re already teaching them you think you&#x27;re not teaching your child deen.">
+  <header><span class="num">I001</span>
+    <h3>You&#x27;re Already Teaching Them</h3></header>
+  <p class="hook">You think you&#x27;re not teaching your child deen.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  
+  <nav><a class="btn" href="../ideas/I001-youre-already-teaching-them.md">open</a></nav>
+</article><article class="icard" data-istatus="proposed"
+   data-igate="0"
+   data-isearch="i002 the four words that teach tawakkul proposed a — you&#x27;re already teaching them your child learns tawakkul from four words. you already say three of them.">
+  <header><span class="num">I002</span>
+    <h3>The Four Words That Teach Tawakkul</h3></header>
+  <p class="hook">Your child learns tawakkul from four words. You already say three of them.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  
+  <nav><a class="btn" href="../ideas/I002-the-four-words-that-teach-tawakkul.md">open</a></nav>
+</article><article class="icard" data-istatus="proposed"
+   data-igate="0"
+   data-isearch="i003 why your child tunes out at bedtime dua proposed a — you&#x27;re already teaching them your child goes limp during bedtime dua. it is not disrespect.">
+  <header><span class="num">I003</span>
+    <h3>Why Your Child Tunes Out at Bedtime Dua</h3></header>
+  <p class="hook">Your child goes limp during bedtime dua. It is not disrespect.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  
+  <nav><a class="btn" href="../ideas/I003-why-your-child-tunes-out-at-bedtime-dua.md">open</a></nav>
+</article><article class="icard" data-istatus="proposed"
+   data-igate="0"
+   data-isearch="i004 you don&#x27;t need arabic to raise an arabic reader proposed a — you&#x27;re already teaching them you cannot read arabic. you think that is your child&#x27;s ceiling.">
+  <header><span class="num">I004</span>
+    <h3>You Don&#x27;t Need Arabic to Raise an Arabic Reader</h3></header>
+  <p class="hook">You cannot read Arabic. You think that is your child&#x27;s ceiling.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  
+  <nav><a class="btn" href="../ideas/I004-you-dont-need-arabic-to-raise-an-arabic-reader.md">open</a></nav>
+</article><article class="icard" data-istatus="proposed"
+   data-igate="0"
+   data-isearch="i005 what you say when you&#x27;re angry proposed a — you&#x27;re already teaching them your child will not repeat what you taught them. they will repeat what you said when you lost your temper.">
+  <header><span class="num">I005</span>
+    <h3>What You Say When You&#x27;re Angry</h3></header>
+  <p class="hook">Your child will not repeat what you taught them. They will repeat what you said when you lost your temper.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  
+  <nav><a class="btn" href="../ideas/I005-what-you-say-when-youre-angry.md">open</a></nav>
+</article></div><h3 class="sgroup">B — The Hard Parts</h3><div class="igrid"><article class="icard" data-istatus="proposed"
+   data-igate="1"
+   data-isearch="i006 the day your child says i don&#x27;t want to pray proposed b — the hard parts one day your child will say they do not want to pray. here is what not to do.">
+  <header><span class="num">I006</span>
+    <h3>The Day Your Child Says I Don&#x27;t Want to Pray</h3></header>
+  <p class="hook">One day your child will say they do not want to pray. Here is what not to do.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  <div class="gate">needs a scholarly read before production</div>
+  <nav><a class="btn" href="../ideas/I006-the-day-your-child-says-i-dont-want-to-pray.md">open</a></nav>
+</article><article class="icard" data-istatus="proposed"
+   data-igate="1"
+   data-isearch="i007 when your child asks where allah is proposed b — the hard parts &quot;where is allah?&quot; your answer in the next ten seconds matters more than you think.">
+  <header><span class="num">I007</span>
+    <h3>When Your Child Asks Where Allah Is</h3></header>
+  <p class="hook">&quot;Where is Allah?&quot; Your answer in the next ten seconds matters more than you think.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  <div class="gate">touches aqeedah — sign off the exact script first</div>
+  <nav><a class="btn" href="../ideas/I007-when-your-child-asks-where-allah-is.md">open</a></nav>
+</article><article class="icard" data-istatus="proposed"
+   data-igate="1"
+   data-isearch="i008 they saw you skip salah proposed b — the hard parts your child saw you miss salah. they said nothing. they noticed everything.">
+  <header><span class="num">I008</span>
+    <h3>They Saw You Skip Salah</h3></header>
+  <p class="hook">Your child saw you miss salah. They said nothing. They noticed everything.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  <div class="gate">needs a scholarly read before production</div>
+  <nav><a class="btn" href="../ideas/I008-they-saw-you-skip-salah.md">open</a></nav>
+</article><article class="icard" data-istatus="proposed"
+   data-igate="0"
+   data-isearch="i009 your child lied to you proposed b — the hard parts your child looked straight at you and lied. do not start with the punishment.">
+  <header><span class="num">I009</span>
+    <h3>Your Child Lied to You</h3></header>
+  <p class="hook">Your child looked straight at you and lied. Do not start with the punishment.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  
+  <nav><a class="btn" href="../ideas/I009-your-child-lied-to-you.md">open</a></nav>
+</article><article class="icard" data-istatus="proposed"
+   data-igate="0"
+   data-isearch="i010 when someone else&#x27;s child is ahead proposed b — the hard parts another child their age has finished juz amma. yours has not. say it out loud — it stings.">
+  <header><span class="num">I010</span>
+    <h3>When Someone Else&#x27;s Child Is Ahead</h3></header>
+  <p class="hook">Another child their age has finished Juz Amma. Yours has not. Say it out loud — it stings.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  
+  <nav><a class="btn" href="../ideas/I010-when-someone-elses-child-is-ahead.md">open</a></nav>
+</article></div><h3 class="sgroup">C — Two Minutes</h3><div class="igrid"><article class="icard" data-istatus="proposed"
+   data-igate="0"
+   data-isearch="i011 two minutes at the door proposed c — two minutes the dua at the door takes eleven seconds. it changes the walk to school.">
+  <header><span class="num">I011</span>
+    <h3>Two Minutes at the Door</h3></header>
+  <p class="hook">The dua at the door takes eleven seconds. It changes the walk to school.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  
+  <nav><a class="btn" href="../ideas/I011-two-minutes-at-the-door.md">open</a></nav>
+</article><article class="icard" data-istatus="proposed"
+   data-igate="1"
+   data-isearch="i012 the car is a masjid proposed c — two minutes you spend hours a week in the car with your child. more than most weekend islamic schools.">
+  <header><span class="num">I012</span>
+    <h3>The Car Is a Masjid</h3></header>
+  <p class="hook">You spend hours a week in the car with your child. More than most weekend Islamic schools.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  <div class="gate">carries a claim that must be verified</div>
+  <nav><a class="btn" href="../ideas/I012-the-car-is-a-masjid.md">open</a></nav>
+</article><article class="icard" data-istatus="proposed"
+   data-igate="0"
+   data-isearch="i013 one ayah, one question proposed c — two minutes dinner table. one ayah. one question. that is the whole thing.">
+  <header><span class="num">I013</span>
+    <h3>One Ayah, One Question</h3></header>
+  <p class="hook">Dinner table. One ayah. One question. That is the whole thing.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  
+  <nav><a class="btn" href="../ideas/I013-one-ayah-one-question.md">open</a></nav>
+</article><article class="icard" data-istatus="proposed"
+   data-igate="0"
+   data-isearch="i014 the bedtime rewind proposed c — two minutes three good things and one dua. ninety seconds. do it in the dark.">
+  <header><span class="num">I014</span>
+    <h3>The Bedtime Rewind</h3></header>
+  <p class="hook">Three good things and one dua. Ninety seconds. Do it in the dark.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  
+  <nav><a class="btn" href="../ideas/I014-the-bedtime-rewind.md">open</a></nav>
+</article><article class="icard" data-istatus="proposed"
+   data-igate="0"
+   data-isearch="i015 six minutes of arabic on a saturday proposed c — two minutes six minutes on a saturday beats an hour once a month. it is not close.">
+  <header><span class="num">I015</span>
+    <h3>Six Minutes of Arabic on a Saturday</h3></header>
+  <p class="hook">Six minutes on a Saturday beats an hour once a month. It is not close.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  
+  <nav><a class="btn" href="../ideas/I015-six-minutes-of-arabic-on-a-saturday.md">open</a></nav>
+</article></div><h3 class="sgroup">D — Things Nobody Told You</h3><div class="igrid"><article class="icard" data-istatus="proposed"
+   data-igate="0"
+   data-isearch="i016 memorising fast is not the goal proposed d — things nobody told you your child memorised a surah in two days. now ask them what it means.">
+  <header><span class="num">I016</span>
+    <h3>Memorising Fast Is Not the Goal</h3></header>
+  <p class="hook">Your child memorised a surah in two days. Now ask them what it means.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  
+  <nav><a class="btn" href="../ideas/I016-memorising-fast-is-not-the-goal.md">open</a></nav>
+</article><article class="icard" data-istatus="proposed"
+   data-igate="1"
+   data-isearch="i017 love before fear proposed d — things nobody told you a four-year-old who is frightened of allah is not ahead. they are hurt.">
+  <header><span class="num">I017</span>
+    <h3>Love Before Fear</h3></header>
+  <p class="hook">A four-year-old who is frightened of Allah is not ahead. They are hurt.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  <div class="gate">needs a scholarly read before production</div><div class="gate">touches aqeedah — sign off the exact script first</div><div class="gate">highest-risk idea in the set</div>
+  <nav><a class="btn" href="../ideas/I017-love-before-fear.md">open</a></nav>
+</article><article class="icard" data-istatus="proposed"
+   data-igate="0"
+   data-isearch="i018 stop correcting their tajweed at home proposed d — things nobody told you every time you correct them mid-ayah at home, they read a little less.">
+  <header><span class="num">I018</span>
+    <h3>Stop Correcting Their Tajweed at Home</h3></header>
+  <p class="hook">Every time you correct them mid-ayah at home, they read a little less.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  
+  <nav><a class="btn" href="../ideas/I018-stop-correcting-their-tajweed-at-home.md">open</a></nav>
+</article><article class="icard" data-istatus="proposed"
+   data-igate="0"
+   data-isearch="i019 reward charts have a shelf life proposed d — things nobody told you the sticker chart worked. that is the problem.">
+  <header><span class="num">I019</span>
+    <h3>Reward Charts Have a Shelf Life</h3></header>
+  <p class="hook">The sticker chart worked. That is the problem.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  
+  <nav><a class="btn" href="../ideas/I019-reward-charts-have-a-shelf-life.md">open</a></nav>
+</article><article class="icard" data-istatus="proposed"
+   data-igate="0"
+   data-isearch="i020 they copy your phone, not your lecture proposed d — things nobody told you you talked to them about deen for ten minutes. they watched you scroll for two hours.">
+  <header><span class="num">I020</span>
+    <h3>They Copy Your Phone, Not Your Lecture</h3></header>
+  <p class="hook">You talked to them about deen for ten minutes. They watched you scroll for two hours.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  
+  <nav><a class="btn" href="../ideas/I020-they-copy-your-phone-not-your-lecture.md">open</a></nav>
+</article></div><h3 class="sgroup">E — You Are Not Failing</h3><div class="igrid"><article class="icard" data-istatus="proposed"
+   data-igate="0"
+   data-isearch="i021 the mother who thinks she is failing proposed e — you are not failing you did not do qur&#x27;an time today. or yesterday. you are still not failing.">
+  <header><span class="num">I021</span>
+    <h3>The Mother Who Thinks She Is Failing</h3></header>
+  <p class="hook">You did not do Qur&#x27;an time today. Or yesterday. You are still not failing.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  
+  <nav><a class="btn" href="../ideas/I021-the-mother-who-thinks-she-is-failing.md">open</a></nav>
+</article><article class="icard" data-istatus="proposed"
+   data-igate="1"
+   data-isearch="i022 fathers: you are their first idea of mercy proposed e — you are not failing your child will meet mercy through you long before they meet it in a book.">
+  <header><span class="num">I022</span>
+    <h3>Fathers: You Are Their First Idea of Mercy</h3></header>
+  <p class="hook">Your child will meet mercy through you long before they meet it in a book.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  <div class="gate">needs a scholarly read before production</div>
+  <nav><a class="btn" href="../ideas/I022-fathers-you-are-their-first-idea-of-mercy.md">open</a></nav>
+</article><article class="icard" data-istatus="proposed"
+   data-igate="0"
+   data-isearch="i023 you are tired and it still counts proposed e — you are not failing you made dua half asleep and assumed it did not count.">
+  <header><span class="num">I023</span>
+    <h3>You Are Tired and It Still Counts</h3></header>
+  <p class="hook">You made dua half asleep and assumed it did not count.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  
+  <nav><a class="btn" href="../ideas/I023-you-are-tired-and-it-still-counts.md">open</a></nav>
+</article><article class="icard" data-istatus="proposed"
+   data-igate="0"
+   data-isearch="i024 the parent who reverted proposed e — you are not failing you came to islam at twenty-six. your child starts at four. you feel behind.">
+  <header><span class="num">I024</span>
+    <h3>The Parent Who Reverted</h3></header>
+  <p class="hook">You came to Islam at twenty-six. Your child starts at four. You feel behind.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  
+  <nav><a class="btn" href="../ideas/I024-the-parent-who-reverted.md">open</a></nav>
+</article><article class="icard" data-istatus="proposed"
+   data-igate="0"
+   data-isearch="i025 when the grandparents disagree proposed e — you are not failing your parents think you are too strict. or not strict enough. both hurt.">
+  <header><span class="num">I025</span>
+    <h3>When the Grandparents Disagree</h3></header>
+  <p class="hook">Your parents think you are too strict. Or not strict enough. Both hurt.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  
+  <nav><a class="btn" href="../ideas/I025-when-the-grandparents-disagree.md">open</a></nav>
+</article></div><h3 class="sgroup">F — Inside the Class</h3><div class="igrid"><article class="icard" data-istatus="proposed"
+   data-igate="1"
+   data-isearch="i026 what one-on-one actually looks like proposed f — inside the class you booked a trial class and have no idea what happens in it. here is the whole thing.">
+  <header><span class="num">I026</span>
+    <h3>What One-on-One Actually Looks Like</h3></header>
+  <p class="hook">You booked a trial class and have no idea what happens in it. Here is the whole thing.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  <div class="gate">this one is an ad — keep the tone honest</div>
+  <nav><a class="btn" href="../ideas/I026-what-one-on-one-actually-looks-like.md">open</a></nav>
+</article><article class="icard" data-istatus="proposed"
+   data-igate="0"
+   data-isearch="i027 why we teach the sound before the letter proposed f — inside the class most children are taught the letter&#x27;s name first. we do it the other way round.">
+  <header><span class="num">I027</span>
+    <h3>Why We Teach the Sound Before the Letter</h3></header>
+  <p class="hook">Most children are taught the letter&#x27;s name first. We do it the other way round.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  
+  <nav><a class="btn" href="../ideas/I027-why-we-teach-the-sound-before-the-letter.md">open</a></nav>
+</article><article class="icard" data-istatus="proposed"
+   data-igate="0"
+   data-isearch="i028 what changes at eight weeks proposed f — inside the class week one they can name four letters. week eight is where it gets interesting.">
+  <header><span class="num">I028</span>
+    <h3>What Changes at Eight Weeks</h3></header>
+  <p class="hook">Week one they can name four letters. Week eight is where it gets interesting.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  
+  <nav><a class="btn" href="../ideas/I028-what-changes-at-eight-weeks.md">open</a></nav>
+</article><article class="icard" data-istatus="proposed"
+   data-igate="0"
+   data-isearch="i029 the question we get every week proposed f — inside the class every week a parent asks the same thing: is my child too young to start?">
+  <header><span class="num">I029</span>
+    <h3>The Question We Get Every Week</h3></header>
+  <p class="hook">Every week a parent asks the same thing: is my child too young to start?</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  
+  <nav><a class="btn" href="../ideas/I029-the-question-we-get-every-week.md">open</a></nav>
+</article><article class="icard" data-istatus="proposed"
+   data-igate="1"
+   data-isearch="i030 what your child said in class this week proposed f — inside the class a six-year-old asked our teacher whether allah gets tired. here is what happened next.">
+  <header><span class="num">I030</span>
+    <h3>What Your Child Said in Class This Week</h3></header>
+  <p class="hook">A six-year-old asked our teacher whether Allah gets tired. Here is what happened next.</p>
+  <div class="meta"><span class="pill i-proposed">proposed</span><span class="pill sty off" title="you name the style — it is never guessed">unstyled</span></div>
+  <div class="gate">child privacy gate — written permission per episode</div>
+  <nav><a class="btn" href="../ideas/I030-what-your-child-said-in-class-this-week.md">open</a></nav>
+</article></div>
+  <p id="inone">Nothing matches.</p>
+</section>
 
 <script>
 const cards=[...document.querySelectorAll('.card')],q=document.getElementById('q'),
-      none=document.getElementById('none'),btns=[...document.querySelectorAll('button')];
+      none=document.getElementById('none'),btns=[...document.querySelectorAll('.controls button')];
 let f={key:'all',val:''};
 function apply(){
   const t=q.value.trim().toLowerCase();let n=0;
@@ -625,4 +980,33 @@ btns.forEach(b=>b.addEventListener('click',()=>{
 document.addEventListener('keydown',e=>{
   if(e.key==='/'&&document.activeElement!==q){e.preventDefault();q.focus();}
 });
+
+// Ideas section filters — kept on their own buttons and their own state so the
+// two grids never fight over one filter.
+const icards=[...document.querySelectorAll('.icard')],
+      inone=document.getElementById('inone'),
+      ifilters=document.getElementById('ifilters');
+if(ifilters){
+  const ibtns=[...ifilters.querySelectorAll('button')];
+  let g={key:'all',val:''};
+  const iapply=()=>{
+    let n=0;
+    icards.forEach(c=>{
+      const show = g.key==='all' ? true : c.dataset[g.key]===g.val;
+      c.classList.toggle('hide',!show); if(show) n++;
+    });
+    // hide a series heading whose whole group filtered out
+    document.querySelectorAll('.igrid').forEach(grid=>{
+      const any=[...grid.children].some(c=>!c.classList.contains('hide'));
+      grid.style.display=any?'':'none';
+      const h=grid.previousElementSibling;
+      if(h&&h.classList.contains('sgroup')) h.style.display=any?'':'none';
+    });
+    inone.style.display=n?'none':'block';
+  };
+  ibtns.forEach(b=>b.addEventListener('click',()=>{
+    ibtns.forEach(x=>x.classList.remove('on')); b.classList.add('on');
+    g={key:b.dataset.if,val:b.dataset.iv}; iapply();
+  }));
+}
 </script>

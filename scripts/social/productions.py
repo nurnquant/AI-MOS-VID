@@ -178,24 +178,75 @@ def intake_scan(inbox: Path) -> list[dict]:
     return jobs
 
 
+IDEA_STATUSES = ["proposed", "approved", "delivered", "published", "rejected"]
+# Gates that must not be buried inside a file nobody opens. If an idea's risk
+# section says it needs sign-off, the dashboard says so on the card.
+IDEA_GATES = [
+    ("scholarly read", "needs a scholarly read before production"),
+    # I007 asked for a teacher to sign off the script but never said "scholarly
+    # read", so it slipped the net. Match the subject too, not just one phrasing.
+    ("aqeedah", "touches aqeedah — sign off the exact script first"),
+    # generic catch-all, suppressed below when a specific gate already fired
+    ("signs off", "needs sign-off before recording"),
+    ("child privacy is a hard gate", "child privacy gate — written permission per episode"),
+    ("highest risk", "highest-risk idea in the set"),
+    ("this is an advertisement", "this one is an ad — keep the tone honest"),
+    ("do not invent a statistic", "carries a claim that must be verified"),
+]
+
+
+def load_ideas() -> list[dict]:
+    """Read the idea backlog. Read-only and failure-tolerant — the production
+    dashboard must still build if ideas/ is missing or mid-edit."""
+    reg = REPO / "ideas" / "registry.json"
+    if not reg.exists():
+        return []
+    try:
+        return json.loads(reg.read_text()).get("ideas", [])
+    except (json.JSONDecodeError, OSError):
+        return []
+
+
+def idea_detail(e: dict) -> dict:
+    """Pull the hook and any hard gates out of an idea's own file."""
+    f = REPO / "ideas" / f"{e['id']}-{e['slug']}.md"
+    out = {"hook": "", "gates": [], "file": f"../ideas/{f.name}"}
+    if not f.exists():
+        out["file"] = None
+        return out
+    text = f.read_text()
+    grab = False
+    for line in text.splitlines():
+        if line.startswith("## Hook"):
+            grab = True
+            continue
+        if grab:
+            if line.startswith("##"):
+                break
+            s = line.strip().lstrip("> ").strip()
+            if s:
+                out["hook"] = s
+                break
+    low = text.lower()
+    gates = [label for needle, label in IDEA_GATES if needle in low]
+    generic = "needs sign-off before recording"
+    if len(gates) > 1 and generic in gates:
+        gates.remove(generic)          # a specific gate already says it better
+    out["gates"] = gates
+    return out
+
+
 def idea_tally() -> list[str]:
     """Live counts from the idea backlog, so the two trees never drift apart.
 
     Kept read-only and failure-tolerant: the production index must still build
     if ideas/ has not been created yet.
     """
-    reg = REPO / "ideas" / "registry.json"
-    if not reg.exists():
-        return []
-    try:
-        ideas = json.loads(reg.read_text()).get("ideas", [])
-    except (json.JSONDecodeError, OSError):
-        return []
+    ideas = load_ideas()
     if not ideas:
         return []
-    order = ["proposed", "approved", "delivered", "published", "rejected"]
-    counts = {s: sum(1 for e in ideas if e.get("status") == s) for s in order}
-    tally = " · ".join(f"{counts[s]} {s}" for s in order if counts[s])
+    counts = {s: sum(1 for e in ideas if e.get("status") == s) for s in IDEA_STATUSES}
+    tally = " · ".join(f"{counts[s]} {s}" for s in IDEA_STATUSES if counts[s])
     linked = sum(1 for e in ideas if e.get("production"))
     out = [f"**{len(ideas)} ideas** — {tally}"]
     if linked:
@@ -304,6 +355,100 @@ def assets(folder: Path) -> dict:
     }
 
 
+def ideas_html() -> str:
+    """The Ideas section of the dashboard — the stage before a production.
+
+    Deliberately a different shape to the production cards: an idea has no
+    media to preview, so the card leads with its hook, and any hard gate is
+    shown on the card rather than left inside a file nobody opens.
+    """
+    from html import escape
+    from urllib.parse import quote
+
+    ideas = load_ideas()
+    if not ideas:
+        return ""
+
+    counts = {s: sum(1 for e in ideas if e.get("status") == s) for s in IDEA_STATUSES}
+    tally = " · ".join(f"{counts[s]} {s}" for s in IDEA_STATUSES if counts[s])
+    linked = sum(1 for e in ideas if e.get("production"))
+    gated = 0
+
+    by_series: dict[str, list[dict]] = {}
+    for e in ideas:
+        by_series.setdefault(e.get("series") or "Unfiled", []).append(e)
+
+    groups: list[str] = []
+    for series in sorted(by_series):
+        cards: list[str] = []
+        for e in sorted(by_series[series], key=lambda x: x["id"]):
+            d = idea_detail(e)
+            if d["gates"]:
+                gated += 1
+            st = e.get("status", "proposed")
+            style = e.get("style")
+            prod = e.get("production")
+
+            pills = [f'<span class="pill i-{st}">{st}</span>']
+            if style:
+                pills.append(f'<a class="pill sty" href="../library/STYLES.md"'
+                             f' title="{escape(style_label(style))}">style {style}</a>')
+            else:
+                pills.append('<span class="pill sty off"'
+                             ' title="you name the style — it is never guessed">'
+                             'unstyled</span>')
+            if prod:
+                pills.append(f'<a class="pill prod" href="#p{escape(str(prod))}"'
+                             f' title="linked production">{escape(str(prod))}</a>')
+
+            gates = "".join(
+                f'<div class="gate">{escape(g)}</div>' for g in d["gates"])
+
+            link = (f'<a class="btn" href="{quote(d["file"])}">open</a>'
+                    if d["file"] else "")
+
+            cards.append(f"""<article class="icard" data-istatus="{st}"
+   data-igate="{1 if d['gates'] else 0}"
+   data-isearch="{escape((e['id'] + ' ' + e['title'] + ' ' + st + ' ' + series
+                          + ' ' + d['hook']).lower())}">
+  <header><span class="num">{e['id']}</span>
+    <h3>{escape(e['title'])}</h3></header>
+  <p class="hook">{escape(d['hook'])}</p>
+  <div class="meta">{''.join(pills)}</div>
+  {gates}
+  <nav>{link}</nav>
+</article>""")
+
+        groups.append(f'<h3 class="sgroup">{escape(series)}</h3>'
+                      f'<div class="igrid">{"".join(cards)}</div>')
+
+    ibtns = "".join(
+        f'<button data-if="istatus" data-iv="{s}">{s}</button>'
+        for s in IDEA_STATUSES if counts[s])
+    if gated:
+        ibtns += '<button data-if="igate" data-iv="1">needs sign-off</button>'
+
+    note = (f'{linked} linked to a production.' if linked
+            else 'None approved yet — nothing here has been built or spent on.')
+
+    return f"""
+<section id="ideas">
+  <header class="shead">
+    <h2>Ideas</h2>
+    <div class="sub">{len(ideas)} proposals · {tally}<br>
+      {note} An idea is not a request: nothing is built until you approve it.
+      <a href="../ideas/INDEX.md">index.md</a> ·
+      <a href="../ideas/IDEA-STANDARD.md">standard</a></div>
+  </header>
+  <div class="ifilters" id="ifilters">
+    <button class="on" data-if="all" data-iv="">all</button>
+    {ibtns}
+  </div>
+  {''.join(groups)}
+  <p id="inone">Nothing matches.</p>
+</section>"""
+
+
 def html(reg: dict) -> str:
     from html import escape
     from urllib.parse import quote
@@ -394,7 +539,8 @@ def html(reg: dict) -> str:
             f' title="{escape(style_label(st))}">style {st}</a>'
             if st else '<span class="pill sty off" title="no style recorded">unstyled</span>')
 
-        cards.append(f"""<article class="card" data-status="{p['status']}" data-type="{p['type']}"
+        cards.append(f"""<article class="card" id="p{p['id']}"
+   data-status="{p['status']}" data-type="{p['type']}"
    data-ed="{ed or 0}" data-vi="{vi or 0}" data-produced="{0 if p['status']=='requested' else 1}"
    data-style="{st or 0}"
    data-search="{escape((p['id'] + ' ' + p['title'] + ' ' + p['type'] + ' ' + p['status']
@@ -456,6 +602,8 @@ def html(reg: dict) -> str:
                     for s in ["published", "delivered", "in-progress", "requested", "parked"]
                     if s in counts)
 
+    ideas_section = ideas_html()
+
     return f"""<title>Riwaq Productions</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
@@ -469,6 +617,7 @@ font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif}
 header.top{{padding:26px 22px 14px;max-width:1400px;margin:0 auto}}
 h1{{margin:0 0 4px;font-size:1.5rem;letter-spacing:-.01em}}
 .sub{{color:var(--dim);font-size:.87rem}}
+.prodwrap{{position:relative}}
 .controls{{position:sticky;top:0;z-index:5;background:var(--bg);
 border-bottom:1px solid var(--line);padding:12px 22px}}
 .controls .inner{{max-width:1400px;margin:0 auto;display:flex;gap:10px;
@@ -540,6 +689,36 @@ details.det th{{text-align:left;padding:7px 0 2px;color:var(--gold);font-size:.7
 details ul{{margin:6px 0 0;padding-left:18px}}
 details a{{color:var(--fg)}}
 #none{{grid-column:1/-1;text-align:center;color:var(--dim);padding:40px;display:none}}
+/* --- Ideas section: the stage before a production --- */
+#ideas{{max-width:1400px;margin:0 auto;padding:10px 22px 70px;
+border-top:1px solid var(--line)}}
+.shead{{padding:22px 0 6px}}
+.shead h2{{margin:0 0 4px;font-size:1.25rem;letter-spacing:-.01em}}
+.shead .sub a{{color:var(--emerald)}}
+.ifilters{{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 4px}}
+.sgroup{{margin:26px 0 10px;font-size:.82rem;font-weight:600;color:var(--gold);
+text-transform:uppercase;letter-spacing:.06em}}
+.igrid{{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}}
+.icard{{background:var(--card);border:1px solid var(--line);border-radius:14px;
+padding:13px;display:flex;flex-direction:column;gap:9px}}
+.icard.hide{{display:none}}
+.icard header{{display:flex;gap:9px;align-items:baseline}}
+.icard h3{{margin:0;font-size:.94rem;font-weight:600;line-height:1.3}}
+.hook{{margin:0;font-size:.83rem;line-height:1.45;color:var(--fg);
+border-left:2px solid var(--gold);padding-left:9px}}
+.i-proposed{{color:var(--dim)}}
+.i-approved{{background:var(--goldbg);border-color:var(--gold);color:var(--gold);
+font-weight:600}}
+.i-delivered{{border-color:var(--gold);color:var(--gold)}}
+.i-published{{background:var(--emerald);border-color:var(--emerald);color:#fff}}
+@media(prefers-color-scheme:dark){{.i-published{{color:#0e1512}}}}
+.i-rejected{{color:var(--dim);text-decoration:line-through}}
+.pill.prod{{border-color:var(--emerald);color:var(--emerald);text-decoration:none;
+font-weight:600}}
+.gate{{font-size:.71rem;line-height:1.4;color:#c2564a;border:1px solid #c2564a;
+border-radius:7px;padding:5px 8px;background:transparent}}
+#inone{{text-align:center;color:var(--dim);padding:30px;display:none}}
+.card:target{{outline:2px solid var(--emerald);outline-offset:3px}}
 </style>
 
 <header class="top">
@@ -551,10 +730,12 @@ details a{{color:var(--fg)}}
   <div class="refs"><a href="../library/STYLES.md">styles</a>
     <a href="../CONNECTIONS.md">connections</a>
     <a href="../PRODUCTION-STANDARD.md">standard</a>
-    <a href="INDEX.md">index.md</a></div>
+    <a href="INDEX.md">index.md</a>
+    <a href="#ideas">ideas</a></div>
   {styleboard}
 </header>
 
+<div class="prodwrap">
 <div class="controls"><div class="inner">
   <input type="search" id="q" placeholder="Search title, number, type…" autocomplete="off">
   <button class="on" data-f="all" data-v="">all</button>
@@ -567,10 +748,12 @@ details a{{color:var(--fg)}}
 {''.join(cards)}
 <p id="none">Nothing matches.</p>
 </main>
+</div>
+{ideas_section}
 
 <script>
 const cards=[...document.querySelectorAll('.card')],q=document.getElementById('q'),
-      none=document.getElementById('none'),btns=[...document.querySelectorAll('button')];
+      none=document.getElementById('none'),btns=[...document.querySelectorAll('.controls button')];
 let f={{key:'all',val:''}};
 function apply(){{
   const t=q.value.trim().toLowerCase();let n=0;
@@ -593,6 +776,35 @@ btns.forEach(b=>b.addEventListener('click',()=>{{
 document.addEventListener('keydown',e=>{{
   if(e.key==='/'&&document.activeElement!==q){{e.preventDefault();q.focus();}}
 }});
+
+// Ideas section filters — kept on their own buttons and their own state so the
+// two grids never fight over one filter.
+const icards=[...document.querySelectorAll('.icard')],
+      inone=document.getElementById('inone'),
+      ifilters=document.getElementById('ifilters');
+if(ifilters){{
+  const ibtns=[...ifilters.querySelectorAll('button')];
+  let g={{key:'all',val:''}};
+  const iapply=()=>{{
+    let n=0;
+    icards.forEach(c=>{{
+      const show = g.key==='all' ? true : c.dataset[g.key]===g.val;
+      c.classList.toggle('hide',!show); if(show) n++;
+    }});
+    // hide a series heading whose whole group filtered out
+    document.querySelectorAll('.igrid').forEach(grid=>{{
+      const any=[...grid.children].some(c=>!c.classList.contains('hide'));
+      grid.style.display=any?'':'none';
+      const h=grid.previousElementSibling;
+      if(h&&h.classList.contains('sgroup')) h.style.display=any?'':'none';
+    }});
+    inone.style.display=n?'none':'block';
+  }};
+  ibtns.forEach(b=>b.addEventListener('click',()=>{{
+    ibtns.forEach(x=>x.classList.remove('on')); b.classList.add('on');
+    g={{key:b.dataset.if,val:b.dataset.iv}}; iapply();
+  }}));
+}}
 </script>
 """
 
