@@ -1,6 +1,6 @@
 {
   "_standard": "PRODUCTION-STANDARD.md",
-  "_next_id": 27,
+  "_next_id": 28,
   "productions": [
     {
       "id": "0001",
@@ -810,6 +810,34 @@
       "cost": {
         "credits": 4,
         "usd": 0.13
+      },
+      "confirmed_unpublished": "2026-08-12",
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      }
+    },
+    {
+      "id": "0027",
+      "slug": "allah-made-everything-post-image",
+      "title": "Allah Made Everything (post image)",
+      "type": "image-set",
+      "status": "delivered",
+      "folder": "productions/0027-allah-made-everything-post-image",
+      "style": 5,
+      "model": "nano_banana_pro",
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      },
+      "cost": {
+        "credits": 4,
+        "usd": 0.13
+      },
+      "dates": {
+        "requested": "2026-08-12",
+        "produced": "2026-08-12",
+        "published": null
       },
       "confirmed_unpublished": "2026-08-12"
     }

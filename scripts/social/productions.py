@@ -16,6 +16,7 @@ import datetime as _dt
 import json
 import re
 import shutil
+import subprocess
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
@@ -95,12 +96,16 @@ def read_title(brief: Path, fallback: str) -> str:
             return t.lstrip("# ").strip()
         if t.upper().startswith("TITLE"):
             return t.split(":", 1)[-1].strip().strip('"')
-    # no heading: a short first line IS the title. A one-line brief named
-    # 0026.md otherwise produced the folder "0026-0026".
+    # No heading. Only the FIRST line can be a title, and only if it is short:
+    # a one-line brief named 0026.md otherwise became "0026-0026", while
+    # scanning for any short line picked prose out of the middle of 0027.
     for line in lines:
-        t = line.strip().lstrip("*_- ").rstrip("*_ ")
-        if t and len(t) <= 80:
+        t = line.strip().lstrip("*_-# ").rstrip("*_ ")
+        if not t:
+            continue
+        if len(t) <= 80 and not t.endswith(":"):
             return t
+        break
     return fallback
 
 
@@ -581,6 +586,10 @@ def main() -> int:
     ap.add_argument("--style", type=int, choices=list(STYLES),
                     help="finishing style (see library/STYLES.md); use with "
                          "--set ID or --new. Never guessed — the user names it")
+    ap.add_argument("--rename", metavar="ID",
+                    help="give a production a proper title; renames its folder, "
+                         "updates the registry, and moves files with git when tracked")
+    ap.add_argument("--title", metavar="TEXT", help="the new title, use with --rename")
     ap.add_argument("--styles", action="store_true",
                     help="list the style catalogue and exit")
     args = ap.parse_args()
@@ -723,6 +732,34 @@ def main() -> int:
                 break
         else:
             print(f"no production {args.rate}"); return 1
+
+    if args.rename:
+        if not args.title:
+            print('--rename needs --title "New Title"'); return 2
+        for e in reg["productions"]:
+            if e["id"] == args.rename:
+                slug = slugify(args.title)[:48]
+                old = REPO / e["folder"]
+                new = PROD / f"{e['id']}-{slug}"
+                if old.resolve() != new.resolve():
+                    if new.exists():
+                        print(f"refusing: {new.relative_to(REPO)} already exists"); return 1
+                    tracked = subprocess.run(
+                        ["git", "ls-files", "--error-unmatch", str(old)],
+                        cwd=REPO, capture_output=True).returncode == 0
+                    if tracked:
+                        subprocess.run(["git", "mv", str(old), str(new)], cwd=REPO, check=True)
+                    else:
+                        shutil.move(str(old), str(new))
+                e["title"] = args.title
+                e["slug"] = slug
+                e["folder"] = f"productions/{e['id']}-{slug}"
+                save(reg)
+                print(f"{e['id']} -> {args.title}")
+                print(f"  {e['folder']}")
+                break
+        else:
+            print(f"no production {args.rename}"); return 1
 
     if args.set:
         if not args.status and args.style is None:
