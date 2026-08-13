@@ -61,12 +61,34 @@ def load() -> dict:
     return reg
 
 
+def rating(text: str) -> float:
+    """Ratings are 1-5 in half steps. Half steps exist because the user gave one
+    (0006 visitors 3.5) and rounding it would have been inventing a number."""
+    try:
+        v = float(text)
+    except ValueError:
+        raise argparse.ArgumentTypeError(f"{text!r} is not a number")
+    if not 1 <= v <= 5 or (v * 2) % 1:
+        raise argparse.ArgumentTypeError(
+            f"{text} out of range — 1 to 5 in half steps (3, 3.5, 4 …)")
+    return v
+
+
+def fmt_rating(v) -> str:
+    """3.5 -> '3.5', 4.0 -> '4' — no trailing .0 in the tables."""
+    if v is None:
+        return "—"
+    return f"{float(v):.1f}".rstrip("0").rstrip(".")
+
+
 def stars(v) -> str:
-    """1-5 -> filled/empty stars; None -> em dash."""
+    """1-5 in half steps -> filled/half/empty stars; None -> em dash."""
     if not v:
         return "—"
-    v = int(v)
-    return "\u2605" * v + "\u2606" * (5 - v)
+    v = float(v)
+    full = int(v)
+    half = (v - full) >= 0.5
+    return "\u2605" * full + ("\u00bd" if half else "") + "\u2606" * (5 - full - (1 if half else 0))
 
 
 def save(reg: dict) -> None:
@@ -505,10 +527,10 @@ def html(reg: dict) -> str:
         published = any(plats.values())
         rate_rows = (
             f'<div class="rate"><span class="rl">editor</span>'
-            f'<span class="rv r{ed or 0}" title="delivery quality, 1-5">'
+            f'<span class="rv r{int(ed or 0)}" title="delivery quality, 1-5">'
             f'{stars(ed)}</span></div>'
             + (f'<div class="rate"><span class="rl">visitors</span>'
-               f'<span class="rv r{vi or 0}" title="engagement in first 24h, 1-5">'
+               f'<span class="rv r{int(vi or 0)}" title="engagement in first 24h, 1-5">'
                f'{stars(vi)}</span></div>' if published else ""))
 
         cost = p.get("cost") or {}
@@ -522,9 +544,9 @@ def html(reg: dict) -> str:
             ("Requested", dts.get("requested") or "—"),
             ("Produced", dts.get("produced") or "—"),
             ("First published", dts.get("published") or "—"),
-            ("Editor rating", f"{stars(ed)} {ed}/5" if ed else "not rated"),
+            ("Editor rating", f"{stars(ed)} {fmt_rating(ed)}/5" if ed else "not rated"),
             ("Visitor reactions",
-             (f"{stars(vi)} {vi}/5" if vi else ("not rated" if published
+             (f"{stars(vi)} {fmt_rating(vi)}/5" if vi else ("not rated" if published
               else "n/a — not published"))),
         ]
         pub_rows = "".join(
@@ -832,10 +854,11 @@ def main() -> int:
     ap.add_argument("--date", metavar="YYYY-MM-DD",
                     help="publish date, or 'scheduled' (default: today)")
     ap.add_argument("--rate", metavar="ID", help="attach ratings to a production")
-    ap.add_argument("--editor", type=int, choices=[1, 2, 3, 4, 5],
-                    help="your rating of the delivery, 1-5")
-    ap.add_argument("--visitors", type=int, choices=[1, 2, 3, 4, 5],
-                    help="engagement in the first 24h after publishing, 1-5")
+    ap.add_argument("--editor", type=rating, metavar="1-5",
+                    help="your rating of the delivery, 1-5 in half steps")
+    ap.add_argument("--visitors", type=rating, metavar="1-5",
+                    help="engagement in the first 24h after publishing, "
+                         "1-5 in half steps")
     ap.add_argument("--set", metavar="ID")
     ap.add_argument("--status",
                     choices=["requested", "in-progress", "delivered",
@@ -983,9 +1006,9 @@ def main() -> int:
                 rt = e["ratings"]
                 print(f"{args.rate} {e['title']}")
                 print(f"  editor   {stars(rt['editor'])} "
-                      f"{rt['editor'] or '-'}/5")
+                      f"{fmt_rating(rt['editor']) if rt['editor'] else '-'}/5")
                 print(f"  visitors {stars(rt['visitors'])} "
-                      f"{rt['visitors'] or '-'}/5")
+                      f"{fmt_rating(rt['visitors']) if rt['visitors'] else '-'}/5")
                 break
         else:
             print(f"no production {args.rate}"); return 1
