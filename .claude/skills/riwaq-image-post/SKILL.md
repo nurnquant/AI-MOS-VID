@@ -49,8 +49,11 @@ NO calligraphy, NO signage anywhere in the image.` The model garbles lettering
 2. **No depiction of Allah.** Pin it negatively: no divine figure, no human-like
    being in the sky, no glowing figure, no face in the clouds or sun, no religious
    iconography. Allah is present only through creation.
-3. **Clean space where type will go.** Ask for generous sky at the top and clear
-   space along the bottom edge, or the title has nowhere to sit.
+3. **Clean space where type will go.** Ask for generous sky or wall across the top
+   third, AND explicitly for a **deliberately uncluttered lower-left corner** —
+   "plain floor or rug only there, no objects, no animals in that corner". On 0028
+   that one sentence meant the logo landed on clear ground first try; on 0027,
+   without it, the logo sat on the rabbit and needed reworking.
 
 If the brief does not say animated or photoreal and it matters, generate **both**
 at 4K (8 credits) rather than blocking on a question — then let the user choose.
@@ -124,7 +127,14 @@ PY
 ```
 
 Check: every briefed element still visible · no text clipped at an edge · logo
-clear of subjects · title legible against what is behind it.
+clear of subjects · title legible against what is behind it · **emoji visible
+against the actual background** — 0028's 🤍 white heart vanished on a peach wall
+and was swapped for 🌸.
+
+Also worth a look: the model sometimes lays a flat band across the top quarter
+with a hard seam (0028 had one at exactly y=1024). It is not a ceiling, but it
+makes usable title space and reads as a header band once type sits in it — judge
+whether to keep it before spending 4 credits on a re-roll.
 
 ## 6. Caption
 

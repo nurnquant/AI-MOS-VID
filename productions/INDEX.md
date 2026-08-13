@@ -41,10 +41,11 @@ request; it is never assumed.
 | `0025` | Little Muslim, Big Heart | video | — | · requested | — | [0025-little-muslim-big-heart](0025-little-muslim-big-heart/) |
 | `0026` | Allah Made Everything | image-set | — | ✓ delivered | 0026-allah-made-everything-1x1-4k.png | [0026-allah-made-everything](0026-allah-made-everything/) |
 | `0027` | Allah Made Everything (post image) | image-set | 5 | ✓ delivered | 0027-allah-made-everything-16x9.png _(+5)_ | [0027-allah-made-everything-post-image](0027-allah-made-everything-post-image/) |
+| `0028` | Thank You, Allah | image-set | 5 | ✓ delivered | 0028-thank-you-allah-16x9.png _(+5)_ | [0028-thank-you-allah](0028-thank-you-allah/) |
 
-**27 productions** — 6 delivered · 1 parked · 18 published · 2 requested
+**28 productions** — 7 delivered · 1 parked · 18 published · 2 requested
 
-Next free number: **0028**
+Next free number: **0029**
 
 ## Adding a request
 
