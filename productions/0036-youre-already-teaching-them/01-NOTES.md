@@ -95,12 +95,33 @@ It is intelligible and correctly timed. It is also audibly synthetic, and this
 is a piece whose entire job is to sound like one tired parent talking to
 another. **My recommendation is not to publish on this voice.**
 
-Swapping it is cheap and changes nothing else. Record the seven lines, drop them
-in as `work/vo/01.wav` … `07.wav`, and re-run `build.sh` — the cut re-times
-itself around the new durations automatically. Nothing else needs touching.
+**User verdict 2026-08-13: "voice is so bad".** Agreed, and expected. Three
+routes out, with the tooling for all three now in place.
 
-The alternative, if you want a synthetic voice that does not sound synthetic, is
-a paid TTS pass, which needs approval and the Higgsfield connector authorised.
+**`work/revoice.sh` does the swap.** Drop recordings in `work/vo-raw/` and run
+it: converts any format, trims leading and trailing silence, normalises every
+line to the same level, rebuilds. Or `bash revoice.sh -v Daniel` to re-render
+with a different system voice.
+
+Proven, not assumed: re-rendering with Daniel produced a 23.00 s video, in sync,
+tag still carrying music. **The cut re-times itself from the new line lengths**,
+so a slower read makes a longer video and nothing goes out of sync. That is the
+property that makes a real recording cheap to drop in.
+
+1. **Your own voice.** Free, best fit, about five minutes. Script and direction
+   in `work/RECORD-VO.md`. This is the recommendation — the piece is one tired
+   parent talking to another, and that is not a thing synthesis does well.
+2. **macOS Premium voices.** Free but needs a System Settings step only the user
+   can do: Accessibility, Spoken Content, System Voice, Manage Voices. None are
+   installed — all 177 voices on this machine are compact or novelty. Better
+   than now; still audibly synthetic.
+3. **Paid TTS.** Needs approval and the Higgsfield connector authorised. Neither
+   is in place.
+
+`OUTPUT/0036-voice-comparison.wav` holds the five best voices already on the
+machine, each announced then reading the opening lines. It exists to choose a
+**type** — female or male, US, UK, Irish, Australian — not to argue any of them
+is good enough.
 
 ## Still open
 
