@@ -62,6 +62,15 @@ python3 scripts/social/productions.py --new "Your Title" --type video
 
 Or drop a brief in `inbox/` and run `--intake`.
 
+## Where requests come from
+
+The backlog of proposals lives in [`ideas/`](../ideas/INDEX.md) — one file
+per idea, each with its hook, script sketch and honest risks. An idea is not
+a request: nothing there is built until you approve it, and approving one is
+what creates a row in the table above.
+
+**30 ideas** — 30 proposed
+
 ## Not productions
 
 Reference and planning material lives in [`library/`](../library/) —

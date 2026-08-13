@@ -1,0 +1,484 @@
+{
+  "ideas": [
+    {
+      "id": "I001",
+      "title": "You're Already Teaching Them",
+      "slug": "youre-already-teaching-them",
+      "series": "A — You're Already Teaching Them",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I002",
+      "title": "The Four Words That Teach Tawakkul",
+      "slug": "the-four-words-that-teach-tawakkul",
+      "series": "A — You're Already Teaching Them",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I003",
+      "title": "Why Your Child Tunes Out at Bedtime Dua",
+      "slug": "why-your-child-tunes-out-at-bedtime-dua",
+      "series": "A — You're Already Teaching Them",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I004",
+      "title": "You Don't Need Arabic to Raise an Arabic Reader",
+      "slug": "you-dont-need-arabic-to-raise-an-arabic-reader",
+      "series": "A — You're Already Teaching Them",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I005",
+      "title": "What You Say When You're Angry",
+      "slug": "what-you-say-when-youre-angry",
+      "series": "A — You're Already Teaching Them",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I006",
+      "title": "The Day Your Child Says I Don't Want to Pray",
+      "slug": "the-day-your-child-says-i-dont-want-to-pray",
+      "series": "B — The Hard Parts",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I007",
+      "title": "When Your Child Asks Where Allah Is",
+      "slug": "when-your-child-asks-where-allah-is",
+      "series": "B — The Hard Parts",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I008",
+      "title": "They Saw You Skip Salah",
+      "slug": "they-saw-you-skip-salah",
+      "series": "B — The Hard Parts",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I009",
+      "title": "Your Child Lied to You",
+      "slug": "your-child-lied-to-you",
+      "series": "B — The Hard Parts",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I010",
+      "title": "When Someone Else's Child Is Ahead",
+      "slug": "when-someone-elses-child-is-ahead",
+      "series": "B — The Hard Parts",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I011",
+      "title": "Two Minutes at the Door",
+      "slug": "two-minutes-at-the-door",
+      "series": "C — Two Minutes",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I012",
+      "title": "The Car Is a Masjid",
+      "slug": "the-car-is-a-masjid",
+      "series": "C — Two Minutes",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I013",
+      "title": "One Ayah, One Question",
+      "slug": "one-ayah-one-question",
+      "series": "C — Two Minutes",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I014",
+      "title": "The Bedtime Rewind",
+      "slug": "the-bedtime-rewind",
+      "series": "C — Two Minutes",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I015",
+      "title": "Six Minutes of Arabic on a Saturday",
+      "slug": "six-minutes-of-arabic-on-a-saturday",
+      "series": "C — Two Minutes",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I016",
+      "title": "Memorising Fast Is Not the Goal",
+      "slug": "memorising-fast-is-not-the-goal",
+      "series": "D — Things Nobody Told You",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I017",
+      "title": "Love Before Fear",
+      "slug": "love-before-fear",
+      "series": "D — Things Nobody Told You",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I018",
+      "title": "Stop Correcting Their Tajweed at Home",
+      "slug": "stop-correcting-their-tajweed-at-home",
+      "series": "D — Things Nobody Told You",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I019",
+      "title": "Reward Charts Have a Shelf Life",
+      "slug": "reward-charts-have-a-shelf-life",
+      "series": "D — Things Nobody Told You",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I020",
+      "title": "They Copy Your Phone, Not Your Lecture",
+      "slug": "they-copy-your-phone-not-your-lecture",
+      "series": "D — Things Nobody Told You",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I021",
+      "title": "The Mother Who Thinks She Is Failing",
+      "slug": "the-mother-who-thinks-she-is-failing",
+      "series": "E — You Are Not Failing",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I022",
+      "title": "Fathers: You Are Their First Idea of Mercy",
+      "slug": "fathers-you-are-their-first-idea-of-mercy",
+      "series": "E — You Are Not Failing",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I023",
+      "title": "You Are Tired and It Still Counts",
+      "slug": "you-are-tired-and-it-still-counts",
+      "series": "E — You Are Not Failing",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I024",
+      "title": "The Parent Who Reverted",
+      "slug": "the-parent-who-reverted",
+      "series": "E — You Are Not Failing",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I025",
+      "title": "When the Grandparents Disagree",
+      "slug": "when-the-grandparents-disagree",
+      "series": "E — You Are Not Failing",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I026",
+      "title": "What One-on-One Actually Looks Like",
+      "slug": "what-one-on-one-actually-looks-like",
+      "series": "F — Inside the Class",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I027",
+      "title": "Why We Teach the Sound Before the Letter",
+      "slug": "why-we-teach-the-sound-before-the-letter",
+      "series": "F — Inside the Class",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I028",
+      "title": "What Changes at Eight Weeks",
+      "slug": "what-changes-at-eight-weeks",
+      "series": "F — Inside the Class",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I029",
+      "title": "The Question We Get Every Week",
+      "slug": "the-question-we-get-every-week",
+      "series": "F — Inside the Class",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    },
+    {
+      "id": "I030",
+      "title": "What Your Child Said in Class This Week",
+      "slug": "what-your-child-said-in-class-this-week",
+      "series": "F — Inside the Class",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-13",
+      "history": [
+        {
+          "date": "2026-08-13",
+          "event": "proposed"
+        }
+      ]
+    }
+  ]
+}

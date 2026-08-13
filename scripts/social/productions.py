@@ -178,6 +178,32 @@ def intake_scan(inbox: Path) -> list[dict]:
     return jobs
 
 
+def idea_tally() -> list[str]:
+    """Live counts from the idea backlog, so the two trees never drift apart.
+
+    Kept read-only and failure-tolerant: the production index must still build
+    if ideas/ has not been created yet.
+    """
+    reg = REPO / "ideas" / "registry.json"
+    if not reg.exists():
+        return []
+    try:
+        ideas = json.loads(reg.read_text()).get("ideas", [])
+    except (json.JSONDecodeError, OSError):
+        return []
+    if not ideas:
+        return []
+    order = ["proposed", "approved", "delivered", "published", "rejected"]
+    counts = {s: sum(1 for e in ideas if e.get("status") == s) for s in order}
+    tally = " · ".join(f"{counts[s]} {s}" for s in order if counts[s])
+    linked = sum(1 for e in ideas if e.get("production"))
+    out = [f"**{len(ideas)} ideas** — {tally}"]
+    if linked:
+        out.append("")
+        out.append(f"{linked} already linked to a production above.")
+    return out
+
+
 def index(reg: dict) -> str:
     L: list[str] = []
     a = L.append
@@ -226,6 +252,16 @@ def index(reg: dict) -> str:
     a("```")
     a("")
     a("Or drop a brief in `inbox/` and run `--intake`.")
+    a("")
+    a("## Where requests come from")
+    a("")
+    a("The backlog of proposals lives in [`ideas/`](../ideas/INDEX.md) — one file")
+    a("per idea, each with its hook, script sketch and honest risks. An idea is not")
+    a("a request: nothing there is built until you approve it, and approving one is")
+    a("what creates a row in the table above.")
+    a("")
+    for line in idea_tally():
+        a(line)
     a("")
     a("## Not productions")
     a("")
