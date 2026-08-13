@@ -5,7 +5,7 @@
       "title": "You're Already Teaching Them",
       "slug": "youre-already-teaching-them",
       "series": "A — You're Already Teaching Them",
-      "status": "approved",
+      "status": "delivered",
       "style": null,
       "production": "0036",
       "created": "2026-08-13",
@@ -21,6 +21,10 @@
         {
           "date": "2026-08-13",
           "event": "linked to production 0036"
+        },
+        {
+          "date": "2026-08-13",
+          "event": "delivered"
         }
       ]
     },

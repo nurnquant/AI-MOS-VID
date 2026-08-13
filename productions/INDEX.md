@@ -14,7 +14,7 @@ request; it is never assumed.
 
 | # | Title | Type | Style | Status | Deliverables | Folder |
 | --- | --- | --- | --- | --- | --- | --- |
-| `0036` | You're Already Teaching Them | video | — | · requested | — | [0036-youre-already-teaching-them](0036-youre-already-teaching-them/) |
+| `0036` | You're Already Teaching Them | video | — | ✓ delivered | 0036-youre-already-teaching-them-9x16.mp4 | [0036-youre-already-teaching-them](0036-youre-already-teaching-them/) |
 | `0035` | Alif Baa Taa full rhyme (CoComelon, 50-60s) | video | — | ✓ delivered | 0035-alif-baa-taa-rhyme-9x16.mp4 | [0035-alif-baa-taa-full-rhyme-cocomelon-50-60s](0035-alif-baa-taa-full-rhyme-cocomelon-50-60s/) |
 | `0034` | Alif CoComelon 10s (Omni Flash) | video | — | ! parked | 0034-alif-cocomelon-10s-9x16.mp4 | [0034-alif-cocomelon-10s-omni-flash](0034-alif-cocomelon-10s-omni-flash/) |
 | `0033` | Alif Baa Taa rhyme (10s sung test) | video | — | ! parked | — | [0033-alif-baa-taa-rhyme-10s-sung-test](0033-alif-baa-taa-rhyme-10s-sung-test/) |
@@ -51,7 +51,7 @@ request; it is never assumed.
 | `0002` | Dua Boy — Rabbana Atina | video | — | ★ published | 0002-dua-boy-9x16.mp4 _(+1)_ | [0002-dua-boy-rabbana-atina](0002-dua-boy-rabbana-atina/) |
 | `0001` | Sneezing Etiquette Family Story | video | — | ★ published | 0001-sneeze-etiquette-9x16.mp4 | [0001-sneezing-etiquette-family-story](0001-sneezing-etiquette-family-story/) |
 
-**36 productions** — 2 delivered · 4 parked · 27 published · 3 requested
+**36 productions** — 3 delivered · 4 parked · 27 published · 2 requested
 
 Next free number: **0037**
 
@@ -70,7 +70,7 @@ per idea, each with its hook, script sketch and honest risks. An idea is not
 a request: nothing there is built until you approve it, and approving one is
 what creates a row in the table above.
 
-**30 ideas** — 29 proposed · 1 approved
+**30 ideas** — 29 proposed · 1 delivered
 
 1 already linked to a production above.
 

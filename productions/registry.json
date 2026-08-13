@@ -1087,9 +1087,23 @@
       "slug": "youre-already-teaching-them",
       "title": "You're Already Teaching Them",
       "type": "video",
-      "status": "requested",
+      "status": "delivered",
       "folder": "productions/0036-youre-already-teaching-them",
-      "style": null
+      "style": null,
+      "model": "library reuse + macOS say (placeholder VO)",
+      "cost": {
+        "credits": 0,
+        "usd": 0.0
+      },
+      "dates": {
+        "requested": "2026-08-13",
+        "produced": "2026-08-13",
+        "published": null
+      },
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      }
     }
   ],
   "_platforms": ["facebook", "instagram", "pinterest", "x", "tiktok", "youtube"],
