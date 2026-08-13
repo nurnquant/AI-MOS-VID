@@ -114,6 +114,9 @@ Repeatable pipelines live in `.claude/skills/`. Invoke with `/<name>`.
 | `riwaq-image-post`  | image posts end to end: 4K animated illustration, type composited locally, logo, every platform ratio, caption, tracking   |
 | `riwaq-story-video` | cinematic story video (style 1): beat brief, master + scene stills, veo clips, verified speech, local soundtrack, end card |
 
+Named threads: **RhymeBuilding** — CoComelon-style sung rhyme videos, see
+[library/RHYME-BUILDING.md](library/RHYME-BUILDING.md).
+
 Each ships a reusable script rather than prose alone:
 `riwaq-image-post/scripts/postkit.py` turns one textless square into all five
 platform sizes, and `riwaq-story-video/scripts/checkvideo.py` measures a finished
