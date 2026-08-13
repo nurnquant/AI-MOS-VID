@@ -72,10 +72,20 @@ before the join.
 
 **Join with filter concat**, never the demuxer.
 
-**Do not lay anything over the performance.** No music under the speech. Piano
-fades in only under the last ~3.5 s so the film does not end in silence.
+**Every clip generates its own room tone.** Left alone the ambience steps at
+every join — 17 dB on 0036. A continuous bed under the whole film is the fix; a
+patch at each seam is not, and fading clips in at the head will eat the first
+word of anything that starts speaking at 0.00 s.
 
-**Watermark small, top right.** The lower half is the face and, later, captions.
+**Watermark small, top right — and OFF over the end card.** The tag already
+carries the logo and the wordmark. See the standing rule in
+[PRODUCTION-STANDARD.md](../PRODUCTION-STANDARD.md).
+
+**Duck the bed, do not just lower it.** A bed quiet enough never to cover a word
+is too quiet to bridge the joins, which is the job it was added for. Sidechain it
+to the voice: `sidechaincompress=threshold=0.03:ratio=9:attack=12:release=420`.
+On 0036 that puts the piano 15-26 dB under speech and back up to about -37 dB in
+the gaps.
 
 ## Verification — no longer optional
 

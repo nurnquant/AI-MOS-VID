@@ -65,20 +65,28 @@ MS=$(python3 -c "print(int(float('$BEDIN')*1000))")
 # film is the fix: one unbroken thread the ear can follow across the cuts.
 # Cheaper tricks were rejected: fading each clip in would have attenuated
 # "Bismillah", which clip B begins speaking at 0.00 s with no lead-in.
+#
+# The bed is SIDECHAINED to the voice rather than simply turned down. A bed set
+# quiet enough never to cover a word is too quiet to bridge the joins, which is
+# the job it was added for. Ducking gives both: it drops under every syllable and
+# comes back up in the gaps.
 ffmpeg -v error -y -i seg/joined-$STYLE.mov -i ../../../0022-la-hawla/work/music-piano.m4a \
-  -filter_complex "[1:a]atrim=0:$TOTAL,asetpts=PTS-STARTPTS,volume=0.73,\
+  -filter_complex "[0:a]asplit=2[voice][key];\
+[1:a]atrim=0:$TOTAL,asetpts=PTS-STARTPTS,volume=0.42,\
 afade=t=in:st=0:d=2.2,afade=t=out:st=$(python3 -c "print(round(float('$TOTAL')-1.8,2))"):d=1.8,\
 aresample=48000[body];\
-[1:a]atrim=6:10.2,asetpts=PTS-STARTPTS,volume=0.62,\
+[body][key]sidechaincompress=threshold=0.03:ratio=9:attack=12:release=420:makeup=1[ducked];\
+[1:a]atrim=6:10.2,asetpts=PTS-STARTPTS,volume=0.5,\
 afade=t=in:st=0:d=1.4,afade=t=out:st=2.9:d=1.3,adelay=$MS|$MS[lift];\
-[0:a][body][lift]amix=inputs=3:normalize=0:duration=first,\
+[voice][ducked][lift]amix=inputs=3:normalize=0:duration=first,\
 alimiter=limit=0.95,aresample=48000[a]" \
   -map 0:v -map "[a]" -c:v copy -c:a pcm_s16le seg/mixed-$STYLE.mov
 
 mkdir -p ../../OUTPUT
 OUT=../../OUTPUT/0036-v3-$STYLE-9x16.mp4
+WMEND=$(python3 -c "print(round(float('$TOTAL')-2.0,2))")
 ffmpeg -v error -y -i seg/mixed-$STYLE.mov -i ../watermark.png \
-  -filter_complex "[0:v][1:v]overlay=W-w-22:22:format=auto[v]" \
+  -filter_complex "[0:v][1:v]overlay=W-w-22:22:format=auto:enable='lt(t,$WMEND)'[v]" \
   -map "[v]" -map 0:a -r $FPS -c:v libx264 -crf 18 -preset medium -pix_fmt yuv420p \
   -c:a aac -b:a 192k -ar 48000 -ac 2 -movflags +faststart "$OUT"
 

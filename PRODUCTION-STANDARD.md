@@ -83,6 +83,20 @@ traceable back to its request.
 
 Suffix conventions: `-9x16` `-16x9` `-4x5` `-1x1` `-2x3` for aspect ratio.
 
+## Brand furniture — standing rules
+
+**The watermark stops before the end card.** The end card already carries the
+official logo and the wordmark; stamping the corner watermark on top of it is
+brand furniture on top of brand furniture. Set by the user on 2026-08-13 and it
+applies to every style, not just the one it came up in.
+
+In ffmpeg terms, gate the overlay rather than compositing it over the whole
+timeline:
+
+```
+overlay=W-w-22:22:format=auto:enable='lt(t,END_CARD_START)'
+```
+
 ## Style
 
 Every production records a **style** — the complete finishing treatment: text
