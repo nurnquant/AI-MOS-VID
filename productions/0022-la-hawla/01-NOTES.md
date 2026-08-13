@@ -58,3 +58,12 @@ boundaries of the continuous read, not guessed.
 - Card PNGs need `-loop 1 -framerate $FPS -t <dur>`, or they show for one frame.
 - zsh does not word-split unquoted variables, so `set -- $r` in a rating loop
   passes empty args while the echo still claims success.
+
+## Parked, will not publish (2026-08-13)
+
+User decision: not at publishing quality. Status set to `parked`, no editor rating
+given. The watermark pass that was queued for it is cancelled — no point finishing
+furniture on something that is not going out.
+
+Keep the folder. The source and the working files stay useful as reference, and if
+the piece is ever rebuilt it starts from here rather than from nothing.

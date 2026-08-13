@@ -418,7 +418,7 @@
       "slug": "most-beautiful-sound",
       "title": "The Most Beautiful Sound",
       "type": "video",
-      "status": "delivered",
+      "status": "published",
       "folder": "productions/0014-most-beautiful-sound",
       "model": "nano_banana_pro (stills) + veo3_1 fast",
       "cost": {
@@ -428,11 +428,11 @@
       "dates": {
         "requested": null,
         "produced": "2026-08-05",
-        "published": null
+        "published": "2026-08-13"
       },
       "platforms": {
-        "facebook": null,
-        "instagram": null,
+        "facebook": "2026-08-13",
+        "instagram": "2026-08-13",
         "pinterest": null,
         "x": null,
         "tiktok": null,
@@ -440,7 +440,7 @@
       },
       "confirmed_unpublished": "2026-08-12",
       "ratings": {
-        "editor": null,
+        "editor": 5,
         "visitors": null
       },
       "style": 1
@@ -605,7 +605,7 @@
       "slug": "thank-you-allah-nasheed",
       "title": "Thank You, Allah — nasheed verses 1-3",
       "type": "watermark",
-      "status": "delivered",
+      "status": "published",
       "folder": "productions/0020-thank-you-allah-nasheed",
       "model": "supplied clip — local watermark only",
       "cost": {
@@ -615,11 +615,11 @@
       "dates": {
         "requested": null,
         "produced": "2026-08-10",
-        "published": null
+        "published": "2026-08-13"
       },
       "platforms": {
-        "facebook": null,
-        "instagram": null,
+        "facebook": "2026-08-13",
+        "instagram": "2026-08-13",
         "pinterest": null,
         "x": null,
         "tiktok": null,
@@ -627,7 +627,7 @@
       },
       "confirmed_unpublished": "2026-08-12",
       "ratings": {
-        "editor": null,
+        "editor": 5,
         "visitors": null
       },
       "style": 4
@@ -668,7 +668,7 @@
       "slug": "la-hawla",
       "title": "Lā ḥawla wa lā quwwata illā billāh",
       "type": "video",
-      "status": "delivered",
+      "status": "parked",
       "folder": "productions/0022-la-hawla",
       "model": "nano_banana_pro + veo3_1 fast + seed_audio (Emmett VO)",
       "cost": {
@@ -1038,7 +1038,7 @@
       "slug": "alif-cocomelon-10s-omni-flash",
       "title": "Alif CoComelon 10s (Omni Flash)",
       "type": "video",
-      "status": "delivered",
+      "status": "parked",
       "folder": "productions/0034-alif-cocomelon-10s-omni-flash",
       "style": null,
       "ratings": {

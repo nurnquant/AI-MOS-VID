@@ -27,15 +27,15 @@ request; it is never assumed.
 | `0011` | FB Series 01 — 6 post images | image-set | 5 | ★ published | 0011-post1-mothers-prayer.png _(+5)_ | [0011-fb-series-01](0011-fb-series-01/) |
 | `0012` | FB Series 02 — 6 post images | image-set | 5 | ★ published | 0012-post1-screen-time.png _(+5)_ | [0012-fb-series-02](0012-fb-series-02/) |
 | `0013` | FB Series 03 — 6 post images | image-set | 5 | ★ published | 0013-post1-crown-of-light.png _(+5)_ | [0013-fb-series-03](0013-fb-series-03/) |
-| `0014` | The Most Beautiful Sound | video | 1 | ✓ delivered | 0014-most-beautiful-sound-9x16.mp4 | [0014-most-beautiful-sound](0014-most-beautiful-sound/) |
+| `0014` | The Most Beautiful Sound | video | 1 | ★ published | 0014-most-beautiful-sound-9x16.mp4 | [0014-most-beautiful-sound](0014-most-beautiful-sound/) |
 | `0015` | Islamic Moments at Home — 10 post images | image-set | 5 | ★ published | 0015-post1-bedtime-dua.png _(+9)_ | [0015-islamic-moments-at-home](0015-islamic-moments-at-home/) |
 | `0016` | Rabbi Irhamhuma (Johra) | video | 3 | ★ published | 0016-rabbi-irhamhuma-9x16.mp4 | [0016-rabbi-irhamhuma-johra](0016-rabbi-irhamhuma-johra/) |
 | `0017` | Children Learning Arabic | watermark | 4 | ★ published | 0017-children-learning-arabic-9x16.mp4 | [0017-children-learning-arabic](0017-children-learning-arabic/) |
 | `0018` | Wake Up and Thank Allah | watermark | 4 | ★ published | 0018-wake-up-and-thank-allah-9x16.mp4 | [0018-wake-up-and-thank-allah](0018-wake-up-and-thank-allah/) |
 | `0019` | Bismillah Before We Eat | watermark | 4 | ★ published | 0019-bismillah-before-we-eat-9x16.mp4 | [0019-bismillah-before-we-eat](0019-bismillah-before-we-eat/) |
-| `0020` | Thank You, Allah — nasheed verses 1-3 | watermark | 4 | ✓ delivered | 0020-verse1-morning-9x16.mp4 _(+2)_ | [0020-thank-you-allah-nasheed](0020-thank-you-allah-nasheed/) |
+| `0020` | Thank You, Allah — nasheed verses 1-3 | watermark | 4 | ★ published | 0020-verse1-morning-9x16.mp4 _(+2)_ | [0020-thank-you-allah-nasheed](0020-thank-you-allah-nasheed/) |
 | `0021` | Wudu Together | video | 2 | ★ published | 0021-wudu-together-9x16.mp4 | [0021-wudu-together](0021-wudu-together/) |
-| `0022` | Lā ḥawla wa lā quwwata illā billāh | video | 1 | ✓ delivered | 0022-la-hawla-9x16.mp4 | [0022-la-hawla](0022-la-hawla/) |
+| `0022` | Lā ḥawla wa lā quwwata illā billāh | video | 1 | ! parked | 0022-la-hawla-9x16.mp4 | [0022-la-hawla](0022-la-hawla/) |
 | `0023` | Rhyme Series | program | — | · requested | — | [0023-rhyme-series](0023-rhyme-series/) |
 | `0024` | Alif, Baa, Taa Adventure | video | 7 | ! parked | — | [0024-alif-baa-taa-adventure](0024-alif-baa-taa-adventure/) |
 | `0025` | Little Muslim, Big Heart | video | — | · requested | — | [0025-little-muslim-big-heart](0025-little-muslim-big-heart/) |
@@ -47,10 +47,10 @@ request; it is never assumed.
 | `0031` | Alhamdulillah Every Day | image-set | 5 | ★ published | 0031-alhamdulillah-every-day-16x9.png _(+5)_ | [0031-alhamdulillah-every-day](0031-alhamdulillah-every-day/) |
 | `0032` | SubhanAllah, Look Around | image-set | 5 | ★ published | 0032-subhanallah-look-around-16x9.png _(+5)_ | [0032-subhanallah-look-around](0032-subhanallah-look-around/) |
 | `0033` | Alif Baa Taa rhyme (10s sung test) | video | — | ! parked | — | [0033-alif-baa-taa-rhyme-10s-sung-test](0033-alif-baa-taa-rhyme-10s-sung-test/) |
-| `0034` | Alif CoComelon 10s (Omni Flash) | video | — | ✓ delivered | 0034-alif-cocomelon-10s-9x16.mp4 | [0034-alif-cocomelon-10s-omni-flash](0034-alif-cocomelon-10s-omni-flash/) |
+| `0034` | Alif CoComelon 10s (Omni Flash) | video | — | ! parked | 0034-alif-cocomelon-10s-9x16.mp4 | [0034-alif-cocomelon-10s-omni-flash](0034-alif-cocomelon-10s-omni-flash/) |
 | `0035` | Alif Baa Taa full rhyme (CoComelon, 50-60s) | video | — | ✓ delivered | 0035-alif-baa-taa-rhyme-9x16.mp4 | [0035-alif-baa-taa-full-rhyme-cocomelon-50-60s](0035-alif-baa-taa-full-rhyme-cocomelon-50-60s/) |
 
-**35 productions** — 6 delivered · 2 parked · 25 published · 2 requested
+**35 productions** — 2 delivered · 4 parked · 27 published · 2 requested
 
 Next free number: **0036**
 

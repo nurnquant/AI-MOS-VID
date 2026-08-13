@@ -140,3 +140,12 @@ Spend on 0034 so far: **90 credits / $2.97** for three 10 s generations, plus 26
 - The third "Ahlif".
 - Style unassigned — the user names it if this approach is adopted.
 - Unpublished, unrated.
+
+## Parked, will not publish (2026-08-13)
+
+Built as a test, never intended for publishing. Status set to `parked`, no editor
+rating given — rating a test against publishing standards would be meaningless.
+
+Its job was done the moment it proved the point: `gemini_omni` sings, and it honours
+a written scene-cut list inside a single clip. That finding is what made 0035
+possible. Kept as the reference clip for that behaviour.
