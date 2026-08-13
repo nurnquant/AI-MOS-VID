@@ -1077,10 +1077,10 @@
         "published": null
       },
       "cost": {
-        "credits": 150,
-        "usd": 4.95
+        "credits": 240,
+        "usd": 7.92
       },
-      "note": "PARTIAL: 42s = intro+Baa+Taa+Saa+tag. All letter names verified correctly pronounced. Verse 1/chorus/ending held — they contain 'Alif', which no model pronounces correctly.",
+      "note": "52s: intro+Alif+Baa+Taa+Saa+tag. ALIF SOLVED by having her SPEAK the letter as a call-out instead of singing it. All 4 letters whisper-verified. Chorus+ending still absent (sung Alif).",
       "confirmed_unpublished": "2026-08-13"
     }
   ],

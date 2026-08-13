@@ -28,12 +28,28 @@ stills, the verification plan.
 > measured cuts at 3.50 s and 6.54 s, where veo gave one locked-off shot. 30 credits
 > for 10 s.
 >
-> **Generated vocals cannot be trusted with Arabic letter names. Do not try.**
-> Four attempts across two models and three spellings — prose rule, `AH-lif`,
-> `AL-if`, plain `Alif` — every one rendered as Elef, Ahlif or Elif. Changing the
-> spelling also perturbs the picture: 0034 v3 lost one of its three cuts. Budget
-> **zero** further attempts at steering pronunciation; get the vocal supplied and use
-> the model for picture only, muxing locally at no credit cost.
+> **If a model mangles a pinned name when SINGING it, make it SPEAK the word
+> instead.** Solved on 0035 after five failures. Four sung attempts across two models
+> and three spellings — prose rule, `AH-lif`, `AL-if`, plain `Alif` — all produced
+> Elef / Ahlif / Elif, because singing stretches the vowel. Keeping the melody but
+> having the character **speak the letter as a crisp call-out on the beat** gave a
+> correct "Alif" first time, and again on the re-roll:
+>
+> ```
+> SPOKEN:  "Alif!"  "Alif!"
+> SUNG:    "stands up tall, straight and strong, look and see"
+> SPOKEN:  "Alif!"
+> ```
+>
+> This does not help a **sung list** of names (0035's chorus is still blocked), and it
+> is not a licence to resume spelling roulette — one spoken-call-out attempt, then a
+> supplied vocal.
+>
+> **Both models also draw text you did not ask for**, repeatedly. Omni Flash put Latin
+> alphabet blocks on the floor through two Alif re-rolls despite three prohibitions.
+> **Crop them out** — a 1.42× zoom with the crop biased away from the offending corner
+> is free, deterministic and cannot recur, where another 30-credit re-roll is a
+> coin toss.
 >
 > Open trade-off: veo's singing was far more melodic (18.1-semitone spread) than Omni
 > Flash's (5.7, which is speech range and may be chanting). If the user's ear says

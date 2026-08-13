@@ -1,6 +1,6 @@
 # 0035 — Alif, Baa, Taa full rhyme (CoComelon, 50–60s) · notes
 
-**Status: PARTIAL DELIVERY — option 2 chosen.** 150 credits / $4.95.
+**Status: DELIVERED, 52s, ALIF INCLUDED.** 240 credits / $7.92.
 Reference for look and structure: **0034**, whose picture the user approved.
 
 ## What was asked
@@ -138,3 +138,80 @@ solved by a human voice rather than a model.
 | intro + Taa + Saa                 | 90              |
 | Saa re-roll (Latin blocks)        | 30              |
 | **Total**                         | **150 / $4.95** |
+
+---
+
+# ALIF SOLVED — final 52s cut
+
+`OUTPUT/0035-alif-baa-taa-rhyme-9x16.mp4` — **52.04 s**, 720×1280, 24 fps, 19.8 MB.
+Video 52.042 s / audio 52.032 s.
+
+**intro → ALIF → Baa → Taa → Saa → brand tag.** Correct Arabic order, Alif first,
+which is what the user asked for.
+
+## The fix: speak the letter, do not sing it
+
+Every previous attempt had her **singing** "Alif" — 0033 veo, 0034 v1/v2/v3 — and all
+four produced Elef / Ahlif / Elif. Singing stretches a vowel, and the stretch is what
+broke the word.
+
+This clip keeps the melody but has her **SPEAK the letter as a call-out over the
+music**, sung lines either side:
+
+```
+SPOKEN:  "Alif!"  "Alif!"        <- crisp, on the beat, not held
+SUNG:    "stands up tall, straight and strong, look and see"
+SPOKEN:  "Alif!"
+```
+
+Whisper on both takes of this clip: **"Alif, alif, stands up tall, straight and
+strong, look and see. Alif, look and see."** Correct, twice in a row, no respelling
+tricks needed. It is written into `/riwaq-story-video` as the general rule for any
+pinned name a model mangles when sung.
+
+## Every letter in the 52s is now verified
+
+| Section  | Heard                                                                                   |     |
+| -------- | --------------------------------------------------------------------------------------- | --- |
+| Intro    | "Come along, come sing with me / Arabic is fun, you'll see / Learn the letters happily" | ✅  |
+| **Alif** | **"Alif, alif… Alif"** (spoken)                                                         | ✅  |
+| Baa      | "Ba… one little dot below / Ba, let's say it slow"                                      | ✅  |
+| Taa      | "Ta, ta, two little dots on top / Ta, you're a little star"                             | ✅  |
+| Saa      | "Sa, sa, three little dots on top / Sa, as easy as can be"                              | ✅  |
+
+## Latin alphabet blocks — fixed by cropping, not by paying again
+
+Omni Flash drew lettered toy blocks on the floor in **both** Alif takes, despite the
+prohibition being spelled out three ways, and the same happened on the first Saa clip.
+A third re-roll was not justified.
+
+The Alif clip is **zoomed 1.42× with the crop biased up and left**, which removes the
+blocks entirely — verified at 1 s, 5 s and 9 s. Free, deterministic, and it cannot
+recur. The Saa clip was re-rolled earlier (30 cr) before this technique was found.
+
+## Still absent
+
+**Chorus and ending.** Both sing "Alif, Baa, Taa, Saa" as a melodic line, and the
+spoken-call-out trick does not apply to a sung list. The chorus also has
+"Mā shā' Allāh", untested. ~20 s and ~60 credits, and they need either a supplied
+vocal or a rewrite that speaks the letter list.
+
+## Known, minor
+
+- Intro may be missing "clap your hands, one, two, three" — a 1.6 s gap where it
+  belongs. She does clap three times on screen.
+- The Baa section has a plain cream headscarf; the other four have a slim green band,
+  because Baa was made with the character reference still and the others were not.
+- The Alif section is framed slightly tighter than the rest, a consequence of the
+  de-blocking crop.
+
+## Cost
+
+| Item                                  | Credits         |
+| ------------------------------------- | --------------- |
+| Baa diagnostic                        | 30              |
+| intro + Taa + Saa                     | 90              |
+| Saa re-roll (Latin blocks)            | 30              |
+| Alif take 1 (spoken call-out proven)  | 30              |
+| Alif take 2 (blocks; cropped instead) | 30              |
+| **Total**                             | **240 / $7.92** |
