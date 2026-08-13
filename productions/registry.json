@@ -1,6 +1,6 @@
 {
   "_standard": "PRODUCTION-STANDARD.md",
-  "_next_id": 32,
+  "_next_id": 33,
   "productions": [
     {
       "id": "0001",
@@ -922,6 +922,30 @@
       "type": "image-set",
       "status": "delivered",
       "folder": "productions/0031-alhamdulillah-every-day",
+      "style": 5,
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      },
+      "model": "nano_banana_pro",
+      "dates": {
+        "requested": "2026-08-12",
+        "produced": "2026-08-12",
+        "published": null
+      },
+      "cost": {
+        "credits": 4,
+        "usd": 0.13
+      },
+      "confirmed_unpublished": "2026-08-12"
+    },
+    {
+      "id": "0032",
+      "slug": "subhanallah-look-around",
+      "title": "SubhanAllah, Look Around",
+      "type": "image-set",
+      "status": "delivered",
+      "folder": "productions/0032-subhanallah-look-around",
       "style": 5,
       "ratings": {
         "editor": null,
