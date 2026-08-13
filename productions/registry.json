@@ -839,7 +839,8 @@
         "produced": "2026-08-12",
         "published": null
       },
-      "confirmed_unpublished": "2026-08-12"
+      "confirmed_unpublished": "2026-08-12",
+      "accepted": "2026-08-12"
     }
   ],
   "_platforms": ["facebook", "instagram", "pinterest", "x", "tiktok", "youtube"],

@@ -63,10 +63,37 @@ creation, as the brief requires. Verified by looking at the render.
   raise. So each emoji is drawn at 96 and scaled with LANCZOS. Checked before
   building, not after.
 
+## Platform ratios — `work/ratios.py`
+
+**Accepted 2026-08-12.** Each ratio is re-composed from the CLEAN base, never
+cropped from the titled 1:1 — cropping a square whose type is laid out for a
+square clips the title and moves the logo off its corner.
+
+| File                 | Size      | For                         | Framing                                           |
+| -------------------- | --------- | --------------------------- | ------------------------------------------------- |
+| `-titled-1x1-4k.png` | 4096×4096 | Facebook · Instagram square | the accepted original                             |
+| `-4x5.png`           | 3277×4096 | Instagram feed              | sides cropped, biased left so the rabbit survives |
+| `-2x3.png`           | 2731×4096 | Pinterest                   | sides cropped, same bias                          |
+| `-16x9.png`          | 4096×2304 | Facebook feed · X           | top/bottom cropped                                |
+| `-9x16.png`          | 2304×4096 | TikTok · Reels · Stories    | **not cropped** — full image over a blurred fill  |
+
+Two framing decisions worth keeping:
+
+- **16:9 first cropped the rabbit and lamb clean out of frame** (bias 0.42) and
+  put the couplet panel across both children. Now bias 0.80 keeps the children
+  and both animals, and the couplet moved to the right of frame, clear of the
+  subjects. Costs most of the sky, which is the right trade.
+- **9:16 is padded, not cropped.** A square cropped to 9:16 loses a child or both
+  animals. The full illustration sits sharp over a blurred fill of itself and the
+  bands above and below carry the type. Nothing is lost.
+- **The 9:16 couplet sits at 0.73, not 0.80**, because TikTok and Reels overlay
+  their caption and buttons across roughly the bottom 20%.
+
+Every ratio was rendered and looked at, not assumed.
+
 ## Open
 
-- Platform ratio exports not generated — one `reframe.py` run once ratios are named.
-- No caption written yet.
+- Caption written: `OUTPUT/CAPTION.md` (Facebook, Instagram, Pinterest, X, TikTok).
 - Relationship to **0026**, the same topic as a single-child illustration, is
   unresolved: 0026 may be the series master and 0027 the post, or one supersedes
   the other. The user's call.
