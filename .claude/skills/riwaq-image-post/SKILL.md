@@ -105,6 +105,19 @@ Design, fixed by the accepted 0027:
   buttons across the bottom fifth.
 - **16:9 is the awkward one.** Cropping a square to landscape throws away most of
   the frame, so check what the crop deletes and move the couplet off the subject.
+- **Crop bias is a property of the COMPOSITION, not of the ratio.** The defaults
+  were tuned on 0027, whose subjects sit low. On 0029, whose heads sit high and
+  whose second subject sits at the right edge, the inherited 16:9 bias put the
+  title through a child's head, and the 2:3 bias cropped a whole briefed act out
+  of frame. Retune per image with `--override` — never edit the defaults to suit
+  one picture:
+
+```bash
+--override "16x9.bias=0.40,16x9.couplet_y=0.735,16x9.couplet_x=0.575,2x3.bias=0.55"
+```
+
+Keys: `bias`, `title_y`, `couplet_y`, `couplet_w`, `couplet_x`, `logo_frac`.
+Higher `bias` moves a crop-x window right and a crop-y window down.
 
 ## 5. Verify by looking — this is not optional
 

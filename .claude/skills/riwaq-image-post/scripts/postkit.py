@@ -208,7 +208,35 @@ def main() -> int:
     ap.add_argument("--ratios", default="1x1,4x5,2x3,16x9,9x16")
     ap.add_argument("--also-clean", action="store_true",
                     help="also write the textless square, for reuse as a video start frame")
+    ap.add_argument("--override", default="",
+                    help="per-ratio tuning, comma separated: "
+                         "'16x9.bias=0.42,16x9.couplet_y=0.70'. Keys: bias, title_y, "
+                         "couplet_y, couplet_w, couplet_x, logo_frac. The defaults are "
+                         "tuned for one composition — where a subject sits high or an "
+                         "animal sits mid-frame, retune rather than covering it.")
     args = ap.parse_args()
+
+    presets = {k: list(v) for k, v in PRESETS.items()}
+    layout = {k: dict(v) for k, v in LAYOUT.items()}
+    for item in (x.strip() for x in args.override.split(",") if x.strip()):
+        try:
+            path, val = item.split("=", 1)
+            ratio, key = path.split(".", 1)
+            fval = float(val)
+        except ValueError:
+            print(f"bad --override item: {item!r}  (want '16x9.bias=0.42')")
+            return 2
+        if ratio not in presets:
+            print(f"unknown ratio in --override: {ratio}")
+            return 2
+        if key == "bias":
+            presets[ratio][3] = fval
+        elif key in ("title_y", "couplet_y", "couplet_w", "couplet_x", "logo_frac"):
+            layout[ratio][key] = fval
+        else:
+            print(f"unknown override key: {key}")
+            return 2
+        print(f"override: {ratio}.{key} = {fval}")
 
     base = Image.open(args.base).convert("RGBA")
     if base.width != base.height:
@@ -228,10 +256,10 @@ def main() -> int:
         return 2
 
     for name in wanted:
-        w, h, mode, bias, platforms = PRESETS[name]
+        w, h, mode, bias, platforms = presets[name]
         img = frame(base, w, h, mode, bias)
         img = compose(img, w, h, args.title, args.emoji_left, args.emoji_right,
-                      args.line1, args.line2, logo, **LAYOUT[name])
+                      args.line1, args.line2, logo, **layout[name])
         p = out / f"{args.prefix}-{name}.png"
         img.convert("RGB").save(p)
         print(f"{p.name:52s} {w}x{h}   {platforms}")
