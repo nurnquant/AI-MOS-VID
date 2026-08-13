@@ -852,7 +852,8 @@ def main() -> int:
     ap.add_argument("--on", metavar="LIST",
                     help="comma-separated platforms: " + ",".join(PLATFORMS))
     ap.add_argument("--date", metavar="YYYY-MM-DD",
-                    help="publish date, or 'scheduled' (default: today)")
+                    help="publish date, 'scheduled', or 'unknown' when it is "
+                         "live but the date was never recorded (default: today)")
     ap.add_argument("--rate", metavar="ID", help="attach ratings to a production")
     ap.add_argument("--editor", type=rating, metavar="1-5",
                     help="your rating of the delivery, 1-5 in half steps")
@@ -966,6 +967,9 @@ def main() -> int:
     if args.publish:
         if not args.on:
             print("--publish needs --on facebook,instagram,..."); return 2
+        # Defaulting to today is right for something published just now and wrong
+        # for anything recalled later, so "unknown" records that it is live
+        # without inventing a date. See the hard rule in the standard.
         when = args.date or _dt.date.today().isoformat()
         want = [x.strip().lower() for x in args.on.split(",") if x.strip()]
         bad = [x for x in want if x not in PLATFORMS]
@@ -977,10 +981,13 @@ def main() -> int:
                 e.setdefault("platforms", {k: None for k in PLATFORMS})
                 for k in want:
                     e["platforms"][k] = when
-                real = [v for v in e["platforms"].values() if v and v != "scheduled"]
+                real = [v for v in e["platforms"].values()
+                        if v and v not in ("scheduled", "unknown")]
                 if real:
                     e.setdefault("dates", {})["published"] = min(real)
                 e["status"] = "published"
+                # it cannot be both confirmed-unpublished and live
+                e.pop("confirmed_unpublished", None)
                 save(reg)
                 live = ", ".join(k for k, v in e["platforms"].items() if v)
                 print(f"{args.publish} {e['title']}")

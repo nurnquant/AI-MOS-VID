@@ -179,14 +179,13 @@
         "published": null
       },
       "platforms": {
-        "facebook": null,
+        "facebook": "unknown",
         "instagram": null,
         "pinterest": null,
         "x": null,
         "tiktok": null,
         "youtube": null
       },
-      "confirmed_unpublished": "2026-08-12",
       "ratings": {
         "editor": 5,
         "visitors": 3.5
