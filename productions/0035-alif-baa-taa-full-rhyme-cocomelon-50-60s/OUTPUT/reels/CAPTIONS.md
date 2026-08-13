@@ -6,7 +6,7 @@ tag, so any one can be posted alone.
 PLAIN TEXT ONLY. No asterisks, no underscores — the platforms print them literally.
 Copy each block as-is. Sound on: these are sung.
 
-Suggested order, one a day: **intro → Alif → Baa → Taa → Saa**, then the full 52 s
+Suggested order, one a day: intro, Alif, Baa, Taa, Saa — then the full 52 s
 version as the sixth post, captioned "the whole song".
 
 ---
