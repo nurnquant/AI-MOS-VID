@@ -58,3 +58,54 @@ Plus the existing 2 s brand tag. Finished length roughly 42 s — longer than V1
 25.8 s, because a person speaking to camera cannot be cut as tight as narrated
 stills. If that is too long, the script needs cutting before the clips are bought,
 not after.
+
+## V3 — captions (2026-08-13)
+
+Two versions built, no credits — all local.
+
+- `OUTPUT/0036-v3-quiet-9x16.mp4` — **the recommendation**
+- `OUTPUT/0036-v3-kinetic-9x16.mp4` — the comparison
+- `compare.png` — same four moments, quiet on top, kinetic below
+
+Both 42.04 s, no drift, checkvideo clean.
+
+### The design, and the one call I reversed
+
+Earlier I proposed a darkened hook card for the first 1.5 s. **That was wrong for
+this film and I dropped it.** The scroll-stopper here is his face making eye
+contact; dimming it at second one throws away the thing that was paid for.
+
+What was built instead:
+
+- **Hook text on screen from 0.00 s**, before he speaks. A muted viewer can read
+  the claim before a word is said, which is where the scroll is won.
+- **Soft bottom gradient, never a box.** The room stays visible.
+- **Phrase chunks, not word-by-word.** Timed to whisper's word starts, so a chunk
+  changes when he actually gets there.
+- **One gold word per chunk** — teaching, deen, count, Bismillah, Alhamdulillah,
+  apologised, Dua, way, From.
+- **Helvetica Bold for captions, Georgia kept for the brand tag.** Serif is the
+  print voice; sans wins at caption size in motion.
+- **Rise and fade over 160 ms, ease-out, no bounce.**
+- Nothing below y=1044, where the platform UI starts.
+
+### Display text is authored, never transcribed
+
+Timings come from whisper; the words do not. Whisper hears "deen" as "Dean" and
+"Dua" as "Do I" because they are not English. Printing a transcript at a viewer
+would have put both misspellings on screen in a video about the deen.
+
+### Three faults found and fixed
+
+1. **Chunks overlapped** — a caption was still up when the next arrived. Each is
+   now clamped to the next one's start.
+2. **`read` split the ffmpeg argument list on spaces**, so the overlay inputs
+   collapsed to one token. One value per line fixes it.
+3. **"BISMILLAH BEFORE YOU LEFT" ran off the right edge** in the kinetic version.
+   The cause was measuring mixed case and rendering caps — caps are wider. The
+   text is now uppercased _before_ wrapping, and the size auto-fits down until
+   every row fits, because wrapping cannot save a single word wider than the
+   column. Tightest margin is now 80 px.
+
+Fault 3 is the useful one: it passed every duration and drift check and was only
+visible by looking.

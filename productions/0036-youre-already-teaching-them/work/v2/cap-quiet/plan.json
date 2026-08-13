@@ -1,0 +1,107 @@
+[
+  {
+    "clip": "A",
+    "i": 0,
+    "start": 0.0,
+    "dur": 1.875,
+    "text": "You think you're not teaching"
+  },
+  {
+    "clip": "A",
+    "i": 1,
+    "start": 1.9,
+    "dur": 1.125,
+    "text": "your child deen."
+  },
+  {
+    "clip": "A",
+    "i": 2,
+    "start": 3.3,
+    "dur": 3.083,
+    "text": "You are."
+  },
+  {
+    "clip": "A",
+    "i": 3,
+    "start": 6.66,
+    "dur": 2.0,
+    "text": "You just don't count it."
+  },
+  {
+    "clip": "B",
+    "i": 0,
+    "start": 0.0,
+    "dur": 2.208,
+    "text": "Bismillah before you left the house."
+  },
+  {
+    "clip": "B",
+    "i": 1,
+    "start": 3.46,
+    "dur": 0.917,
+    "text": "They heard it."
+  },
+  {
+    "clip": "B",
+    "i": 2,
+    "start": 6.42,
+    "dur": 1.25,
+    "text": "Alhamdulillah when you"
+  },
+  {
+    "clip": "B",
+    "i": 3,
+    "start": 7.7,
+    "dur": 0.875,
+    "text": "were exhausted."
+  },
+  {
+    "clip": "C",
+    "i": 0,
+    "start": 0.0,
+    "dur": 1.25,
+    "text": "You apologised"
+  },
+  {
+    "clip": "C",
+    "i": 1,
+    "start": 1.26,
+    "dur": 2.625,
+    "text": "when you were wrong."
+  },
+  {
+    "clip": "C",
+    "i": 2,
+    "start": 5.36,
+    "dur": 0.833,
+    "text": "Dua out loud"
+  },
+  {
+    "clip": "C",
+    "i": 3,
+    "start": 6.2,
+    "dur": 2.25,
+    "text": "when the news was bad."
+  },
+  {
+    "clip": "D",
+    "i": 0,
+    "start": 0.6,
+    "dur": 1.0,
+    "text": "They learn deen"
+  },
+  {
+    "clip": "D",
+    "i": 1,
+    "start": 1.62,
+    "dur": 1.625,
+    "text": "the way they learned to talk."
+  },
+  {
+    "clip": "D",
+    "i": 2,
+    "start": 5.5,
+    "dur": 1.042,
+    "text": "From you."
+  }
+]
