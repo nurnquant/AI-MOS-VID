@@ -1,5 +1,10 @@
 # Media Kernel v9 — gap analysis against AIVS as built
 
+> **OUTCOME: v9 will NOT be implemented.** Decided 2026-08-13. The spec is parked at
+> `library/riwaq-media-kernel-v9-NOT-IMPLEMENTED.md` as reference. This analysis is
+> retained because it is an accurate map of what AIVS does and does not have, which
+> stays useful regardless of the decision.
+
 Analysis only. **Nothing implemented, no module started, no schema touched.**
 
 Compares `riwaq_media_kernel_v9.md` (1,356 lines, 32 sections, phases MK-01→MK-09)
