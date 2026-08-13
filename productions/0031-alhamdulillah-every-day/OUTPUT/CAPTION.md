@@ -9,18 +9,18 @@ Style 5 (Image Post) · produced 2026-08-12
 
 He woke up. That is it. Nothing special happened. ☀️
 
-🌅 **ALHAMDULILLAH EVERY DAY** 🌅
+🌅 ALHAMDULILLAH EVERY DAY 🌅
 
-_Good days, hard days, all the way —_
-_Alhamdulillah every day!_
+Good days, hard days, all the way —
+Alhamdulillah every day!
 
 Here is the part we usually get wrong when we teach this word.
 
 We save it for good news. The test passed, the baby born, the illness gone. And
-our children learn, without us ever saying it, that **alhamdulillah is the word
-for when things go your way.**
+our children learn, without us ever saying it, that alhamdulillah is the word
+for when things go your way.
 
-But it is not a celebration word. It is a **daily** word.
+But it is not a celebration word. It is a daily word.
 
 Alhamdulillah on the morning nothing happened. On the morning you are tired. On
 the morning the plan fell apart, the tooth hurts, the friend was unkind. Same
@@ -33,7 +33,7 @@ on the hard ones.
 
 So keep it boring. Say it when nothing has happened:
 
-**"We woke up. Alhamdulillah."**
+"We woke up. Alhamdulillah."
 
 Every day. Especially the plain ones.
 
@@ -41,7 +41,7 @@ Every day. Especially the plain ones.
 is a working kettle.
 
 🎁 We teach Qur'an and Arabic to children one-on-one with qualified Al-Azhar
-teachers — the words and what they mean. First class is **FREE**.
+teachers — the words and what they mean. First class is FREE.
 
 🔗 https://riwaqalilm.com/free-trial
 
@@ -55,23 +55,23 @@ teachers — the words and what they mean. First class is **FREE**.
 
 He woke up. That's it. Nothing special happened. ☀️
 
-🌅 **ALHAMDULILLAH EVERY DAY** 🌅
+🌅 ALHAMDULILLAH EVERY DAY 🌅
 
-_Good days, hard days, all the way —_
-_Alhamdulillah every day!_
+Good days, hard days, all the way —
+Alhamdulillah every day!
 
 We save this word for good news. Test passed, illness gone, baby born.
 
-So our children quietly learn that **alhamdulillah is the word for when things go
-your way.**
+So our children quietly learn that alhamdulillah is the word for when things go
+your way.
 
-It isn't a celebration word. It's a **daily** word. Same word on the tired
+It isn't a celebration word. It's a daily word. Same word on the tired
 morning, the plan-fell-apart morning, the tooth-hurts morning — not because the
 hard thing is good, but because Allah is still Allah and you still woke up.
 
 A child who only hears it after good news stops saying it when life gets hard.
 
-So keep it boring. Say it when nothing happened: **"We woke up. Alhamdulillah."**
+So keep it boring. Say it when nothing happened: "We woke up. Alhamdulillah."
 
 Most ordinary thing you can say it for right now? Ours is a working kettle 👇
 
@@ -84,7 +84,7 @@ Most ordinary thing you can say it for right now? Ours is a working kettle 👇
 
 ## Pinterest (2:3)
 
-**Alhamdulillah is a daily word, not a celebration word**
+Alhamdulillah is a daily word, not a celebration word
 
 Most children only hear alhamdulillah after good news — so they learn it means
 "things went my way", and stop saying it when life gets hard.
@@ -125,7 +125,7 @@ So kids learn it means "things went my way."
 Then life gets hard and they stop saying it.
 
 Keep it BORING. Say it when nothing happened:
-**"We woke up. Alhamdulillah."**
+"We woke up. Alhamdulillah."
 
 Every day. Especially the plain ones.
 
@@ -136,16 +136,16 @@ Every day. Especially the plain ones.
 
 ## Posting notes
 
-- **The idea, not the image, carries this post**: alhamdulillah is a daily word,
+- The idea, not the image, carries this post: alhamdulillah is a daily word,
   not a celebration word — and saving it for good news quietly teaches children
   the wrong lesson. That reframe is the shareable part.
-- **Deliberately different from 0028** "Thank You, Allah", which is an evening
-  counting-your-blessings habit. This is morning, and it is about the _repeat_ and
+- Deliberately different from 0028 "Thank You, Allah", which is an evening
+  counting-your-blessings habit. This is morning, and it is about the repeat and
   about hard days. Do not post them back to back — space them out.
-- **The ask is self-deprecating and concrete** ("ours is a working kettle"), which
+- The ask is self-deprecating and concrete ("ours is a working kettle"), which
   gives permission to answer with something unimpressive. That is what produces
   volume in the comments.
 - The scene is deliberately uneventful: he just woke up. If anyone asks what is
   happening — nothing is, and that is the post.
-- Fifth in the run: **0027** creation → **0028** gratitude → **0029** character →
-  **0030** beginnings → **0031** daily repeat.
+- Fifth in the run: 0027 creation → 0028 gratitude → 0029 character →
+  0030 beginnings → 0031 daily repeat.

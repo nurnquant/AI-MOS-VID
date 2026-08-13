@@ -263,6 +263,12 @@ through a mask — build it as an alpha mask and `alpha_composite` it instead.
 python3 scripts/social/productions.py --set 0033 --status delivered
 ```
 
+**Captions are PLAIN TEXT. No markdown, ever.** Facebook, Instagram, TikTok and X do
+not render `**bold**` or `_italic_` — they print the asterisks and underscores
+literally. Carry emphasis with line breaks, the occasional CAPITALISED word, and
+emoji. This applies to everything inside a caption block; the `##` section headers
+that organise `CAPTION.md` itself are fine, because nobody pastes those.
+
 Write `OUTPUT/CAPTION.md` per platform, add a `ProductionCost` row to
 `costTracker/social-media-tracker.xlsx` (header row 3; back it up first; production
 number in `ID`), and write `01-NOTES.md` recording the beat table, what was

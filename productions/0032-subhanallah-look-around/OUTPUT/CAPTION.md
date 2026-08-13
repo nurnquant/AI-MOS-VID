@@ -9,12 +9,12 @@ Style 5 (Image Post) · produced 2026-08-12
 
 She has been crouched there for eleven minutes. Over a ladybird. 🐞
 
-🔍 **SUBHANALLAH, LOOK AROUND!** 🐞
+🔍 SUBHANALLAH, LOOK AROUND! 🐞
 
-_A tiny wing, a drop of dew —_
-_SubhanAllah, what a view!_
+A tiny wing, a drop of dew —
+SubhanAllah, what a view!
 
-We say **SubhanAllah** at sunsets. At mountains. At the sea from a plane window.
+We say SubhanAllah at sunsets. At mountains. At the sea from a plane window.
 Big things.
 
 But look at what she found in the grass, four steps from the back door.
@@ -24,14 +24,14 @@ grass, holding water like beads and not breaking. An ant carrying something four
 times its own size and not complaining about it. A beetle with a back like polished
 glass.
 
-**None of it needed to be beautiful.** It works either way. The spiral could have
+None of it needed to be beautiful. It works either way. The spiral could have
 been a lump. The web could have been grey string. Someone chose to make the small
 things beautiful, when nobody was going to check.
 
-That is what SubhanAllah means. Not "how big" — **"how perfectly made."**
+That is what SubhanAllah means. Not "how big" — "how perfectly made."
 
-Here is your job, and it takes no preparation: **when your child stops, stop with
-them.** Do not hurry them past the snail. That pause is not them being slow, it is
+Here is your job, and it takes no preparation: when your child stops, stop with
+them. Do not hurry them past the snail. That pause is not them being slow, it is
 them noticing what you stopped noticing years ago. Crouch down. Look. Say
 SubhanAllah out loud.
 
@@ -40,7 +40,7 @@ You will be the one who learns something.
 👇 What has your child made you stop and look at recently? Ours was a woodlouse.
 
 🎁 We teach Qur'an and Arabic to children one-on-one with qualified Al-Azhar
-teachers — patient with curious children. First class is **FREE**.
+teachers — patient with curious children. First class is FREE.
 
 🔗 https://riwaqalilm.com/free-trial
 
@@ -54,10 +54,10 @@ teachers — patient with curious children. First class is **FREE**.
 
 She's been crouched there for eleven minutes. Over a ladybird. 🐞
 
-🔍 **SUBHANALLAH, LOOK AROUND!** 🐞
+🔍 SUBHANALLAH, LOOK AROUND! 🐞
 
-_A tiny wing, a drop of dew —_
-_SubhanAllah, what a view!_
+A tiny wing, a drop of dew —
+SubhanAllah, what a view!
 
 We save SubhanAllah for sunsets, mountains, the sea from a plane window. Big
 things.
@@ -68,10 +68,10 @@ A shell built in a perfect spiral. A web strung overnight between two blades of
 grass, holding water and not breaking. An ant carrying four times its own size. A
 beetle with a back like polished glass.
 
-**None of it needed to be beautiful.** It works either way. Someone chose to make
+None of it needed to be beautiful. It works either way. Someone chose to make
 the small things beautiful when nobody was going to check.
 
-That's SubhanAllah. Not "how big" — **"how perfectly made."**
+That's SubhanAllah. Not "how big" — "how perfectly made."
 
 So when your child stops, stop with them. Don't hurry them past the snail. Crouch
 down. Say it out loud. You'll be the one who learns something 🤍
@@ -87,7 +87,7 @@ What has yours made you stop and look at? 👇
 
 ## Pinterest (2:3)
 
-**SubhanAllah isn't only for sunsets — teaching children to look closer**
+SubhanAllah isn't only for sunsets — teaching children to look closer
 
 SubhanAllah does not mean "how big". It means "how perfectly made" — which makes
 the garden a better classroom than the mountain.
@@ -129,7 +129,7 @@ An ant: carries 4x its own weight.
 
 None of it HAD to be beautiful. It works either way.
 
-That's what SubhanAllah means — not "how big", but **"how perfectly made."**
+That's what SubhanAllah means — not "how big", but "how perfectly made."
 
 So stop with them. Crouch down. Say it out loud.
 
@@ -140,16 +140,16 @@ So stop with them. Crouch down. Say it out loud.
 
 ## Posting notes
 
-- **The theological hook is the definition**: SubhanAllah is not "how big" but "how
+- The theological hook is the definition: SubhanAllah is not "how big" but "how
   perfectly made". That single correction is what makes the small-things argument
   land, and it is the line most likely to be quoted back.
-- **The parenting instruction is unusually easy**: stop when your child stops. It
+- The parenting instruction is unusually easy: stop when your child stops. It
   costs nothing, needs no materials, and reframes a behaviour parents normally find
   inconvenient as something valuable.
-- **Deliberately the opposite of 0027** "Allah Made Everything", which is the wide
+- Deliberately the opposite of 0027 "Allah Made Everything", which is the wide
   landscape — sky, mountains, river. This one is macro: one ladybird, four steps
   from the back door. They pair well but should not be posted adjacent.
-- **The ask names something unglamorous** ("ours was a woodlouse") to license
+- The ask names something unglamorous ("ours was a woodlouse") to license
   small, real answers.
-- Sixth in the run: **0027** creation → **0028** gratitude → **0029** character →
-  **0030** beginnings → **0031** daily repeat → **0032** looking closer.
+- Sixth in the run: 0027 creation → 0028 gratitude → 0029 character →
+  0030 beginnings → 0031 daily repeat → 0032 looking closer.

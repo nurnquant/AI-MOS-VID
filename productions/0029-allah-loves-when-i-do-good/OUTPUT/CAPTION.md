@@ -14,13 +14,13 @@ away half of what he wanted, to someone smaller than him.
 
 And she filled a bowl for a kitten nobody asked her to notice.
 
-🌟 **ALLAH LOVES WHEN I DO GOOD** 💛
+🌟 ALLAH LOVES WHEN I DO GOOD 💛
 
-_Share a snack, help someone stand —_
-_Allah loves a helping hand!_
+Share a snack, help someone stand —
+Allah loves a helping hand!
 
-Here is the part worth teaching, and most of us skip it: **tell them Allah saw
-it.**
+Here is the part worth teaching, and most of us skip it: tell them Allah saw
+it.
 
 We are quick with "well done" and "good boy." Those land on the child. But
 "Allah loves it when you do that" lands somewhere else entirely — it tells them
@@ -33,7 +33,7 @@ is good.
 So today, catch one small thing. The cup carried to the table. The toy handed
 over without a fight. The cat given water. And say it plainly:
 
-**"Allah loves that you did that."**
+"Allah loves that you did that."
 
 Watch what it does to their face.
 
@@ -41,7 +41,7 @@ Watch what it does to their face.
 smaller the better.
 
 🎁 We teach Qur'an, Arabic and akhlaq to children one-on-one with qualified
-Al-Azhar teachers. Character first, gently, at their pace. First class **FREE**.
+Al-Azhar teachers. Character first, gently, at their pace. First class FREE.
 
 🔗 https://riwaqalilm.com/free-trial
 
@@ -57,12 +57,12 @@ Half an orange. 🍊
 
 Not something he had spare — half of what he wanted, given to someone smaller.
 
-🌟 **ALLAH LOVES WHEN I DO GOOD** 💛
+🌟 ALLAH LOVES WHEN I DO GOOD 💛
 
-_Share a snack, help someone stand —_
-_Allah loves a helping hand!_
+Share a snack, help someone stand —
+Allah loves a helping hand!
 
-Here's the part most of us skip: **tell them Allah saw it.**
+Here's the part most of us skip: tell them Allah saw it.
 
 "Well done" lands on the child. "Allah loves it when you do that" lands somewhere
 else — it says the kindness counted even though nobody was watching, even though
@@ -72,7 +72,7 @@ That's the difference between a child who is good when watched, and a child who 
 good.
 
 Catch one small thing today. The cup carried to the table. The toy handed over.
-Then say it plainly: **"Allah loves that you did that."**
+Then say it plainly: "Allah loves that you did that."
 
 What did you catch yours doing this week? 👇
 
@@ -85,7 +85,7 @@ What did you catch yours doing this week? 👇
 
 ## Pinterest (2:3)
 
-**Teaching akhlaq to young children — say "Allah loves that you did that"**
+Teaching akhlaq to young children — say "Allah loves that you did that"
 
 Praise lands on the child. "Allah loves it when you do that" lands deeper — it
 tells them the kindness counted even when nobody was watching.
@@ -122,7 +122,7 @@ is good.
 
 Stop saying "good boy" 🍊
 
-Try this instead: **"Allah loves that you did that."**
+Try this instead: "Allah loves that you did that."
 
 "Well done" lands on your child.
 "Allah loves it" tells them it counted even when nobody was watching.
@@ -137,14 +137,14 @@ water. Then name it that way.
 
 ## Posting notes
 
-- **The strongest line is the reframe**, not the scene: swap "well done" for
+- The strongest line is the reframe, not the scene: swap "well done" for
   "Allah loves that you did that." That is the shareable idea — it gives parents
   something to change in their own speech today, at no cost.
-- **TikTok opens with a mild pattern-break** ("stop saying good boy") because that
+- TikTok opens with a mild pattern-break ("stop saying good boy") because that
   format rewards it; the Facebook version earns the same point more gently.
-- **The ask is calibrated small** — "the smaller the better" — so parents answer
+- The ask is calibrated small — "the smaller the better" — so parents answer
   with a real moment instead of feeling they need an impressive one.
 - Two good deeds are in frame, deliberately: giving, and noticing an animal.
   Either one gives a parent a comment.
-- Third in a natural sequence: **0027** creation → **0028** gratitude → **0029**
+- Third in a natural sequence: 0027 creation → 0028 gratitude → 0029
   good character.

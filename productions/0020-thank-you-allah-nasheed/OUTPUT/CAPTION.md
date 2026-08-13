@@ -22,7 +22,7 @@ For my family, work, and play.
 For the birds and skies so blue,
 Every blessing comes from You. 🎵
 
-Children are born noticing everything — the birds, the light, the colours. Gratitude is simply teaching them **who** to thank for all of it.
+Children are born noticing everything — the birds, the light, the colours. Gratitude is simply teaching them who to thank for all of it.
 
 Sing it with them in the morning. In a week they will be singing it back to you.
 
@@ -72,7 +72,7 @@ The crescent moon, a prayer mat on the floor, and four pairs of hands raised tog
 🎵 Morning, evening, night, and day,
 We thank Allah as we pray. 🎵
 
-ٱلْحَمْدُ لِلَّٰهِ — _Alhamdulillah_
+ٱلْحَمْدُ لِلَّٰهِ — Alhamdulillah
 
 There is no lesson in gratitude stronger than a child watching their whole family stop, sit down together, and thank Allah out loud.
 
@@ -90,10 +90,10 @@ Thank Allah in every moment. ❤️
 
 ## Posting notes
 
-- These are two verses of **one nasheed** — post them a few days apart as a
+- These are two verses of one nasheed — post them a few days apart as a
   mini-series, or stitch all three into a single 30s Reel once Verse 2 is
   watermarked.
-- Verse 1 suits a **morning** posting slot; Verse 3 suits **evening**
+- Verse 1 suits a morning posting slot; Verse 3 suits evening
   (20:30–22:00 Eastern), which matches its content.
 - Verse 3 carries its own baked-in text ("Thank Allah in every moment"), so its
   watermark is fixed top-left rather than rotating — do not add further overlay

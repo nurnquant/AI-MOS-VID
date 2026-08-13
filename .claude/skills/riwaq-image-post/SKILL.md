@@ -169,6 +169,11 @@ whether to keep it before spending 4 credits on a re-roll.
 ## 6. Caption
 
 Write `OUTPUT/CAPTION.md` with a section per platform. What worked on 0027:
+**Captions are PLAIN TEXT. No markdown, ever.** Facebook, Instagram, TikTok and X do
+not render `**bold**` or `_italic_` — they print the asterisks and underscores
+literally. Carry emphasis with line breaks, the occasional CAPITALISED word, and
+emoji. This applies to everything inside a caption block; the `##` section headers
+that organise `CAPTION.md` itself are fine, because nobody pastes those.
 
 - **A concrete action, not a sentiment.** "On your next walk let them pick one
   thing and say Alhamdulillah" is repeatable tomorrow — that is what gets saved

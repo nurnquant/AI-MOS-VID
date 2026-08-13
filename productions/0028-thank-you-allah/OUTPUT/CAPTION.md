@@ -14,29 +14,29 @@ A blanket. A window with the sun going down behind it.
 
 To her, that is just Tuesday evening.
 
-🤲 **THANK YOU, ALLAH** 🌸
+🤲 THANK YOU, ALLAH 🌸
 
-_For every gift, both big and small —_
-_Thank you, Allah, for it all!_
+For every gift, both big and small —
+Thank you, Allah, for it all!
 
-We teach our children to ask. **Do we teach them to thank?**
+We teach our children to ask. Do we teach them to thank?
 
-Try this tonight, before bed. Ask them for **three things** from today. Not big
+Try this tonight, before bed. Ask them for three things from today. Not big
 things — the smaller the better. The cat. The banana. That the rain stopped
 before the park.
 
-Then say it together: **Alhamdulillah.**
+Then say it together: Alhamdulillah.
 
 Do it for a week and you will notice something. They start collecting them during
 the day, ready for you. That is a grateful heart forming, and you built it with a
 question you asked at bedtime.
 
-_"If you are grateful, I will surely increase you."_ — Qur'an 14:7
+"If you are grateful, I will surely increase you." — Qur'an 14:7
 
 👇 What would your little one thank Allah for tonight? We are guessing snacks.
 
 🎁 We teach Qur'an and Arabic to children one-on-one with qualified Al-Azhar
-teachers, gently and at their pace. First class is **FREE**.
+teachers, gently and at their pace. First class is FREE.
 
 🔗 https://riwaqalilm.com/free-trial
 
@@ -55,16 +55,16 @@ sunset through the window.
 
 To her, that's just Tuesday.
 
-🤲 **THANK YOU, ALLAH** 🌸
+🤲 THANK YOU, ALLAH 🌸
 
-_For every gift, both big and small —_
-_Thank you, Allah, for it all!_
+For every gift, both big and small —
+Thank you, Allah, for it all!
 
-We teach our children to ask. Do we teach them to **thank**?
+We teach our children to ask. Do we teach them to thank?
 
 Tonight, ask them for three things from today — the smaller the better. The cat.
 The banana. That the rain stopped before the park. Then say it together:
-**Alhamdulillah.**
+Alhamdulillah.
 
 A week of that, and they start collecting them for you during the day 🤍
 
@@ -79,10 +79,10 @@ What would yours thank Allah for tonight? 👇
 
 ## Pinterest (2:3)
 
-**Bedtime gratitude for Muslim children — a 2-minute habit**
+Bedtime gratitude for Muslim children — a 2-minute habit
 
 Teach shukr, not just dua. Before bed, ask your child for three things from their
-day — the smaller the better — then say **Alhamdulillah** together.
+day — the smaller the better — then say Alhamdulillah together.
 
 Within a week they start collecting them during the day, ready to tell you. That
 is a grateful heart forming.
@@ -118,7 +118,7 @@ A 2-minute bedtime habit that builds a grateful child 🤲
 
 Ask them for THREE things from today.
 The smaller the better — the cat, the banana, the rain stopping.
-Then say it together: **Alhamdulillah.**
+Then say it together: Alhamdulillah.
 
 Do it for a week. They'll start collecting them for you 🌸
 
@@ -129,15 +129,15 @@ Do it for a week. They'll start collecting them for you 🌸
 
 ## Posting notes
 
-- **Evening post.** The image is sunset-lit and the action is a bedtime habit, so
+- Evening post. The image is sunset-lit and the action is a bedtime habit, so
   it lands best when parents are heading into that part of the day.
-- **The action is the whole post**: "three things, smallest first, then
+- The action is the whole post: "three things, smallest first, then
   Alhamdulillah." Specific, free, repeatable tonight — which is what gets saved
   and sent to a friend rather than just liked.
-- **The engagement ask answers itself** ("we are guessing snacks"), which makes it
+- The engagement ask answers itself ("we are guessing snacks"), which makes it
   easy and funny to reply to.
 - Qur'an 14:7 is quoted in translation only, and lightly — it is a parenting post,
   not a tafsir post.
 - Works muted and at thumbnail size; the title is baked in.
-- Sits naturally in a series with **0027 Allah Made Everything** — creation, then
+- Sits naturally in a series with 0027 Allah Made Everything — creation, then
   gratitude for it. Consider posting in that order.
