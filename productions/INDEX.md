@@ -39,10 +39,11 @@ request; it is never assumed.
 | `0023` | Rhyme Series | program | — | · requested | — | [0023-rhyme-series](0023-rhyme-series/) |
 | `0024` | Alif, Baa, Taa Adventure | video | 7 | ! parked | — | [0024-alif-baa-taa-adventure](0024-alif-baa-taa-adventure/) |
 | `0025` | Little Muslim, Big Heart | video | — | · requested | — | [0025-little-muslim-big-heart](0025-little-muslim-big-heart/) |
+| `0026` | Allah Made Everything | image-set | — | ✓ delivered | 0026-allah-made-everything-1x1-4k.png | [0026-allah-made-everything](0026-allah-made-everything/) |
 
-**25 productions** — 4 delivered · 1 parked · 18 published · 2 requested
+**26 productions** — 5 delivered · 1 parked · 18 published · 2 requested
 
-Next free number: **0026**
+Next free number: **0027**
 
 ## Adding a request
 

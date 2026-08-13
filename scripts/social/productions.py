@@ -95,6 +95,12 @@ def read_title(brief: Path, fallback: str) -> str:
             return t.lstrip("# ").strip()
         if t.upper().startswith("TITLE"):
             return t.split(":", 1)[-1].strip().strip('"')
+    # no heading: a short first line IS the title. A one-line brief named
+    # 0026.md otherwise produced the folder "0026-0026".
+    for line in lines:
+        t = line.strip().lstrip("*_- ").rstrip("*_ ")
+        if t and len(t) <= 80:
+            return t
     return fallback
 
 
