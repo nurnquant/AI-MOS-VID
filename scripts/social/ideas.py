@@ -43,6 +43,7 @@ STYLES = {
     4: "Animated Nasheed",
     5: "Image Post",
     7: "Photoreal Sing-Along",
+    8: "Table Talk",
 }
 
 

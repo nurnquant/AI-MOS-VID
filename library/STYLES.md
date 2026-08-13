@@ -117,6 +117,39 @@ Static feed post, full-bleed.
 
 ---
 
+## Style 8 — Table Talk
+
+**Call it by name: "Table Talk", or "Style 8".**
+
+One adult speaking straight to camera at a table in a warm home at night, as if
+talking to one other parent late in the evening. Parent-facing, not child-facing.
+Generated end to end by Gemini Omni Flash with native audio — the performance is
+generated, not narrated over footage.
+
+**First use: 0036 V2. Graded A+ by the user** ("video and voice over is
+excellent"), the highest grade given to anything in the library.
+
+| Element   | Treatment                                                                        |
+| --------- | -------------------------------------------------------------------------------- |
+| Speaker   | One adult, direct eye contact with the lens, tired, warm, honest                 |
+| Direction | NOT a presenter, NOT energetic, NOT smiling for camera. Low, calm, unhurried     |
+| Setting   | Wooden table, warm home at night, lamp light from one side, deep green and amber |
+| Camera    | Two shots per 10 s clip, cut at ~5 s: framing changes, subject does not move     |
+| Audio     | The model's native voice plus room tone. Nothing laid over the performance       |
+| Music     | None under the speech. Piano rises only under the final ~3.5 s                   |
+| Watermark | Small wordmark, top right                                                        |
+| Ending    | 2 s brand tag                                                                    |
+| Length    | 10 s per clip; ~42 s for a four-clip piece                                       |
+
+**The recipe that makes it work is in
+[STYLE-8-TABLE-TALK.md](STYLE-8-TABLE-TALK.md)** — prompt scaffold, the
+reference-image rule, levelling, and the verification pass. Read it before
+producing; several of its lines cost money to learn.
+
+**Used by:** 0036 V2 You're Already Teaching Them
+
+---
+
 ## Style 7 — Photoreal Sing-Along · ❌ REJECTED 2026-08-12
 
 **Do not use. Do not treat 0024 as a template.** Rated 1/5. It answered a

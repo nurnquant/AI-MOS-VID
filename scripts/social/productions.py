@@ -42,6 +42,7 @@ STYLES = {
     5: "Image Post",
     # 6 was drafted as the animated sing-along and not chosen; never reuse it
     7: "Photoreal Sing-Along",
+    8: "Table Talk",
 }
 
 

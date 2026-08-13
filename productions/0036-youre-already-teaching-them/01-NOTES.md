@@ -141,9 +141,22 @@ five-minute change.
 Voice gain was also raised 4 dB in the mix: `prepvo.sh` normalises each line to
 -18 LUFS, which landed 5 dB quieter than the raw placeholder.
 
+## V2 supersedes V1, and named a style
+
+**V2 is the delivery.** `OUTPUT/0036-v2-youre-already-teaching-them-9x16.mp4`,
+42.04 s. V1 is kept as the record of what the library-reuse route produces, not as
+an alternative to publish.
+
+The user's verdict on V2, verbatim: **"video and voice over is excellent. keep it
+as A+"** — the highest grade given to anything in the library. Recorded as editor
+5/5, the top of the numeric scale, with the A+ noted here because the scale has no
+room above 5.
+
+**This became [Style 8 — Table Talk](../../library/STYLES.md).** Call it by name.
+The full recipe, including the lines that cost money to learn, is in
+[library/STYLE-8-TABLE-TALK.md](../../library/STYLE-8-TABLE-TALK.md).
+
 ## Still open
 
-- **Style number is not set.** You name it; it is never guessed. The finished
-  piece is closest in feel to Style 2, but that is an observation, not a record.
 - Visitor rating 24 h after posting, compared against 0006's 3.5.
 - Episode 2 (I002) is written but unbuilt, by design.
