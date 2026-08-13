@@ -141,8 +141,16 @@ PY
 
 Check: every briefed element still visible · no text clipped at an edge · logo
 clear of subjects · title legible against what is behind it · **emoji visible
-against the actual background** — 0028's 🤍 white heart vanished on a peach wall
-and was swapped for 🌸.
+against the actual background, judged SMALL** — 0028's 🤍 white heart vanished on a
+peach wall, and 0031's 🐦 read as a smudge at thumbnail size. Both were swapped
+(🌸, 🌅). Prefer saturated, high-contrast glyphs; avoid white, pale and small-detail
+ones.
+
+**Before starting, check the topic against what already exists.** 0031
+"Alhamdulillah Every Day" would have duplicated 0028 "Thank You, Allah", so it was
+separated on three axes — morning not evening, standing not kneeling, the daily
+repeat rather than counting today's blessings — and the caption notes say not to
+post the two back to back. Read `productions/INDEX.md` first.
 
 Also worth a look: the model sometimes lays a flat band across the top quarter
 with a hard seam (0028 had one at exactly y=1024). It is not a ceiling, but it

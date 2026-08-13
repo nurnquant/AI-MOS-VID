@@ -1,6 +1,6 @@
 {
   "_standard": "PRODUCTION-STANDARD.md",
-  "_next_id": 31,
+  "_next_id": 32,
   "productions": [
     {
       "id": "0001",
@@ -898,6 +898,30 @@
       "type": "image-set",
       "status": "delivered",
       "folder": "productions/0030-bismillah-before-i-begin",
+      "style": 5,
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      },
+      "model": "nano_banana_pro",
+      "dates": {
+        "requested": "2026-08-12",
+        "produced": "2026-08-12",
+        "published": null
+      },
+      "cost": {
+        "credits": 4,
+        "usd": 0.13
+      },
+      "confirmed_unpublished": "2026-08-12"
+    },
+    {
+      "id": "0031",
+      "slug": "alhamdulillah-every-day",
+      "title": "Alhamdulillah Every Day",
+      "type": "image-set",
+      "status": "delivered",
+      "folder": "productions/0031-alhamdulillah-every-day",
       "style": 5,
       "ratings": {
         "editor": null,
