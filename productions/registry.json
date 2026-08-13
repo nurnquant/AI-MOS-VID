@@ -864,7 +864,8 @@
         "credits": 4,
         "usd": 0.13
       },
-      "confirmed_unpublished": "2026-08-12"
+      "confirmed_unpublished": "2026-08-12",
+      "accepted": "2026-08-12"
     }
   ],
   "_platforms": ["facebook", "instagram", "pinterest", "x", "tiktok", "youtube"],
