@@ -43,10 +43,11 @@ request; it is never assumed.
 | `0027` | Allah Made Everything (post image) | image-set | 5 | ✓ delivered | 0027-allah-made-everything-16x9.png _(+5)_ | [0027-allah-made-everything-post-image](0027-allah-made-everything-post-image/) |
 | `0028` | Thank You, Allah | image-set | 5 | ✓ delivered | 0028-thank-you-allah-16x9.png _(+5)_ | [0028-thank-you-allah](0028-thank-you-allah/) |
 | `0029` | Allah Loves When I Do Good | image-set | 5 | ✓ delivered | 0029-allah-loves-when-i-do-good-16x9.png _(+5)_ | [0029-allah-loves-when-i-do-good](0029-allah-loves-when-i-do-good/) |
+| `0030` | Bismillah Before I Begin | image-set | 5 | ✓ delivered | 0030-bismillah-before-i-begin-16x9.png _(+5)_ | [0030-bismillah-before-i-begin](0030-bismillah-before-i-begin/) |
 
-**29 productions** — 8 delivered · 1 parked · 18 published · 2 requested
+**30 productions** — 9 delivered · 1 parked · 18 published · 2 requested
 
-Next free number: **0030**
+Next free number: **0031**
 
 ## Adding a request
 
