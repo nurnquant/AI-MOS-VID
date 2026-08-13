@@ -571,6 +571,14 @@ def html(reg: dict) -> str:
             f' title="{escape(style_label(st))}">style {st}</a>'
             if st else '<span class="pill sty off" title="no style recorded">unstyled</span>')
 
+        # The phrase that re-orders this treatment. Shown on the card because a
+        # style is only reusable if you can remember what to say to get it.
+        call = ""
+        if st and STYLES.get(int(st)):
+            phrase = f'make it {STYLES[int(st)]}'
+            call = (f'<button class="call" data-copy="{escape(phrase)}"'
+                    f' title="click to copy">say: \u201c{escape(phrase)}\u201d</button>')
+
         cards.append(f"""<article class="card" id="p{p['id']}"
    data-status="{p['status']}" data-type="{p['type']}"
    data-ed="{ed or 0}" data-vi="{vi or 0}" data-produced="{0 if p['status']=='requested' else 1}"
@@ -582,6 +590,7 @@ def html(reg: dict) -> str:
   {media}
   <div class="meta"><span class="pill t-{p['type']}">{p['type']}</span>
     <span class="pill s-{p['status']}">{p['status']}</span>{style_pill}</div>
+  {call}
   <div class="rates">{rate_rows}</div>
   <div class="chips">{chips}</div>
   <nav>{''.join(links)}</nav>
@@ -720,6 +729,13 @@ details.det td:first-child{{color:var(--dim);width:42%;padding-right:8px}}
 details.det th{{text-align:left;padding:7px 0 2px;color:var(--gold);font-size:.72rem}}
 details ul{{margin:6px 0 0;padding-left:18px}}
 details a{{color:var(--fg)}}
+button.call{{align-self:flex-start;font:600 .74rem/1.25 ui-monospace,SFMono-Regular,monospace;
+padding:5px 10px;border-radius:8px;border:1px dashed var(--gold);background:var(--goldbg);
+color:var(--gold);cursor:pointer;text-align:left}}
+button.call:hover{{border-style:solid}}
+button.call.copied{{border-style:solid;background:var(--emerald);border-color:var(--emerald);
+color:#fff}}
+@media(prefers-color-scheme:dark){{button.call.copied{{color:#0e1512}}}}
 #none{{grid-column:1/-1;text-align:center;color:var(--dim);padding:40px;display:none}}
 /* --- Ideas section: the stage before a production --- */
 #ideas{{max-width:1400px;margin:0 auto;padding:10px 22px 70px;
@@ -808,6 +824,23 @@ btns.forEach(b=>b.addEventListener('click',()=>{{
 document.addEventListener('keydown',e=>{{
   if(e.key==='/'&&document.activeElement!==q){{e.preventDefault();q.focus();}}
 }});
+
+// Click a call-phrase to copy it. navigator.clipboard needs a secure context and
+// this page is usually opened from file://, so fall back to execCommand.
+document.querySelectorAll('button.call').forEach(b=>b.addEventListener('click',()=>{{
+  const txt=b.dataset.copy;
+  const done=()=>{{const o=b.textContent;b.textContent='copied';b.classList.add('copied');
+    setTimeout(()=>{{b.textContent=o;b.classList.remove('copied');}},1100);}};
+  if(navigator.clipboard&&window.isSecureContext){{
+    navigator.clipboard.writeText(txt).then(done).catch(()=>fallback());
+  }} else fallback();
+  function fallback(){{
+    const t=document.createElement('textarea');t.value=txt;t.style.position='fixed';
+    t.style.opacity='0';document.body.appendChild(t);t.select();
+    try{{document.execCommand('copy');done();}}catch(e){{}}
+    document.body.removeChild(t);
+  }}
+}}));
 
 // Ideas section filters — kept on their own buttons and their own state so the
 // two grids never fight over one filter.
