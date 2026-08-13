@@ -23,6 +23,11 @@ stills, the verification plan.
 > 8 s). This is the one case where veo's audio is **kept**, not discarded.
 >
 > **For a rhyme, reach for `gemini_omni` (Gemini Omni Flash) instead of veo.**
+> Confirmed again on 0035: it honoured a three-scene cut list in five separate
+> sections, and the character held across all of them **from the written description
+> alone** when the reference image was accidentally omitted — though those clips
+> drifted a slim headband, so pass the reference anyway.
+>
 > Proven on 0034: **4–10 s in a single clip** with native audio, so a 10 s piece needs
 > no stitching, and it **honours a written cut list** — a three-scene prompt produced
 > measured cuts at 3.50 s and 6.54 s, where veo gave one locked-off shot. 30 credits
@@ -216,6 +221,42 @@ The sandbox is **fresh on every call**, so download the audio inside the same sc
 and run it with `nohup … &` then poll, because a cold model load exceeds the 60 s
 call limit.
 
+## 6b. Letter / word cards, timed to the audio — free
+
+For a teaching video, the letter or word should appear **exactly when the character
+says it**. Local, no credits:
+
+```bash
+python3 .claude/skills/riwaq-story-video/scripts/lettercards.py \
+  --video work/seg/no-letters.mp4 --out OUTPUT/final-9x16.mp4 \
+  --card "ا:Alif:10.16:5.4" --card "ا:Alif:16.54:2.6" \
+  --card "ب:Baa:20.00:4.9"  --card "ب:Baa:26.54:2.6" \
+  --style pink-glass --position bottom-right
+```
+
+Spec is `TEXT:NAME:START:DUR`. Styles: `pink-glass` (0035's, approved), `cream`,
+`mint-glass`, `sky-glass`. Positions: the four corners plus `bottom-centre`.
+Each card springs in on an ease-out-back curve, floats and pulses while held, then
+fades upward. **Audio is stream-copied**, so a hard-won vocal is never re-encoded.
+
+Five rules, each from a mistake on 0035:
+
+1. **Get START from whisper word timestamps**, never by eye:
+   `transcribe(wav, word_timestamps=True, vad_filter=False)`, then read `w.start`
+   per word. That is how all ten letter utterances were placed.
+2. **One card per phrase, not one per utterance.** Alif is said three times in six
+   seconds; three pops read as a flicker. Two appearances per letter is right.
+3. **Test placement against real frames before rendering everything.** The first
+   0035 placement was upper-left and **covered the character's face** in the
+   close-ups. Composite one card onto frames from every section and look.
+4. **Keep it clear of the watermark.** Cards sit bottom-right because the wordmark
+   is bottom-left.
+5. **Arabic is rendered locally** with GeezaPro, reshaped and bidi-ordered. No model
+   here has ever produced usable Arabic.
+
+If a card ever shows an opaque block instead of glass, the sheen is being `paste`d
+through a mask — build it as an alpha mask and `alpha_composite` it instead.
+
 ## 7. Caption, cost, notes, tracking
 
 ```bash
@@ -228,6 +269,14 @@ number in `ID`), and write `01-NOTES.md` recording the beat table, what was
 verified, and every known defect left in.
 
 **Never invent a rating.** "Nice" is not a 1–5. Never scan live social accounts.
+
+## Assembling a multi-section piece
+
+0035's shape, which worked: build each ~10 s section as its own clip, stamp the
+watermark on each, then join everything with **one filter concat** (never the
+demuxer). Add a 2 s brand tag carrying a real marimba tail rather than silence.
+Sections can then be re-rolled or re-ordered individually without touching the rest —
+which is how Alif was added at the front after the other four were approved.
 
 ## Cost model
 

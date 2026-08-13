@@ -1067,7 +1067,7 @@
       "folder": "productions/0035-alif-baa-taa-full-rhyme-cocomelon-50-60s",
       "style": null,
       "ratings": {
-        "editor": null,
+        "editor": 4,
         "visitors": null
       },
       "model": "gemini_omni (Gemini Omni Flash)",
