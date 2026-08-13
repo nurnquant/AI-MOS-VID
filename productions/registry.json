@@ -1090,10 +1090,10 @@
       "status": "delivered",
       "folder": "productions/0036-youre-already-teaching-them",
       "style": null,
-      "model": "library reuse + seed_audio (Desmond) VO",
+      "model": "library reuse + seed_audio VO (V1); gemini_omni (V2, in progress)",
       "cost": {
-        "credits": 5.5,
-        "usd": 0.18
+        "credits": 35.5,
+        "usd": 1.17
       },
       "dates": {
         "requested": "2026-08-13",
