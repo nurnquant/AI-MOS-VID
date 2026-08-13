@@ -22,7 +22,7 @@ sequences stay small.
 from pathlib import Path
 import math
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageChops, ImageDraw, ImageFont, ImageFilter
 import arabic_reshaper
 from bidi.algorithm import get_display
 
@@ -36,6 +36,10 @@ GEO_B = "/System/Library/Fonts/Supplemental/Georgia Bold.ttf"
 GOLD = (214, 176, 106)
 CREAM = (250, 247, 238)
 EMERALD = (10, 46, 36)
+# translucent pink "glass" for the letter cards — the cream card read as flat
+# against the bright CoComelon playroom
+PINK = (255, 150, 196)
+PINK_DEEP = (243, 106, 168)
 
 # letter, latin name, appearances as (start_seconds, duration_seconds)
 LETTERS = [
@@ -58,21 +62,57 @@ def draw_card(scale: float, alpha: float, dy: int, letter: str, name: str) -> Im
     card = Image.new("RGBA", (w + 40, h + 40), (0, 0, 0, 0))
     d = ImageDraw.Draw(card)
     r = int(48 * scale)
-    # soft drop shadow, then the cream card with a gold edge
-    d.rounded_rectangle((22, 26, w + 18, h + 22), r, fill=(0, 0, 0, 60))
-    d.rounded_rectangle((20, 20, w + 16, h + 16), r,
-                        fill=CREAM + (247,), outline=GOLD + (255,), width=max(3, int(6 * scale)))
+    box = (20, 20, w + 16, h + 16)
+
+    # soft drop shadow
+    d.rounded_rectangle((22, 26, w + 18, h + 22), r, fill=(0, 0, 0, 70))
+
+    # --- translucent pink glass -------------------------------------------
+    # vertical gradient, paler at the top, deeper pink at the bottom, all
+    # semi-transparent so the playroom shows through
+    grad = Image.new("RGBA", card.size, (0, 0, 0, 0))
+    gd = ImageDraw.Draw(grad)
+    for i in range(box[1], box[3]):
+        t = (i - box[1]) / max(box[3] - box[1], 1)
+        col = tuple(int(PINK[k] + (PINK_DEEP[k] - PINK[k]) * t) for k in range(3))
+        gd.line((box[0], i, box[2], i), fill=col + (int(120 + 60 * t),))
+    mask = Image.new("L", card.size, 0)
+    ImageDraw.Draw(mask).rounded_rectangle(box, r, fill=255)
+    card.paste(grad, (0, 0), mask)
+
+    # glossy sheen across the upper third, clipped to the card shape.
+    # NOTE: build this as an alpha mask and alpha_composite it. Pasting an RGBA
+    # sheen with a rounded-rect mask paints an opaque block over the top half.
+    sh = Image.new("L", card.size, 0)
+    ImageDraw.Draw(sh).rounded_rectangle(
+        (box[0] + int(8 * scale), box[1] + int(6 * scale),
+         box[2] - int(8 * scale), box[1] + int((h + 16) * 0.40)),
+        int(r * 0.9), fill=95)
+    sh = sh.filter(ImageFilter.GaussianBlur(max(3, int(14 * scale))))
+    gloss = Image.new("RGBA", card.size, (255, 255, 255, 0))
+    gloss.putalpha(ImageChops.multiply(sh, mask))
+    card.alpha_composite(gloss)
+
+    # bright inner rim, then the gold brand edge
+    d = ImageDraw.Draw(card)
+    d.rounded_rectangle((box[0] + int(5 * scale), box[1] + int(5 * scale),
+                         box[2] - int(5 * scale), box[3] - int(5 * scale)),
+                        int(r * 0.92), outline=(255, 255, 255, 150),
+                        width=max(2, int(3 * scale)))
+    d.rounded_rectangle(box, r, outline=GOLD + (255,), width=max(3, int(6 * scale)))
 
     f = ImageFont.truetype(AR, max(10, int(250 * scale)))
     s = shape(letter)
     b = d.textbbox((0, 0), s, font=f)
     cx = 20 + (w - (b[2] - b[0])) // 2 - b[0]
-    d.text((cx, int(45 * scale)), s, font=f, fill=EMERALD)
+    d.text((cx, int(45 * scale)), s, font=f, fill=EMERALD,
+           stroke_width=max(1, int(5 * scale)), stroke_fill=(255, 255, 255, 190))
 
     fn = ImageFont.truetype(GEO_B, max(8, int(62 * scale)))
     bn = d.textbbox((0, 0), name, font=fn)
     d.text((20 + (w - (bn[2] - bn[0])) // 2 - bn[0], int(300 * scale)), name,
-           font=fn, fill=EMERALD)
+           font=fn, fill=EMERALD,
+           stroke_width=max(1, int(3 * scale)), stroke_fill=(255, 255, 255, 185))
 
     if alpha < 1.0:
         card.putalpha(card.getchannel("A").point(lambda a: int(a * alpha)))

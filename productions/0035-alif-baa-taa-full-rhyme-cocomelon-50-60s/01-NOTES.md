@@ -246,8 +246,11 @@ times in four seconds reads as a flicker.
 - **idle float and pulse** while held: ±7 px drift, ±2% scale, so it never sits dead
 - **fade out** over 0.4 s, drifting upward
 
-Card design matches the brand: cream rounded card, gold edge, **emerald Arabic
-letter**, Latin name beneath. Arabic is reshaped and bidi-ordered through GeezaPro
+Card design: **translucent pink glass** — a vertical gradient from pale pink at the
+top to deeper pink at the bottom, all semi-transparent so the playroom shows through,
+a blurred sheen across the upper third, a bright inner rim and the gold brand edge.
+Emerald Arabic letter and Latin name, each with a soft white halo so they stay
+legible against whatever passes behind the glass. Arabic is reshaped and bidi-ordered through GeezaPro
 locally — no model has ever produced usable Arabic here.
 
 ## Placement
@@ -265,3 +268,18 @@ durations are unchanged (52.042 / 52.032). Audio was stream-copied, so the verif
 pronunciation is untouched.
 
 Rebuild: `letters.py` then `overlay-letters.sh` (reads `seg/no-letters.mp4`).
+
+## Card restyled to pink glass (2026-08-13)
+
+The first cards were solid cream and the user's verdict was that they "did not match
+nicely with the whole presentation" against a bright CoComelon playroom. Restyled to
+**transparent pink glass** as asked. **Only the card background changed** — timings,
+placement, animation curve, the video and the audio are all untouched, and the audio
+was stream-copied again.
+
+Worth recording, because it nearly shipped wrong: the first attempt at the glossy
+sheen pasted an RGBA layer through a rounded-rect mask, which painted an **opaque
+block over the top half of the card**. Caught by compositing the card over real
+frames and looking before rendering all 8 sequences. The fix is to build the sheen as
+an **alpha mask** (`ImageChops.multiply(sheen, cardMask)`) and `alpha_composite` it,
+never `paste` it.
