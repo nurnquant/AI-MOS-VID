@@ -300,3 +300,28 @@ Two things the caption is careful about:
   posts, it is meaningless muted.
 - **It is framed as the first FOUR letters**, never the whole alphabet, and nothing
   promises a chorus — because the chorus and ending are not in this cut.
+
+## Cut into 5 standalone Reels (2026-08-13) — zero credits
+
+`OUTPUT/reels/` — five 12 s Reels plus their captions. `work/cut-reels.sh`.
+
+| Reel    | Source      | Opens on                                      |
+| ------- | ----------- | --------------------------------------------- |
+| 1 intro | 0.00–10.00  | clapping, wide — the weakest hook of the five |
+| 2 alif  | 10.00–20.00 | ا card already popping                        |
+| 3 baa   | 20.00–30.00 | ب card                                        |
+| 4 taa   | 30.00–40.00 | ت card                                        |
+| 5 saa   | 40.00–50.04 | ث card                                        |
+
+Each is one 10 s section plus the 2 s brand tag, so every Reel closes with the logo
+and the free-trial URL and can be posted alone. All five measured at 12.01 s with no
+A/V drift.
+
+Cut on the **measured** section boundaries (checkvideo.py: 10.00 / 20.00 / 30.00 /
+40.00, tag 50.04), which is why every animated letter card survives whole — each sits
+inside its own section. Cut from the finished master, so letters, watermark and the
+verified audio all carry over. A 0.10 s in / 0.22 s out audio fade hides the click
+where the music is sliced mid-bar.
+
+Posting plan in `OUTPUT/reels/CAPTIONS.md`: one a day in order, each caption ending
+"letter N of 4" to give a reason to return, then the full 52 s version last.
