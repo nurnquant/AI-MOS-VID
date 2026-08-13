@@ -4,13 +4,17 @@ V1's presentation was rejected: "much better [voice], still do not like the whol
 presentation." V1 is library stills plus burned captions. V2 is a different thing
 entirely — **a father speaking directly to camera**, native audio, generated.
 
-## Clip 1 only so far — 30 credits, deliberately
+## Complete — four clips, 120 credits
 
-`OUTPUT/0036-v2-clip1-omni-PREVIEW.mp4` · 10.01 s · 720x1280.
+`OUTPUT/0036-v2-youre-already-teaching-them-9x16.mp4` · **42.04 s** · 720x1280 ·
+9.2 MB. Four generated clips plus the 2 s brand tag.
 
-The full V2 needs four clips (~52 words at Omni's pace, 10 s cap per clip) =
-**120 credits**, roughly half the remaining balance. Clip 1 was generated alone so
-the look and the voice could be judged before committing the other 90.
+Clip 1 was generated alone first and approved — "this video and voice is perfect" —
+before the other three were bought. **125.5 credits total on 0036**, balance 253.6
+to 128.1.
+
+**No captions in this version by request.** Caption design is being chosen
+separately; see `caption-styles.png`.
 
 ## What clip 1 proves
 

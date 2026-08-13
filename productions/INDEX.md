@@ -14,7 +14,7 @@ request; it is never assumed.
 
 | # | Title | Type | Style | Status | Deliverables | Folder |
 | --- | --- | --- | --- | --- | --- | --- |
-| `0036` | You're Already Teaching Them | video | — | ✓ delivered | 0036-v2-clip1-omni-PREVIEW.mp4 _(+2)_ | [0036-youre-already-teaching-them](0036-youre-already-teaching-them/) |
+| `0036` | You're Already Teaching Them | video | — | ✓ delivered | 0036-v2-clip1-omni-PREVIEW.mp4 _(+3)_ | [0036-youre-already-teaching-them](0036-youre-already-teaching-them/) |
 | `0035` | Alif Baa Taa full rhyme (CoComelon, 50-60s) | video | — | ✓ delivered | 0035-alif-baa-taa-rhyme-9x16.mp4 | [0035-alif-baa-taa-full-rhyme-cocomelon-50-60s](0035-alif-baa-taa-full-rhyme-cocomelon-50-60s/) |
 | `0034` | Alif CoComelon 10s (Omni Flash) | video | — | ! parked | 0034-alif-cocomelon-10s-9x16.mp4 | [0034-alif-cocomelon-10s-omni-flash](0034-alif-cocomelon-10s-omni-flash/) |
 | `0033` | Alif Baa Taa rhyme (10s sung test) | video | — | ! parked | — | [0033-alif-baa-taa-rhyme-10s-sung-test](0033-alif-baa-taa-rhyme-10s-sung-test/) |
