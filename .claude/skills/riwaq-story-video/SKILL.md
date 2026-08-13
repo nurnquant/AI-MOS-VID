@@ -15,9 +15,18 @@ one clip costs 22. So the order below front-loads everything cheap: the brief, t
 stills, the verification plan.
 
 > **Before anything: is this a song?** A brief that says song, rhyme, sing-along,
-> nasheed, chorus or verse needs **real sung vocals**, which nothing here can
-> generate. Do not substitute a spoken read — that is what got 0024 rejected. Stop
-> and resolve the vocal source. See `library/STYLES.md`.
+> nasheed, chorus or verse needs **real sung vocals**. **Never substitute a spoken
+> read** — that is what got 0024 rejected.
+>
+> **Veo can sing.** Proven by 0033: pin the lyric as sung and veo returns a genuine
+> child singing voice with a melody (18.1-semitone pitch spread, 29 held notes in
+> 8 s). This is the one case where veo's audio is **kept**, not discarded.
+>
+> Its unsolved weakness is **pronunciation of pinned names**: 0033 sang
+> "Elef-ba-ta-ta" instead of "Alif, Baa, Taa", and a prose rule ("Alif is
+> pronounced AH-lif, never Aleph") did not fix it. Spell the lyric phonetically and
+> pin the syllable count. If it still fails, use a supplied sung vocal and veo for
+> picture only. See `library/STYLES.md`.
 
 ## 1. Brief with numbered beats — do this properly, it is free
 

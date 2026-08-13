@@ -1,6 +1,6 @@
 {
   "_standard": "PRODUCTION-STANDARD.md",
-  "_next_id": 33,
+  "_next_id": 34,
   "productions": [
     {
       "id": "0001",
@@ -1004,6 +1004,31 @@
         "tiktok": null,
         "youtube": null
       }
+    },
+    {
+      "id": "0033",
+      "slug": "alif-baa-taa-rhyme-10s-sung-test",
+      "title": "Alif Baa Taa rhyme (10s sung test)",
+      "type": "video",
+      "status": "delivered",
+      "folder": "productions/0033-alif-baa-taa-rhyme-10s-sung-test",
+      "style": null,
+      "model": "nano_banana_pro + veo3_1 fast (veo-sung audio)",
+      "dates": {
+        "requested": "2026-08-13",
+        "produced": "2026-08-13",
+        "published": null
+      },
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      },
+      "cost": {
+        "credits": 26,
+        "usd": 0.86
+      },
+      "confirmed_unpublished": "2026-08-13",
+      "note": "TEST: proves veo can SING a pinned lyric (18.1-semitone spread, 29 held notes). Character consistency holds. Defect: sings 'Elef-ba-ta-ta' not 'Alif, Baa, Taa'. Not publishable as-is."
     }
   ],
   "_platforms": ["facebook", "instagram", "pinterest", "x", "tiktok", "youtube"],

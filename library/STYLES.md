@@ -153,11 +153,16 @@ A brief that says **song, rhyme, sing-along, nasheed, chorus, verse**, or carrie
 🎵 markers, is asking for **sung vocals**. For children's rhymes the reference is
 CoComelon: 3D animation, a real sung melody, repeated hooks.
 
-**Nothing in this workspace can generate singing.** Every audio model available is
-text-to-speech (`seed_audio`, `qwen_audio_tts`, `text2speech_v2` with its five
-engines). The one text-to-music model, `sonilo_music`, is game-pipeline-only and
-must not be used standalone. The local Apple-DLS renderers produce instruments,
-never voice.
+**No TTS model here can sing.** Every audio model is text-to-speech
+(`seed_audio`, `qwen_audio_tts`, `text2speech_v2` with its five engines); the one
+text-to-music model, `sonilo_music`, is game-pipeline-only; and the local Apple-DLS
+renderers produce instruments, never voice.
+
+**But veo can sing** — proven by production 0033 on 2026-08-13. Pin the lyric as
+sung and veo returns a real child singing voice with a melody, at 22 credits per
+8 seconds, and its audio is then **kept** rather than discarded. Outstanding
+weakness: it mispronounced the pinned letter names ("Elef" for "Alif"), so spell
+lyrics phonetically and verify every take.
 
 Therefore:
 
