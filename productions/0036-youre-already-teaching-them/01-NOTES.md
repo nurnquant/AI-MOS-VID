@@ -86,42 +86,60 @@ text it was given, so the failure whisper guards against (a model mangling or
 dropping a line) cannot occur here. It is a weaker guarantee than a transcript
 and is recorded as such.
 
-## The voice is a placeholder — read this before publishing
+## Voice — replaced with seed_audio, calm male
 
-The voiceover is **macOS `say`, Samantha, compact**. Only compact system voices
-are installed on this machine; the enhanced and premium ones are not.
+The placeholder macOS TTS was rejected ("voice is so bad"), which was expected
+and flagged as not-for-publication on delivery. Replaced 2026-08-13 with
+**seed_audio (ByteDance) preset "Desmond"**, on the user's approval to spend.
 
-It is intelligible and correctly timed. It is also audibly synthetic, and this
-is a piece whose entire job is to sound like one tired parent talking to
-another. **My recommendation is not to publish on this voice.**
+**5.5 credits, about $0.18.** Balance 253.6 to 248.1.
 
-**User verdict 2026-08-13: "voice is so bad".** Agreed, and expected. Three
-routes out, with the tooling for all three now in place.
+### Picking the voice by measurement, not by name
 
-**`work/revoice.sh` does the swap.** Drop recordings in `work/vo-raw/` and run
-it: converts any format, trims leading and trailing silence, normalises every
-line to the same level, rebuilds. Or `bash revoice.sh -v Daniel` to re-render
-with a different system voice.
+Voice names say nothing about tone. The preview clips for fourteen male presets
+were downloaded and analysed for median pitch and pitch range — a low median
+with a narrow range is a steady, calm read; a wide range is a performed one.
 
-Proven, not assumed: re-rendering with Daniel produced a 23.00 s video, in sync,
-tag still carrying music. **The cut re-times itself from the new line lengths**,
-so a slower read makes a longer video and nothing goes out of sync. That is the
-property that makes a real recording cheap to drop in.
+| voice       | pitch      | range     | reads as            |
+| ----------- | ---------- | --------- | ------------------- |
+| Landon      | 81 Hz      | 31 Hz     | calm and low        |
+| **Desmond** | **110 Hz** | **45 Hz** | **calm and low**    |
+| Fraser      | 92 Hz      | 50 Hz     | expressive          |
+| Arthur      | 139 Hz     | 79 Hz     | expressive          |
+| Evan        | 187 Hz     | 129 Hz    | animated, performed |
 
-1. **Your own voice.** Free, best fit, about five minutes. Script and direction
-   in `work/RECORD-VO.md`. This is the recommendation — the piece is one tired
-   parent talking to another, and that is not a thing synthesis does well.
-2. **macOS Premium voices.** Free but needs a System Settings step only the user
-   can do: Accessibility, Spoken Content, System Voice, Manage Voices. None are
-   installed — all 177 voices on this machine are compact or novelty. Better
-   than now; still audibly synthetic.
-3. **Paid TTS.** Needs approval and the Higgsfield connector authorised. Neither
-   is in place.
+Landon and Desmond were the only two that measured calm. Both were generated in
+full so they could be compared in context rather than in the abstract.
 
-`OUTPUT/0036-voice-comparison.wav` holds the five best voices already on the
-machine, each announced then reading the opening lines. It exists to choose a
-**type** — female or male, US, UK, Irish, Australian — not to argue any of them
-is good enough.
+### Landon came back broken
+
+Two of Landon's seven lines had multi-second holes mid-sentence — 3.7 s of dead
+air after the first word of "Bismillah before you left the house", and 2.3 s
+inside "You apologised when you were wrong". They pass every duration check and
+sound broken. Re-rolled; still generating at the time of writing.
+
+`work/prepvo.sh` now collapses any internal pause over 0.45 s and **flags any
+line that still has one as needing a re-roll**. That check exists because this
+failure is invisible to every other measurement in the pipeline.
+
+### Length went up, deliberately
+
+seed_audio reads far slower than the placeholder: 21.3 s of voice against 16.4 s
+for the same 52 words. The finished piece is **25.8 s, not the 22 s in the
+brief**.
+
+Inter-line gaps were tightened from 3.0 s total to 2.4 s to claw some back, since
+this voice already breathes inside a line and stacking a long gap on top reads as
+hesitation. The rest is the read itself, and forcing it back to 22 s would mean
+either rushing an emotional piece or cutting two beats.
+
+**That is a judgement call worth confirming.** 25.8 s is well inside the range
+Reels tolerates and the pace suits the material, but it is not what was
+specified. Cutting to 22 s means losing about eight words — say so and it is a
+five-minute change.
+
+Voice gain was also raised 4 dB in the mix: `prepvo.sh` normalises each line to
+-18 LUFS, which landed 5 dB quieter than the raw placeholder.
 
 ## Still open
 

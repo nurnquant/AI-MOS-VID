@@ -1090,10 +1090,10 @@
       "status": "delivered",
       "folder": "productions/0036-youre-already-teaching-them",
       "style": null,
-      "model": "library reuse + macOS say (placeholder VO)",
+      "model": "library reuse + seed_audio (Desmond) VO",
       "cost": {
-        "credits": 0,
-        "usd": 0.0
+        "credits": 5.5,
+        "usd": 0.18
       },
       "dates": {
         "requested": "2026-08-13",

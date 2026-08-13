@@ -26,8 +26,10 @@ SHOTS=(
   "7|$P/0008-little-girl-reciting-dua/work/clips/dua.mp4|2.4|t7"
 )
 
-# breath after each line; longer after the hook and the turn, which need to land
-GAPS=(0.50 0.55 0.30 0.30 0.30 0.45 0.60)
+# Breath after each line; longer after the hook and the turn, which need to land.
+# Tightened from the placeholder's spacing because seed_audio already breathes
+# inside a line — stacking a long gap on top of that reads as hesitation.
+GAPS=(${GAPS_OVERRIDE:-0.40 0.45 0.22 0.22 0.22 0.35 0.50})
 
 dur () { ffprobe -v error -show_entries format=duration -of csv=p=0 "$1"; }
 
@@ -72,7 +74,7 @@ VOICE_ARGS=""; VOICE_FILTER=""; k=0
 while read -r n start seglen; do
   ms=$(python3 -c "print(int(float('$start')*1000))")
   VOICE_ARGS="$VOICE_ARGS -i vo/0$n.wav"
-  VOICE_FILTER="$VOICE_FILTER[$k:a]adelay=$ms|$ms,volume=1.0[d$k];"
+  VOICE_FILTER="$VOICE_FILTER[$k:a]adelay=$ms|$ms,volume=1.6[d$k];"
   k=$((k+1))
 done < seg/plan.txt
 MIXIN=$(for i in $(seq 0 $((k-1))); do printf "[d%s]" "$i"; done)
