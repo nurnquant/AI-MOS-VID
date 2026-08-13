@@ -75,8 +75,35 @@ Trade-off as it stands: veo sang more musically but mispronounced the letter and
 not cut scenes. Omni Flash cuts scenes properly and pronounces correctly but sings in
 a much narrower range.
 
+## Pronunciation, attempt 2 — WORSE, and why I stopped
+
+User verdict on v1: **"video and composition of character is excellent. just correct
+the 'Alif' pronunciation."** So the picture is signed off; only the letter name is wrong.
+
+v2 changed the phonetic spelling to `AL-if` and left everything else byte-identical.
+Whisper on v2: **"Elif, Elif, Elif stands up tall"** — a short-e, Turkish-style
+rendering. Worse than v1's "Ahlif".
+
+| Attempt    | Spelling in lyric   | Whisper heard | Verdict                   |
+| ---------- | ------------------- | ------------- | ------------------------- |
+| 0033 (veo) | "Alif" + prose rule | "Elef"        | wrong                     |
+| 0034 v1    | `AH-lif`            | "Ahlif"       | wrong, per the user's ear |
+| 0034 v2    | `AL-if`             | "Elif"        | wrong, short-e            |
+
+**Two attempts, 60 credits, both off. Stopped guessing.** Whisper's spelling is a weak
+proxy for vowel quality — it can tell me the word, not whether the vowel is right — so
+blind 30-credit iterations are the wrong instrument.
+
+Cheap substitute: `pronunciation-probe/alif-options.wav`, one seed_audio read of five
+candidate spellings (~0.3 credits), for the user to pick by ear. The winning spelling
+then goes into ONE final Omni Flash run.
+
+v2 is kept at `work/clips/omni-10s-v2.mp4`. **The delivered file remains v1**, whose
+picture the user approved.
+
 ## Open
 
+- **Which pronunciation option**, from the probe file.
 - **User's ear on the singing.** If it reads as chanting rather than a tune, the answer
   is a supplied sung vocal with Omni Flash for picture.
 - The third "Ahlif".
