@@ -236,6 +236,15 @@ def idea_detail(e: dict) -> dict:
     return out
 
 
+def newest_first(reg: dict) -> list[dict]:
+    """Display order: latest production first, oldest last.
+
+    registry.json stays in ascending id order — it is the record, and reversing
+    it there would churn the diff on every write. Only what you read is flipped.
+    """
+    return sorted(reg["productions"], key=lambda p: p["id"], reverse=True)
+
+
 def idea_tally() -> list[str]:
     """Live counts from the idea backlog, so the two trees never drift apart.
 
@@ -276,7 +285,7 @@ def index(reg: dict) -> str:
     a("| --- | --- | --- | --- | --- | --- | --- |")
 
     counts: dict[str, int] = {}
-    for p in reg["productions"]:
+    for p in newest_first(reg):
         folder = REPO / p["folder"]
         files = deliverables(folder)
         counts[p["status"]] = counts.get(p["status"], 0) + 1
@@ -457,7 +466,7 @@ def html(reg: dict) -> str:
     counts: dict[str, int] = {}
     n_vid = n_img = 0
 
-    for p in reg["productions"]:
+    for p in newest_first(reg):
         folder = REPO / p["folder"]
         a = assets(folder)
         counts[p["status"]] = counts.get(p["status"], 0) + 1
