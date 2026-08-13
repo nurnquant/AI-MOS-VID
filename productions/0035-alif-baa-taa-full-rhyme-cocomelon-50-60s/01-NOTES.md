@@ -215,3 +215,53 @@ vocal or a rewrite that speaks the letter list.
 | Alif take 1 (spoken call-out proven)  | 30              |
 | Alif take 2 (blocks; cropped instead) | 30              |
 | **Total**                             | **240 / $7.92** |
+
+---
+
+# Animated Arabic letters added — zero credits
+
+Each letter now pops onto the frame at the exact moment she says it. Everything
+below is local Pillow + ffmpeg; **no generation spend.**
+
+## Timings come from whisper, not estimates
+
+Word-level timestamps on the delivered audio:
+
+| Letter     | Says it at          | Card shown                                             |
+| ---------- | ------------------- | ------------------------------------------------------ |
+| **ا Alif** | 10.16, 10.88, 16.54 | 10.16 (5.4 s, covers both early calls) + 16.54 (2.6 s) |
+| **ب Baa**  | 20.00, 26.54        | 20.00 (4.9 s) + 26.54 (2.6 s)                          |
+| **ت Taa**  | 30.00, 30.32, 36.80 | 30.00 (4.9 s) + 36.80 (2.6 s)                          |
+| **ث Saa**  | 40.04, 40.46, 46.64 | 40.04 (4.9 s) + 46.64 (2.6 s)                          |
+
+Two appearances per letter rather than one per utterance — a card popping three
+times in four seconds reads as a flicker.
+
+## The animation
+
+`letters.py` renders an RGBA PNG sequence per appearance at 24 fps:
+
+- **spring pop-in** (0.42 s) using an ease-out-back curve that overshoots to 1.15×
+  then settles — the same feel as a CoComelon title card
+- **idle float and pulse** while held: ±7 px drift, ±2% scale, so it never sits dead
+- **fade out** over 0.4 s, drifting upward
+
+Card design matches the brand: cream rounded card, gold edge, **emerald Arabic
+letter**, Latin name beneath. Arabic is reshaped and bidi-ordered through GeezaPro
+locally — no model has ever produced usable Arabic here.
+
+## Placement
+
+**Bottom-right at 62%.** Upper-left was tried first and **covered her face** in the
+close shots, which is why placement was tested against real frames from all four
+sections before committing. Bottom-right is clear of her face in every section and
+clear of the bottom-left watermark.
+
+## Verified
+
+Frames checked at 10.4, 12.5, 17.2, 20.4, 27.0, 30.4, 37.2, 40.5 and 47.2 s — the
+correct letter is on screen at each, none obscures her face, and the video/audio
+durations are unchanged (52.042 / 52.032). Audio was stream-copied, so the verified
+pronunciation is untouched.
+
+Rebuild: `letters.py` then `overlay-letters.sh` (reads `seg/no-letters.mp4`).
