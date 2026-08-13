@@ -1,6 +1,6 @@
 # 0035 — Alif, Baa, Taa full rhyme (CoComelon, 50–60s) · notes
 
-**Status: IN PROGRESS, paused on a decision.** 30 credits spent so far ($0.99).
+**Status: PARTIAL DELIVERY — option 2 chosen.** 150 credits / $4.95.
 Reference for look and structure: **0034**, whose picture the user approved.
 
 ## What was asked
@@ -72,3 +72,69 @@ Nothing further will be generated until this is answered.
 - The decision above.
 - Style unassigned.
 - "Mā shā' Allāh" in the chorus is untested and carries the same risk class as "Alif".
+
+---
+
+# Delivered — partial cut, option 2
+
+`OUTPUT/0035-alif-baa-taa-partial-4sections-9x16.mp4` — **42.04 s**, 720×1280,
+24 fps, 16.1 MB. Video 42.042 s / audio 42.026 s, no desync.
+
+**intro → Baa → Taa → Saa → 2 s brand tag.** Verse 1 (Alif), the chorus and the
+ending are deliberately absent — all three contain "Alif".
+
+## Pronunciation, verified on every delivered section
+
+| Section | Whisper heard                                                                                    | Verdict   |
+| ------- | ------------------------------------------------------------------------------------------------ | --------- |
+| Intro   | "Come along, come sing with me / Arabic is fun, you'll see / Learn the letters happily"          | ✅        |
+| Baa     | "Ba… one little dot below / One dot down, now you know / Ba, let's say it slow"                  | ✅ p=0.99 |
+| Taa     | "Ta, ta, two little dots on top / One, two, there they are / Ta, you're a little star"           | ✅        |
+| Saa     | "Sa, sa, three little dots on top / Count them with me, one, two, three / Sa, as easy as can be" | ✅        |
+
+**Every letter name in the delivered 42 s is pronounced correctly.** That is the
+point of shipping this cut rather than the full rhyme.
+
+## Structure held
+
+Scene cuts measured at 3.50 / 13.46 / 16.42 / 23.46 / 26.50 / 33.46 / 36.42 plus the
+section joins — the three-cut CoComelon rhythm survived in all four sections.
+
+## Two defects found and fixed during the build
+
+- **Latin alphabet blocks.** The first Saa clip had toy blocks lettered C, H, F, K,
+  D, A, B, P scattered across the floor in focus — Latin letters in an Arabic
+  alphabet video. Re-rolled (30 cr) with the set dressing pinned explicitly: no
+  blocks, no cubes, no lettered objects, plain balls and plush only. Clean now.
+  Old take kept as `clips/v4-saa-v1-had-latin-blocks.mp4`.
+- **My own error:** the three new clips were submitted **without the character
+  reference image**, which I had used on 0034. 90 credits were already committed
+  when I noticed. The character held anyway on the written description, but the
+  three new clips gained a slim green band on the headscarf that the earlier Baa
+  clip does not have.
+
+## Known, for the user's call
+
+- **Headband mismatch.** Baa (generated with the reference still) has a plain cream
+  headscarf; intro, Taa and Saa have a green band. Noticeable if watched closely.
+  Fixing means re-rolling Baa to match, 30 credits.
+- **Intro may be missing one line.** The brief has "Clap your hands — one, two,
+  three"; whisper shows a 1.6 s gap where it should sit and did not transcribe it.
+  She does clap three times on screen there. Needs an ear.
+- The vocal in each section ends around 8.5 s, leaving a short instrumental tail
+  before each cut.
+
+## Still held, pending a supplied vocal
+
+Verse 1 (Alif), chorus ("Alif, Baa, Taa, Saa" + "Mā shā' Allāh"), ending. Roughly
+20 s more of finished video, and about 90 credits, once the pronunciation problem is
+solved by a human voice rather than a model.
+
+## Cost
+
+| Item                              | Credits         |
+| --------------------------------- | --------------- |
+| Baa diagnostic (kept, in the cut) | 30              |
+| intro + Taa + Saa                 | 90              |
+| Saa re-roll (Latin blocks)        | 30              |
+| **Total**                         | **150 / $4.95** |

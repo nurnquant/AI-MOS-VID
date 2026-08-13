@@ -48,9 +48,9 @@ request; it is never assumed.
 | `0032` | SubhanAllah, Look Around | image-set | 5 | ★ published | 0032-subhanallah-look-around-16x9.png _(+5)_ | [0032-subhanallah-look-around](0032-subhanallah-look-around/) |
 | `0033` | Alif Baa Taa rhyme (10s sung test) | video | — | ! parked | — | [0033-alif-baa-taa-rhyme-10s-sung-test](0033-alif-baa-taa-rhyme-10s-sung-test/) |
 | `0034` | Alif CoComelon 10s (Omni Flash) | video | — | ✓ delivered | 0034-alif-cocomelon-10s-9x16.mp4 | [0034-alif-cocomelon-10s-omni-flash](0034-alif-cocomelon-10s-omni-flash/) |
-| `0035` | Alif Baa Taa full rhyme (CoComelon, 50-60s) | video | — | ~ in-progress | — | [0035-alif-baa-taa-full-rhyme-cocomelon-50-60s](0035-alif-baa-taa-full-rhyme-cocomelon-50-60s/) |
+| `0035` | Alif Baa Taa full rhyme (CoComelon, 50-60s) | video | — | ✓ delivered | 0035-alif-baa-taa-partial-4sections-9x16.mp4 | [0035-alif-baa-taa-full-rhyme-cocomelon-50-60s](0035-alif-baa-taa-full-rhyme-cocomelon-50-60s/) |
 
-**35 productions** — 6 delivered · 1 in-progress · 2 parked · 24 published · 2 requested
+**35 productions** — 7 delivered · 2 parked · 24 published · 2 requested
 
 Next free number: **0036**
 
