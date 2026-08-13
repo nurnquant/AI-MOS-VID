@@ -47,6 +47,17 @@ creation, as the brief requires. Verified by looking at the render.
 - The couplet panel first sat at 0.78 H and **buried the lamb**, an element the
   brief explicitly asked for. Moved to 0.845 H so both rabbit and lamb stay
   visible. Text placement must not delete briefed content.
+- **The logo was sized wrong at first.** The asset is a 1024×1536 canvas whose
+  artwork occupies only 1020×1415, so sizing the _canvas_ to 300px made the
+  visible circle much smaller than 300 and it read as an accident. Now cropped to
+  its opaque bbox and sized by the circle itself, with a soft drop shadow so gold
+  stays crisp on bright grass.
+- **Then it covered the rabbit.** Enlarged to 560px it sat straight on top of the
+  rabbit — the same failure as the couplet panel and the lamb. The bottom-left
+  corner is genuinely occupied in this composition, so the logo is 290px tucked
+  tight into the corner: small, per the standing rule for image posts ("very very
+  small, just a watermark"), and clear of both animals. Verified by cropping the
+  bottom-left region and looking at it.
 - **Apple Color Emoji is a bitmap face** and only rasterises at particular ppem
   sizes — 96px works with `embedded_color=True`, other sizes render blank or
   raise. So each emoji is drawn at 96 and scaled with LANCZOS. Checked before

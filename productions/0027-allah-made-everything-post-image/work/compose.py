@@ -106,12 +106,27 @@ def main() -> None:
         d.text(((W - (bb[2] - bb[0])) // 2 - bb[0], py + 82 + i * 165),
                line, font=fc, fill=col + (255,))
 
-    # ---- small logo watermark, bottom-left (style 5 convention) -----------
+    # ---- official logo, bottom-left ---------------------------------------
+    # The asset is a 1024x1536 canvas whose artwork occupies only 1020x1415,
+    # with transparent padding. Sizing the CANVAS to 300px made the visible
+    # circle far smaller than 300 and it read as a speck. Crop to the opaque
+    # bbox first, then size by the circle itself.
     logo = Image.open(LOGO).convert("RGBA")
-    lw = 300
+    logo = logo.crop(logo.getchannel("A").getbbox())
+    # Small, per the standing rule for image posts: "very very small, just a
+    # watermark", bottom-left. Kept tight into the corner because the rabbit and
+    # lamb live in this corner and brand furniture must not cover briefed content.
+    lw = 290
     logo = logo.resize((lw, int(logo.height * lw / logo.width)), Image.LANCZOS)
-    logo.putalpha(logo.getchannel("A").point(lambda a: int(a * 0.80)))
-    img.alpha_composite(logo, (150, H - logo.height - 150))
+
+    lx, ly = 90, H - logo.height - 95
+    # soft drop shadow so a gold emblem stays crisp against bright grass
+    glow = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    shadow = Image.new("RGBA", logo.size, (0, 0, 0, 0))
+    shadow.paste((0, 0, 0, 120), (0, 0), logo.getchannel("A"))
+    glow.alpha_composite(shadow, (lx + 6, ly + 10))
+    img.alpha_composite(glow.filter(ImageFilter.GaussianBlur(18)))
+    img.alpha_composite(logo, (lx, ly))
 
     OUT.mkdir(exist_ok=True)
     img.convert("RGB").save(OUT / "0027-allah-made-everything-titled-1x1-4k.png")
