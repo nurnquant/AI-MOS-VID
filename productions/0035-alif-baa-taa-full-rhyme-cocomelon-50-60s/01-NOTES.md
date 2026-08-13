@@ -283,3 +283,20 @@ block over the top half of the card**. Caught by compositing the card over real
 frames and looking before rendering all 8 sequences. The fix is to build the sheen as
 an **alpha mask** (`ImageChops.multiply(sheen, cardMask)`) and `alpha_composite` it,
 never `paste` it.
+
+## Caption
+
+`OUTPUT/CAPTION.md` — Facebook, Instagram Reels, TikTok / YouTube Shorts, X, plus
+posting notes.
+
+The angle is **how the video teaches**, not what it contains: each letter has a hand
+movement a child can copy before they can read a dot — Alif stands tall, Baa points
+down once, Taa two fingers up, Saa three counted out. The instruction to parents is to
+do the hands together on the second play.
+
+Two things the caption is careful about:
+
+- **"Sound on" is stated explicitly.** This is a sung rhyme and, unlike the image
+  posts, it is meaningless muted.
+- **It is framed as the first FOUR letters**, never the whole alphabet, and nothing
+  promises a chorus — because the chorus and ending are not in this cut.
