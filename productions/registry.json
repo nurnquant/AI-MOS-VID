@@ -1,6 +1,6 @@
 {
   "_standard": "PRODUCTION-STANDARD.md",
-  "_next_id": 35,
+  "_next_id": 36,
   "productions": [
     {
       "id": "0001",
@@ -1057,6 +1057,30 @@
       },
       "confirmed_unpublished": "2026-08-13",
       "note": "Omni Flash: picture APPROVED by user (v1). Pronunciation of 'Alif' unfixable across 3 spellings — renders Ahlif/Elif. Blocked pending a supplied sung vocal; rebuild is then free using v1 picture."
+    },
+    {
+      "id": "0035",
+      "slug": "alif-baa-taa-full-rhyme-cocomelon-50-60s",
+      "title": "Alif Baa Taa full rhyme (CoComelon, 50-60s)",
+      "type": "video",
+      "status": "in-progress",
+      "folder": "productions/0035-alif-baa-taa-full-rhyme-cocomelon-50-60s",
+      "style": null,
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      },
+      "model": "gemini_omni (Gemini Omni Flash)",
+      "dates": {
+        "requested": "2026-08-13",
+        "produced": null,
+        "published": null
+      },
+      "cost": {
+        "credits": 30,
+        "usd": 0.99
+      },
+      "note": "PAUSED on decision. Test proved only 'Alif' mispronounces — 'Baa' came back clean at p=0.99, so Taa/Saa likely fine. 3 of 7 sections contain Alif and are blocked. Full build would be 180cr."
     }
   ],
   "_platforms": ["facebook", "instagram", "pinterest", "x", "tiktok", "youtube"],
