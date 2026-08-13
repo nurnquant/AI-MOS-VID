@@ -46,11 +46,12 @@ request; it is never assumed.
 | `0030` | Bismillah Before I Begin | image-set | 5 | ★ published | 0030-bismillah-before-i-begin-16x9.png _(+5)_ | [0030-bismillah-before-i-begin](0030-bismillah-before-i-begin/) |
 | `0031` | Alhamdulillah Every Day | image-set | 5 | ★ published | 0031-alhamdulillah-every-day-16x9.png _(+5)_ | [0031-alhamdulillah-every-day](0031-alhamdulillah-every-day/) |
 | `0032` | SubhanAllah, Look Around | image-set | 5 | ★ published | 0032-subhanallah-look-around-16x9.png _(+5)_ | [0032-subhanallah-look-around](0032-subhanallah-look-around/) |
-| `0033` | Alif Baa Taa rhyme (10s sung test) | video | — | ✓ delivered | 0033-alif-baa-taa-rhyme-test-9x16.mp4 | [0033-alif-baa-taa-rhyme-10s-sung-test](0033-alif-baa-taa-rhyme-10s-sung-test/) |
+| `0033` | Alif Baa Taa rhyme (10s sung test) | video | — | ! parked | — | [0033-alif-baa-taa-rhyme-10s-sung-test](0033-alif-baa-taa-rhyme-10s-sung-test/) |
+| `0034` | Alif CoComelon 10s (Omni Flash) | video | — | ✓ delivered | 0034-alif-cocomelon-10s-9x16.mp4 | [0034-alif-cocomelon-10s-omni-flash](0034-alif-cocomelon-10s-omni-flash/) |
 
-**33 productions** — 6 delivered · 1 parked · 24 published · 2 requested
+**34 productions** — 6 delivered · 2 parked · 24 published · 2 requested
 
-Next free number: **0034**
+Next free number: **0035**
 
 ## Adding a request
 

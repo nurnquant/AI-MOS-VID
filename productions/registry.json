@@ -1,6 +1,6 @@
 {
   "_standard": "PRODUCTION-STANDARD.md",
-  "_next_id": 34,
+  "_next_id": 35,
   "productions": [
     {
       "id": "0001",
@@ -1010,7 +1010,7 @@
       "slug": "alif-baa-taa-rhyme-10s-sung-test",
       "title": "Alif Baa Taa rhyme (10s sung test)",
       "type": "video",
-      "status": "delivered",
+      "status": "parked",
       "folder": "productions/0033-alif-baa-taa-rhyme-10s-sung-test",
       "style": null,
       "model": "nano_banana_pro + veo3_1 fast (veo-sung audio)",
@@ -1027,8 +1027,36 @@
         "credits": 26,
         "usd": 0.86
       },
+      "note": "TEST: proves veo can SING a pinned lyric (18.1-semitone spread, 29 held notes). Character consistency holds. Defect: sings 'Elef-ba-ta-ta' not 'Alif, Baa, Taa'. Not publishable as-is.",
+      "rejected": {
+        "date": "2026-08-13",
+        "reason": "NOT ACCEPTABLE. User rejected the delivery. Reason not yet specified — do not re-attempt until it is."
+      }
+    },
+    {
+      "id": "0034",
+      "slug": "alif-cocomelon-10s-omni-flash",
+      "title": "Alif CoComelon 10s (Omni Flash)",
+      "type": "video",
+      "status": "delivered",
+      "folder": "productions/0034-alif-cocomelon-10s-omni-flash",
+      "style": null,
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      },
+      "model": "gemini_omni (Gemini Omni Flash)",
+      "dates": {
+        "requested": "2026-08-13",
+        "produced": "2026-08-13",
+        "published": null
+      },
+      "cost": {
+        "credits": 30,
+        "usd": 0.99
+      },
       "confirmed_unpublished": "2026-08-13",
-      "note": "TEST: proves veo can SING a pinned lyric (18.1-semitone spread, 29 held notes). Character consistency holds. Defect: sings 'Elef-ba-ta-ta' not 'Alif, Baa, Taa'. Not publishable as-is."
+      "note": "Gemini Omni Flash 10s single clip. Cuts at 3.50/6.54 as specified; pronunciation FIXED ('Ahlif') via phonetic lyric. Garbled 'UXely' text covered by local Arabic Alif card. Open: pitch spread only 5.7 semitones vs veo's 18.1 — may be chanting, needs user's ear."
     }
   ],
   "_platforms": ["facebook", "instagram", "pinterest", "x", "tiktok", "youtube"],

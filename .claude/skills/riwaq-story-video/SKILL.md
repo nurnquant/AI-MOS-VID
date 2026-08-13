@@ -22,11 +22,24 @@ stills, the verification plan.
 > child singing voice with a melody (18.1-semitone pitch spread, 29 held notes in
 > 8 s). This is the one case where veo's audio is **kept**, not discarded.
 >
-> Its unsolved weakness is **pronunciation of pinned names**: 0033 sang
-> "Elef-ba-ta-ta" instead of "Alif, Baa, Taa", and a prose rule ("Alif is
-> pronounced AH-lif, never Aleph") did not fix it. Spell the lyric phonetically and
-> pin the syllable count. If it still fails, use a supplied sung vocal and veo for
-> picture only. See `library/STYLES.md`.
+> **For a rhyme, reach for `gemini_omni` (Gemini Omni Flash) instead of veo.**
+> Proven on 0034: **4–10 s in a single clip** with native audio, so a 10 s piece needs
+> no stitching, and it **honours a written cut list** — a three-scene prompt produced
+> measured cuts at 3.50 s and 6.54 s, where veo gave one locked-off shot. 30 credits
+> for 10 s.
+>
+> **Spell sung names phonetically in the lyric.** A prose rule ("Alif is pronounced
+> AH-lif, never Aleph") failed on 0033, which sang "Elef". Writing the lyric itself as
+> **"AH-lif"** worked first time on 0034.
+>
+> Open trade-off: veo's singing was far more melodic (18.1-semitone spread) than Omni
+> Flash's (5.7, which is speech range and may be chanting). If the user's ear says
+> chant, use a supplied sung vocal with Omni Flash for picture.
+>
+> **Both models draw text you did not ask for.** Omni Flash rendered garbled "UXely"
+> across the last 1.6 s of 0034 despite three prohibitions. Plan a locally-composited
+> card that can cover that region, and make it **fully opaque before** the garbage
+> appears — a slow alpha fade let it show through. See `library/STYLES.md`.
 
 ## 1. Brief with numbered beats — do this properly, it is free
 
