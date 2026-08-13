@@ -109,12 +109,16 @@ than a hunch.
 
 Repeatable pipelines live in `.claude/skills/`. Invoke with `/<name>`.
 
-| Skill              | Covers                                                                                                                   |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `riwaq-image-post` | image posts end to end: 4K animated illustration, type composited locally, logo, every platform ratio, caption, tracking |
+| Skill               | Covers                                                                                                                     |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `riwaq-image-post`  | image posts end to end: 4K animated illustration, type composited locally, logo, every platform ratio, caption, tracking   |
+| `riwaq-story-video` | cinematic story video (style 1): beat brief, master + scene stills, veo clips, verified speech, local soundtrack, end card |
 
-Its `scripts/postkit.py` turns one textless square into all five platform sizes
-and is the reusable half — reach for it rather than re-deriving crop maths.
+Each ships a reusable script rather than prose alone:
+`riwaq-image-post/scripts/postkit.py` turns one textless square into all five
+platform sizes, and `riwaq-story-video/scripts/checkvideo.py` measures a finished
+cut — desync, beat structure, per-beat volume, silent tails, per-clip loudness —
+and exits non-zero on a hard problem.
 
 ## Path hygiene (learned the hard way)
 
