@@ -71,3 +71,70 @@ piece is buildable for roughly 60-90 credits as two or three clips.
 
 Current balance is **88.1 credits**, so a four-clip build is most of what is left.
 That is the number to weigh before approving.
+
+---
+
+# Test 3 — re-prompted Omni, 24 credits
+
+`omni-v2-clean.mp4` · 8.00 s. Total spent on this brief: **64 credits**. Balance
+128.1 to **64.1**.
+
+## Fixed
+
+- **The mirror is fully solved.** The glass holds a bright modern library with a
+  grown man teaching and students seated in front of him, in its own cooler
+  daylight, while the sandstone hall stays real around it. First time, no re-roll.
+- **The whole beat fits one 8 s take** — hold, turn, reveal, hold. No cut needed
+  for this moment, which is what the brief wanted most.
+- **No film strip.** Asking for the qualities (soft grain, gentle halation,
+  restrained contrast) instead of the format ("16mm") fixed it completely.
+- **The large calligraphic medallions are gone.** Naming the ornament as
+  _geometric_ — interlocking stars and lattice — rather than only forbidding
+  script is what did it.
+- **Composition works at 9:16.** The hall reads and both figures read.
+- **The book cover** came back ornamental arabesque with no legible text. It
+  ignored "plain" but the result is safe.
+
+## Not fixed, and probably not fixable by prompting
+
+**Pseudo-Arabic survives in the narrow dark bands above the arches.** Enlarged,
+they are unmistakably imitation script — vertical strokes with swooping tails,
+spelling nothing. Smaller and darker than the first test, but present, after the
+prohibition was pinned in eight separate ways.
+
+The honest reading: **the model will not stop putting script on the walls of an
+Islamic building**, because that is what those buildings look like in its training
+data. Three ways round it, in order of cost:
+
+1. **Frame tighter.** Medium shots keep the bands out of frame or well out of
+   focus. Costs the wide architectural feeling the brief asks for.
+2. **Blur the bands in post.** Free and local, but the region must be tracked per
+   clip and checked frame by frame.
+3. **Change the setting** to one with no calligraphic tradition to imitate — a
+   plain riwaq colonnade, a courtyard, a garden walk. Cheapest to test, and it
+   removes the problem at the source rather than hiding it.
+
+## Two smaller misses
+
+- **The teacher looks down at the mirror**, not across at the boy. The brief's
+  beat is the glance and the small smile; that is the emotional payload and it is
+  currently missing.
+- **The reflected future reads as a modern classroom**, glass and stacking chairs,
+  rather than the "beautiful library" of the brief. Warmer, more bookish direction
+  would suit the tagline better.
+
+## Where the budget now stands
+
+**64.1 credits left.** At 8 s Omni clips (24 cr each) that is **two more clips
+with change, not three.** A four-clip film is no longer affordable this cycle.
+
+So the shape has to be decided before anything else is bought:
+
+- **One clip, as tested** — the reveal alone, plus a local end card. ~24 cr, and
+  the mirror moment is already proven.
+- **Two clips** — the reveal, then the walk to the sunlit archway. ~48 cr, leaves 16. One cut, which the brief says it does not want, but one is not seven.
+- **Wait and top up** if the full four-beat version is what is really wanted.
+
+Recommendation: **one clip, tightly framed, in a setting without calligraphy.**
+It is the cheapest path to a finished piece, it protects against the one defect
+that actually matters here, and the mirror — the whole idea — already works.
