@@ -12,13 +12,13 @@ and nothing self-approves. Approving one creates a production in
 
 Legend: `·` proposed · `+` approved · `✓` delivered · `★` published · `✗` rejected
 
-**30 ideas** — 29 proposed · 1 delivered
+**30 ideas** — 29 proposed · 1 published
 
 ## A — You're Already Teaching Them
 
 | #      | Idea                                                                                                      | Status      | Style | Production                        | Hook                                                                                 |
 | ------ | --------------------------------------------------------------------------------------------------------- | ----------- | ----- | --------------------------------- | ------------------------------------------------------------------------------------ |
-| `I001` | [You're Already Teaching Them](I001-youre-already-teaching-them.md)                                       | ✓ delivered | 9     | [`0036`](../productions/INDEX.md) | You think you're not teaching your child deen.                                       |
+| `I001` | [You're Already Teaching Them](I001-youre-already-teaching-them.md)                                       | ★ published | 9     | [`0036`](../productions/INDEX.md) | You think you're not teaching your child deen.                                       |
 | `I002` | [The Four Words That Teach Tawakkul](I002-the-four-words-that-teach-tawakkul.md)                          | · proposed  | —     | —                                 | Your child learns tawakkul from four words. You already say three of them.           |
 | `I003` | [Why Your Child Tunes Out at Bedtime Dua](I003-why-your-child-tunes-out-at-bedtime-dua.md)                | · proposed  | —     | —                                 | Your child goes limp during bedtime dua. It is not disrespect.                       |
 | `I004` | [You Don't Need Arabic to Raise an Arabic Reader](I004-you-dont-need-arabic-to-raise-an-arabic-reader.md) | · proposed  | —     | —                                 | You cannot read Arabic. You think that is your child's ceiling.                      |

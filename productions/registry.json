@@ -1087,7 +1087,7 @@
       "slug": "youre-already-teaching-them",
       "title": "You're Already Teaching Them",
       "type": "video",
-      "status": "delivered",
+      "status": "published",
       "folder": "productions/0036-youre-already-teaching-them",
       "style": 9,
       "model": "gemini_omni (V2) + seed_audio & library reuse (V1)",
@@ -1098,11 +1098,19 @@
       "dates": {
         "requested": "2026-08-13",
         "produced": "2026-08-13",
-        "published": null
+        "published": "2026-08-13"
       },
       "ratings": {
         "editor": 4.5,
         "visitors": null
+      },
+      "platforms": {
+        "facebook": "2026-08-13",
+        "instagram": "2026-08-13",
+        "pinterest": null,
+        "x": null,
+        "tiktok": null,
+        "youtube": null
       }
     }
   ],
