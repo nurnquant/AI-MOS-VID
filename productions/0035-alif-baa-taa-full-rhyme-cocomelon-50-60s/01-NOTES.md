@@ -325,3 +325,19 @@ where the music is sliced mid-bar.
 
 Posting plan in `OUTPUT/reels/CAPTIONS.md`: one a day in order, each caption ending
 "letter N of 4" to give a reason to return, then the full 52 s version last.
+
+## Published 2026-08-14 — Facebook, Instagram, TikTok
+
+Shipped on the 52 s master. Editor 4/5.
+
+The five Reels in `OUTPUT/reels/` are **not** posted yet. They were cut to be
+posted one a day in order, each ending "letter N of 4", and the plan in
+`OUTPUT/reels/CAPTIONS.md` puts the full version last as "the whole song". The
+full version going first inverts that — either post the Reels anyway as the
+follow-up sequence, or drop the plan and treat them as spares.
+
+**Visitor rating due 2026-08-15.** This is the first children's rhyme to reach
+TikTok, and the only production in the library sitting next to a parent-facing
+piece published the same week — 0036 went out 2026-08-13 on the same three
+platforms. Rating both gives the first real read on which audience the account
+actually converts.

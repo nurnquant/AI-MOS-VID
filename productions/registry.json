@@ -1062,7 +1062,7 @@
       "slug": "alif-baa-taa-full-rhyme-cocomelon-50-60s",
       "title": "Alif Baa Taa full rhyme (CoComelon, 50-60s)",
       "type": "video",
-      "status": "delivered",
+      "status": "published",
       "folder": "productions/0035-alif-baa-taa-full-rhyme-cocomelon-50-60s",
       "style": null,
       "ratings": {
@@ -1073,14 +1073,21 @@
       "dates": {
         "requested": "2026-08-13",
         "produced": "2026-08-13",
-        "published": null
+        "published": "2026-08-14"
       },
       "cost": {
         "credits": 240,
         "usd": 7.92
       },
       "note": "52s: intro+Alif+Baa+Taa+Saa+tag. ALIF SOLVED by having her SPEAK the letter as a call-out instead of singing it. All 4 letters whisper-verified. Chorus+ending still absent (sung Alif).",
-      "confirmed_unpublished": "2026-08-13"
+      "platforms": {
+        "facebook": "2026-08-14",
+        "instagram": "2026-08-14",
+        "pinterest": null,
+        "x": null,
+        "tiktok": "2026-08-14",
+        "youtube": null
+      }
     },
     {
       "id": "0036",
