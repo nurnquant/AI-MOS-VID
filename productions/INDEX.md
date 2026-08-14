@@ -70,7 +70,7 @@ per idea, each with its hook, script sketch and honest risks. An idea is not
 a request: nothing there is built until you approve it, and approving one is
 what creates a row in the table above.
 
-**30 ideas** — 29 proposed · 1 delivered
+**30 ideas** — 29 proposed · 1 published
 
 1 already linked to a production above.
 

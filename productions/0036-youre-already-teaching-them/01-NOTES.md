@@ -156,11 +156,11 @@ room above 5.
 The full recipe, including the lines that cost money to learn, is in
 [library/STYLE-8-TABLE-TALK.md](../../library/STYLE-8-TABLE-TALK.md).
 
-## Published 2026-08-13 — Facebook and Instagram
+## Published 2026-08-13 — Facebook, Instagram and TikTok
 
 Shipped on **V3 kinetic**, `OUTPUT/0036-v3-kinetic-9x16.mp4`. Editor 4.5/5.
 
-**Rate visitor engagement 24 h from now.** The comparison that decides what gets
+**Visitor rating due 2026-08-14** — the user said tomorrow. The comparison that decides what gets
 built next is [0006](../0006-dream-of-every-parent/) — the only other
 parent-facing video, at **214 credits for visitors 3.5/5** on Facebook. 0036 cost
 125.5 credits and is the first thing in the library to use a generated speaker.
