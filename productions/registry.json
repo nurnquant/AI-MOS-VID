@@ -1,6 +1,6 @@
 {
   "_standard": "PRODUCTION-STANDARD.md",
-  "_next_id": 37,
+  "_next_id": 38,
   "productions": [
     {
       "id": "0001",
@@ -1118,6 +1118,29 @@
         "x": null,
         "tiktok": "2026-08-13",
         "youtube": null
+      }
+    },
+    {
+      "id": "0037",
+      "slug": "the-mirror-today-a-student-tomorrow-a-light",
+      "title": "The Mirror — Today a Student, Tomorrow a Light",
+      "type": "video",
+      "status": "delivered",
+      "folder": "productions/0037-the-mirror-today-a-student-tomorrow-a-light",
+      "style": null,
+      "model": "gemini_omni (Gemini Omni Flash)",
+      "cost": {
+        "credits": 88,
+        "usd": 2.9
+      },
+      "dates": {
+        "requested": "2026-08-14",
+        "produced": "2026-08-14",
+        "published": null
+      },
+      "ratings": {
+        "editor": null,
+        "visitors": null
       }
     }
   ],

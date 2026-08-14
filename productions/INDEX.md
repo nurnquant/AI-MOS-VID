@@ -14,6 +14,7 @@ request; it is never assumed.
 
 | # | Title | Type | Style | Status | Deliverables | Folder |
 | --- | --- | --- | --- | --- | --- | --- |
+| `0037` | The Mirror — Today a Student, Tomorrow a Light | video | — | ✓ delivered | 0037-the-mirror-9x16.mp4 | [0037-the-mirror-today-a-student-tomorrow-a-light](0037-the-mirror-today-a-student-tomorrow-a-light/) |
 | `0036` | You're Already Teaching Them | video | 9 | ★ published | 0036-v2-youre-already-teaching-them-9x16.mp4 _(+4)_ | [0036-youre-already-teaching-them](0036-youre-already-teaching-them/) |
 | `0035` | Alif Baa Taa full rhyme (CoComelon, 50-60s) | video | — | ★ published | 0035-alif-baa-taa-rhyme-9x16.mp4 | [0035-alif-baa-taa-full-rhyme-cocomelon-50-60s](0035-alif-baa-taa-full-rhyme-cocomelon-50-60s/) |
 | `0034` | Alif CoComelon 10s (Omni Flash) | video | — | ! parked | 0034-alif-cocomelon-10s-9x16.mp4 | [0034-alif-cocomelon-10s-omni-flash](0034-alif-cocomelon-10s-omni-flash/) |
@@ -51,9 +52,9 @@ request; it is never assumed.
 | `0002` | Dua Boy — Rabbana Atina | video | — | ★ published | 0002-dua-boy-9x16.mp4 _(+1)_ | [0002-dua-boy-rabbana-atina](0002-dua-boy-rabbana-atina/) |
 | `0001` | Sneezing Etiquette Family Story | video | — | ★ published | 0001-sneeze-etiquette-9x16.mp4 | [0001-sneezing-etiquette-family-story](0001-sneezing-etiquette-family-story/) |
 
-**36 productions** — 1 delivered · 4 parked · 29 published · 2 requested
+**37 productions** — 2 delivered · 4 parked · 29 published · 2 requested
 
-Next free number: **0037**
+Next free number: **0038**
 
 ## Adding a request
 
