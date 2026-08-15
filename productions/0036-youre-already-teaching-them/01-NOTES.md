@@ -173,3 +173,25 @@ text.
 
 - Visitor rating 24 h after posting, compared against 0006's 3.5.
 - Episode 2 (I002) is written but unbuilt, by design.
+
+## Engagement recorded 2026-08-15
+
+**69 reactions** after two days on Facebook, Instagram and TikTok — about 34 a day.
+
+0035, the children's rhyme, took **129 in one day** on the same three platforms.
+Roughly 3.7x per day. The comparison is in
+[0035's notes](../0035-alif-baa-taa-full-rhyme-cocomelon-50-60s/01-NOTES.md).
+
+Stored as `metrics.reactions`, not as a 1-5 rating — 69 is a count, not a
+judgement, and converting it would have thrown away the only hard number we have.
+
+**This does not yet answer the question 0036 was built to answer.** It was made to
+test whether parent-facing content earns FOLLOWERS, and reactions are not follows.
+A rhyme is watched by a child on a parent's phone; a parent-facing piece is what
+makes the parent follow. **The follower change across this week is the number that
+decides whether I002-I005 get built** — reactions alone would retire the series on
+the wrong evidence.
+
+Worth weighing against cost: 0036 cost 125.5 credits, 0035 cost far less per
+reaction. If the follower number does not move, the parent-facing lane is
+expensive for what it returns.

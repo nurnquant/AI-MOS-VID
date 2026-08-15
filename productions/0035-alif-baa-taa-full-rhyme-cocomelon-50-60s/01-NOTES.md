@@ -341,3 +341,32 @@ TikTok, and the only production in the library sitting next to a parent-facing
 piece published the same week — 0036 went out 2026-08-13 on the same three
 platforms. Rating both gives the first real read on which audience the account
 actually converts.
+
+## Engagement recorded 2026-08-15
+
+**129 reactions** — against 0036's 69. Both are on the same three platforms.
+
+The raw counts are stored in `registry.json` under `metrics.reactions`, not
+squeezed into the 1-5 `visitors` scale. A real number outlives an opinion, and
+129 is not a rating.
+
+**The like-for-like read is stronger than the headline.** 0036 was published a day
+earlier, so it has had twice as long:
+
+|                       | published  | days live | reactions | per day |
+| --------------------- | ---------- | --------- | --------- | ------- |
+| 0035 children's rhyme | 2026-08-14 | 1         | **129**   | **129** |
+| 0036 parent-facing    | 2026-08-13 | 2         | 69        | 34      |
+
+Roughly **3.7x per day** in favour of the children's rhyme.
+
+**Do not over-read it.** Two productions, one metric, one week, and the number
+counts something the platforms define differently from each other. But the
+direction agrees with the only other signal on file — the animated character
+clips 0016, 0017 and 0018 all scored 5/5 while the photoreal image set scored 2/5.
+Twice now, animated children's content has beaten the alternative.
+
+**What it does NOT settle:** reach and follows are different things. A rhyme gets
+watched by a child on a parent's phone; a parent-facing piece is what makes that
+parent follow the account. Before I002-I005 are written off, the follower change
+over this week is the number that actually answers the question.

@@ -526,6 +526,7 @@ def html(reg: dict) -> str:
 
         r = p.get("ratings") or {}
         ed, vi = r.get("editor"), r.get("visitors")
+        reactions = (p.get("metrics") or {}).get("reactions")
         published = any(plats.values())
         rate_rows = (
             f'<div class="rate"><span class="rl">editor</span>'
@@ -550,6 +551,11 @@ def html(reg: dict) -> str:
             ("Visitor reactions",
              (f"{stars(vi)} {fmt_rating(vi)}/5" if vi else ("not rated" if published
               else "n/a — not published"))),
+            ("Engagement count",
+             (f"<strong>{(p.get('metrics') or {}).get('reactions')}</strong>"
+              f" <span style='color:var(--dim)'>on "
+              f"{(p.get('metrics') or {}).get('reactions_on','?')}</span>")
+             if (p.get("metrics") or {}).get("reactions") is not None else "—"),
         ]
         pub_rows = "".join(
             f"<tr><td>{PLAT_LABEL[k]}</td><td>{escape(str(v))}</td></tr>"
@@ -593,6 +599,7 @@ def html(reg: dict) -> str:
     <span class="pill s-{p['status']}">{p['status']}</span>{style_pill}</div>
   {call}
   <div class="rates">{rate_rows}</div>
+  {f'<div class="react" title="engagement count recorded on {(p.get("metrics") or {}).get("reactions_on","?")}">{reactions} reactions</div>' if reactions is not None else ""}
   <div class="chips">{chips}</div>
   <nav>{''.join(links)}</nav>
   {detail}
@@ -730,6 +737,9 @@ details.det td:first-child{{color:var(--dim);width:42%;padding-right:8px}}
 details.det th{{text-align:left;padding:7px 0 2px;color:var(--gold);font-size:.72rem}}
 details ul{{margin:6px 0 0;padding-left:18px}}
 details a{{color:var(--fg)}}
+div.react{{align-self:flex-start;font:700 .76rem/1 ui-monospace,SFMono-Regular,monospace;
+padding:5px 10px;border-radius:8px;border:1px solid var(--emerald);color:var(--emerald)}}
+@media(prefers-color-scheme:dark){{div.react{{color:var(--emerald)}}}}
 button.call{{align-self:flex-start;font:600 .74rem/1.25 ui-monospace,SFMono-Regular,monospace;
 padding:5px 10px;border-radius:8px;border:1px dashed var(--gold);background:var(--goldbg);
 color:var(--gold);cursor:pointer;text-align:left}}
@@ -892,6 +902,10 @@ def main() -> int:
     ap.add_argument("--rate", metavar="ID", help="attach ratings to a production")
     ap.add_argument("--editor", type=rating, metavar="1-5",
                     help="your rating of the delivery, 1-5 in half steps")
+    ap.add_argument("--reactions", type=int, metavar="N",
+                    help="raw engagement count from the platform (views, reactions, "
+                         "whatever you are counting). Stored as the real number — "
+                         "never squeezed into the 1-5 scale")
     ap.add_argument("--visitors", type=rating, metavar="1-5",
                     help="engagement in the first 24h after publishing, "
                          "1-5 in half steps")
@@ -1032,13 +1046,18 @@ def main() -> int:
             print(f"no production {args.publish}"); return 1
 
     if args.rate:
-        if args.editor is None and args.visitors is None:
-            print("--rate needs --editor N and/or --visitors N (1-5)"); return 2
+        if args.editor is None and args.visitors is None and args.reactions is None:
+            print("--rate needs --editor, --visitors (1-5) and/or --reactions N"); return 2
         for e in reg["productions"]:
             if e["id"] == args.rate:
                 e.setdefault("ratings", {"editor": None, "visitors": None})
                 if args.editor is not None:
                     e["ratings"]["editor"] = args.editor
+                if args.reactions is not None:
+                    # A raw count is worth more than a 1-5 opinion and outlives it,
+                    # so it is stored as itself rather than converted.
+                    e.setdefault("metrics", {})["reactions"] = args.reactions
+                    e["metrics"]["reactions_on"] = _dt.date.today().isoformat()
                 if args.visitors is not None:
                     if not any((e.get("platforms") or {}).values()):
                         print(f"note: {args.rate} is not marked published — "
@@ -1051,6 +1070,9 @@ def main() -> int:
                       f"{fmt_rating(rt['editor']) if rt['editor'] else '-'}/5")
                 print(f"  visitors {stars(rt['visitors'])} "
                       f"{fmt_rating(rt['visitors']) if rt['visitors'] else '-'}/5")
+                m = e.get("metrics") or {}
+                if m.get("reactions") is not None:
+                    print(f"  reactions {m['reactions']}  (recorded {m.get('reactions_on','?')})")
                 break
         else:
             print(f"no production {args.rate}"); return 1
