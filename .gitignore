@@ -72,3 +72,7 @@ suppliedMedia/**/*.wav
 # build scratch: absolute paths, regenerated every run
 productions/**/seg/list.txt
 productions/**/work/seg/
+
+# Deployable copy of the internal dashboard — generated, 163 MB of media.
+# Rebuild with scripts/social/build_site.py; never commit it.
+/site/
