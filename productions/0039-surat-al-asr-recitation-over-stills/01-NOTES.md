@@ -45,6 +45,22 @@ That is a question for the user, not something measurement can settle.
   cannot establish that.
 - **No music under the recitation.** Nothing is layered over it.
 
+## Turned into a skill
+
+`/riwaq-audio-montage` — `.claude/skills/riwaq-audio-montage/`. Reach for it
+whenever audio arrives and a video is wanted, before reaching for a paid model.
+
+`scripts/montage.py` is the generalised build: any audio, any number of stills
+with per-still crop bias, any duration. **Verified against this production —
+re-running the skill on 0039's inputs reproduces the delivered film
+pixel-identically at every sampled frame**, so the extraction is a real
+generalisation and not a rewrite that happens to look similar.
+
+The skill carries the four things this production taught: crop bias is a decision
+that no measurement checks, a whisper transcript is never a source for sacred text
+on screen, silence at the ends is correct here and must be recorded so nobody
+"fixes" it, and the reciter's rights are a question for the user.
+
 ## Still open
 
 - **Style not named.** You name it.
