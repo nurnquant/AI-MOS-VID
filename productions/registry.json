@@ -1,6 +1,6 @@
 {
   "_standard": "PRODUCTION-STANDARD.md",
-  "_next_id": 39,
+  "_next_id": 40,
   "productions": [
     {
       "id": "0001",
@@ -1160,6 +1160,29 @@
       "folder": "productions/0038-ad-set-5-a-joyful-companion-for-life",
       "style": null,
       "model": "supplied artwork — local reframe + copywriting",
+      "cost": {
+        "credits": 0,
+        "usd": 0.0
+      },
+      "dates": {
+        "requested": "2026-08-21",
+        "produced": "2026-08-21",
+        "published": null
+      },
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      }
+    },
+    {
+      "id": "0039",
+      "slug": "surat-al-asr-recitation-over-stills",
+      "title": "Surat Al-Asr — recitation over stills",
+      "type": "video",
+      "status": "delivered",
+      "folder": "productions/0039-surat-al-asr-recitation-over-stills",
+      "style": null,
+      "model": "no generation — supplied audio over existing stills",
       "cost": {
         "credits": 0,
         "usd": 0.0
