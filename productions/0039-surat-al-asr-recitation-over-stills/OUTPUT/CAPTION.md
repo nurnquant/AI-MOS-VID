@@ -15,8 +15,8 @@ literally. Copy the block as-is.
 
 Three verses. Thirty seconds. Your child can learn the whole thing this week.
 
-By time.
-Indeed, mankind is in loss.
+By time,
+Indeed, mankind is in loss,
 Except those who believe, do righteous deeds, encourage one another to the truth,
 and encourage one another to patience.
 
@@ -54,8 +54,8 @@ teachers. First class is free.
 
 Three verses. Thirty seconds. The whole surah 🤍
 
-By time.
-Indeed, mankind is in loss.
+By time,
+Indeed, mankind is in loss,
 Except those who believe, do righteous deeds, encourage one another to the truth,
 and encourage one another to patience.
 
@@ -85,8 +85,8 @@ Play it for them tonight. It is shorter than the walk to their bedroom.
 
 The whole surah is three verses.
 
-By time.
-Indeed, mankind is in loss.
+By time,
+Indeed, mankind is in loss,
 Except those who believe, do righteous deeds, encourage one another to the truth,
 and encourage one another to patience.
 
