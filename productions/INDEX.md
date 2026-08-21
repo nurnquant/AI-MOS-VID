@@ -14,7 +14,7 @@ request; it is never assumed.
 
 | # | Title | Type | Style | Status | Deliverables | Folder |
 | --- | --- | --- | --- | --- | --- | --- |
-| `0040` | Recitation with soft background bed (surah TBC) | watermark | — | ~ in-progress | 0040-recitation-bed-balanced.m4a _(+2)_ | [0040-recitation-with-soft-background-bed-surah-tbc](0040-recitation-with-soft-background-bed-surah-tbc/) |
+| `0040` | Surat Al-Ahzab 35 — recitation with a soft bed | watermark | — | ~ in-progress | 0040-recitation-bed-balanced.m4a _(+2)_ | [0040-surat-al-ahzab-35-recitation-with-a-soft-bed](0040-surat-al-ahzab-35-recitation-with-a-soft-bed/) |
 | `0039` | Surat Al-Asr — recitation over stills | video | — | ✓ delivered | 0039-surat-al-asr-9x16.mp4 _(+1)_ | [0039-surat-al-asr-recitation-over-stills](0039-surat-al-asr-recitation-over-stills/) |
 | `0038` | Ad Set 5 — A Joyful Companion for Life | image-set | — | ✓ delivered | 0038-feed-1x1-1080x1080.jpg _(+4)_ | [0038-ad-set-5-a-joyful-companion-for-life](0038-ad-set-5-a-joyful-companion-for-life/) |
 | `0037` | The Mirror — Today a Student, Tomorrow a Light | video | — | ✓ delivered | 0037-the-mirror-9x16.mp4 | [0037-the-mirror-today-a-student-tomorrow-a-light](0037-the-mirror-today-a-student-tomorrow-a-light/) |

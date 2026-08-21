@@ -60,8 +60,14 @@ Asked, not argued. The three mixes are ready either way.
 
 ## Still open
 
-- **The surah is not identified.** Whisper failed on it and it has not been
-  guessed. Tell me and the production gets renamed.
+- ~~The surah is not identified.~~ **Identified 2026-08-21: Surat Al-Ahzab,
+  ayah 35.** The user supplied the text, and it matches: whisper's garbled read
+  contains recognisable distortions of this verse's distinctive paired plurals,
+  in order — "المستمرين" for المسلمين, "الصادقان" for الصادقين, "الصاعدومين" for
+  المتصدقين, "الخسائمين" for الخاشعين/الصائمين. Thirty words against a 29.56 s
+  take also fits. Text filed at `source/al-ahzab-35.md`; production renamed.
+  **No English translation supplied yet** — needed before any on-screen
+  translation, same rule as 0039.
 - Which of the three bed levels to keep.
 - No video yet — this is audio only.
 - Style not named.

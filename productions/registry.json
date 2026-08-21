@@ -1200,11 +1200,11 @@
     },
     {
       "id": "0040",
-      "slug": "recitation-with-soft-background-bed-surah-tbc",
-      "title": "Recitation with soft background bed (surah TBC)",
+      "slug": "surat-al-ahzab-35-recitation-with-a-soft-bed",
+      "title": "Surat Al-Ahzab 35 — recitation with a soft bed",
       "type": "watermark",
       "status": "in-progress",
-      "folder": "productions/0040-recitation-with-soft-background-bed-surah-tbc",
+      "folder": "productions/0040-surat-al-ahzab-35-recitation-with-a-soft-bed",
       "style": null,
       "model": "no generation — locally synthesised pad under supplied recitation",
       "cost": {
@@ -1215,6 +1215,10 @@
         "requested": "2026-08-21",
         "produced": "2026-08-21",
         "published": null
+      },
+      "ratings": {
+        "editor": null,
+        "visitors": null
       }
     }
   ],
