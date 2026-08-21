@@ -1,0 +1,17 @@
+[
+  { "id": "a1", "ar": "وَالْعَصْرِ", "en": "By time,", "start": 0.5, "end": 2.7 },
+  {
+    "id": "a2",
+    "ar": "إِنَّ الْإِنسَانَ لَفِي خُسْرٍ",
+    "en": "Indeed, mankind is in loss,",
+    "start": 2.7,
+    "end": 10.2
+  },
+  {
+    "id": "a3",
+    "ar": "إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ",
+    "en": "Except those who believe, do righteous deeds, encourage one another to the truth, and encourage one another to patience.",
+    "start": 10.2,
+    "end": 30.0
+  }
+]

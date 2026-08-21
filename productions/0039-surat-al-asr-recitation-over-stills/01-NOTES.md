@@ -45,6 +45,55 @@ That is a question for the user, not something measurement can settle.
   cannot establish that.
 - **No music under the recitation.** Nothing is layered over it.
 
+## V2 — ayah and translation on screen (2026-08-21)
+
+`OUTPUT/0039-v2-surat-al-asr-ayah-overlay-9x16.mp4` — same 30 s film with the
+Arabic and English burned in. V1 is kept; it is still the clean version.
+
+**What unblocked it:** V1 shipped without text because a whisper transcript is
+not a source for Qur'anic text. The user then supplied
+`source/surah_al_asr_arabic_english.md` — a verified Arabic and English text. That
+is a source. The rule was never "no text", it was "no unverified text".
+
+### Pillow cannot render this, and fails silently
+
+This machine's Pillow has **no libraqm**, so it does not place Arabic harakat — it
+drops them. Verified rather than assumed: the same phrase rendered with vowel
+marks and with them stripped produced **identical images**.
+
+Dropping every vowel mark from Qur'anic text is not a cosmetic defect, and it
+would have shipped looking fine.
+
+**The cards are rendered by a headless browser instead**, which shapes Arabic
+properly and places every harakat. `work/v2/render.mjs`.
+
+### Timing came from the recitation, not from guesswork
+
+The supplied audio has a continuous bed under it, so silence detection found no
+pauses at all. Whisper word timings plus three windowed passes established what is
+actually recited:
+
+| audio       | content                     |
+| ----------- | --------------------------- |
+| 0.0-9.2 s   | ayah 1, then ayah 2         |
+| 9.2-16.8 s  | ayah 3, **first half only** |
+| 16.8-28.2 s | ayah 3 **repeated in full** |
+
+Ayah 3 therefore stays on screen from 10.2 s to the end, covering both passes.
+
+**A deliberate choice:** the partial first pass could have been matched with a
+partial card. It was not. A truncated verse on screen reads as an error even when
+it matches the audio exactly, so the full ayah is shown throughout.
+
+### Verified before shipping
+
+Every string on screen was compared **codepoint by codepoint** against the
+supplied file — all three ayahs and all three translations identical, harakat
+included (5, 12 and 38 marks). For sacred text, "looks right" is not a check.
+
+Text sits clear of the bottom 20% that Reels and Stories cover with their own UI.
+The silent tail flag is the same one accepted in V1, for the same reason.
+
 ## Turned into a skill
 
 `/riwaq-audio-montage` — `.claude/skills/riwaq-audio-montage/`. Reach for it
