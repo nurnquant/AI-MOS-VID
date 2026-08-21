@@ -1195,7 +1195,8 @@
       "ratings": {
         "editor": null,
         "visitors": null
-      }
+      },
+      "skills": ["riwaq-audio-montage", "riwaq-ayah-overlay"]
     }
   ],
   "_platforms": ["facebook", "instagram", "pinterest", "x", "tiktok", "youtube"],

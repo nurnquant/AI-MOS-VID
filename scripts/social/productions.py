@@ -527,6 +527,7 @@ def html(reg: dict) -> str:
         r = p.get("ratings") or {}
         ed, vi = r.get("editor"), r.get("visitors")
         reactions = (p.get("metrics") or {}).get("reactions")
+        skills = p.get("skills") or []
         published = any(plats.values())
         rate_rows = (
             f'<div class="rate"><span class="rl">editor</span>'
@@ -551,6 +552,8 @@ def html(reg: dict) -> str:
             ("Visitor reactions",
              (f"{stars(vi)} {fmt_rating(vi)}/5" if vi else ("not rated" if published
               else "n/a — not published"))),
+            ("Built with",
+             " · ".join(f"<code>/{escape(x)}</code>" for x in skills) if skills else "—"),
             ("Engagement count",
              (f"<strong>{(p.get('metrics') or {}).get('reactions')}</strong>"
               f" <span style='color:var(--dim)'>on "
@@ -600,6 +603,7 @@ def html(reg: dict) -> str:
   {call}
   <div class="rates">{rate_rows}</div>
   {f'<div class="react" title="engagement count recorded on {(p.get("metrics") or {}).get("reactions_on","?")}">{reactions} reactions</div>' if reactions is not None else ""}
+  {"".join(f'<span class="skill" title="built with the {escape(x)} skill">/{escape(x)}</span>' for x in skills)}
   <div class="chips">{chips}</div>
   <nav>{''.join(links)}</nav>
   {detail}
@@ -737,6 +741,9 @@ details.det td:first-child{{color:var(--dim);width:42%;padding-right:8px}}
 details.det th{{text-align:left;padding:7px 0 2px;color:var(--gold);font-size:.72rem}}
 details ul{{margin:6px 0 0;padding-left:18px}}
 details a{{color:var(--fg)}}
+span.skill{{display:inline-block;font:600 .68rem/1.3 ui-monospace,SFMono-Regular,monospace;
+padding:3px 7px;margin:2px 3px 0 0;border-radius:6px;border:1px solid var(--gold);
+background:var(--goldbg);color:var(--gold)}}
 div.react{{align-self:flex-start;font:700 .76rem/1 ui-monospace,SFMono-Regular,monospace;
 padding:5px 10px;border-radius:8px;border:1px solid var(--emerald);color:var(--emerald)}}
 @media(prefers-color-scheme:dark){{div.react{{color:var(--emerald)}}}}
@@ -902,6 +909,10 @@ def main() -> int:
     ap.add_argument("--rate", metavar="ID", help="attach ratings to a production")
     ap.add_argument("--editor", type=rating, metavar="1-5",
                     help="your rating of the delivery, 1-5 in half steps")
+    ap.add_argument("--skills", metavar="LIST",
+                    help="comma-separated skills used to build it, e.g. "
+                         "riwaq-audio-montage,riwaq-ayah-overlay. Recorded so a "
+                         "production says how it was made, not just what it cost")
     ap.add_argument("--reactions", type=int, metavar="N",
                     help="raw engagement count from the platform (views, reactions, "
                          "whatever you are counting). Stored as the real number — "
@@ -1046,13 +1057,18 @@ def main() -> int:
             print(f"no production {args.publish}"); return 1
 
     if args.rate:
-        if args.editor is None and args.visitors is None and args.reactions is None:
-            print("--rate needs --editor, --visitors (1-5) and/or --reactions N"); return 2
+        if (args.editor is None and args.visitors is None
+                and args.reactions is None and args.skills is None):
+            print("--rate needs --editor, --visitors (1-5), --reactions N "
+                  "and/or --skills LIST"); return 2
         for e in reg["productions"]:
             if e["id"] == args.rate:
                 e.setdefault("ratings", {"editor": None, "visitors": None})
                 if args.editor is not None:
                     e["ratings"]["editor"] = args.editor
+                if args.skills is not None:
+                    e["skills"] = [x.strip() for x in args.skills.split(",") if x.strip()]
+                    print(f"  skills: {', '.join(e['skills'])}")
                 if args.reactions is not None:
                     # A raw count is worth more than a 1-5 opinion and outlives it,
                     # so it is stored as itself rather than converted.
