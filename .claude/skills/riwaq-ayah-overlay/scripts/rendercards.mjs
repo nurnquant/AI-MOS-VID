@@ -21,19 +21,27 @@ const H = Number(process.env.CARD_H || 1920);
 const BOTTOM = Number(process.env.CARD_BOTTOM || 400);
 const AR_SIZE = Number(process.env.CARD_AR_SIZE || 66);
 const EN_SIZE = Number(process.env.CARD_EN_SIZE || 35);
+// Scrim strength. A long verse needs a tall block, and a heavy scrim behind a
+// tall block erases the picture entirely — 0040 came back with nothing visible
+// but ceilings. Lighter scrim plus a stronger text shadow keeps both.
+const SCRIM = Number(process.env.CARD_SCRIM || 1.0);
+const SHADOW = Number(process.env.CARD_SHADOW || 1.0);
+const SCRIM_H = Number(process.env.CARD_SCRIM_H || 0.56);
 
 mkdirSync(outDir, { recursive: true });
 
 const html = (a) => `<html><head><meta charset="utf-8"><style>
   html,body{margin:0;width:${W}px;height:${H}px;background:transparent}
-  .wrap{position:absolute;left:0;right:0;bottom:0;height:${Math.round(H * 0.56)}px;
-        background:linear-gradient(to bottom, rgba(8,26,19,0) 0%, rgba(8,26,19,.62) 38%,
-                   rgba(8,26,19,.90) 72%, rgba(8,26,19,.94) 100%)}
+  .wrap{position:absolute;left:0;right:0;bottom:0;height:${Math.round(H * SCRIM_H)}px;
+        background:linear-gradient(to bottom, rgba(8,26,19,0) 0%,
+                   rgba(8,26,19,${(0.62 * SCRIM).toFixed(2)}) 38%,
+                   rgba(8,26,19,${(0.9 * SCRIM).toFixed(2)}) 72%,
+                   rgba(8,26,19,${(0.94 * SCRIM).toFixed(2)}) 100%)}
   .box{position:absolute;left:60px;right:60px;bottom:${BOTTOM}px;text-align:center}
   .ar{font-family:'Geeza Pro',serif;font-size:${AR_SIZE}px;line-height:2.05;color:#f7f4ec;
-      direction:rtl;text-shadow:0 3px 16px rgba(0,0,0,.8);margin-bottom:34px}
+      direction:rtl;text-shadow:0 2px 5px rgba(0,0,0,${(0.95 * SHADOW).toFixed(2)}), 0 3px 18px rgba(0,0,0,${(0.9 * SHADOW).toFixed(2)});margin-bottom:34px}
   .en{font-family:'Georgia',serif;font-size:${EN_SIZE}px;line-height:1.55;color:#deb876;
-      text-shadow:0 2px 12px rgba(0,0,0,.85)}
+      text-shadow:0 2px 5px rgba(0,0,0,${(0.95 * SHADOW).toFixed(2)}), 0 2px 14px rgba(0,0,0,${(0.9 * SHADOW).toFixed(2)})}
 </style></head><body>
   <div class="wrap"></div>
   <div class="box">${a.ar ? `<div class="ar">${a.ar}</div>` : ""}${a.en ? `<div class="en">${a.en}</div>` : ""}</div>

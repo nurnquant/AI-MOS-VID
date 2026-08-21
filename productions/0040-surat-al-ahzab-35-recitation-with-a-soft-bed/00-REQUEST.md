@@ -8,8 +8,10 @@ The user supplied `source/recitation-source.mp4` — audio only, 29.56 s of Arab
 recitation — and asked to **keep the recitation exactly as it is** and add a
 layer of soft, emotional background sound beneath it.
 
-**This is a placeholder.** The surah has not been identified and no video exists
-yet; only the audio work is done.
+Then extended: a **30 s video** built from library stills that match the ayah,
+carrying the recitation and the supplied Arabic and English on screen.
+
+Identified as **Surat Al-Ahzab, ayah 35** from the text the user supplied.
 
 ## What the source actually is
 

@@ -71,3 +71,71 @@ Asked, not argued. The three mixes are ready either way.
 - Which of the three bed levels to keep.
 - No video yet — this is audio only.
 - Style not named.
+
+## The video (2026-08-21)
+
+`OUTPUT/0040-al-ahzab-35-4x5.mp4` — 30.00 s, **1080x1350 (4:5)**, zero credits.
+Built with `/riwaq-audio-montage` and `/riwaq-ayah-overlay`.
+
+Audio is the **raw supplied recitation**, not one of the bed mixes. The user
+pointed at `source/recitation-source.mp4`, and the bed question is still open.
+
+### The market image was declined, with reasons
+
+The user offered a souk photograph to animate. It was not used, and the argument
+is in the conversation and worth keeping:
+
+- **Al-Ahzab 35 names men and women in parallel ten times.** That repetition is
+  the verse's whole point. The market image has two women, small and mid-ground,
+  behind a foreground of men trading. Thirty seconds of "and the believing
+  women… and the truthful women…" over that reads as a contradiction.
+- The verse is about devotion — prayer, fasting, charity, chastity, dhikr. A souk
+  is about commerce. Only "the truthful" has an obvious trade link.
+- It is **1376x768 landscape**. A 9:16 crop keeps 31% of the width and then needs
+  a 2.5x upscale from 432 px; padding fills 69% of the frame with filler.
+- 30 s of generated motion is 90 credits against a balance of 40.1.
+
+The images used instead are the **textless originals** behind 0015, which show
+men, women and children in devotion — the verse's own structure.
+
+### 4:5, not 9:16, and the reason is the verse
+
+Thirty words of Arabic plus a sixty-word translation need six lines each at 9:16
+and swallow the picture completely. At 4:5 it is five lines and four, and the room
+still reads. The 0015 sources are natively 928x1152 — **0.806 against 4:5's
+0.800** — so the crop keeps 99% of the width.
+
+### Phrase-level timing was attempted, verified, and abandoned
+
+The intention was ten cards, one per pair, timed to the recitation. Energy
+analysis found 19 candidate breaks; six spans were fitted to them by word count.
+
+**Then each span was transcribed on its own to check it** — and the check failed.
+By 23.76 s the reciter is only at _الصائمات_, where the fitted timing expected the
+closing line. The drift grows through the take: this recitation is far slower at
+the start than proportional, and whisper is too unreliable on a 41 kbps source to
+correct for it.
+
+So the whole verse is held on screen throughout, with only the English changing
+at the halfway point. **A caption that is roughly right is worse than one that is
+simply complete** — a viewer who sees the wrong phrase highlighted against sacred
+audio notices, and there is no upside to risking it.
+
+Recorded because the verification is the useful part: it cost ten minutes and
+prevented shipping something subtly wrong.
+
+### Legibility was tuned against the pictures, three passes
+
+- **Heavy scrim** (the skill default): text perfectly readable, images erased —
+  the frames came back as empty ceilings.
+- **Light scrim at 0.45:** images beautiful, English unreadable over busy rooms.
+- **0.78 with a 1.5x text shadow, scrim height 0.68:** both hold.
+
+For Qur'anic text, legibility wins over seeing the sofa. The skill now takes
+`CARD_SCRIM`, `CARD_SHADOW` and `CARD_SCRIM_H` so this is tunable rather than
+hard-coded, which is a direct improvement from this production.
+
+### No watermark and no end card
+
+Consistent with 0039. Easy to add if wanted; the standing rule is that a
+watermark stops before any end card.

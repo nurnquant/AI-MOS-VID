@@ -1202,8 +1202,8 @@
       "id": "0040",
       "slug": "surat-al-ahzab-35-recitation-with-a-soft-bed",
       "title": "Surat Al-Ahzab 35 — recitation with a soft bed",
-      "type": "watermark",
-      "status": "in-progress",
+      "type": "video",
+      "status": "delivered",
       "folder": "productions/0040-surat-al-ahzab-35-recitation-with-a-soft-bed",
       "style": null,
       "model": "no generation — locally synthesised pad under supplied recitation",
@@ -1219,7 +1219,8 @@
       "ratings": {
         "editor": null,
         "visitors": null
-      }
+      },
+      "skills": ["riwaq-audio-montage", "riwaq-ayah-overlay"]
     }
   ],
   "_platforms": ["facebook", "instagram", "pinterest", "x", "tiktok", "youtube"],
