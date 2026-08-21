@@ -1,6 +1,6 @@
 {
   "_standard": "PRODUCTION-STANDARD.md",
-  "_next_id": 38,
+  "_next_id": 39,
   "productions": [
     {
       "id": "0001",
@@ -1144,6 +1144,29 @@
       "dates": {
         "requested": "2026-08-14",
         "produced": "2026-08-14",
+        "published": null
+      },
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      }
+    },
+    {
+      "id": "0038",
+      "slug": "ad-set-5-a-joyful-companion-for-life",
+      "title": "Ad Set 5 — A Joyful Companion for Life",
+      "type": "image-set",
+      "status": "delivered",
+      "folder": "productions/0038-ad-set-5-a-joyful-companion-for-life",
+      "style": null,
+      "model": "supplied artwork — local reframe + copywriting",
+      "cost": {
+        "credits": 0,
+        "usd": 0.0
+      },
+      "dates": {
+        "requested": "2026-08-21",
+        "produced": "2026-08-21",
         "published": null
       },
       "ratings": {
