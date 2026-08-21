@@ -1179,7 +1179,7 @@
       "slug": "surat-al-asr-recitation-over-stills",
       "title": "Surat Al-Asr — recitation over stills",
       "type": "video",
-      "status": "delivered",
+      "status": "published",
       "folder": "productions/0039-surat-al-asr-recitation-over-stills",
       "style": null,
       "model": "no generation — recitation by Abdul Baset (Riwaq teacher) over existing stills",
@@ -1190,13 +1190,21 @@
       "dates": {
         "requested": "2026-08-21",
         "produced": "2026-08-21",
-        "published": null
+        "published": "2026-08-21"
       },
       "ratings": {
         "editor": 4.0,
         "visitors": null
       },
-      "skills": ["riwaq-audio-montage", "riwaq-ayah-overlay"]
+      "skills": ["riwaq-audio-montage", "riwaq-ayah-overlay"],
+      "platforms": {
+        "facebook": "2026-08-21",
+        "instagram": "2026-08-21",
+        "pinterest": null,
+        "x": null,
+        "tiktok": "2026-08-21",
+        "youtube": "2026-08-21"
+      }
     },
     {
       "id": "0040",

@@ -147,3 +147,17 @@ The skill carries the four things V2 taught: a transcript is never a source for
 displayed text; Pillow silently drops harakat on this machine; silence detection
 cannot find verse boundaries under a music bed; and a long gap between words
 usually means the reciter repeats a verse rather than that a word was missed.
+
+## Published 2026-08-21 — Facebook, Instagram, YouTube, TikTok
+
+Shipped on **V2**, the version with the ayah and translation on screen. Editor
+4/5.
+
+**First on YouTube since 0021, back on 2026-08-11.** Only five productions have
+ever gone there — 0017, 0018, 0019, 0021 and this one — against 24 on Facebook.
+Ten days of nothing means that audience is cold, so a weak YouTube number here
+says more about the gap than about the video.
+
+Rate visitor engagement in 24 h. The useful comparison is 0035 (129 reactions in
+one day) and 0036 (69 in two), but **note the platform difference before reading
+anything into it**: those two ran on three platforms, this one on four.
