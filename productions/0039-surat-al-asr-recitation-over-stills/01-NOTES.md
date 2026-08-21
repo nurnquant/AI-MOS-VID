@@ -26,16 +26,20 @@ left edge — the child receiving the fruit, which is the entire point of the
 picture. Biased to 0.38 and both children are now whole. Caught by looking at a
 frame, not by any measurement.
 
-## Not verified, and cannot be from here
+## Reciter — asked, and answered
 
-**The reciter is unknown.** The file arrived as `suratul asr audio.mp4` with no
-attribution. Before this is published anywhere:
+**Abdul Baset, one of Riwaq's own teachers** (confirmed by the user 2026-08-21).
 
-- confirm who is reciting and whether the recording may be reused
-- if it is a commercial or copyrighted recitation, it needs permission or
-  replacement, and platforms do enforce this on audio
+The file arrived as `suratul asr audio.mp4` with no attribution, which was raised
+as a hard gate before delivery rather than after. The answer clears it and does
+more than that: the recitation belongs to a teacher a parent could actually book,
+which is a stronger thing to say in a caption than any claim about quality. All
+three captions credit him.
 
-That is a question for the user, not something measurement can settle.
+**Phrasing matters here.** The name is shared with Abdul Basit Abd us-Samad, among
+the most famous reciters in the world. Every caption reads "Abdul Baset, one of
+our teachers" rather than the name alone, so no reader infers a claim that was
+never made.
 
 ## Deliberately absent
 

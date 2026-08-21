@@ -7,7 +7,7 @@ V1 `0039-surat-al-asr-9x16.mp4` is the clean version, no text.
 PLAIN TEXT ONLY. No asterisks, no underscores — the platforms print them
 literally. Copy the block as-is.
 
-**Do not post until the reciter question is settled — see the notes at the end.**
+Recited by **Abdul Baset**, one of our own teachers. Cleared to post.
 
 ---
 
@@ -39,6 +39,9 @@ question of what a life is for, in a form small enough to carry at six years old
 and heavy enough to still mean something at sixty.
 
 Play it for them tonight. It is shorter than the walk to their bedroom.
+
+Recited by Abdul Baset, one of our teachers. The same voice your child would
+learn from.
 
 🎁 We teach Qur'an and Arabic to children one-on-one with qualified Al-Azhar
 teachers. First class is free.
@@ -74,6 +77,8 @@ six and heavy enough to mean something at sixty.
 
 Play it for them tonight. It is shorter than the walk to their bedroom.
 
+Recited by Abdul Baset, one of our teachers 🤍
+
 🔗 Free trial class in bio · Al-Azhar teachers, one-on-one
 
 #SuratAlAsr #Quran #QuranForKids #MuslimKids #IslamicEducation #IslamicParenting
@@ -96,6 +101,8 @@ Two of them you cannot do alone.
 
 Small enough for a child to learn this week.
 
+Recited by Abdul Baset, one of our teachers.
+
 #SuratAlAsr #Quran #QuranForKids #MuslimKids #IslamicEducation #MuslimTikTok
 #RiwaqAlIlm #LearnQuran
 
@@ -105,11 +112,14 @@ Small enough for a child to learn this week.
 
 For us, not for posting.
 
-- **HARD GATE: the reciter is unknown.** The audio arrived with no attribution.
-  Before this is posted anywhere, confirm who is reciting and whether the
-  recording may be reused. A commercial or copyrighted recitation needs
-  permission or replacement, and platforms do enforce this on audio. Nothing in
-  the caption fixes that.
+- **Reciter cleared: Abdul Baset, one of our own teachers.** The rights question
+  is answered, and it turns a liability into the strongest thing in the post —
+  the voice belongs to a teacher a parent could actually book. That is worth more
+  than any claim about quality, so it is credited in all three captions.
+- **Worth a moment's thought before posting:** the name is shared with Abdul
+  Basit Abd us-Samad, among the most famous reciters in the world. Every caption
+  says "Abdul Baset, one of our teachers" rather than the name alone, so nobody
+  reads an implied claim that was never made. Keep that phrasing.
 - **Post V2** — the version with the ayah and translation on screen. Every string
   was checked codepoint by codepoint against the supplied text, harakat included.
   V1 is kept clean in case a text-free version is ever wanted.
