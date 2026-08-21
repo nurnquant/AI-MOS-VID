@@ -14,6 +14,7 @@ request; it is never assumed.
 
 | # | Title | Type | Style | Status | Deliverables | Folder |
 | --- | --- | --- | --- | --- | --- | --- |
+| `0040` | Recitation with soft background bed (surah TBC) | watermark | — | ~ in-progress | 0040-recitation-bed-balanced.m4a _(+2)_ | [0040-recitation-with-soft-background-bed-surah-tbc](0040-recitation-with-soft-background-bed-surah-tbc/) |
 | `0039` | Surat Al-Asr — recitation over stills | video | — | ✓ delivered | 0039-surat-al-asr-9x16.mp4 _(+1)_ | [0039-surat-al-asr-recitation-over-stills](0039-surat-al-asr-recitation-over-stills/) |
 | `0038` | Ad Set 5 — A Joyful Companion for Life | image-set | — | ✓ delivered | 0038-feed-1x1-1080x1080.jpg _(+4)_ | [0038-ad-set-5-a-joyful-companion-for-life](0038-ad-set-5-a-joyful-companion-for-life/) |
 | `0037` | The Mirror — Today a Student, Tomorrow a Light | video | — | ✓ delivered | 0037-the-mirror-9x16.mp4 | [0037-the-mirror-today-a-student-tomorrow-a-light](0037-the-mirror-today-a-student-tomorrow-a-light/) |
@@ -54,9 +55,9 @@ request; it is never assumed.
 | `0002` | Dua Boy — Rabbana Atina | video | — | ★ published | 0002-dua-boy-9x16.mp4 _(+1)_ | [0002-dua-boy-rabbana-atina](0002-dua-boy-rabbana-atina/) |
 | `0001` | Sneezing Etiquette Family Story | video | — | ★ published | 0001-sneeze-etiquette-9x16.mp4 | [0001-sneezing-etiquette-family-story](0001-sneezing-etiquette-family-story/) |
 
-**39 productions** — 4 delivered · 4 parked · 29 published · 2 requested
+**40 productions** — 4 delivered · 1 in-progress · 4 parked · 29 published · 2 requested
 
-Next free number: **0040**
+Next free number: **0041**
 
 ## Adding a request
 

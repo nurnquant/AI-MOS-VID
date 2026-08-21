@@ -1,6 +1,6 @@
 {
   "_standard": "PRODUCTION-STANDARD.md",
-  "_next_id": 40,
+  "_next_id": 41,
   "productions": [
     {
       "id": "0001",
@@ -1197,6 +1197,25 @@
         "visitors": null
       },
       "skills": ["riwaq-audio-montage", "riwaq-ayah-overlay"]
+    },
+    {
+      "id": "0040",
+      "slug": "recitation-with-soft-background-bed-surah-tbc",
+      "title": "Recitation with soft background bed (surah TBC)",
+      "type": "watermark",
+      "status": "in-progress",
+      "folder": "productions/0040-recitation-with-soft-background-bed-surah-tbc",
+      "style": null,
+      "model": "no generation — locally synthesised pad under supplied recitation",
+      "cost": {
+        "credits": 0,
+        "usd": 0.0
+      },
+      "dates": {
+        "requested": "2026-08-21",
+        "produced": "2026-08-21",
+        "published": null
+      }
     }
   ],
   "_platforms": ["facebook", "instagram", "pinterest", "x", "tiktok", "youtube"],
