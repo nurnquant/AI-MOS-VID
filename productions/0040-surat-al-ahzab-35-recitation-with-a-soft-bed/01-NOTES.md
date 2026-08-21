@@ -139,3 +139,26 @@ hard-coded, which is a direct improvement from this production.
 
 Consistent with 0039. Easy to add if wanted; the standing rule is that a
 watermark stops before any end card.
+
+## Reels cut (2026-08-21)
+
+`OUTPUT/0040-al-ahzab-35-reel-9x16.mp4` — 1080x1920, 30 s.
+
+The 4:5 version is a **Feed** format. Reels and Stories want 9:16, so both now
+exist and each is correct for where it goes:
+
+| file                             | ratio     | for                         |
+| -------------------------------- | --------- | --------------------------- |
+| `0040-al-ahzab-35-4x5.mp4`       | 1080x1350 | Facebook and Instagram feed |
+| `0040-al-ahzab-35-reel-9x16.mp4` | 1080x1920 | Reels, Stories, TikTok      |
+
+**The two cuts are laid out differently, because they had to be.** At 4:5 the
+Arabic and the translation share the screen. At 9:16 that is twelve lines and
+does not fit above the UI zone, so they alternate — Arabic for the first sixteen
+seconds while it is being recited, translation for the rest. Six lines then nine,
+both clear of the bottom fifth, verified against a marked frame.
+
+**One honest cost:** the 9:16 crop takes 648 px of width from a 928 px source and
+upscales 1.67x, so the Reel is softer than the feed cut. The 4:5 version keeps 99%
+of the width and needs only 1.16x. If one of the two is the priority, the feed cut
+is the better picture.
