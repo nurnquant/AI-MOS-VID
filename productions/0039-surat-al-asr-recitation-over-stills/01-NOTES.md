@@ -94,7 +94,14 @@ included (5, 12 and 38 marks). For sacred text, "looks right" is not a check.
 Text sits clear of the bottom 20% that Reels and Stories cover with their own UI.
 The silent tail flag is the same one accepted in V1, for the same reason.
 
-## Turned into a skill
+## Built with
+
+Tagged in the registry, shown as pills on the dashboard card:
+
+- **`/riwaq-audio-montage`** — V1, the film itself
+- **`/riwaq-ayah-overlay`** — V2, the text on top
+
+## Turned into two skills
 
 `/riwaq-audio-montage` — `.claude/skills/riwaq-audio-montage/`. Reach for it
 whenever audio arrives and a video is wanted, before reaching for a paid model.
@@ -115,3 +122,24 @@ on screen, silence at the ends is correct here and must be recorded so nobody
 - **Style not named.** You name it.
 - Reciter attribution, above.
 - Not published. No editor rating yet.
+
+## The second skill — /riwaq-ayah-overlay
+
+`.claude/skills/riwaq-ayah-overlay/`. For any Arabic or sacred text on screen, in
+any production.
+
+Three scripts, in the order they must run:
+
+| script            | does                                                                                                                       |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `verifytext.py`   | proves every on-screen string matches the supplied source, codepoint by codepoint. **Run first, before anything renders.** |
+| `rendercards.mjs` | renders transparent cards through a headless browser                                                                       |
+| `burn.sh`         | overlays them with alpha fades; copies the audio untouched                                                                 |
+
+**Verified against this production — re-running all three on 0039's inputs
+reproduces the delivered V2 pixel-identically at every sampled frame.**
+
+The skill carries the four things V2 taught: a transcript is never a source for
+displayed text; Pillow silently drops harakat on this machine; silence detection
+cannot find verse boundaries under a music bed; and a long gap between words
+usually means the reciter repeats a verse rather than that a word was missed.
