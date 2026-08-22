@@ -1194,7 +1194,7 @@
       },
       "ratings": {
         "editor": 4.0,
-        "visitors": null
+        "visitors": 4.0
       },
       "skills": ["riwaq-audio-montage", "riwaq-ayah-overlay"],
       "platforms": {
@@ -1215,7 +1215,7 @@
       "slug": "surat-al-ahzab-35-recitation-with-a-soft-bed",
       "title": "Surat Al-Ahzab 35 — recitation with a soft bed",
       "type": "video",
-      "status": "delivered",
+      "status": "published",
       "folder": "productions/0040-surat-al-ahzab-35-recitation-with-a-soft-bed",
       "style": null,
       "model": "no generation — locally synthesised pad under supplied recitation",
@@ -1226,13 +1226,21 @@
       "dates": {
         "requested": "2026-08-21",
         "produced": "2026-08-21",
-        "published": null
+        "published": "2026-08-22"
       },
       "ratings": {
         "editor": 4.0,
         "visitors": null
       },
-      "skills": ["riwaq-audio-montage", "riwaq-ayah-overlay"]
+      "skills": ["riwaq-audio-montage", "riwaq-ayah-overlay"],
+      "platforms": {
+        "facebook": "2026-08-22",
+        "instagram": "2026-08-22",
+        "pinterest": null,
+        "x": null,
+        "tiktok": "2026-08-22",
+        "youtube": "2026-08-22"
+      }
     }
   ],
   "_platforms": ["facebook", "instagram", "pinterest", "x", "tiktok", "youtube"],

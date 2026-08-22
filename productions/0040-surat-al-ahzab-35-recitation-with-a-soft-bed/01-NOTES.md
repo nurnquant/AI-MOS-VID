@@ -162,3 +162,29 @@ both clear of the bottom fifth, verified against a marked frame.
 upscales 1.67x, so the Reel is softer than the feed cut. The 4:5 version keeps 99%
 of the width and needs only 1.16x. If one of the two is the priority, the feed cut
 is the better picture.
+
+## Published 2026-08-22 — Facebook, Instagram, YouTube, TikTok
+
+Second four-platform release, straight after 0039.
+
+**Which cut went where should be confirmed.** Two exist and they are laid out
+differently on purpose: `0040-al-ahzab-35-4x5.mp4` for feed, and
+`0040-al-ahzab-35-reel-9x16.mp4` for Reels, Stories and TikTok. Posting the 4:5
+to Reels would letterbox it and waste the alternating-text layout.
+
+**The reciter is still not recorded.** It went out without a credit, and the
+caption file's gate was not closed. Two live consequences:
+
+- 0039 credits Abdul Baset and that line is one of the strongest in its caption —
+  the voice belongs to a teacher a parent could book. 0040 gives that away.
+- If the recording turns out to be a commercial or copyrighted recitation, it is
+  now live on four platforms. Worth settling rather than leaving.
+
+Adding the name to the caption after the fact is normal and costs nothing.
+
+## Replication test
+
+0040 is the same format and the same pipeline as 0039, which took **550 reactions
+in one day**. Its number is therefore the honest check on whether that was the
+format or a one-off. **Rate it in 24 h**, and re-measure 0039 on 2026-08-28 so the
+two are compared at the same age.
