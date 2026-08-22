@@ -161,3 +161,43 @@ says more about the gap than about the video.
 Rate visitor engagement in 24 h. The useful comparison is 0035 (129 reactions in
 one day) and 0036 (69 in two), but **note the platform difference before reading
 anything into it**: those two ran on three platforms, this one on four.
+
+## Engagement: 550 reactions in one day (2026-08-22)
+
+**By a wide margin the best-performing thing in the library.** Against the two
+other measured productions, normalised for how long each has been up and how many
+platforms it ran on:
+
+|                            | reactions | days | per day | platforms | per day per platform |
+| -------------------------- | --------- | ---- | ------- | --------- | -------------------- |
+| **0039** Qur'an recitation | **550**   | 1    | **550** | 4         | **138**              |
+| 0035 children's rhyme      | 129       | 7    | 18      | 3         | 6                    |
+| 0036 parent-facing         | 69        | 8    | 9       | 3         | 3                    |
+
+Roughly **23x** the rhyme and **46x** the parent-facing piece, per platform per
+day.
+
+### Read it carefully before acting on it
+
+- **Three data points.** One is not a strategy.
+- **Day one is not a week.** Reels front-load; 0035 and 0036 are averaged across
+  seven and eight days, and 0039 is a single fresh day. Re-measure it at day 7
+  before comparing like for like.
+- **Four platforms, not three** — and YouTube was new after a ten-day gap, which
+  cuts both ways.
+- The other two were child-facing and parent-facing content in a crowded niche.
+  **Qur'an recitation is a different category**, with a much larger audience that
+  is not choosing between us and another parenting page.
+
+### What it does support
+
+The cheapest thing we make is also the best performing. **0039 cost zero
+credits** — supplied audio, existing stills, local ffmpeg — against 125.5 for 0036. If this holds at day 7, recitation pieces are the highest return per credit
+by an enormous margin, and `/riwaq-audio-montage` plus `/riwaq-ayah-overlay` is
+the pipeline that makes them.
+
+**What it does not settle** is the follower question, which is still the one that
+matters and is still unanswered by any reaction count.
+
+**Next check: re-measure 0039 on 2026-08-28**, and rate 0040 when it goes out —
+it is the same format and the same pipeline, so it is the honest replication test.
