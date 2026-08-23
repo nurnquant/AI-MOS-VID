@@ -188,3 +188,26 @@ Adding the name to the caption after the fact is normal and costs nothing.
 in one day**. Its number is therefore the honest check on whether that was the
 format or a one-off. **Rate it in 24 h**, and re-measure 0039 on 2026-08-28 so the
 two are compared at the same age.
+
+## Reciter identified (2026-08-23)
+
+**Abdul Baset Nadim**, one of Riwaq's own teachers — the same reciter as 0039.
+
+Both open questions close with it:
+
+- **Rights.** It is our own recording. Nothing to license, nothing to replace.
+- **Credit.** The captions now carry it, and the full name is used deliberately:
+  "Abdul Baset" alone collides with Abdul Basit Abdus Samad, one of the most
+  famous reciters in the world. Implying that would be a serious misattribution.
+
+Recorded in the registry under `credits` on both 0039 and 0040, so it is
+queryable rather than buried in prose.
+
+**It went live on 2026-08-22 without the credit.** Adding it to the existing posts
+costs nothing and is worth doing — the voice belonging to a bookable teacher is
+the strongest line in the caption, and it is the one thing a competitor cannot
+copy.
+
+The 41 kbps source quality still stands, and `work/RECORDING-BRIEF.md` is written
+for him. Given both recitation pieces are the best performers in the library, a
+clean capture is now the highest-value free thing available.

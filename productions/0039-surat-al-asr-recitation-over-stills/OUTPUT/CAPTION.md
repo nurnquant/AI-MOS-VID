@@ -7,7 +7,7 @@ V1 `0039-surat-al-asr-9x16.mp4` is the clean version, no text.
 PLAIN TEXT ONLY. No asterisks, no underscores — the platforms print them
 literally. Copy the block as-is.
 
-Recited by **Abdul Baset**, one of our own teachers. Cleared to post.
+Recited by **Abdul Baset Nadim**, one of our own teachers. Cleared to post.
 
 ---
 
@@ -40,7 +40,7 @@ and heavy enough to still mean something at sixty.
 
 Play it for them tonight. It is shorter than the walk to their bedroom.
 
-Recited by Abdul Baset, one of our teachers. The same voice your child would
+Recited by Abdul Baset Nadim, one of our teachers. The same voice your child would
 learn from.
 
 🎁 We teach Qur'an and Arabic to children one-on-one with qualified Al-Azhar
@@ -77,7 +77,7 @@ six and heavy enough to mean something at sixty.
 
 Play it for them tonight. It is shorter than the walk to their bedroom.
 
-Recited by Abdul Baset, one of our teachers 🤍
+Recited by Abdul Baset Nadim, one of our teachers 🤍
 
 🔗 Free trial class in bio · Al-Azhar teachers, one-on-one
 
@@ -101,7 +101,7 @@ Two of them you cannot do alone.
 
 Small enough for a child to learn this week.
 
-Recited by Abdul Baset, one of our teachers.
+Recited by Abdul Baset Nadim, one of our teachers.
 
 #SuratAlAsr #Quran #QuranForKids #MuslimKids #IslamicEducation #MuslimTikTok
 #RiwaqAlIlm #LearnQuran
@@ -112,13 +112,13 @@ Recited by Abdul Baset, one of our teachers.
 
 For us, not for posting.
 
-- **Reciter cleared: Abdul Baset, one of our own teachers.** The rights question
+- **Reciter cleared: Abdul Baset Nadim, one of our own teachers.** The rights question
   is answered, and it turns a liability into the strongest thing in the post —
   the voice belongs to a teacher a parent could actually book. That is worth more
   than any claim about quality, so it is credited in all three captions.
 - **Worth a moment's thought before posting:** the name is shared with Abdul
   Basit Abd us-Samad, among the most famous reciters in the world. Every caption
-  says "Abdul Baset, one of our teachers" rather than the name alone, so nobody
+  says "Abdul Baset Nadim, one of our teachers" rather than the name alone, so nobody
   reads an implied claim that was never made. Keep that phrasing.
 - **Post V2** — the version with the ayah and translation on screen. Every string
   was checked codepoint by codepoint against the supplied text, harakat included.

@@ -28,7 +28,7 @@ frame, not by any measurement.
 
 ## Reciter — asked, and answered
 
-**Abdul Baset, one of Riwaq's own teachers** (confirmed by the user 2026-08-21).
+**Abdul Baset Nadim, one of Riwaq's own teachers** (confirmed by the user 2026-08-21).
 
 The file arrived as `suratul asr audio.mp4` with no attribution, which was raised
 as a hard gate before delivery rather than after. The answer clears it and does
@@ -37,7 +37,7 @@ which is a stronger thing to say in a caption than any claim about quality. All
 three captions credit him.
 
 **Phrasing matters here.** The name is shared with Abdul Basit Abd us-Samad, among
-the most famous reciters in the world. Every caption reads "Abdul Baset, one of
+the most famous reciters in the world. Every caption reads "Abdul Baset Nadim, one of
 our teachers" rather than the name alone, so no reader infers a claim that was
 never made.
 
@@ -197,3 +197,11 @@ parent-facing piece.
 - **Reactions are not follows**, which remains the question 0036 was built to ask.
 - Editor and visitor ratings for both sit at **4/5** — strong reach, ordinary
   craft scores. Worth noticing that the numbers and the judgement disagree.
+
+## Reciter's full name recorded (2026-08-23)
+
+**Abdul Baset Nadim**, one of Riwaq's own teachers. The captions previously said "Abdul
+Baset", which is exactly the collision this file warned about — that is also the
+first name of Abdul Basit Abdus Samad, among the most famous reciters in the
+world. **The surname is what removes the ambiguity**, so every credit now carries
+it in full.

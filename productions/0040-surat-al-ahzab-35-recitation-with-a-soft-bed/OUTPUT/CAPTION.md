@@ -10,7 +10,7 @@ Two cuts, each for a different surface:
 PLAIN TEXT ONLY. No asterisks, no underscores — the platforms print them
 literally. Copy the block as-is.
 
-**Do not post until the reciter is named — see the notes at the end.**
+Recited by **Abdul Baset Nadim**, one of our own teachers. Cleared to post.
 
 ---
 
@@ -42,6 +42,9 @@ whether this is for her too, you do not need to explain or soften anything. You
 can simply read her the verse and let her count.
 
 — Qur'an, Surah Al-Ahzab 33:35
+
+Recited by Abdul Baset Nadim, one of our teachers. The same voice
+your child would learn from.
 
 🎁 We teach Qur'an and Arabic to boys and girls alike, one-on-one, with qualified
 Al-Azhar teachers. First class is free.
@@ -81,6 +84,8 @@ anything. Read her the verse and let her count.
 
 — Qur'an, Surah Al-Ahzab 33:35
 
+Recited by Abdul Baset Nadim, one of our teachers 🤍
+
 🔗 Free trial class in bio · Al-Azhar teachers, one-on-one
 
 #SurahAlAhzab #Quran #QuranForKids #MuslimKids #IslamicEducation
@@ -103,6 +108,8 @@ There is no version of this verse where one half of the room is being spoken to
 and the other half is being spoken about.
 
 — Qur'an, Surah Al-Ahzab 33:35
+
+Recited by Abdul Baset Nadim, one of our teachers.
 
 #SurahAlAhzab #Quran #QuranForKids #MuslimKids #IslamicEducation #MuslimWomen
 #RiwaqAlIlm #MuslimTikTok
