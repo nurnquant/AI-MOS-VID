@@ -1230,7 +1230,7 @@
       },
       "ratings": {
         "editor": 4.0,
-        "visitors": null
+        "visitors": 4.0
       },
       "skills": ["riwaq-audio-montage", "riwaq-ayah-overlay"],
       "platforms": {
@@ -1240,6 +1240,10 @@
         "x": null,
         "tiktok": "2026-08-22",
         "youtube": "2026-08-22"
+      },
+      "metrics": {
+        "reactions": 740,
+        "reactions_on": "2026-08-23"
       }
     }
   ],

@@ -162,42 +162,38 @@ Rate visitor engagement in 24 h. The useful comparison is 0035 (129 reactions in
 one day) and 0036 (69 in two), but **note the platform difference before reading
 anything into it**: those two ran on three platforms, this one on four.
 
-## Engagement: 550 reactions in one day (2026-08-22)
+## Engagement: 550 reactions on day one (2026-08-22)
 
-**By a wide margin the best-performing thing in the library.** Against the two
-other measured productions, normalised for how long each has been up and how many
-platforms it ran on:
+**CORRECTION (2026-08-23).** The first version of this section divided each
+production's count by the days since publishing. That was wrong: every count was
+taken at a different age, and 0035's 129 was also a **day-one** figure, not a
+seven-day one. The claim that 0039 was "23x the rhyme and 46x the parent-facing
+piece" was inflated by my own arithmetic. Corrected below, comparing each count
+at the age it was actually measured.
 
-|                            | reactions | days | per day | platforms | per day per platform |
-| -------------------------- | --------- | ---- | ------- | --------- | -------------------- |
-| **0039** Qur'an recitation | **550**   | 1    | **550** | 4         | **138**              |
-| 0035 children's rhyme      | 129       | 7    | 18      | 3         | 6                    |
-| 0036 parent-facing         | 69        | 8    | 9       | 3         | 3                    |
+|                       | reactions | age at count | platforms | per day per platform | credits |
+| --------------------- | --------- | ------------ | --------- | -------------------- | ------- |
+| 0040 Al-Ahzab 35      | 740       | 1 day        | 4         | **185**              | 0       |
+| 0039 Al-Asr           | 550       | 1 day        | 4         | **138**              | 0       |
+| 0035 children's rhyme | 129       | 1 day        | 3         | 43                   | 240     |
+| 0036 parent-facing    | 69        | 2 days       | 3         | 12                   | 125.5   |
 
-Roughly **23x** the rhyme and **46x** the parent-facing piece, per platform per
-day.
+Recitation is roughly **3 to 4x** the children's rhyme and **11 to 15x** the
+parent-facing piece per platform per day. Still the strongest format in the
+library — just not by the margin first reported.
 
-### Read it carefully before acting on it
+### The replication held
 
-- **Three data points.** One is not a strategy.
-- **Day one is not a week.** Reels front-load; 0035 and 0036 are averaged across
-  seven and eight days, and 0039 is a single fresh day. Re-measure it at day 7
-  before comparing like for like.
-- **Four platforms, not three** — and YouTube was new after a ten-day gap, which
-  cuts both ways.
-- The other two were child-facing and parent-facing content in a crowded niche.
-  **Qur'an recitation is a different category**, with a much larger audience that
-  is not choosing between us and another parenting page.
+0040 is the same format and the same pipeline, published the next day, and it did
+not regress: **740 against 550**, both on four platforms, both counted at day
+one. Two independent pieces now, not one result.
 
-### What it does support
+**Both cost zero credits**, against 240 for the rhyme and 125.5 for the
+parent-facing piece.
 
-The cheapest thing we make is also the best performing. **0039 cost zero
-credits** — supplied audio, existing stills, local ffmpeg — against 125.5 for 0036. If this holds at day 7, recitation pieces are the highest return per credit
-by an enormous margin, and `/riwaq-audio-montage` plus `/riwaq-ayah-overlay` is
-the pipeline that makes them.
+### Still not settled
 
-**What it does not settle** is the follower question, which is still the one that
-matters and is still unanswered by any reaction count.
-
-**Next check: re-measure 0039 on 2026-08-28**, and rate 0040 when it goes out —
-it is the same format and the same pipeline, so it is the honest replication test.
+- **Day one is not a week.** Re-measure 0039 on 2026-08-28.
+- **Reactions are not follows**, which remains the question 0036 was built to ask.
+- Editor and visitor ratings for both sit at **4/5** — strong reach, ordinary
+  craft scores. Worth noticing that the numbers and the judgement disagree.
