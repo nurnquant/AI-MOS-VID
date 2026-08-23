@@ -112,3 +112,35 @@ source for it.
 
 Recorded in the registry under `credits` with the same caveat, so the distinction
 between a voice credit and an appearance survives.
+
+## Feed cut added (2026-08-23) — Facebook said "wrong aspect ratio"
+
+**The file was never wrong.** Probed on the complaint: 720x1280, no rotation
+metadata, no odd sample aspect ratio, H.264 High L3.1, yuv420p, AAC stereo. That
+is a textbook 9:16 vertical video.
+
+**Facebook says "wrong aspect ratio" when a 9:16 video is put into the FEED
+composer**, or into an Ads placement expecting Feed. Feed caps at 4:5. Reels is
+where 9:16 belongs, and the file is correct for it.
+
+So both now exist:
+
+| file                                             | ratio     | surface                     |
+| ------------------------------------------------ | --------- | --------------------------- |
+| `0041-when-life-is-difficult-captioned-9x16.mp4` | 720x1280  | Reels, Stories, TikTok      |
+| `0041-when-life-is-difficult-feed-4x5.mp4`       | 1080x1350 | Facebook and Instagram feed |
+
+### Padded, not cropped, and the measurement decided it
+
+The burned captions sit at **72-75% of frame height**. A 4:5 crop keeps only the
+top **900 px of 1280** — it would have sliced every caption off. Checked before
+choosing rather than after.
+
+So the picture is preserved whole and the sides are filled with a blurred, dimmed
+copy of itself. Audio is stream-copied, untouched.
+
+### Worth knowing for next time
+
+**Facebook Reels recommends 1080x1920**; this is 720x1280, above the 540x960
+minimum but under the recommendation. It is not what the error was about, but if
+Reels is the priority for a piece, ask for the source clip at 1080x1920.
