@@ -1264,10 +1264,10 @@
       "status": "in-progress",
       "folder": "productions/0041-when-life-is-difficult-alhamdulillah-sabr-tawakkul",
       "style": null,
-      "model": "none — transcription only",
+      "model": "seed_audio (Desmond) narration",
       "cost": {
-        "credits": 0,
-        "usd": 0.0
+        "credits": 2.8,
+        "usd": 0.09
       },
       "dates": {
         "requested": "2026-08-23",

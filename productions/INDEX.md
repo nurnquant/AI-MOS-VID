@@ -14,7 +14,7 @@ request; it is never assumed.
 
 | # | Title | Type | Style | Status | Deliverables | Folder |
 | --- | --- | --- | --- | --- | --- | --- |
-| `0041` | When Life Is Difficult — Alhamdulillah, Sabr, Tawakkul | watermark | — | ~ in-progress | — | [0041-when-life-is-difficult-alhamdulillah-sabr-tawakkul](0041-when-life-is-difficult-alhamdulillah-sabr-tawakkul/) |
+| `0041` | When Life Is Difficult — Alhamdulillah, Sabr, Tawakkul | watermark | — | ~ in-progress | 0041-vo-natural.m4a _(+1)_ | [0041-when-life-is-difficult-alhamdulillah-sabr-tawakkul](0041-when-life-is-difficult-alhamdulillah-sabr-tawakkul/) |
 | `0040` | Surat Al-Ahzab 35 — recitation with a soft bed | video | — | ★ published | 0040-al-ahzab-35-4x5.mp4 _(+4)_ | [0040-surat-al-ahzab-35-recitation-with-a-soft-bed](0040-surat-al-ahzab-35-recitation-with-a-soft-bed/) |
 | `0039` | Surat Al-Asr — recitation over stills | video | — | ★ published | 0039-surat-al-asr-9x16.mp4 _(+1)_ | [0039-surat-al-asr-recitation-over-stills](0039-surat-al-asr-recitation-over-stills/) |
 | `0038` | Ad Set 5 — A Joyful Companion for Life | image-set | — | ✓ delivered | 0038-feed-1x1-1080x1080.jpg _(+4)_ | [0038-ad-set-5-a-joyful-companion-for-life](0038-ad-set-5-a-joyful-companion-for-life/) |

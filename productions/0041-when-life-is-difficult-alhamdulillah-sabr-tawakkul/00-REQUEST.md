@@ -7,7 +7,8 @@ _Production 0041 · 2026-08-23 · SCRIPT ONLY_
 The user supplied `source/whenlifeIsDifficult.mp4` and asked for **the script
 only**, transcribed from the audio, before deciding what happens next.
 
-Nothing has been produced. See [SCRIPT.md](SCRIPT.md).
+Then: **narration audio** of those four lines was generated. See
+[01-NOTES.md](01-NOTES.md). Still no video.
 
 ## Headline findings
 
