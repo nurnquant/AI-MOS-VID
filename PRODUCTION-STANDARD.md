@@ -83,6 +83,22 @@ traceable back to its request.
 
 Suffix conventions: `-9x16` `-16x9` `-4x5` `-1x1` `-2x3` for aspect ratio.
 
+## Captions — standing rules
+
+**Every caption starts with a TITLE, and the title carries emoji.** One title per
+platform, then the body. Format: `Title Words 🌿📖🌙✨`.
+
+**Emoji come from [library/EMOJI-LIBRARY.md](library/EMOJI-LIBRARY.md)**, chosen
+for what the post is about — not picked at random and not invented. The library
+carries signatures per content type (children's, dua and reminders, family and
+Qur'an, scholarly) and a meaning for each symbol. Use them in the body too, where
+they mark a beat rather than decorate a line.
+
+Set by the user 2026-08-23, and it applies to every production.
+
+**Still plain text otherwise.** No asterisks, no underscores — the platforms
+print them literally. Emoji are fine; markdown is not.
+
 ## Brand furniture — standing rules
 
 **The watermark stops before the end card.** The end card already carries the
