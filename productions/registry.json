@@ -1261,19 +1261,24 @@
       "slug": "when-life-is-difficult-alhamdulillah-sabr-tawakkul",
       "title": "When Life Is Difficult — Alhamdulillah, Sabr, Tawakkul",
       "type": "watermark",
-      "status": "in-progress",
+      "status": "delivered",
       "folder": "productions/0041-when-life-is-difficult-alhamdulillah-sabr-tawakkul",
       "style": null,
-      "model": "seed_audio (Desmond) narration",
+      "model": "supplied to-camera clip + seed_audio narration (separate)",
       "cost": {
         "credits": 2.8,
         "usd": 0.09
       },
       "dates": {
         "requested": "2026-08-23",
-        "produced": null,
+        "produced": "2026-08-23",
         "published": null
-      }
+      },
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      },
+      "skills": ["riwaq-ayah-overlay"]
     }
   ],
   "_platforms": ["facebook", "instagram", "pinterest", "x", "tiktok", "youtube"],

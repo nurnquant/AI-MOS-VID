@@ -50,3 +50,43 @@ Every line was transcribed back. **Two needed work:**
 
 **~2.8 credits** — seven generations at 0.4 each: four lines, two extra attempts
 at Sabr, one re-roll of line 4. Everything after that was local.
+
+## Captioned to-camera cut (2026-08-23)
+
+`OUTPUT/0041-when-life-is-difficult-captioned-9x16.mp4` — 720x1280, 10.005 s,
+**zero credits**. Source `source/man-speaking-to-camera.mp4`, used for both
+picture and sound; the audio stream is copied untouched.
+
+**No watermark and no end card**, as instructed. Nothing on the frame but the
+captions.
+
+### It only covers three of the four lines
+
+The clip ends on "we keep Tawakkul in Allah." **"Because the believer knows that
+whatever Allah chooses is always best for him" is not in it** — a 10 s cap, and
+the closing line is the payoff of the whole script. Either a second clip is
+needed, or the piece ends a beat early.
+
+### The captions correct the spelling the other version got wrong
+
+Timing comes from whisper word starts; **the words are authored**, so this cut
+spells them properly:
+
+| the 360x360 version had | this cut says |
+| ----------------------- | ------------- |
+| ALHAMDULLILAH           | Alhamdulillah |
+| TAWAKUL                 | Tawakkul      |
+
+Eight phrase chunks rather than four long lines, so each sits for about a second
+and a viewer reads at the pace he speaks.
+
+### Two adjustments, both from looking
+
+- **Gold read as weak over a white thobe.** The gold is the translation colour
+  from the ayah layout, where it sits under Arabic as the secondary line. Alone
+  over a bright subject it lacks contrast. Switched to cream, and
+  `rendercards.mjs` now takes `CARD_EN_COLOR` so it is a choice rather than a
+  constant.
+- **The first caption sat on the UI line.** Raised from 250 to 300 px.
+
+Both were visible only by putting a marked frame next to the picture.

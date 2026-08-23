@@ -27,6 +27,9 @@ const EN_SIZE = Number(process.env.CARD_EN_SIZE || 35);
 const SCRIM = Number(process.env.CARD_SCRIM || 1.0);
 const SHADOW = Number(process.env.CARD_SHADOW || 1.0);
 const SCRIM_H = Number(process.env.CARD_SCRIM_H || 0.56);
+// Gold reads as "translation, secondary" beneath Arabic. Used alone as a
+// standalone caption over a light subject it is weak — 0041 needed cream.
+const EN_COLOR = process.env.CARD_EN_COLOR || "#deb876";
 
 mkdirSync(outDir, { recursive: true });
 
@@ -40,7 +43,7 @@ const html = (a) => `<html><head><meta charset="utf-8"><style>
   .box{position:absolute;left:60px;right:60px;bottom:${BOTTOM}px;text-align:center}
   .ar{font-family:'Geeza Pro',serif;font-size:${AR_SIZE}px;line-height:2.05;color:#f7f4ec;
       direction:rtl;text-shadow:0 2px 5px rgba(0,0,0,${(0.95 * SHADOW).toFixed(2)}), 0 3px 18px rgba(0,0,0,${(0.9 * SHADOW).toFixed(2)});margin-bottom:34px}
-  .en{font-family:'Georgia',serif;font-size:${EN_SIZE}px;line-height:1.55;color:#deb876;
+  .en{font-family:'Georgia',serif;font-size:${EN_SIZE}px;line-height:1.55;color:${EN_COLOR};
       text-shadow:0 2px 5px rgba(0,0,0,${(0.95 * SHADOW).toFixed(2)}), 0 2px 14px rgba(0,0,0,${(0.9 * SHADOW).toFixed(2)})}
 </style></head><body>
   <div class="wrap"></div>

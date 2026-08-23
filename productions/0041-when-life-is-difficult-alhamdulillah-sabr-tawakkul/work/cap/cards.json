@@ -1,0 +1,58 @@
+[
+  {
+    "id": "c1",
+    "ar": "",
+    "en": "Alhamdulillah,",
+    "start": 0.45,
+    "end": 1.05
+  },
+  {
+    "id": "c2",
+    "ar": "",
+    "en": "in every situation.",
+    "start": 1.05,
+    "end": 2.1
+  },
+  {
+    "id": "c3",
+    "ar": "",
+    "en": "When life is easy,",
+    "start": 2.1,
+    "end": 3.25
+  },
+  {
+    "id": "c4",
+    "ar": "",
+    "en": "we say Alhamdulillah.",
+    "start": 3.25,
+    "end": 4.45
+  },
+  {
+    "id": "c5",
+    "ar": "",
+    "en": "When life is difficult,",
+    "start": 4.45,
+    "end": 5.95
+  },
+  {
+    "id": "c6",
+    "ar": "",
+    "en": "we show Sabr.",
+    "start": 5.95,
+    "end": 7.0
+  },
+  {
+    "id": "c7",
+    "ar": "",
+    "en": "And in every moment,",
+    "start": 7.0,
+    "end": 8.05
+  },
+  {
+    "id": "c8",
+    "ar": "",
+    "en": "we keep Tawakkul in Allah.",
+    "start": 8.05,
+    "end": 10.005
+  }
+]
