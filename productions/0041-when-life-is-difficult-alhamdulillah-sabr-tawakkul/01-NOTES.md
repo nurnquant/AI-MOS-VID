@@ -144,3 +144,25 @@ copy of itself. Audio is stream-copied, untouched.
 **Facebook Reels recommends 1080x1920**; this is 720x1280, above the 540x960
 minimum but under the recommendation. It is not what the error was about, but if
 Reels is the priority for a piece, ask for the source clip at 1080x1920.
+
+## Published 2026-08-23 — Facebook, Instagram, TikTok · editor 3.5/5
+
+**3.5 is the lowest score given to anything delivered in this session**, against
+4/5 for 0039 and 0040 and 4.5 for 0036. Worth taking at face value rather than
+explaining away, and there are two obvious candidates for why:
+
+- **It stops before the last line.** Three principles stated, and the reason —
+  "because the believer knows that whatever Allah chooses is always best for him"
+  — never arrives on screen. The caption carries it, but a viewer who does not
+  read the caption gets a piece with no resolution. That is a structural gap, not
+  a polish one.
+- **The picture is supplied, not made here.** 0039 and 0040 were built from the
+  library with choices at every step. This was a 10 s clip with captions added,
+  and the only real decisions were chunking and colour.
+
+**The fix, if it is worth remaking:** a second clip carrying the fourth line, and
+the two joined. That would also mean rewriting the caption, which currently
+depends on the line being missing.
+
+No visitor number yet. It went out on three platforms rather than four, so it is
+not directly comparable to 0039 or 0040.

@@ -1261,7 +1261,7 @@
       "slug": "when-life-is-difficult-alhamdulillah-sabr-tawakkul",
       "title": "When Life Is Difficult — Alhamdulillah, Sabr, Tawakkul",
       "type": "watermark",
-      "status": "delivered",
+      "status": "published",
       "folder": "productions/0041-when-life-is-difficult-alhamdulillah-sabr-tawakkul",
       "style": null,
       "model": "supplied to-camera clip + seed_audio narration (separate)",
@@ -1272,10 +1272,10 @@
       "dates": {
         "requested": "2026-08-23",
         "produced": "2026-08-23",
-        "published": null
+        "published": "2026-08-23"
       },
       "ratings": {
-        "editor": null,
+        "editor": 3.5,
         "visitors": null
       },
       "skills": ["riwaq-ayah-overlay"],
@@ -1283,6 +1283,14 @@
         "voice": "Ustadh Abdul Baset Nadim",
         "voice_role": "Riwaq teacher",
         "note": "voice credit only — the on-screen face appears generated"
+      },
+      "platforms": {
+        "facebook": "2026-08-23",
+        "instagram": "2026-08-23",
+        "pinterest": null,
+        "x": null,
+        "tiktok": "2026-08-23",
+        "youtube": null
       }
     }
   ],
