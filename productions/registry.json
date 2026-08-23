@@ -1,6 +1,6 @@
 {
   "_standard": "PRODUCTION-STANDARD.md",
-  "_next_id": 41,
+  "_next_id": 42,
   "productions": [
     {
       "id": "0001",
@@ -1254,6 +1254,25 @@
         "reciter": "Abdul Baset Nadim",
         "reciter_role": "Riwaq teacher",
         "rights": "own recording, cleared"
+      }
+    },
+    {
+      "id": "0041",
+      "slug": "when-life-is-difficult-alhamdulillah-sabr-tawakkul",
+      "title": "When Life Is Difficult — Alhamdulillah, Sabr, Tawakkul",
+      "type": "watermark",
+      "status": "in-progress",
+      "folder": "productions/0041-when-life-is-difficult-alhamdulillah-sabr-tawakkul",
+      "style": null,
+      "model": "none — transcription only",
+      "cost": {
+        "credits": 0,
+        "usd": 0.0
+      },
+      "dates": {
+        "requested": "2026-08-23",
+        "produced": null,
+        "published": null
       }
     }
   ],
