@@ -1278,7 +1278,12 @@
         "editor": null,
         "visitors": null
       },
-      "skills": ["riwaq-ayah-overlay"]
+      "skills": ["riwaq-ayah-overlay"],
+      "credits": {
+        "voice": "Ustadh Abdul Baset Nadim",
+        "voice_role": "Riwaq teacher",
+        "note": "voice credit only — the on-screen face appears generated"
+      }
     }
   ],
   "_platforms": ["facebook", "instagram", "pinterest", "x", "tiktok", "youtube"],

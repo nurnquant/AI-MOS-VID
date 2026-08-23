@@ -6,8 +6,10 @@ burned in, no watermark, no end card.
 PLAIN TEXT ONLY. No asterisks, no underscores — the platforms print them
 literally. Copy the block as-is.
 
-**Read the notes before posting.** Two things need settling: who the speaker is,
-and the fact that the video stops before the last line.
+Voice: **Ustadh Abdul Baset Nadim**, one of our own teachers.
+
+**Read the notes before posting** — one wording point about the credit, and the
+fact that the video stops before the last line.
 
 ---
 
@@ -42,6 +44,9 @@ conviction that the One choosing knows more than you do.
 
 Three Arabic words your child can learn this week, and use for the rest of their
 life.
+
+Spoken by Ustadh Abdul Baset Nadim, one of our teachers. The same voice your
+child would learn from.
 
 👇 Which of the three is hardest for you? Most people say the same one.
 
@@ -80,6 +85,8 @@ Because the believer knows that whatever Allah chooses is always best for him.
 
 Three Arabic words your child can learn this week and use for life.
 
+Spoken by Ustadh Abdul Baset Nadim, one of our teachers 🤍
+
 Which of the three is hardest for you? 👇
 
 🔗 Free trial class in bio · Al-Azhar teachers, one-on-one
@@ -104,6 +111,8 @@ Tawakkul is not sitting still.
 And the reason all three work: the believer knows that whatever Allah chooses is
 always best for him.
 
+Spoken by Ustadh Abdul Baset Nadim, one of our teachers.
+
 Which one is hardest for you?
 
 #Alhamdulillah #Sabr #Tawakkul #MuslimKids #IslamicParenting #QuranForKids
@@ -115,12 +124,15 @@ Which one is hardest for you?
 
 For us, not for posting.
 
-- **GATE: who is the man on screen?** The footage looks generated. **Do not imply
-  he is a Riwaq teacher, a scholar, or anyone in particular** — no name, no "one
-  of our teachers", nothing that would have a viewer book a class expecting him.
-  0039 and 0040 credit Abdul Baset Nadim because he really recited them; this is
-  a different situation and the captions above deliberately say nothing about the
-  speaker.
+- **The credit is worded as the VOICE, deliberately: "spoken by", not "featuring".**
+  The footage looks generated, so the face on screen is very likely not his. A
+  bare name under a video of a man implies that man is him. "Spoken by" is
+  accurate either way and protects him from being visually misidentified.
+  **If the face IS him, say so and it can be reworded** — that would be a
+  stronger post, not a weaker one.
+- **Consistent with 0039 and 0040**, which credit the same teacher for the
+  recitations. The full name is used every time: "Abdul Baset" alone collides
+  with Abdul Basit Abdus Samad, one of the most famous reciters in the world.
 - **The video stops before the last line, and the caption finishes it.** He says
   three principles and never reaches the reason. Rather than hide that, the
   caption carries "because the believer knows that whatever Allah chooses is

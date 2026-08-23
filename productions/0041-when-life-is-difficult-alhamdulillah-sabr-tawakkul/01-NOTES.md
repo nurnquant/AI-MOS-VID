@@ -90,3 +90,25 @@ and a viewer reads at the pace he speaks.
 - **The first caption sat on the UI line.** Raised from 250 to 300 px.
 
 Both were visible only by putting a marked frame next to the picture.
+
+## Credit (2026-08-23)
+
+**Ustadh Abdul Baset Nadim**, one of Riwaq's own teachers — the same teacher who
+recited 0039 and 0040. Added to all three caption blocks.
+
+**Worded as "spoken by", not "featuring", on purpose.** The footage looks
+generated, so the face on screen is very likely not his. A bare name under a
+video of a man reads as "this is him". "Spoken by" credits what he actually did
+and protects him from being visually misidentified.
+
+If the face is in fact his, the wording can be strengthened — that would improve
+the post, not weaken it.
+
+Whether the voice matches 0039 and 0040 could not be settled by measurement:
+his recitation sits at a median 290.9 Hz and this clip speaks at 128.0 Hz, but
+reciters sit far above their speaking pitch, so the gap is normal for one person
+and proves nothing either way. Recorded on the user's word, which is the right
+source for it.
+
+Recorded in the registry under `credits` with the same caveat, so the distinction
+between a voice credit and an appearance survives.
