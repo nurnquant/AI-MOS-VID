@@ -528,6 +528,7 @@ def html(reg: dict) -> str:
         ed, vi = r.get("editor"), r.get("visitors")
         reactions = (p.get("metrics") or {}).get("reactions")
         skills = p.get("skills") or []
+        prov = p.get("provenance")
         published = any(plats.values())
         rate_rows = (
             f'<div class="rate"><span class="rl">editor</span>'
@@ -552,6 +553,7 @@ def html(reg: dict) -> str:
             ("Visitor reactions",
              (f"{stars(vi)} {fmt_rating(vi)}/5" if vi else ("not rated" if published
               else "n/a — not published"))),
+            ("Provenance", escape(prov) if prov else "—"),
             ("Built with",
              " · ".join(f"<code>/{escape(x)}</code>" for x in skills) if skills else "—"),
             ("Engagement count",
@@ -603,6 +605,7 @@ def html(reg: dict) -> str:
   {call}
   <div class="rates">{rate_rows}</div>
   {f'<div class="react" title="engagement count recorded on {(p.get("metrics") or {}).get("reactions_on","?")}">{reactions} reactions</div>' if reactions is not None else ""}
+  {f'<span class="prov p-{escape(prov)}" title="how this was made">{escape(prov)}</span>' if prov else ""}
   {"".join(f'<span class="skill" title="built with the {escape(x)} skill">/{escape(x)}</span>' for x in skills)}
   <div class="chips">{chips}</div>
   <nav>{''.join(links)}</nav>
@@ -741,6 +744,10 @@ details.det td:first-child{{color:var(--dim);width:42%;padding-right:8px}}
 details.det th{{text-align:left;padding:7px 0 2px;color:var(--gold);font-size:.72rem}}
 details ul{{margin:6px 0 0;padding-left:18px}}
 details a{{color:var(--fg)}}
+span.prov{{display:inline-block;font:700 .66rem/1.3 ui-monospace,SFMono-Regular,monospace;
+padding:3px 8px;margin:2px 3px 0 0;border-radius:6px;text-transform:uppercase;
+letter-spacing:.04em;border:1px solid var(--dim);color:var(--dim)}}
+span.prov.p-ai-only{{border-color:#c2564a;color:#c2564a}}
 span.skill{{display:inline-block;font:600 .68rem/1.3 ui-monospace,SFMono-Regular,monospace;
 padding:3px 7px;margin:2px 3px 0 0;border-radius:6px;border:1px solid var(--gold);
 background:var(--goldbg);color:var(--gold)}}
@@ -909,6 +916,10 @@ def main() -> int:
     ap.add_argument("--rate", metavar="ID", help="attach ratings to a production")
     ap.add_argument("--editor", type=rating, metavar="1-5",
                     help="your rating of the delivery, 1-5 in half steps")
+    ap.add_argument("--provenance", metavar="TAG",
+                    help="how it was made: ai-only | human-voice | human-footage | "
+                         "mixed. Recorded because platforms require AI disclosure "
+                         "and because a real teacher's voice is worth saying")
     ap.add_argument("--skills", metavar="LIST",
                     help="comma-separated skills used to build it, e.g. "
                          "riwaq-audio-montage,riwaq-ayah-overlay. Recorded so a "
@@ -1057,8 +1068,8 @@ def main() -> int:
             print(f"no production {args.publish}"); return 1
 
     if args.rate:
-        if (args.editor is None and args.visitors is None
-                and args.reactions is None and args.skills is None):
+        if (args.editor is None and args.visitors is None and args.reactions is None
+                and args.skills is None and args.provenance is None):
             print("--rate needs --editor, --visitors (1-5), --reactions N "
                   "and/or --skills LIST"); return 2
         for e in reg["productions"]:
@@ -1066,6 +1077,9 @@ def main() -> int:
                 e.setdefault("ratings", {"editor": None, "visitors": None})
                 if args.editor is not None:
                     e["ratings"]["editor"] = args.editor
+                if args.provenance is not None:
+                    e["provenance"] = args.provenance.strip().lower()
+                    print(f"  provenance: {e['provenance']}")
                 if args.skills is not None:
                     e["skills"] = [x.strip() for x in args.skills.split(",") if x.strip()]
                     print(f"  skills: {', '.join(e['skills'])}")

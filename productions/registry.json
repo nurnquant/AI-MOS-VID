@@ -1316,7 +1316,7 @@
         "published": "2026-08-24"
       },
       "ratings": {
-        "editor": null,
+        "editor": 4.0,
         "visitors": null
       },
       "platforms": {
@@ -1326,7 +1326,8 @@
         "x": null,
         "tiktok": "2026-08-24",
         "youtube": "2026-08-24"
-      }
+      },
+      "provenance": "ai-only"
     }
   ],
   "_platforms": ["facebook", "instagram", "pinterest", "x", "tiktok", "youtube"],

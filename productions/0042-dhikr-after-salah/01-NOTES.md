@@ -101,3 +101,22 @@ finished file to make it appear in a listing would cost quality for no reason.
 
 Checked the rest of the tree at the same time: **no other delivered or published
 production is missing its media from OUTPUT/.** This was the only one.
+
+## Marked AI-ONLY · editor 4/5 (2026-08-24)
+
+`provenance: ai-only` in the registry, shown as a red pill on the dashboard card.
+
+**Why the field exists.** It is the first production in the library with no human
+element at all — no filmed footage, no recorded voice. 0039, 0040 and 0041 all
+carry Ustadh Abdul Baset Nadim's voice, and that is the thing a competitor cannot
+copy. Knowing which pieces have it and which do not is a real distinction, not
+bookkeeping.
+
+**It also matters for disclosure.** Meta requires AI-generated content to be
+labelled where it is photorealistic, and enforcement is at the platform's
+discretion. A production marked `ai-only` is one where that question has to be
+answered before publishing, rather than discovered afterwards.
+
+**Only 0042 is tagged so far.** The others could be marked `human-voice` on the
+same basis — the user has stated the reciter for three of them — but nothing has
+been tagged that the user did not say out loud.
