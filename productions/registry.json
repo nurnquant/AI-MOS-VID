@@ -1,6 +1,6 @@
 {
   "_standard": "PRODUCTION-STANDARD.md",
-  "_next_id": 42,
+  "_next_id": 43,
   "productions": [
     {
       "id": "0001",
@@ -1295,6 +1295,25 @@
       "metrics": {
         "reactions": 350,
         "reactions_on": "2026-08-24"
+      }
+    },
+    {
+      "id": "0042",
+      "slug": "dhikr-after-salah",
+      "title": "Dhikr After Salah",
+      "type": "watermark",
+      "status": "delivered",
+      "folder": "productions/0042-dhikr-after-salah",
+      "style": null,
+      "model": "supplied finished — no generation here",
+      "cost": {
+        "credits": 0,
+        "usd": 0.0
+      },
+      "dates": {
+        "requested": "2026-08-24",
+        "produced": "2026-08-24",
+        "published": null
       }
     }
   ],
