@@ -509,14 +509,22 @@
       "title": "Morning & Evening Adhkar — 7 posts",
       "slug": "morning-evening-adhkar-7-posts",
       "series": "G — Dhikr Series",
-      "status": "proposed",
+      "status": "delivered",
       "style": null,
-      "production": null,
+      "production": "0043",
       "created": "2026-08-24",
       "history": [
         {
           "date": "2026-08-24",
           "event": "proposed"
+        },
+        {
+          "date": "2026-08-24",
+          "event": "delivered"
+        },
+        {
+          "date": "2026-08-24",
+          "event": "linked to production 0043"
         }
       ]
     }

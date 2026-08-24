@@ -1,6 +1,6 @@
 {
   "_standard": "PRODUCTION-STANDARD.md",
-  "_next_id": 43,
+  "_next_id": 44,
   "productions": [
     {
       "id": "0001",
@@ -1328,6 +1328,26 @@
         "youtube": "2026-08-24"
       },
       "provenance": "ai-only"
+    },
+    {
+      "id": "0043",
+      "slug": "morning-and-evening-adhkar-7-cards",
+      "title": "Morning and Evening Adhkar — 7 cards",
+      "type": "image-set",
+      "status": "delivered",
+      "folder": "productions/0043-morning-and-evening-adhkar-7-cards",
+      "style": null,
+      "model": "no generation — browser-rendered type",
+      "provenance": "human-written",
+      "cost": {
+        "credits": 0,
+        "usd": 0.0
+      },
+      "dates": {
+        "requested": "2026-08-24",
+        "produced": "2026-08-24",
+        "published": null
+      }
     }
   ],
   "_platforms": ["facebook", "instagram", "pinterest", "x", "tiktok", "youtube"],

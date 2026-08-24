@@ -12,7 +12,7 @@ and nothing self-approves. Approving one creates a production in
 
 Legend: `·` proposed · `+` approved · `✓` delivered · `★` published · `✗` rejected
 
-**31 ideas** — 30 proposed · 1 published
+**31 ideas** — 29 proposed · 1 delivered · 1 published
 
 ## A — You're Already Teaching Them
 
@@ -76,9 +76,9 @@ Legend: `·` proposed · `+` approved · `✓` delivered · `★` published · `
 
 ## G — Dhikr Series
 
-| #      | Idea                                                                         | Status     | Style | Production | Hook                                                                                 |
-| ------ | ---------------------------------------------------------------------------- | ---------- | ----- | ---------- | ------------------------------------------------------------------------------------ |
-| `I031` | [Morning & Evening Adhkar — 7 posts](I031-morning-evening-adhkar-7-posts.md) | · proposed | —     | —          | Seven days. Seven adhkar. The ones the Prophet ﷺ said every morning and every eveni… |
+| #      | Idea                                                                         | Status      | Style | Production                        | Hook                                                                                 |
+| ------ | ---------------------------------------------------------------------------- | ----------- | ----- | --------------------------------- | ------------------------------------------------------------------------------------ |
+| `I031` | [Morning & Evening Adhkar — 7 posts](I031-morning-evening-adhkar-7-posts.md) | ✓ delivered | —     | [`0043`](../productions/INDEX.md) | Seven days. Seven adhkar. The ones the Prophet ﷺ said every morning and every eveni… |
 
 ## Moving an idea forward
 
