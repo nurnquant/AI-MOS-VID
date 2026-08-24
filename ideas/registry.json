@@ -503,6 +503,22 @@
           "event": "proposed"
         }
       ]
+    },
+    {
+      "id": "I031",
+      "title": "Morning & Evening Adhkar — 7 posts",
+      "slug": "morning-evening-adhkar-7-posts",
+      "series": "G — Dhikr Series",
+      "status": "proposed",
+      "style": null,
+      "production": null,
+      "created": "2026-08-24",
+      "history": [
+        {
+          "date": "2026-08-24",
+          "event": "proposed"
+        }
+      ]
     }
   ]
 }

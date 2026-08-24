@@ -12,7 +12,7 @@ and nothing self-approves. Approving one creates a production in
 
 Legend: `·` proposed · `+` approved · `✓` delivered · `★` published · `✗` rejected
 
-**30 ideas** — 29 proposed · 1 published
+**31 ideas** — 30 proposed · 1 published
 
 ## A — You're Already Teaching Them
 
@@ -73,6 +73,12 @@ Legend: `·` proposed · `+` approved · `✓` delivered · `★` published · `
 | `I028` | [What Changes at Eight Weeks](I028-what-changes-at-eight-weeks.md)                           | · proposed | —     | —          | Week one they can name four letters. Week eight is where it gets interesting.        |
 | `I029` | [The Question We Get Every Week](I029-the-question-we-get-every-week.md)                     | · proposed | —     | —          | Every week a parent asks the same thing: is my child too young to start?             |
 | `I030` | [What Your Child Said in Class This Week](I030-what-your-child-said-in-class-this-week.md)   | · proposed | —     | —          | A six-year-old asked our teacher whether Allah gets tired. Here is what happened ne… |
+
+## G — Dhikr Series
+
+| #      | Idea                                                                         | Status     | Style | Production | Hook                                                                                 |
+| ------ | ---------------------------------------------------------------------------- | ---------- | ----- | ---------- | ------------------------------------------------------------------------------------ |
+| `I031` | [Morning & Evening Adhkar — 7 posts](I031-morning-evening-adhkar-7-posts.md) | · proposed | —     | —          | Seven days. Seven adhkar. The ones the Prophet ﷺ said every morning and every eveni… |
 
 ## Moving an idea forward
 
