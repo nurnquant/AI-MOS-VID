@@ -84,3 +84,20 @@ places, so category and format are separable here for once.
 **Rate it in 24 h** with `--reactions N --visitors N`. Also worth splitting by
 platform if the numbers are available: YouTube and TikTok treat landscape very
 differently from Reels, and an average across four would hide that.
+
+## Why it did not show on the dashboard, and the fix
+
+The video was filed only in `source/`, and the dashboard scans **`OUTPUT/`**
+alone — `deliverables()` in `productions.py` looks nowhere else. So 0042 showed
+"no output yet" and had no preview.
+
+Corrected to match the convention every other supplied-finished production uses
+(0017, 0018, 0019): the original stays untouched in `source/`, and the deliverable
+sits in `OUTPUT/` under the production number.
+
+`OUTPUT/0042-dhikr-after-salah-16x9.mp4` is a **byte-for-byte copy** of the
+source. Nothing was re-encoded — there was nothing to change, and re-encoding a
+finished file to make it appear in a listing would cost quality for no reason.
+
+Checked the rest of the tree at the same time: **no other delivered or published
+production is missing its media from OUTPUT/.** This was the only one.
