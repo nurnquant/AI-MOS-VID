@@ -166,3 +166,15 @@ depends on the line being missing.
 
 No visitor number yet. It went out on three platforms rather than four, so it is
 not directly comparable to 0039 or 0040.
+
+## Engagement: 350 reactions on day one, visitors 3.5/5
+
+Third of five measured productions at **117 reactions per day per platform** —
+behind the two recitations, ahead of both paid ones.
+
+**It was rated lowest and still outperformed the two most expensive productions
+by three to ten times.** The missing fourth line, which is the reason for the 3.5,
+did not appear to cost it reach.
+
+Full comparison and what it does and does not support:
+[library/ENGAGEMENT-SO-FAR.md](../../library/ENGAGEMENT-SO-FAR.md).

@@ -1276,7 +1276,7 @@
       },
       "ratings": {
         "editor": 3.5,
-        "visitors": null
+        "visitors": 3.5
       },
       "skills": ["riwaq-ayah-overlay"],
       "credits": {
@@ -1291,6 +1291,10 @@
         "x": null,
         "tiktok": "2026-08-23",
         "youtube": null
+      },
+      "metrics": {
+        "reactions": 350,
+        "reactions_on": "2026-08-24"
       }
     }
   ],
