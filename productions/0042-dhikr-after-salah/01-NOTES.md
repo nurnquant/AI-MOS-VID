@@ -36,10 +36,11 @@ Second, smaller: the glowing orbs and swirling magical tree read as fantasy
 rather than reverence. It is the opposite of the grounded, warm rooms in the rest
 of the library.
 
-**Recommendation: have someone qualified look at it before posting.** If it goes
-out and the reading lands badly, the reply thread is not one anybody wants. The
-caption is written and ready either way — it is a five-minute decision, not a
-production one.
+**Raised before publishing; the user decided to keep it as is** (2026-08-24) and
+it went out on four platforms. Recorded so it is clear this was a decision taken
+with the concern in front of it, not something nobody noticed. Nothing further to
+do unless the comments say otherwise — in which case this note is the starting
+point, not a surprise.
 
 ## It is also the wrong shape
 
@@ -60,3 +61,26 @@ send it and the caption gets replaced.
 - The imagery review above.
 - Who made it, and whether it is ours to publish.
 - Style not named.
+
+## Published 2026-08-24 — Facebook, Instagram, YouTube, TikTok
+
+Kept as supplied. Four platforms, the same spread as 0039 and 0040, which makes
+its number directly comparable to theirs.
+
+### What this one actually tests
+
+It is the first **landscape** piece published, against a library of 9:16 and 4:5.
+Every other measured production is vertical.
+
+So the number answers a question worth knowing: **how much does aspect ratio
+cost?** If a 1920x1080 video on Reels and TikTok lands anywhere near 0039's 138
+or 0040's 185 reactions per day per platform, the vertical-first rule is worth
+less than assumed. If it lands far below, that is the cost of the wrong shape,
+measured rather than argued.
+
+It is also a short Islamic reminder, the category that holds the top three
+places, so category and format are separable here for once.
+
+**Rate it in 24 h** with `--reactions N --visitors N`. Also worth splitting by
+platform if the numbers are available: YouTube and TikTok treat landscape very
+differently from Reels, and an average across four would hide that.

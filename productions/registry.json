@@ -1302,7 +1302,7 @@
       "slug": "dhikr-after-salah",
       "title": "Dhikr After Salah",
       "type": "watermark",
-      "status": "delivered",
+      "status": "published",
       "folder": "productions/0042-dhikr-after-salah",
       "style": null,
       "model": "supplied finished — no generation here",
@@ -1313,7 +1313,19 @@
       "dates": {
         "requested": "2026-08-24",
         "produced": "2026-08-24",
-        "published": null
+        "published": "2026-08-24"
+      },
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      },
+      "platforms": {
+        "facebook": "2026-08-24",
+        "instagram": "2026-08-24",
+        "pinterest": null,
+        "x": null,
+        "tiktok": "2026-08-24",
+        "youtube": "2026-08-24"
       }
     }
   ],
