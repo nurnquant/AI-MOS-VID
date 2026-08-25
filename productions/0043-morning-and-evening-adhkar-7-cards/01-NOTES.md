@@ -59,7 +59,46 @@ second.
 
 - Scholarly sign-off on all seven.
 - Style not named.
-- **The captions in the source use markdown bold**, which platforms print
-  literally. They need flattening to plain text before posting — not done here,
-  because the caption file has not been written yet.
+- ~~The captions need flattening.~~ **Done — `OUTPUT/CAPTION.md`.**
 - No video. Images only, as asked.
+
+## Captions (2026-08-24)
+
+Fourteen blocks — Facebook and Instagram for each of the seven days — in
+`OUTPUT/CAPTION.md`.
+
+**Generated, not typed.** `work/captions.py` composes them from the same
+`cards.json` the cards render from, so the Arabic, transliteration, translation,
+timing and source are identical in the card and the caption by construction.
+Only the human framing is hand-written. Retyping seven graded Arabic passages
+into fourteen captions is exactly the sort of task that quietly introduces one
+error.
+
+Verified: **all 21 strings appear in both the captions and the source document**,
+and the fourteen paste-blocks contain **no markdown characters at all** — the
+source document's bold has been flattened, because platforms print asterisks
+literally.
+
+### The framing is what makes seven cards into seven posts
+
+The Arabic is fixed, so the variation has to come from the opening line:
+
+| day | title                                  |
+| --- | -------------------------------------- |
+| 1   | The Easiest Hundred You Will Ever Say  |
+| 2   | The Sentence That Answers Who You Are  |
+| 3   | What To Say Before You Leave The House |
+| 4   | For The End Of A Heavy Day             |
+| 5   | The Whole Day, Handed Over In One Line |
+| 6   | Name Three Before You Check Your Phone |
+| 7   | If You Only Memorise One, Make It This |
+
+Every caption carries **Day N of 7**, which is the follow mechanism. Posting them
+out of order or as a batch throws that away.
+
+**Day 6 has the best ask** — "what are your three this morning?" — answerable in
+three words by someone not confident writing about religion. **Day 7 is the
+strongest and the longest**; if one gets boosted, that one.
+
+Sources stay in every caption. They cost one line and they are the reason this
+reads as teaching rather than as a quote graphic.
