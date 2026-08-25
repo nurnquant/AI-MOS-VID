@@ -1334,7 +1334,7 @@
       "slug": "morning-and-evening-adhkar-7-cards",
       "title": "Morning and Evening Adhkar — 7 cards",
       "type": "image-set",
-      "status": "delivered",
+      "status": "published",
       "folder": "productions/0043-morning-and-evening-adhkar-7-cards",
       "style": null,
       "model": "no generation — browser-rendered type",
@@ -1346,7 +1346,19 @@
       "dates": {
         "requested": "2026-08-24",
         "produced": "2026-08-24",
-        "published": null
+        "published": "2026-08-25"
+      },
+      "ratings": {
+        "editor": null,
+        "visitors": null
+      },
+      "platforms": {
+        "facebook": "2026-08-25",
+        "instagram": "2026-08-25",
+        "pinterest": null,
+        "x": null,
+        "tiktok": "2026-08-25",
+        "youtube": "2026-08-25"
       }
     }
   ],

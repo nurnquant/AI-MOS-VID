@@ -150,3 +150,19 @@ free and local, and is the same technique used to fix 0034.
 **Nothing about this is subtle to the audience.** A page that teaches Arabic
 posting سبحاني in place of سبحان الله will be corrected in the comments within the
 hour, and rightly.
+
+## Published 2026-08-24 — Facebook, Instagram, YouTube, TikTok
+
+**Only the Day 1 video is live.** `OUTPUT/0043-day1-subhanallah-9x16.mp4`, on four
+platforms. The registry marks the production published because something of it is
+live; the **seven cards are not posted** and still await the qualified review.
+
+**It went out with the calligraphy defect known and in front of the decision.**
+Raised in full before publishing — the burned text reads سبحاني where it must read
+سبحان الله — and the user chose to publish. Recorded here so it is clear this was
+decided rather than missed, and so anyone reading later has the context.
+
+The fix does not expire. Covering the calligraphy with correctly-rendered Arabic
+is free and local, and a corrected re-upload is a normal thing to do — platforms
+do not penalise replacing a post. If a comment raises it, that is the answer
+rather than a scramble.

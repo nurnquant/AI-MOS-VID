@@ -14,7 +14,7 @@ request; it is never assumed.
 
 | # | Title | Type | Style | Status | Deliverables | Folder |
 | --- | --- | --- | --- | --- | --- | --- |
-| `0043` | Morning and Evening Adhkar — 7 cards | image-set | — | ✓ delivered | 0043-adhkar-1-of-7-4x5.png _(+7)_ | [0043-morning-and-evening-adhkar-7-cards](0043-morning-and-evening-adhkar-7-cards/) |
+| `0043` | Morning and Evening Adhkar — 7 cards | image-set | — | ★ published | 0043-adhkar-1-of-7-4x5.png _(+7)_ | [0043-morning-and-evening-adhkar-7-cards](0043-morning-and-evening-adhkar-7-cards/) |
 | `0042` | Dhikr After Salah | watermark | — | ★ published | 0042-dhikr-after-salah-16x9.mp4 | [0042-dhikr-after-salah](0042-dhikr-after-salah/) |
 | `0041` | When Life Is Difficult — Alhamdulillah, Sabr, Tawakkul | watermark | — | ★ published | 0041-vo-natural.m4a _(+3)_ | [0041-when-life-is-difficult-alhamdulillah-sabr-tawakkul](0041-when-life-is-difficult-alhamdulillah-sabr-tawakkul/) |
 | `0040` | Surat Al-Ahzab 35 — recitation with a soft bed | video | — | ★ published | 0040-al-ahzab-35-4x5.mp4 _(+4)_ | [0040-surat-al-ahzab-35-recitation-with-a-soft-bed](0040-surat-al-ahzab-35-recitation-with-a-soft-bed/) |
@@ -58,7 +58,7 @@ request; it is never assumed.
 | `0002` | Dua Boy — Rabbana Atina | video | — | ★ published | 0002-dua-boy-9x16.mp4 _(+1)_ | [0002-dua-boy-rabbana-atina](0002-dua-boy-rabbana-atina/) |
 | `0001` | Sneezing Etiquette Family Story | video | — | ★ published | 0001-sneeze-etiquette-9x16.mp4 | [0001-sneezing-etiquette-family-story](0001-sneezing-etiquette-family-story/) |
 
-**43 productions** — 4 delivered · 4 parked · 33 published · 2 requested
+**43 productions** — 3 delivered · 4 parked · 34 published · 2 requested
 
 Next free number: **0044**
 
