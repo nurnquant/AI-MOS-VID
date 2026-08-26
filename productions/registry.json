@@ -1317,7 +1317,7 @@
       },
       "ratings": {
         "editor": 4.0,
-        "visitors": null
+        "visitors": 3.0
       },
       "platforms": {
         "facebook": "2026-08-24",
@@ -1327,7 +1327,11 @@
         "tiktok": "2026-08-24",
         "youtube": "2026-08-24"
       },
-      "provenance": "ai-only"
+      "provenance": "ai-only",
+      "metrics": {
+        "reactions": 140,
+        "reactions_on": "2026-08-26"
+      }
     },
     {
       "id": "0043",

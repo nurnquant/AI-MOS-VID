@@ -120,3 +120,27 @@ answered before publishing, rather than discovered afterwards.
 **Only 0042 is tagged so far.** The others could be marked `human-voice` on the
 same basis — the user has stated the reciter for three of them — but nothing has
 been tagged that the user did not say out loud.
+
+## Engagement: 140 reactions, visitors 3/5 — and it answered its question
+
+**18 reactions per day per platform.** The lowest of any short Islamic reminder in
+the library by a wide margin, against 117 to 232 for the four vertical ones.
+
+This is the release that was framed as a test of what aspect ratio costs, and it
+returned a clear number: **vertical mean 168 against 18. Roughly ten times.** Even
+the weakest vertical piece is 6.7x this one.
+
+**The bias runs the right way.** 0042 was counted at two days and the others at
+one; reach front-loads, so a two-day average is usually the lower figure. The gap
+is if anything understated.
+
+**Two things stay confounded and should not be glossed.** 0042 is also the only
+`ai-only` production, and its imagery drew a flag before publishing — the robed
+figure on a white horse — which could suppress sharing by itself. Format is the
+most plausible driver because the mechanism is known: Reels and TikTok are
+vertical surfaces and a 16:9 video is letterboxed into a strip. But one release
+cannot separate three variables.
+
+**What it is worth:** supplied landscape footage is now known to be expensive.
+Reframe before publishing, or keep it off Reels and TikTok. That is a real
+decision rule bought for one post.
