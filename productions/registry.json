@@ -1349,8 +1349,8 @@
         "published": "2026-08-25"
       },
       "ratings": {
-        "editor": null,
-        "visitors": null
+        "editor": 4.0,
+        "visitors": 4.0
       },
       "platforms": {
         "facebook": "2026-08-25",
@@ -1359,6 +1359,10 @@
         "x": null,
         "tiktok": "2026-08-25",
         "youtube": "2026-08-25"
+      },
+      "metrics": {
+        "reactions": 930,
+        "reactions_on": "2026-08-26"
       }
     }
   ],

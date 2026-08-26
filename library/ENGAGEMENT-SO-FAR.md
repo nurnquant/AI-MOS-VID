@@ -1,8 +1,7 @@
 # What the numbers say so far
 
-Five measured productions, 2026-08-24. Small, and the direction is consistent
-enough to plan around. Regenerate the table from
-`productions/registry.json` — `metrics.reactions` and `metrics.reactions_on`.
+Six measured productions, 2026-08-26. Regenerate from `productions/registry.json`
+— `metrics.reactions` and `metrics.reactions_on`.
 
 ## The table
 
@@ -11,69 +10,58 @@ days-since-publishing instead is wrong and gave a badly inflated answer once.
 
 |     | production                           | reactions | age | plats | per day per platform | credits | editor | visitors |
 | --- | ------------------------------------ | --------- | --- | ----- | -------------------- | ------- | ------ | -------- |
-| 1   | 0040 Al-Ahzab 35 recitation          | 740       | 1d  | 4     | **185**              | 0       | 4.0    | 4.0      |
-| 2   | 0039 Al-Asr recitation               | 550       | 1d  | 4     | **138**              | 0       | 4.0    | 4.0      |
-| 3   | 0041 Alhamdulillah / Sabr / Tawakkul | 350       | 1d  | 3     | **117**              | 2.8     | 3.5    | 3.5      |
-| 4   | 0035 children's rhyme                | 129       | 1d  | 3     | 43                   | 240     | 4      | —        |
-| 5   | 0036 parent-facing to camera         | 69        | 2d  | 3     | 12                   | 125.5   | 4.5    | —        |
+| 1   | 0043 Day 1 Subḥānallāhi              | **930**   | 1d  | 4     | **232**              | 0       | 4.0    | 4.0      |
+| 2   | 0040 Al-Ahzab 35 recitation          | 740       | 1d  | 4     | **185**              | 0       | 4.0    | 4.0      |
+| 3   | 0039 Al-Asr recitation               | 550       | 1d  | 4     | **138**              | 0       | 4.0    | 4.0      |
+| 4   | 0041 Alhamdulillah / Sabr / Tawakkul | 350       | 1d  | 3     | 117                  | 2.8     | 3.5    | 3.5      |
+| 5   | 0035 children's rhyme                | 129       | 1d  | 3     | 43                   | 240     | 4      | —        |
+| 6   | 0036 parent-facing to camera         | 69        | 2d  | 3     | 12                   | 125.5   | 4.5    | —        |
 
-## Two correlations, both negative
+## The pattern is now hard to argue with
 
-- **reach vs credits spent: r = -0.80**
-- **reach vs the editor's own rating: r = -0.53**
+- **reach vs credits spent: r = -0.77**
+- **reach vs the editor's own rating: r = -0.40**
 
-Free pieces average **146** reactions per day per platform. Paid pieces average
-**27**. That is more than five times, in the wrong direction from what spending
-is supposed to buy.
+Free pieces average **168** reactions per day per platform. Paid pieces average
+**27**. **Six times**, in the wrong direction from what spending is meant to buy.
 
-**Five data points is not proof.** It is enough to stop assuming the opposite,
-which is what a production budget quietly assumes.
+The top four are all short Islamic reminders — three Qur'an or dhikr recitations
+and one spoken piece. The bottom two are a children's rhyme and a parent-facing
+talking head. **Category is doing the work, not budget and not craft.**
 
-## What is actually driving it
+## The uncomfortable finding, now with more evidence
 
-The top three are all short Islamic reminders — two Qur'an recitations and one
-spoken piece on Alhamdulillah, Sabr and Tawakkul. The bottom two are a children's
-rhyme and a parent-facing talking head.
+**0043 went out with a known error in its burned Arabic** — سبحاني where it must
+read سبحان الله — and returned **the best number in the library**.
 
-That is a **category** difference, not a craft difference. Recitation and short
-reminders reach a very large audience that is not choosing between us and another
-parenting page. The rhyme and the parent-facing piece compete in crowded niches.
+The honest reading: **reactions do not detect correctness.** A reaction costs a
+viewer nothing and means "this looked right in my feed". It is not a review.
 
-**It is not that the expensive productions are bad.** 0036 is the highest-rated
-thing in the library at 4.5 and reached the fewest people. Cost and reach are
-being driven by different things, and only one of them is under our control.
+So the calligraphy is still worth fixing, and the reason is not the metric. It is
+that an academy teaching Arabic has one asset — being trusted on Arabic — and no
+amount of reach replaces it. **This table is an argument for what to make more
+of. It is not an argument about what is acceptable to ship.**
 
-## The uncomfortable one
+## What is still not known
 
-**The editor's rating is anti-correlated with reach.** The lowest-rated piece
-(0041, 3.5) outperformed both paid productions by three to ten times. The
-highest-rated (0036, 4.5) came last.
-
-Two honest readings, and they are not exclusive:
-
-1. Craft judgement and audience appetite are simply different things, and there
-   is no reason they should agree.
-2. The pieces that took most effort are the ones whose flaws are most visible to
-   the person who made them.
-
-Either way, **do not use the editor rating to decide what to make more of.**
-
-## What this does NOT say
-
-- **Reactions are not followers.** 0036 was built specifically to test whether
-  parent-facing content earns follows, and no reaction count answers that. Until
-  the follower number is looked at, the parent-facing lane is unproven rather
-  than disproven.
+- **Reactions are not followers.** Nothing here answers whether any of it grows
+  the account, which is the question 0036 was built for.
 - **Day one is not a week.** Every count except 0036 is a day-one figure.
-  Re-measuring at day seven could reorder this table.
-- **Three platforms is not four.** 0039 and 0040 ran on four.
+- **0042 has never been counted.** Published 2026-08-22 on four platforms, four
+  days ago. It is the only landscape piece and the only `ai-only` one, so its
+  number would separate format from category — the single most useful missing
+  measurement here.
+- Five image posts from 0028-0032 were also never counted.
 
-## What follows from it, if it holds
+## What follows, if it holds
 
-Short Islamic reminders built from things already owned — supplied recitation,
-existing stills, local ffmpeg — are the highest return per credit by a wide
-margin. `/riwaq-audio-montage` and `/riwaq-ayah-overlay` are the pipeline.
+Short Islamic reminders built from things already owned are the highest return
+per credit by a wide margin, and `/riwaq-audio-montage` with
+`/riwaq-ayah-overlay` is the pipeline that makes them.
 
-**The cheapest lever left is better source audio.** Both recitation pieces were
-made from a 41 kbps messaging-app encode. A clean re-record from Ustadh Abdul
-Baset Nadim costs nothing and improves the best-performing format in the library.
+**The obvious next move is the remaining six days of the dhikr series**, which
+are already written, already carded, and cost nothing.
+
+**The cheapest quality lever is still better source audio** — a clean re-record
+from Ustadh Abdul Baset Nadim, since both recitation pieces came from a 41 kbps
+messaging-app encode.

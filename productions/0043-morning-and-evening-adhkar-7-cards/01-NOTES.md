@@ -166,3 +166,21 @@ The fix does not expire. Covering the calligraphy with correctly-rendered Arabic
 is free and local, and a corrected re-upload is a normal thing to do — platforms
 do not penalise replacing a post. If a comment raises it, that is the answer
 rather than a scramble.
+
+## Engagement: 930 reactions on day one — the best in the library
+
+232 per day per platform, ahead of 0040's 185 and 0039's 138. Editor 4, visitors 4. **Zero credits.**
+
+**It also carries a known error in its burned Arabic and still came first.** That
+is worth stating plainly rather than quietly enjoying: **reactions do not detect
+correctness.** A reaction costs nothing and means "this looked right in my feed".
+
+The calligraphy is still worth fixing, and the reason is not the number. An
+academy teaching Arabic has one asset — being trusted on Arabic — and no amount of
+reach substitutes for it. Covering it is free and a corrected re-upload is normal.
+
+Full comparison: [library/ENGAGEMENT-SO-FAR.md](../../library/ENGAGEMENT-SO-FAR.md).
+
+**The six remaining days are written, carded and cost nothing.** On this evidence
+they are the most obvious thing to build next — but the cards still need the
+qualified review, and Day 1's error is the argument for doing it properly.
